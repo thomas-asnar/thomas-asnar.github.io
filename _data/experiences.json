@@ -1,0 +1,82 @@
+[
+    {
+        nomCourt: "GEFCO",
+        nomLong: "Logistique transport GEFCO",
+        ville: "Avignon",
+        annee: "2003-2006",
+        description: {
+            "Opérateur de saisie : plus de 300 récépissés/jour",
+            "Aide à la gestion des départs : dead line 21h",
+            "Frappes à la minute (CPM) : 290"
+        }
+    },
+    {
+        nomCourt: "stage",
+        nomLong: "Stage informatique",
+        lieu: "Service Administratif Régional de la Cour d'Appel",
+        ville: "Nîmes",
+        annee: "2006",
+        description: {
+            "Résolution call N1 Help Desk et déplacements si nécessaire",
+            "Déploiement de plus de 500 postes de travail avec Ghost"
+        }
+    },
+    {
+        nomCourt: "armee-de-terre",
+        nomLong: "Formation militaire Armée de terre – grade Sergent",
+        ville: "Saint Maixent l'école",
+        annee: "2007-2008",
+        description: {
+            "Commander un groupe de 9 personnes au combat",
+            "Apprendre à réfléchir et à prendre des décisions au délà de la fatigue",
+        }
+    },
+    {
+        nomCourt: "administrateur-systemes",
+        nomLong: " Administrateur des systèmes transverses",
+        lieu: "Centre de Mise en Œuvre des Systèmes d'Information de la DIRISI",
+        ville: "Suresnes",
+        annee: "2008-2014",
+        description: {
+            fonctions: [
+            {
+                fonction: "Chef de cellule Ordonnancement",
+                taches: {
+                    "Administrateur expert VTOM en architecture Primaire - Backup",
+                    "Modélisation 5000~ jobs pour les principaux Systèmes d'Information nationaux interarmées",
+                    "Rédaction d'environ 50 procédures d'exploitation et d'administration",
+                    "Amélioration des processus d'industrialisation",
+                    "Une vingtaine de formations Pilotage VTOM aux équipes de Supervision",
+                    "Transfert de compétences Administrateur aux 5 membres de la cellule",
+                    "Collaboration et gestion de projets techniques : virtualisation des serveurs VTOM, Plan de Reprise d'Activité (PRA) VTOM sur site distant",
+                    "Scripting pour plus 300 clients VTOM : 80% Linux/HP-UX - 20% Windows",
+                    "Résolution des tickets d'incidents N1 à N3 ou escalade sur bug à Absyss (société éditrice)"
+                }
+            },
+            {
+                fonction: "Administrateur des serveurs TINA et des librairies de sauvegardes",
+                taches: {
+                    "Configuration des 3 robots de sauvegardes",
+                    "Administration des 6 catalogues TINA et des serveurs RedHat associés",
+                    "Installations et configurations de plus de 300 clients et 10 storage node TINA",
+                    "Modélisation des sauvegardes dans le catalogue TINA :<br />applications, hosts, stratégies, dossiers d'archivage, jeux de médias, etc.",
+                    "Types de sauvegardes :<br />RMAN, brtools ORACLE, MySQL, SQLServer,fichiers plats",
+                    "Collaboration au projet de Plan de secours local TINA : robot de scénarios PERL",
+                    "Rédaction de politiques de sauvegardes",
+                    "Industrialisation et intégration des sauvegardes dans VTOM",
+                    "Résolution des tickets d'incidents N1 à N3 ou escalade à ASG (ex ATEMPO)"
+                }
+            },
+            {
+                fonction: "Administrateur stockage",
+                taches: {
+                    "Configuration des baies SAN (CX3/CX4/VNX), NAS (Celerra), des switchs fibres (BROCADE) et des VPLEX",
+                    "Collaboration au projet de virtualisation du SAN avec VPLEX",
+                    "Création des structures :<br/>LUN, virtual volumes, zoning, partage NFS, etc.",
+                    "Résolution des ticket d'incidents N1 à N3 ou escalade à EMC²"
+                }
+            }
+        ]
+        }
+    }
+]

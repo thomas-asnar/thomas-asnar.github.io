@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<div id="cv">
+  <div id="experiences">
+    <ul class="liste-experiences">
+      {% assign experiences = site.data.experiences | sort:"annee" | reverse %}
+      {% for experience in experiences %}
+        <li id="{{ experience.nomCourt }}">
+          {{ experience.annee }} : {{ experience.nomLong }}
+          {% if(experience.description.fonctions) %}
+          {% for fonction in experience.description.fonctions %}
+          <ul class="liste-fonctions">
+              <li>{{ fonction.fonction }}</li>
+              <ul class="liste-taches">
+                {% for tache in fonction.taches %}
+                  <li>{{ tache }}</li>
+                {% endfor %}
+              </ul><!-- .liste-taches -->
+          </ul><!-- .liste-fonctions -->
+          {% endfor %}
+          {% else %}
+            <ul class="liste-descriptions">
+            {% for description in experience.description %}
+              <li>{{ description }}</li>
+            {% endfor %}
+            </ul><!-- .liste-descriptions -->
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul><!-- .liste-experiences -->
+  </div>
+  <div id="loisirs">
+    <ul>
+      {% for loisir in site.data.loisirs %}
+        <li>
+          {{ loisir }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

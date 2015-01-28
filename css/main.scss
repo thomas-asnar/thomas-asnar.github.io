@@ -22,7 +22,7 @@ $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
 // Width of the content area
-$content-width:    800px;
+$content-width:    1200px;
 
 $on-palm:          600px;
 $on-laptop:        800px;
@@ -49,12 +49,51 @@ $on-laptop:        800px;
         "gylphicon"
 ;
 
-.liste-experiences{
+.liste-experiences,.liste-fonctions,#coordonnees ul{
     list-style-type:none;
+    margin-left:0;
 }
-.liste-experiences h2{
+.liste-experiences h2,.liste-experiences h3,#nom-complet h2{
     margin-bottom:0;
 }
-.liste-descriptions,.liste-taches{
+.liste-experiences h2 span{
+   font-size:0.8em;
+}
+.liste-descriptions,.liste-taches,#loisirs ul{
     margin-bottom:25px;
+    list-style-type:square;
+}
+#nom-complet h1,#nom-complet h2{
+    font-weight:700;
+}
+#nom-complet,#metier,#coordonnees{
+    width:30%;
+    float:left;
+    margin-right:3%;
+}
+#coordonnees ul{
+    font-size:0.8em;
+}
+#presentation{
+    text-align: justify;
+}
+
+
+@include media-query($on-palm) {
+    body,p {
+        font-size:$small-font-size;
+    }
+    #nom-complet,#metier{
+        text-align:center;
+    }
+    #nom-complet,#metier,#coordonnees{
+        width:100%;
+    }
+}
+
+@media print{
+    .no-print{
+        display:none!important;
+        visibility:hidden;
+    }
 }

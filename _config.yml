@@ -4,6 +4,7 @@ email: thomas.asnar@gmail.com
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://thomas-asnar.github.io" # the base hostname & protocol for your site
 github_username:  thomas-asnar
+github_url: "https://github.com/thomas-asnar/thomas-asnar.github.io"
 
 # Build settings
 timezone: FR

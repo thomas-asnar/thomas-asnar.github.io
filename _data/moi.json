@@ -2,12 +2,15 @@
     nom: "ASNAR",
     prenom: "Thomas",
     metier: "Analyste d'exploitation",
-    anniversaire: "19/01/1983",
+    anniversaire-j: "19",
+    anniversaire-m: "01",
+    anniversaire-a: "1983",
     permis: "permis B",
     famille: "pacsé, sans enfant",
     residence: "Bouget-du-Lac (73)",
     email: "thomas.asnar@gmail.com",
+    home: "http://thomas-asnar.github.io",
     mobile: "06.95.14.94.59",
     employeur_actuel: "HAVANA-IT & APPS",
-    accroche: "Fort de 7 ans d'expériences au sein du principal datacenter des armées, mes meilleurs atouts se caractérisent par un large pannel de compétences et une excellente capacité d'adaptation. Depuis annee_exp, je poursuis ma carrière chez employeur_actuel, en tant que consultant analyste d'exploitation, spécialisé en ordonnancement. Actuellement mobile en région Rhône Alpes, je  suis ouvert aux opportunités pouvant me rapprocher de mes racines familiales dans les départements 84-30-13-06-83."
+    accroche: "Fort de 7 ans d'expériences au sein du principal datacenter des armées, mes meilleurs atouts se caractérisent par un large pannel de compétences et une excellente capacité d'adaptation. Depuis annee_exp, je poursuis ma carrière chez employeur_actuel, en tant qu'analyste d'exploitation consultant, spécialisé en ordonnancement. Actuellement mobile en région Rhône Alpes, je  suis ouvert aux opportunités pouvant me rapprocher de mes racines familiales dans les départements 84-30-13-06-83."
 }

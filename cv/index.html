@@ -34,7 +34,6 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation
       {% assign annee_text = "ans" %}
       {% capture annee_exp %}{{ annee_exp }} {{ annee_text }}{% endcapture %}
       {% endif %}
-      
       <p id="accroche">{{ site.data.moi.accroche || replace: 'annee_exp',annee_exp | replace:'employeur_actuel',site.data.moi.employeur_actuel }}</p>  
     </div>
   </div>
@@ -47,16 +46,18 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation
           <h2><span class="glyphicon glyphicon-calendar"></span><span>{{ experience.annee }}</span> : {{ experience.nomLong }}</h2>
           <span class="glyphicon glyphicon-globe"></span>{% if experience.lieu %}{{ experience.lieu}}  | {% endif %}{{ experience.ville }}
           <div class="clearfix"></div>
-          {% if experience.garant %}<li><span class="glyphicon glyphicon-earphone"></span>Réf. {{ experience.garant }}</li>{% endif %}
+          {% if experience.garant %}<span class="glyphicon glyphicon-earphone"></span>Réf. {{ experience.garant }}{% endif %}
           {% if(experience.description.fonctions) %}
           {% for fonction in experience.description.fonctions %}
           <ul class="liste-fonctions">
               <li><h3><span class="glyphicon glyphicon-user"></span>{{ fonction.fonction }}</h3></li>
+              <li>
               <ul class="liste-taches">
                 {% for tache in fonction.taches %}
                   <li>{{ tache }}</li>
                 {% endfor %}
               </ul><!-- .liste-taches -->
+              </li>
           </ul><!-- .liste-fonctions -->
           {% endfor %}
           {% else %}
@@ -85,6 +86,21 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation
     {% endfor %}
     </ul>
   </div><!-- End  #formations -->
+  <div id="competences">
+    <h1>Compétences</h1>
+    <ul class="liste-experiences">
+    {% for competence in site.data.competences %}
+      <li id="{{ competence.nomCourt }}">
+        <h2>{{ competence.nomLong }}</h2>
+        <ul class="liste-descriptions">
+        {% for description in competence.competences %}
+          <li>{{ description.nom }} {% for page in (1..description.niveau) %}<span class="glyphicon glyphicon-star"></span>{% endfor %}</li>
+        {% endfor %}
+        </ul><!-- .liste-descriptions -->
+      </li>
+    {% endfor %}
+    </ul>
+  </div><!-- End  #competneces -->
   <div id="loisirs">
     <h1>Expériences Personnelles</h1>
     <ul>
@@ -100,7 +116,7 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation
 <div id="about-site" class="no-print wrapper">
   <h1>&Agrave; propos de ce site</h1>
   <p>
-    J'ai migré ce site sur les pages GitHub. Ainsi je m'affranchi des problèmes d'hébergement, de versioning, des sauvegardes, et du nom de domaine. Désormais, c'est simple comme bonjour ; je git push mes datas et, le site est mis à jour. Petite anecdote qui peut avoir quelques conséquences sur la visibilité du site : mon ancien nom de domaine (comme beaucoup de domaines persos) étaient bloqué par les proxys des entreprises ; GitHub non.
+    J'ai migré ce site sur les pages GitHub. Ainsi je m'affranchis des problèmes d'hébergement, de versioning, des sauvegardes, et du nom de domaine. Désormais, c'est simple comme bonjour ; je git push mes datas et, le site est mis à jour. Petite anecdote qui peut avoir quelques conséquences sur la visibilité du site : mon ancien nom de domaine (comme beaucoup de domaines persos) étaient bloqué par les proxys des entreprises ; GitHub non.
   </p>
   <p>Vous trouverez les sources sur mon <a href="{{ site.github_url }}" title="GitHub Thomas ASNAR">GitHub</a></p>
   <p>

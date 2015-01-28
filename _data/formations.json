@@ -17,9 +17,9 @@
         nomLong: "Stages",
         annee: "~ une semaine",
         description : [
-            "Administrateur Time Navigator (TINA)",
-            "Administrateur Linux avancé RedHat",
-            "Scripting Shell avancé",
+            "Certification ATEMPO : Administration Time Navigator 4.2",
+            "Administration d'un serveur Linux (Redhat/Fedora)",
+            "Unix / Linux avancé – programmation shell",
             "XML/XSL"
         ]
     }

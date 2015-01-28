@@ -59,9 +59,16 @@ $on-laptop:        800px;
 .liste-experiences h2 span{
    font-size:0.8em;
 }
-.liste-descriptions,.liste-taches,#loisirs ul{
+.liste-descriptions,.liste-taches,#loisirs ul,#about-site ul{
     margin-bottom:25px;
     list-style-type:square;
+}
+#competences .liste-experiences li{
+    display:inline;
+    margin-right:10px;
+}
+#competences .liste-descriptions{
+    margin-bottom:0;
 }
 #nom-complet h1,#nom-complet h2{
     font-weight:700;

@@ -1,0 +1,88 @@
+[
+    {
+        nomCourt: "ordonnanceur",
+        nomLong: "Ordonnanceur",
+        competences: [
+        {
+            niveau: "5",
+            nom: "Visual TOM (VTOM)"
+        }
+        ]
+    },
+    {
+        nomCourt: "sauvegarde",
+        nomLong: "Sauvegarde",
+        competences: [
+        {
+            niveau: "5",
+            nom: "Time Navigator (TINA)"
+        },
+        {
+            niveau: "4",
+            nom: "NetVault"
+        },
+        {
+            niveau: "4",
+            nom: "NetBackup"
+        }
+
+        ]
+    },
+    {
+        nomCourt: "stockage",
+        nomLong: "Stockage",
+        competences: [
+        {
+            niveau: "5",
+            nom: "EMC² : VNX, CX, VPLEX, RecoverPoint, Celerra"
+        }
+
+        ]
+    },
+    {
+        nomCourt: "systemes",
+        nomLong: "Systèmes",
+        competences: [
+        {
+            niveau: "4",
+            nom: "HP-UX, Linux (Redhat)"
+        },
+        {
+            niveau: "2",
+            nom: "Windows, Active Directory, VMWare"
+        }
+
+        ]
+    },
+    {
+        nomCourt: "reseaux",
+        nomLong: "Réseaux",
+        competences: [
+        {
+            niveau: "4",
+            nom: "BROCADE (switch fibre optique)"
+        },
+        {
+            niveau: "2",
+            nom: "TCP/IP"
+        },
+        {
+            niveau: "3",
+            nom: "Supervision, configuration Nagios/Nagvis"
+        }
+
+        ]
+    },
+    {
+        nomCourt: "langages",
+        nomLong: "Langages",
+        competences: [
+        {
+            niveau: "4",
+            nom: "SH, KSH, PHP, PERL, HTML, CSS, JS, XML, jQuery (Framework JS), Wordpress (CMS)"
+        }
+
+        ]
+    }
+
+]

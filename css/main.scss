@@ -84,6 +84,9 @@ $on-laptop:        800px;
 #presentation{
     text-align: justify;
 }
+h1{
+    border-top:3px solid black;
+}
 
 
 @include media-query($on-palm) {

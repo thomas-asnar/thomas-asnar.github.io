@@ -9,3 +9,8 @@ github_url: "https://github.com/thomas-asnar/thomas-asnar.github.io"
 # Build settings
 timezone: FR
 markdown: kramdown
+
+env: 'production'
+
+gems:
+  - octopress-minify-html

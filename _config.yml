@@ -1,10 +1,9 @@
 # Site settings
 title: Thomas ASNAR
 email: thomas.asnar@gmail.com
-description: 
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-github_username:  jekyll
+url: "http://thomas-asnar.github.io" # the base hostname & protocol for your site
+github_username:  thomas-asnar
 
 # Build settings
 timezone: FR

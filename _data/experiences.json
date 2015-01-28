@@ -2,7 +2,7 @@
     {
         nomCourt: "GEFCO",
         nomLong: "Logistique transport GEFCO",
-        ville: "Avignon",
+        ville: "Avignon (84)",
         annee: "2003-2006",
         description: {
             "Opérateur de saisie : plus de 300 récépissés/jour",
@@ -14,7 +14,7 @@
         nomCourt: "stage",
         nomLong: "Stage informatique",
         lieu: "Service Administratif Régional de la Cour d'Appel",
-        ville: "Nîmes",
+        ville: "Nîmes (30)",
         annee: "2006",
         description: {
             "Résolution call N1 Help Desk et déplacements si nécessaire",
@@ -24,23 +24,24 @@
     {
         nomCourt: "armee-de-terre",
         nomLong: "Formation militaire Armée de terre – grade Sergent",
-        ville: "Saint Maixent l'école",
+        ville: "Saint Maixent l'école (79)",
         annee: "2007-2008",
         description: {
             "Commander un groupe de 9 personnes au combat",
-            "Apprendre à réfléchir et à prendre des décisions au délà de la fatigue",
+            "Respect de la hiérarchie",
+            "Apprendre à réfléchir et à prendre des décisions dans des situations extrèmes"
         }
     },
     {
         nomCourt: "administrateur-systemes",
         nomLong: " Administrateur des systèmes transverses",
-        lieu: "Centre de Mise en Œuvre des Systèmes d'Information de la DIRISI",
-        ville: "Suresnes",
+        lieu: "Centre National de Mise en Œuvre des Systèmes d'Information de la DIRISI",
+        ville: "Suresnes (92)",
         annee: "2008-2014",
         description: {
             fonctions: [
             {
-                fonction: "Chef de cellule Ordonnancement",
+                fonction: "Responsable technique VTOM - Ordonnancement",
                 taches: {
                     "Administrateur expert VTOM en architecture Primaire - Backup",
                     "Modélisation 5000~ jobs pour les principaux Systèmes d'Information nationaux interarmées",
@@ -48,6 +49,7 @@
                     "Amélioration des processus d'industrialisation",
                     "Une vingtaine de formations Pilotage VTOM aux équipes de Supervision",
                     "Transfert de compétences Administrateur aux 5 membres de la cellule",
+                    "Managment et distribution des tâches techniques VTOM",
                     "Collaboration et gestion de projets techniques : virtualisation des serveurs VTOM, Plan de Reprise d'Activité (PRA) VTOM sur site distant",
                     "Scripting pour plus 300 clients VTOM : 80% Linux/HP-UX - 20% Windows",
                     "Résolution des tickets d'incidents N1 à N3 ou escalade sur bug à Absyss (société éditrice)"
@@ -77,6 +79,40 @@
                 }
             }
         ]
+        }
+    },
+    {
+        nomCourt: "tresorier",
+        nomLong: "Trésorier amicale",
+        lieu: "Centre National de Mise en Œuvre des Systèmes d'Information de la DIRISI",
+        ville: "Suresnes (92)",
+        annee: "2008 - 2014",
+        description: {
+            "Tenu des livres de compte, association loi 1901"
+        }
+    },
+    {
+        nomCourt: "pilotage",
+        nomLong: "Pilote d'exploitation et Webmaster",
+        lieu: "Centre National de Mise en Œuvre des Systèmes d'Information de la DIRISI",
+        ville: "Suresnes (92)",
+        annee: "2008",
+        description: {
+            "Centre d'appel Help Desk + incidents d'exploitation",
+            "Supervision dans une salle de 50 m² d'écrans :<br/>nagios, nagvis, VTOM, suivi de production",
+            "Création de tickets d'incidents et escalade aux administrateurs",
+            "Rédaction des fiches réflexes",
+            "Webmaster du site de suivi de Production (PHP ZendFramework + MySQL) :<br />GED, TODO list des tâches d'exploitation journalières et export PDF, modules VTOM",
+        }
+    },
+    {
+        nomCourt: "mission-euriware",
+        nomLong: "HAVANA-IT & APPS",
+        lieu: "Mission longue chez Euriware",
+        ville: "Bourget-du-lac (73)",
+        annee: "2014 - en cours",
+        description: {
+            "Tenu des livres de compte, association loi 1901"
         }
     }
 ]

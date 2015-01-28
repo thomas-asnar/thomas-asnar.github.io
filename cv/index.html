@@ -1,18 +1,45 @@
 ---
 layout: default
+title: Curriculum Vitae online GitHub
+description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation
 ---
-
 <div id="cv">
+  <div id="moi">
+    <div id="nom-complet">
+      <h2>{{ site.data.moi.prenom }}</h2><h1>{{ site.data.moi.nom }}</h1>
+    </div>
+    <div id="metier">
+      <h2>{{ site.data.moi.metier }}</h2>
+    </div>
+    <div id="coordonnees">
+      <h3>Coordonnées</h3>
+      <span class="glyphicon glyphicon-euro"></span>
+    </div>
+    <div id="presentation">
+      <h3>En résumé</h3>
+      {% assign annee_exp = site.time | date:'%Y' | minus:'2014' %}
+      {% if annee_exp <= 1 %}
+      {% assign annee_exp = "début Novembre 2014" %}
+      {% else %}
+      {% assign annee_text = "ans" %}
+      {% capture annee_exp %}{{ annee_exp }} {{ annee_text }}{% endcapture %}
+      {% endif %}
+      
+      <p id="accroche">{{ site.data.moi.accroche || replace: 'annee_exp',annee_exp | replace:'employeur_actuel',site.data.moi.employeur_actuel }}</p>  
+    </div>
+  </div>
   <div id="experiences">
+    <h1>Expériences Professionnelles</h1>
     <ul class="liste-experiences">
       {% assign experiences = site.data.experiences | sort:"annee" | reverse %}
       {% for experience in experiences %}
         <li id="{{ experience.nomCourt }}">
-          {{ experience.annee }} : {{ experience.nomLong }}
+          <h2><span class="glyphicon glyphicon-calendar"></span>{{ experience.annee }} : {{ experience.nomLong }}</h2>
+          <span class="glyphicon glyphicon-globe"></span>{% if experience.lieu %}{{ experience.lieu}}  | {% endif %}{{ experience.ville }}
           {% if(experience.description.fonctions) %}
           {% for fonction in experience.description.fonctions %}
           <ul class="liste-fonctions">
-              <li>{{ fonction.fonction }}</li>
+              <li><h3>{{ fonction.fonction }}</h3></li>
               <ul class="liste-taches">
                 {% for tache in fonction.taches %}
                   <li>{{ tache }}</li>
@@ -32,6 +59,7 @@ layout: default
     </ul><!-- .liste-experiences -->
   </div>
   <div id="loisirs">
+    <h1>Expériences Personnelles</h1>
     <ul>
       {% for loisir in site.data.loisirs %}
         <li>

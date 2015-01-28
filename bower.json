@@ -1,0 +1,19 @@
+{
+  "name": "thomas-asnar",
+  "version": "0.0.0",
+  "homepage": "https://github.com/thomas-asnar/thomas-asnar.github.io",
+  "authors": [
+    "thomas_asnar <tasnar@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2"
+  }
+}

@@ -8,7 +8,7 @@
   <title>{% if site.title %}{{ site.title }}{% endif %}{% if page.title %} | {{ page.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 
-  <link id="main-css" rel="stylesheet" href="" type="text/css">
+  <link id="main-css" rel="stylesheet" href="javascript:void(0);" type="text/css">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -18,4 +18,34 @@
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-31443858-2','auto');ga('send','pageview');
   </script>
+  <style>
+.btn {
+  background: #8a8a8a;
+  background-image: -webkit-linear-gradient(top, #8a8a8a, #121212);
+  background-image: -moz-linear-gradient(top, #8a8a8a, #121212);
+  background-image: -ms-linear-gradient(top, #8a8a8a, #121212);
+  background-image: -o-linear-gradient(top, #8a8a8a, #121212);
+  background-image: linear-gradient(to bottom, #8a8a8a, #121212);
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  cursor:pointer;
+  margin-bottom:5px;
+}
+
+.btn:hover {
+  background: #7a7a7a;
+  background-image: -webkit-linear-gradient(top, #7a7a7a, #000000);
+  background-image: -moz-linear-gradient(top, #7a7a7a, #000000);
+  background-image: -ms-linear-gradient(top, #7a7a7a, #000000);
+  background-image: -o-linear-gradient(top, #7a7a7a, #000000);
+  background-image: linear-gradient(to bottom, #7a7a7a, #000000);
+  text-decoration: none;
+}
+  </style>
 </head>

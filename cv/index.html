@@ -26,7 +26,6 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation
     </div>
     </div>
     <div class="clearfix"></div>
-    <button id="load-main-css" onClick="loadMainCss()">Mettre en forme</button>
     <div id="presentation">
       <h1>En résumé</h1>
       {% assign annee_exp = site.time | date:'%Y' | minus:'2014' %}
@@ -96,7 +95,7 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation
         <h2>{{ competence.nomLong }}</h2>
         <ul class="liste-descriptions">
         {% for description in competence.competences %}
-          <li>{{ description.nom }} {% for page in (1..description.niveau) %}<span class="glyphicon glyphicon-star"></span>{% endfor %}</li>
+          <li>{{ description.nom }} {% for page in (1..description.niveau) %}<span class="glyphicon glyphicon-star"></span><span class="no-css">*</span>{% endfor %}</li>
         {% endfor %}
         </ul><!-- .liste-descriptions -->
       </li>
@@ -144,6 +143,6 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation
       <li>Grunt pour automatiser mes tâches de production (concaténer, minimiser les css et les js, mise à jour de GitHub)</li>
       <li>npm (gestionnaire de packet NodeJS) pour gérer mes dépendences de développement</li>
       <li>Bower pour gérer mes dépendences de librairies externes (comme jQuery ou boostrap)</li>
-      <li>En front-end, c'est du classique HTML5/CSS3</li>
+      <li>En front-end, c'est du classique HTML5</li>
     </ul>
 </div>

@@ -7,7 +7,8 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation
   <div id="moi">
     <div>
     <div id="nom-complet">
-      <h2>{{ site.data.moi.prenom }}</h2><h1>{{ site.data.moi.nom }}</h1>
+      <h2>{{ site.data.moi.prenom }}</h2>
+      <h1>{{ site.data.moi.nom }}</h1>
     </div>
     <div id="metier">
       <h2>{{ site.data.moi.metier }}</h2>
@@ -25,6 +26,7 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation
     </div>
     </div>
     <div class="clearfix"></div>
+    <button id="load-main-css" onClick="loadMainCss()">Mettre en forme</button>
     <div id="presentation">
       <h1>En résumé</h1>
       {% assign annee_exp = site.time | date:'%Y' | minus:'2014' %}
@@ -101,7 +103,7 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation
     {% endfor %}
     </ul>
   </div><!-- End  #competneces -->
-  <div id="loisirs">
+  <div id="loisirs" class="no-print">
     <h1>Expériences Personnelles</h1>
     <ul>
       {% for loisir in site.data.loisirs %}
@@ -121,6 +123,7 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation
   <p>Vous trouverez les sources sur mon <a href="{{ site.github_url }}" title="GitHub Thomas ASNAR">GitHub</a></p>
   <p>
     J'utilise les technologies suivantes :
+  </p>
     <ul>
       <li>Jekyll pour mes templates et la génération du site. Le système de Blog viendra après, quand j'aurais migré mes posts Wordpress</li>
       <li>Toutes mes données sont en .json et traiter par les templates Liquid de Jekyll
@@ -143,5 +146,4 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation
       <li>Bower pour gérer mes dépendences de librairies externes (comme jQuery ou boostrap)</li>
       <li>En front-end, c'est du classique HTML5/CSS3</li>
     </ul>
-  </p>
 </div>

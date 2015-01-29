@@ -8,9 +8,13 @@ github_url: "https://github.com/thomas-asnar/thomas-asnar.github.io"
 
 # Build settings
 timezone: FR
+locale: fr_FR
 markdown: kramdown
 
-env: 'production'
+include: [".htaccess"]
+exclude: ["bower_components","lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
 
-gems:
-  - octopress-minify-html
+sass:
+    style: :compressed
+
+highlighter: pygments

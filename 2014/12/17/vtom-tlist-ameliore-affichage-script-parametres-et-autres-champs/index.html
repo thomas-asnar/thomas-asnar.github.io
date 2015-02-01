@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="apple-touch-icon" href="apple-touch-icon.png"><title>tlist amélioré affichage script paramètres et autres champs</title><meta name="description" content="Pour tous les frustrés du tlist VTOM qui est assez pauvre en informations,voici mon tlist (ok je sais, il y a la " Recherche"  dans l' IHM mais le mode commande..."><link rel="canonical" href="http://thomas-asnar.github.io/2014/12/17/vtom-tlist-ameliore-affichage-script-parametres-et-autres-champs/"> <script>!function(e,t,a,n,c,o){e.GoogleAnalyticsObject=n,e[n]||(e[n]=function(){(e[n].q=e[n].q||[]).push(arguments)}),e[n].l=+new Date,c=t.createElement(a),o=t.getElementsByTagName(a)[0],c.src="//www.google-analytics.com/analytics.js",o.parentNode.insertBefore(c,o)}(window,document,"script","ga"),ga("create","UA-31443858-2","auto"),ga("send","pageview")</script><style>.btn{margin:10px;cursor:pointer}</style><link id="main-css" rel="stylesheet" href="javascript:void(0);" type="text/css"></head><body onload="loadJQuery()"><div id="sun-course"></div><div class="cloud" id="cloud-1"><span class="glyphicon glyphicon-cloud"></span></div><div class="cloud" id="cloud-2"><span class="glyphicon glyphicon-cloud"></span></div><div class="cloud" id="cloud-3"><span class="glyphicon glyphicon-cloud"></span></div> <button id="load-main-css" onClick="loadMainCss()" class="btn" disabled>Ma mise en forme</button> <a class="page-link" href="/cv.html"> CV </a> <a class="page-link" href="/vtom.html"> VTOM </a><div class="content container"><div class="post bg-success"><header class="post-header"><h1 class="post-title">tlist amélioré affichage script paramètres et autres champs</h1><p class="post-meta">17-12-2014</p> </header><article class="post-content"> Pour tous les frustrés du tlist VTOM qui est assez pauvre en informations,voici mon tlist (ok je sais, il y a la "Recherche" dans l'IHM mais le mode commande tlist est loin d'être suffisant). Je m'en sers notamment pour chercher tous les jobs avec un certain script et un certain paramètre, pour les mettre à STOP ou sortir un fichier csv. Et tout ça en mode commande.Grâce au vtexport en xml, il permet de lister rapidement les applications et les jobs avec les champs et les options suivantes : <pre lang="shell">
+Liste des options :
+
+ Parametres  Valeurs / Formats Caracteristiques
+ ----------- ----------------- -------------------------------------------------------
+ -h                            Affiche l'aide
+ -f          ENV[/APP][/JOB]   Filtre sur environnement/application/traitement (le nom
+                               de l'application ou du traitement est optionnel)
+ -novt                         Ne re-genere pas un nouvel vtexport
+ -myvt       path              Specifie le chemin du fichier vtexport.xml (couple avec
+                               l'option -novt, permet de specifier votre fichier
+                               vtexport.xml)
+ -app                          N'affiche que les applications
+ -job                          N'affiche que les traitements
+ -encours                      Filtre les traitements en cours d'execution
+ -items      item[/item]..     N'affiche que certains items dans la liste
+ -searchJ    item=value        Filtre les jobs selon une recherche de pattern sur un ou
+                               plusieurs items
+ -excludeJ   item=value        Exclure les jobs selon une recherche de pattern sur un ou
+                               plusieurs items
+ -csv        motif             Permet de specifier un motif de separation (; par defaut)
+ -output     path/fic          Permet de rediriger la sortie standard vers un fichier
+ -status     R|U|F|W|E         Permet de filtrer les jobs avec un certain statut
+                               R=En cours;U=Non planifie;F=Termine;W=A venir;E=Erreur
+ -nofirstline                  N'affiche pas la premiere ligne recapitulative d item
+ -debug                        Affiche  la requete XPath
+
+Liste des items et sortie a l'ecran par defaut :
+item;env;app;job;minStart;maxStart;maxLength;cycleEnabled;cycle;mode;retained;onDemand;daysInWeek;daysInMonth;weeksInMonth;monthsInYear;isFormula;formula;comment;information;date;user;status;host;queue;script;parameter;
+
+Liste des items pris en charge par searchJ et excludeJ :
+env | app | job | status | cycleEnabled | script | parameter[position] | host | mode | onDemand | queue | user | retained
+
+Signification des valeurs :
+	Planning
+	1 = yes ; 0 = no ;
+	B = Both (chome + ouvre) ; W = Worked (ouvre) ; N = No (chome)
+
+	Mode;
+	J = traitement ; O = stop ; T = test ; S = simulation ; E = execution
+
+	Status;
+	R = En cours ; U = Non planifie ; F = Termine ; W = A venir ; E = En erreur
+
+Exemples :
+        $0 -novt -myvt /tmp/monvtexport.xml -items env/app/job/parameter -searchJ script=netbackup -searchJ env=PROD -excludeJ job=CFG
+
+        $0 -searchJ parameter1=MA_POLICIE_NETBACKUP
+
+        $0 > /tmp/domaine_prod.csv</pre><a href="/wp-content/uploads/tlist.pl">tlist amélioré VTOM</a>Vous pouvez tester ce code sur codingground à cette adresse : <a href="http://goo.gl/uktCdI">http://goo.gl/uktCdI</a> Sur cette adresse, pour installer le module XML::LibXML, lancer la commande : <pre lang="shell">sh build_XML_LibXML.sh</pre>Vous pouvez uploader votre fichier vtexport, testez le script en n'oubliant pas de spécifier -novt et -myvt nomvotrevtexport (évidemment VTOM n'est pas installé, il n'y a donc pas la commande vtexport)</article> <footer class="post-footer"> perl script tlist visual tom vtom </footer></div></div><footer class="container" id="footer"> ©2015<a href="https://plus.google.com/+ThomasASNAR" title="Thomas ASNAR Google Plus">Thomas ASNAR</a> <a href="#cv" title="Retourner au début"><span class="glyphicon glyphicon-arrow-up"></span><span class="no-css">Top</span></a> </footer><div id="jquery-js"></div> <script src="/assets/js/main.js"></script></body></html>

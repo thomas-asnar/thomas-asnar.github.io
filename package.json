@@ -1,0 +1,19 @@
+{
+  "name": "thomas-asnar",
+  "version": "1.0.0",
+  "description": "Mon CV sur GitHub",
+  "main": "''",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomas-asnar/thomas-asnar.github.io.git"
+  },
+  "author": "Thomas ASNAR",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomas-asnar/thomas-asnar.github.io/issues"
+  },
+  "homepage": "https://github.com/thomas-asnar/thomas-asnar.github.io",
+  "dependencies": {
+    "bower": "^1.3.12"
+  }
+}

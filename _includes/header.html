@@ -1,0 +1,16 @@
+<header id="site-header" class="container">
+  <ul id="site-header-menu">
+  <li><a class="page-link" href="/" title="home">Blog</a></li>
+{% for page in site.pages %}
+  {% if page.title %}
+  <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">
+      {% if page.titre-court %}
+          {{ page.titre-court }}
+      {% else %}
+          {{ page.title }}
+      {% endif %}
+  </a></li>
+  {% endif %}
+{% endfor %}
+  </ul>
+</header>

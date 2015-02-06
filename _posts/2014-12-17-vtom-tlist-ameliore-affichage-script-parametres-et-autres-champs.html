@@ -1,0 +1,68 @@
+---
+layout: post
+title: tlist amélioré affichage script paramètres et autres champs
+date: 2014-12-17 21:13
+author: Thomas ASNAR
+excerpt_separator: '<!--more-->'
+categories: [PERL, perl, Script, tlist, Visual TOM, VTOM, VTOM]
+---
+Pour tous les frustrés du tlist VTOM qui est assez pauvre en informations,voici mon tlist (ok je sais, il y a la "Recherche" dans l'IHM mais le mode commande tlist est loin d'être suffisant). 
+Je m'en sers notamment pour chercher tous les jobs avec un certain script et un certain paramètre, pour les mettre à STOP ou sortir un fichier csv. Et tout ça en mode commande.
+<!--more-->
+Grâce au vtexport en xml, il permet de lister rapidement les applications et les jobs avec les champs et les options suivantes :
+<pre lang="shell">
+Liste des options :
+
+ Parametres  Valeurs / Formats Caracteristiques
+ ----------- ----------------- -------------------------------------------------------
+ -h                            Affiche l'aide
+ -f          ENV[/APP][/JOB]   Filtre sur environnement/application/traitement (le nom
+                               de l'application ou du traitement est optionnel)
+ -novt                         Ne re-genere pas un nouvel vtexport 
+ -myvt       path              Specifie le chemin du fichier vtexport.xml (couple avec
+                               l'option -novt, permet de specifier votre fichier
+                               vtexport.xml)
+ -app                          N'affiche que les applications 
+ -job                          N'affiche que les traitements 
+ -encours                      Filtre les traitements en cours d'execution 
+ -items      item[/item]..     N'affiche que certains items dans la liste
+ -searchJ    item=value        Filtre les jobs selon une recherche de pattern sur un ou
+                               plusieurs items 
+ -excludeJ   item=value        Exclure les jobs selon une recherche de pattern sur un ou
+                               plusieurs items
+ -csv        motif             Permet de specifier un motif de separation (; par defaut)
+ -output     path/fic          Permet de rediriger la sortie standard vers un fichier
+ -status     R|U|F|W|E         Permet de filtrer les jobs avec un certain statut
+                               R=En cours;U=Non planifie;F=Termine;W=A venir;E=Erreur
+ -nofirstline                  N'affiche pas la premiere ligne recapitulative d item
+ -debug                        Affiche  la requete XPath
+
+Liste des items et sortie a l'ecran par defaut :
+item;env;app;job;minStart;maxStart;maxLength;cycleEnabled;cycle;mode;retained;onDemand;daysInWeek;daysInMonth;weeksInMonth;monthsInYear;isFormula;formula;comment;information;date;user;status;host;queue;script;parameter;
+
+Liste des items pris en charge par searchJ et excludeJ : 
+env | app | job | status | cycleEnabled | script | parameter[position] | host | mode | onDemand | queue | user | retained
+
+Signification des valeurs : 
+	Planning
+	1 = yes ; 0 = no ;
+	B = Both (chome + ouvre) ; W = Worked (ouvre) ; N = No (chome)
+
+	Mode;
+	J = traitement ; O = stop ; T = test ; S = simulation ; E = execution
+
+	Status;
+	R = En cours ; U = Non planifie ; F = Termine ; W = A venir ; E = En erreur
+
+Exemples : 
+        $0 -novt -myvt /tmp/monvtexport.xml -items env/app/job/parameter -searchJ script=netbackup -searchJ env=PROD -excludeJ job=CFG
+
+        $0 -searchJ parameter1=MA_POLICIE_NETBACKUP
+ 
+        $0 > /tmp/domaine_prod.csv		
+</pre>
+<a href="/wp-content/uploads/tlist.pl">tlist amélioré VTOM</a>
+
+Vous pouvez tester ce code sur codingground à cette adresse : <a href="http://goo.gl/uktCdI">http://goo.gl/uktCdI</a>
+Sur cette adresse, pour installer le module XML::LibXML, lancer la commande : <pre lang="shell">sh build_XML_LibXML.sh</pre>
+Vous pouvez uploader votre fichier vtexport, testez le script en n'oubliant pas de spécifier -novt et -myvt nomvotrevtexport (évidemment VTOM n'est pas installé, il n'y a donc pas la commande vtexport)

@@ -1,1 +1,17 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="apple-touch-icon" href="apple-touch-icon.png"><title>Thomas ASNAR</title><meta name="description" content=""><link rel="canonical" href="http://thomas-asnar.github.io/"> <script>!function(e,t,a,n,c,o){e.GoogleAnalyticsObject=n,e[n]||(e[n]=function(){(e[n].q=e[n].q||[]).push(arguments)}),e[n].l=+new Date,c=t.createElement(a),o=t.getElementsByTagName(a)[0],c.src="//www.google-analytics.com/analytics.js",o.parentNode.insertBefore(c,o)}(window,document,"script","ga"),ga("create","UA-31443858-2","auto"),ga("send","pageview")</script><style>.btn{margin:10px;cursor:pointer}</style><link id="main-css" rel="stylesheet" href="javascript:void(0);" type="text/css"></head><body onload="loadJQuery()"><div id="sun-course"></div><div class="cloud" id="cloud-1"><span class="glyphicon glyphicon-cloud"></span></div><div class="cloud" id="cloud-2"><span class="glyphicon glyphicon-cloud"></span></div><div class="cloud" id="cloud-3"><span class="glyphicon glyphicon-cloud"></span></div> <button id="load-main-css" onClick="loadMainCss()" class="btn" disabled>Ma mise en forme</button> <a class="page-link" href="/cv.html"> CV </a> <a class="page-link" href="/vtom.html"> VTOM </a><div class="content container"><h1 class="page-heading">Posts</h1><ul class="post-list"><li> <span class="post-meta">Dec 17, 2014</span><h2> <a class="post-link" href="/2014/12/17/vtom-tlist-ameliore-affichage-script-parametres-et-autres-champs/">tlist amélioré affichage script paramètres et autres champs</a></h2></li><li> <span class="post-meta">Jul 13, 2014</span><h2> <a class="post-link" href="/2014/07/13/application-3-tiers/">Application n tiers</a></h2></li><li> <span class="post-meta">Sep 7, 2012</span><h2> <a class="post-link" href="/2012/09/07/ecrire-sa-queue-batch-vtom-cygwin-php-perl/">Ecrire sa queue batch VTOM (cygwin, php, perl, sap)</a></h2></li></ul></div><footer class="container" id="footer"> ©2015<a href="https://plus.google.com/+ThomasASNAR" title="Thomas ASNAR Google Plus">Thomas ASNAR</a> <a href="#cv" title="Retourner au début"><span class="glyphicon glyphicon-arrow-up"></span><span class="no-css">Top</span></a> </footer><div id="jquery-js"></div> <script src="/assets/js/main.js"></script></body></html>
+---
+layout: page
+---
+<h1 class="page-heading">Posts</h1>
+<ul class="post-list">
+{% for post in site.posts %}
+  <li>
+    <h2>
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </h2>
+    {{ post.excerpt | strip_html }}
+    <p class="post-meta">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d-%m-%Y" }}</time>
+    </p>
+  </li>
+{% endfor %}
+</ul>

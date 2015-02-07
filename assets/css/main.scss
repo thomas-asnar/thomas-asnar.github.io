@@ -4,6 +4,10 @@ sitemap: false
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:bold,normal') ;
 
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+       "../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss"
+;
 // Our variables
 $base-font-family: "Ubuntu",Georgia,Helvetica, Arial, sans-serif;
 $base-font-size:   16px;
@@ -35,14 +39,11 @@ $on-laptop:        800px;
 }
 
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-       "../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss"
-;
 html {
     background-color:#1CAA00;
 }
 body{
+  font-family:$base-font-family;
 position:relative;
 z-index:-2;
 background: #85c8e2; /* Old browsers */
@@ -235,9 +236,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85c8e2', end
 
 /* MEDIA QUERY */
 @include media-query($on-palm) {
-    body,p{
+    body,p,h1,h2,h3,h4,h5,h6{
         font-size:$small-font-size;
     }
+
     #load-main-css{
         font-size:$small-font-size / 2;
     }

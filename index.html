@@ -6,14 +6,11 @@ layout: page
 <ul class="post-list">
 {% for post in paginator.posts %}
   <li>
-    <h3>
-      <span class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d-%m-%Y" }}</time></span>
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </h3>
+    <h3><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
     <footer class="post-footer">
     {% if post.categories %}
       {% for category in post.categories %}
-        <button type="button" class="btn btn-default btn-xs btn-categories"><span class="glyphicon glyphicon-asterisk"></span>{{ category }}</button>
+        <button type="button" class="btn btn-default btn-xs btn-categories hidden-xs"><span class="glyphicon glyphicon-asterisk"></span>{{ category }}</button>
       {% endfor %}
     {% endif %}
   </footer>

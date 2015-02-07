@@ -24,4 +24,4 @@ sass:
 
 highlighter: pygments
 
-paginate: 2
+paginate: 20

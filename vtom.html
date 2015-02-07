@@ -38,16 +38,16 @@ L'architecture VTOM que j'utilise est dite centralisée, clients-serveur.
 <p >Les clients sont installés sur toutes les machines qui ont besoin d'être ordonnancées. Ils exécutent les traitements ordonnancés par le serveur et renvoient le code retour d'exécution.</p>
 <p >VTOM dispose d'une interface homme machine (IHM). L'IHM est installée sur les postes de la cellule production h24 de la Supervision Nationale. Elle permet de suivre l'état du plan d'ordonnancement grâce à un système de codes couleurs et de fiches réflexes implémentées directement dans l'IHM.</p>
 <p >Même si mon architecture a un peu changé avec la virtualisation des serveurs VTOM, le schéma ci-après représente bien les flux :</p>
-<a href="/wp-content/uploads/schema-architecture-vtom.jpg"><img src="/wp-content/uploads/schema-architecture-vtom-300x212.jpg" alt="architecture vtom" width="300" height="212" /></a>
+<a href="/wp-content/uploads/schema-architecture-vtom.jpg"><img src="/wp-content/uploads/schema-architecture-vtom-300x212.jpg" alt="architecture vtom"/></a>
 
 <h2 >Architecture Logique</h2>
 <p >Schéma d'organisation logique d'un domaine d'exploitation dans VTOM :</p>
-<a href="/wp-content/uploads/schema-organisation-logique-vtom.png"><img src="/wp-content/uploads/schema-organisation-logique-vtom-292x300.png" alt="organisation logique vtom" width="292" height="300" /></a>
+<a href="/wp-content/uploads/schema-organisation-logique-vtom.png"><img src="/wp-content/uploads/schema-organisation-logique-vtom-292x300.png" alt="organisation logique vtom"/></a>
 
 <p>L'<strong>environnement</strong> est un conteneur logique d'applications (au sens VTOM), cloisonné en termes de ressources, de dates, et de machines. Je préconise souvent aux Directions de Projet (DP) de créer un environnement par SI et par plateforme.
 L'environnement dispose d'un moteur pouvant être activé ou arrêté sans impacter le reste des autres environnements.
 </p>
-<a href="/wp-content/uploads/environnement.png"><img src="/wp-content/uploads/environnement-300x160.png" alt="environnement" width="300" height="160" /></a>
+<a href="/wp-content/uploads/environnement.png"><img src="/wp-content/uploads/environnement-300x160.png" alt="environnement"/></a>
 
 <p >Une <strong>application</strong> est un conteneur logique de traitements (au sens VTOM), conditionnant une date d'exploitation et un planning.</p>
 <p >Un <strong>traitement</strong> est le plus petit élément VTOM. C'est lui qui lance la commande, le script, le programme à exécuter. Il est défini principalement par sa machine, son utilisateur de soumission, son script et ses paramètres.</p>

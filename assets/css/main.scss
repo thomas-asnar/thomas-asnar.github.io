@@ -136,18 +136,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85c8e2', end
 }
 
 /* HEADER */
+#site-header-menu{
+  position:relative;
+  z-index:100;
+  margin-top:10px;
+  margin-bottom:10px;
+}
 #site-header-menu li{
     display:inline-block;
     font-weight:900;
     font-size:1.5em;
     margin-right:10px;
 }
+#exec-search{
+  z-index:100;
+}
+#exec-search-container{
+  margin-bottom:10px;
+}
 
 /* FOOTER */
 #footer{
     text-align:center;
     margin-top:50px;
-    margin-bottom:200px;
+    padding-bottom:100px;
 }
 #footer a{
     color:black;

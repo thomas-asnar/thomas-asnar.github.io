@@ -3,18 +3,27 @@
 <div class="cloud" id="cloud-2"><span class="glyphicon glyphicon-cloud"></span></div>
 <div class="cloud" id="cloud-3"><span class="glyphicon glyphicon-cloud"></span></div>
 <header id="site-header" class="container">
-  <ul id="site-header-menu">
-  <li><a class="page-link" href="/" title="home">Blog</a></li>
-{% for page in site.pages %}
-  {% if page.title %}
-  <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">
-      {% if page.titre-court %}
-          {{ page.titre-court }}
+  <ul id="site-header-menu" class="nav nav-pills">
+  <li {% if page.titre-court == 'home' %}class="active"{% endif %}><a class="page-link" href="/" title="home">Blog</a></li>
+{% for pageSite in site.pages %}
+  {% if pageSite.title %}
+  <li {% if page.titre-court == pageSite.titre-court %}class="active"{% endif %}><a class="page-link" href="{{ pageSite.url | prepend: site.baseurl }}">
+      {% if pageSite.titre-court %}
+          {{ pageSite.titre-court }}
       {% else %}
-          {{ page.title }}
+          {{ pageSiteSite.title }}
       {% endif %}
   </a></li>
   {% endif %}
 {% endfor %}
+  {% if page.titre-court == 'home' %}
+  <li>
+    <a><span id="display-search" class="btn glyphicon glyphicon-search"></span></a>
+  </li>
   </ul>
+  <div style="display:none;" id="exec-search-container" class="input-group">
+    <span id="exec-search" class="input-group-addon btn glyphicon glyphicon-search"></span>
+    <input type="text" class="form-control" aria-label="Chercher dans le site" placeholder="Chercher..." />
+  </div>
+  {% endif %}
 </header>

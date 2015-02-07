@@ -1,17 +1,56 @@
 ---
 layout: page
 ---
-<h1 class="page-heading">Posts</h1>
+<h1 class="page-heading">Notes</h1>
+
 <ul class="post-list">
-{% for post in site.posts %}
+{% for post in paginator.posts %}
   <li>
-    <h2>
+    <h3>
+      <span class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d-%m-%Y" }}</time></span>
       <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </h2>
-    {{ post.excerpt | strip_html }}
-    <p class="post-meta">
-      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d-%m-%Y" }}</time>
-    </p>
+    </h3>
+    <footer class="post-footer">
+    {% if post.categories %}
+      {% for category in post.categories %}
+        <button type="button" class="btn btn-default btn-xs btn-categories"><span class="glyphicon glyphicon-asterisk"></span>{{ category }}</button>
+      {% endfor %}
+    {% endif %}
+  </footer>
   </li>
 {% endfor %}
 </ul>
+<!-- Pagination links -->
+<nav>
+<ul class="pagination">
+{% if paginator.previous_page %}
+  <li><a href="{{ paginator.previous_page_path }}" class="Précédant"><span aria-hidden="true">&laquo;</span></a></li>
+{% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+    {% if paginator.page == page %}
+     <li class="active"><span>{{ page }}<span class="sr-only">(current)</span></span></li>
+    {% elsif page == 1 %}
+    <li><a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
+    {% else %}
+    <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+    {% endif %}
+  {% endfor %}
+
+{% if paginator.next_page %}
+  <li><a href="{{ paginator.next_page_path }}" aria-label="Suivant"><span aria-hidden="true">&raquo;</span></a></li>
+{% endif %}
+</ul>
+</nav>
+
+<div id="about-site" class="no-print">
+  <h1 class="panel-slide titres-cv">&Agrave; propos de ce site</h1>
+  <div class="liste-cv">
+  <p>Ce site fait peau neuve et revient à son utilité d'origine : de simples notes, afin de ne pas oublier toutes les astuces techniques que je rencontre quotidiennement.</p>
+  <p>
+    J'ai migré ce site sur les <a href="https://pages.github.com/" title="Pages Github">pages Github</a>. Ainsi je m'affranchis des problèmes d'hébergement, de versioning, des sauvegardes, et du nom de domaine. Désormais, c'est simple comme bonjour ; je git push mes datas et, le site est mis à jour. Petite anecdote qui peut avoir quelques conséquences sur la visibilité du site : mon ancien nom de domaine (comme beaucoup de domaines persos) étaient bloqué par les proxys des entreprises ; <a href="https://github.com" title="Github">GitHub</a> non.
+  </p>
+  <p>Vous trouverez les sources sur mon <a href="{{ site.github_url }}" title="GitHub Thomas ASNAR">GitHub</a></p>
+  </div>
+  <div class="titres-separator"><span class="glyphicon glyphicon-menu-down"></span></div>
+</div><!-- End #about-site -->

@@ -28,13 +28,6 @@ $on-laptop:        800px;
 
 
 
-// Using media queries with like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
 @mixin media-query($device) {
     @media screen and (max-width: $device) {
         @content;
@@ -75,10 +68,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85c8e2', end
 }
 
 /* Titres et listes */
-.liste-cv,.liste-fonctions,#coordonnees ul{
+.liste-cv,.liste-fonctions,#coordonnees ul,.post-list{
     list-style-type:none;
     margin-left:0;
 }
+
 .liste-cv h2,.liste-cv h3,#nom-complet h2{
     margin-bottom:0;
 }
@@ -124,6 +118,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85c8e2', end
 /* glyphicon */
 .glyphicon{
     margin-right:5px;
+}
+
+/* POST */
+.post-list{
+    padding-left:0;
+}
+.post-list h3{
+    margin:0;
+}
+.post-meta{
+    font-size:0.8em;
+}
+.post-footer{
+  margin-bottom:10px;
 }
 
 /* HEADER */
@@ -216,9 +224,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85c8e2', end
 	-webkit-animation-name: suncourse; 
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-timing-function: linear;
-	-webkit-animation-duration: 60s; /* 3 seconds */
+	-webkit-animation-duration: 120s; /* 3 seconds */
 	animation-name: suncourse; 
-	animation-duration: 60s; /* 3 seconds */
+	animation-duration: 120s; /* 3 seconds */
 	animation-iteration-count: infinite; 
 	animation-timing-function: linear;
 }

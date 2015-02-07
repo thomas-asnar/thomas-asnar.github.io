@@ -45,7 +45,7 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation, export o
   </div>
   
   <div id="experiences">
-    <h1 class="titres-cv pannel-slide">Expériences Professionnelles</h1>
+    <h1 class="titres-cv panel-slide">Expériences Professionnelles</h1>
     <ul class="liste-cv">
       {% assign experiences = site.data.experiences | sort:"annee" | reverse %}
       {% for experience in experiences %}
@@ -80,7 +80,7 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation, export o
     <div class="titres-separator"><span class="glyphicon glyphicon-menu-down"></span></div>
   </div><!-- End #experiences -->
   <div id="formations">
-    <h1 class="titres-cv pannel-slide">Formations</h1>
+    <h1 class="titres-cv panel-slide">Formations</h1>
     <ul class="liste-cv">
     {% for formation in site.data.formations %}
       <li id="{{ formation.nomCourt }}">
@@ -96,7 +96,7 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation, export o
     <div class="titres-separator"><span class="glyphicon glyphicon-menu-down"></span></div>
   </div><!-- End  #formations -->
   <div id="competences">
-    <h1 class="titres-cv pannel-slide">Compétences</h1>
+    <h1 class="titres-cv panel-slide">Compétences</h1>
     <ul class="liste-cv">
     {% for competence in site.data.competences %}
       <li id="{{ competence.nomCourt }}">
@@ -112,7 +112,7 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation, export o
     <div class="titres-separator"><span class="glyphicon glyphicon-menu-down"></span></div>
   </div><!-- End  #competneces -->
   <div id="loisirs" class="no-print">
-    <h1 class="titres-cv pannel-slide">Expériences Personnelles</h1>
+    <h1 class="titres-cv panel-slide">Expériences Personnelles</h1>
     <ul class="liste-cv">
       {% for loisir in site.data.loisirs %}
         <li>
@@ -122,42 +122,7 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation, export o
     </ul>
     <div class="titres-separator"><span class="glyphicon glyphicon-menu-down"></span></div>
   </div><!-- End  #loisirs -->
-  <div id="about-site" class="no-print">
-    <h1 class="titres-cv pannel-slide">&Agrave; propos de ce site</h1>
-    <div class="liste-cv">
-    <p>
-      J'ai migré ce site sur les <a href="https://pages.github.com/" title="Pages Github">pages Github</a>. Ainsi je m'affranchis des problèmes d'hébergement, de versioning, des sauvegardes, et du nom de domaine. Désormais, c'est simple comme bonjour ; je git push mes datas et, le site est mis à jour. Petite anecdote qui peut avoir quelques conséquences sur la visibilité du site : mon ancien nom de domaine (comme beaucoup de domaines persos) étaient bloqué par les proxys des entreprises ; <a href="https://github.com" title="Github">GitHub</a> non.
-    </p>
-    <p>Vous trouverez les sources sur mon <a href="{{ site.github_url }}" title="GitHub Thomas ASNAR">GitHub</a></p>
-    <p>
-      J'utilise les technologies suivantes :
-    </p>
-      <ul>
-        <li><a href="http://jekyllrb.com/" title="Jekyll">Jekyll</a> pour mes templates et la génération du site. Le système de Blog viendra après, quand j'aurais migré mes posts Wordpress</li>
-        <li>Toutes mes données sont en .json et traiter par les templates Liquid de Jekyll
-        <pre>#Exemple <a href="https://github.com/thomas-asnar/thomas-asnar.github.io/blob/master/_data/moi.json">_data/moi.json</a>
-    {
-    nom: "ASNAR",
-    prenom: "Thomas",
-    metier: "Analyste d'exploitation",
-    anniversaire-j: "19",
-    anniversaire-m: "01",
-    anniversaire-a: "1983",
-    permis: "permis B",
-    ...
-    ...
-    ...
-    }
-    </pre></li>
-        <li><a href="http://gruntjs.com/" title="Grunt JS">Grunt</a> ou des gems dans le fichier Gemfile, pour automatiser mes tâches de production (concaténer, minimiser les css et les js, mise à jour de GitHub)</li>
-        <li>npm (gestionnaire de packet NodeJS) pour gérer mes dépendences de développement</li>
-        <li><a href="http://bower.io/" title="Bower">Bower</a> pour gérer mes dépendences de librairies externes (comme jQuery ou boostrap)</li>
-        <li>En front-end, c'est du classique HTML5</li>
-      </ul>
-      </div>
-    <div class="titres-separator"><span class="glyphicon glyphicon-menu-down"></span></div>
-  </div><!-- End #about-site -->
-
+  
   </div><!-- .bg-sucess -->
 
 </div><!-- End  #cv -->

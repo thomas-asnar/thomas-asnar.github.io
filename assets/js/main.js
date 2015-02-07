@@ -1,7 +1,7 @@
 $(".liste-cv").slideUp(1000);
 
 /* EVENTS */
-$(document).on('click',".pannel-slide,.titres-separator",function(e){
+$(document).on('click',".panel-slide,.titres-separator",function(e){
   var selThis = $(this);
   var selSpan ;
   if(selThis.hasClass("titres-separator")){

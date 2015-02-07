@@ -25,3 +25,6 @@ sass:
 highlighter: pygments
 
 paginate: 20
+
+gems:
+  - jekyll-sitemap

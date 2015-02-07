@@ -158,6 +158,27 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85c8e2', end
     display:none;
 }
 
+/* TREE */
+.tree{
+  color:green;
+   position:absolute;
+}
+#tree-1{
+    z-index:-1;
+    right:0;
+    bottom:0;
+}
+#tree-1 .glyphicon{
+  font-size:300px;
+}
+#tree-2{
+    z-index:3;
+    left:0;
+    bottom:200px;
+}
+#tree-2 .glyphicon{
+  font-size:200px;
+}
 /* SUNCOURSE */
 .cloud{
     z-index:2;
@@ -167,6 +188,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85c8e2', end
     color:white;
 }
 #cloud-1{
+  z-index:-1;
     right:2px;
     top:80px;
 }

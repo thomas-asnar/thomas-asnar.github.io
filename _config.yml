@@ -12,7 +12,8 @@ timezone: FR
 locale: fr_FR
 
 # Build settings
-markdown: kramdown
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"# Filtering Content
+markdown: redcarpet
 
 include: [".htaccess"]
 exclude: ["bower.json", "package.json", "node_modules", "Gemfile", "Gemfile.lock","_build"]

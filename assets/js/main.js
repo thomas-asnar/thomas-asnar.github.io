@@ -87,6 +87,6 @@ function searchSite(words){
 } /* searchSite(words) */ 
 
 var slug = window.location.href.split("#!")[1] ;
-if(slug.length > 1){
+if(slug){
   searchSite(slug);
 }

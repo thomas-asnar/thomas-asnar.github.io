@@ -7,20 +7,20 @@
   <li {% if page.titre-court == 'home' %}class="active"{% endif %}><a class="page-link" href="/" title="home">Blog</a></li>
 {% for pageSite in site.pages %}
   {% if pageSite.title %}
+    {% if pageSite.titre-court %}
   <li {% if page.titre-court == pageSite.titre-court %}class="active"{% endif %}><a class="page-link" href="{{ pageSite.url | prepend: site.baseurl }}">
-      {% if pageSite.titre-court %}
-          {{ pageSite.titre-court }}
-      {% else %}
-          {{ pageSiteSite.title }}
-      {% endif %}
+    {{ pageSite.titre-court }}
   </a></li>
+    {% endif %}
   {% endif %}
 {% endfor %}
   {% if page.titre-court == 'home' %}
   <li>
     <a><span id="display-search" class="btn glyphicon glyphicon-search"></span></a>
   </li>
+  {% endif %}
   </ul>
+  {% if page.titre-court == 'home' %}
   <div style="display:none;" id="exec-search-container" class="input-group">
     <span id="exec-search" class="input-group-addon btn glyphicon glyphicon-search"></span>
     <input type="text" class="form-control" aria-label="Chercher dans le site" placeholder="Chercher..." />

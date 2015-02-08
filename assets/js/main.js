@@ -45,10 +45,12 @@ function searchSite(words){
     url:'/feed.xml',
     dataType: 'xml',
     success:function(xml){
+    var heading = $('.page-heading');
+    if(heading.length > 0){
       var items = $(xml).find('item:contains('+words+')') ;
       $('.post-list').remove();
       $('.pagination').remove();
-      var heading = $('.page-heading');
+      
       
       if(items.length > 0){
         var postListHtml = '<ul class="post-list">';
@@ -74,6 +76,17 @@ function searchSite(words){
       }else{
         heading.after('<div class="post-list">Aucun Résultat</div>');
       }
+    
+    
+    }else{
+      window.location.href = '/#!'+words ;
+    }
+    
     }
   });
-} 
+} /* searchSite(words) */ 
+
+var slug = window.location.href.split("#!")[1] ;
+if(slug.length > 1){
+  searchSite(slug);
+}

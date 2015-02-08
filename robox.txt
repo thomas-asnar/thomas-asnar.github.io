@@ -1,0 +1,4 @@
+# robotstxt.org/
+
+User-agent: *
+Sitemap: http://thomas-asnar.github.io/sitemap.xml

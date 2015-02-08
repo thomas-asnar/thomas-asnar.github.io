@@ -34,6 +34,9 @@ $('#exec-search ~ input').keypress(function (e) {
     searchSite($(this).val());
   }
 });
+$(document).on('click','.btn-categories',function(){
+  searchSite($(this).text().trim());
+});
 
 /* Functions */
 function searchSite(words){
@@ -43,8 +46,8 @@ function searchSite(words){
     dataType: 'xml',
     success:function(xml){
       var items = $(xml).find('item:contains('+words+')') ;
-      $('.post-list').fadeOut();
-      $('.pagination').fadeOut();
+      $('.post-list').remove();
+      $('.pagination').remove();
       var heading = $('.page-heading');
       
       if(items.length > 0){
@@ -69,7 +72,7 @@ function searchSite(words){
         postListHtml += '</ul>';
         heading.after(postListHtml);
       }else{
-        heading.after('Aucun Résultat');
+        heading.after('<div class="post-list">Aucun Résultat</div>');
       }
     }
   });

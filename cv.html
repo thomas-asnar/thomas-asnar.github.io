@@ -5,23 +5,23 @@ titre-court: CV
 description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation, export ordonnancement VTOM
 ---
 <div id="cv">
-  <div id="moi">
+  <div id="moi" itemscope itemtype ="http://schema.org/Person">
     <div>
     <div id="nom-complet">
-      <h2>{{ site.data.moi.prenom }}</h2>
-      <h1>{{ site.data.moi.nom }}</h1>
+      <h2 itemprop="name">{{ site.data.moi.prenom }}</h2>
+      <h1 itemprop="familyName">{{ site.data.moi.nom }}</h1>
     </div>
     <div id="metier">
-      <h2>{{ site.data.moi.metier }}</h2>
+      <h2 itemprop="jobTitle">{{ site.data.moi.metier }}</h2>
     </div>
     <div id="coordonnees">
       <h3>Coordonnées</h3>
       <ul class="bg-success">
-        <li><span class="glyphicon glyphicon-phone"></span>{{ site.data.moi.mobile }}</li>
-        <li><span class="glyphicon glyphicon-envelope"></span>{{ site.data.moi.email }}</li>
-        <li><span class="glyphicon glyphicon-globe"></span>{{ site.data.moi.home }}</li>
-        <li><span class="glyphicon glyphicon-home"></span>{{ site.data.moi.residence }}</li>
-        <li><span class="glyphicon glyphicon-user"></span>&Acirc;ge {{ site.time| date:'%Y'| minus: site.data.moi.anniversaire-a }} ans, {{ site.data.moi.famille }}</li>
+        <li itemprop="telephone"><span class="glyphicon glyphicon-phone"></span>{{ site.data.moi.mobile }}</li>
+        <li itemprop="email"><span class="glyphicon glyphicon-envelope"></span>{{ site.data.moi.email }}</li>
+        <li itemprop="url"><span class="glyphicon glyphicon-globe"></span>{{ site.data.moi.home }}</li>
+        <li itemprop="address"><span class="glyphicon glyphicon-home"></span>{{ site.data.moi.residence }}</li>
+        <li><span class="glyphicon glyphicon-user"></span>&Acirc;ge {{ site.time| date:'%Y'| minus: site.data.moi.anniversaire-a }} ans, {{ site.data.moi.famille }}<span class="hidden" itemprop="birthDate">{{ site.data.moi.anniversaire-a }}-{{ site.data.moi.anniversaire-m }}-{{ site.data.moi.anniversaire-j }}</span></li>
         <li><span class="glyphicon glyphicon-plane"></span>{{ site.data.moi.permis }}</li>
       </ul>
     </div>

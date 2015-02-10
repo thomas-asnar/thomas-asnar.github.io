@@ -14,23 +14,35 @@ Voici quelques API VTOM glannées dans les pages du webaccess.
 Peu importe comment vous y accédez, ici en curl (user:passwd à changer).
 
 # Liste de tous les environnements
+```
 curl -k -u user:passwd "http://localhost:30080/api/environment/list" -X GET  | python -m json.tool
+```
 
 # Liste de toutes les applications
+```
 curl -k -u user:passwd "http://localhost:30080/api/application/list" -X GET  | python -m json.tool
 curl -k -u user:passwd "http://localhost:30080/api/application/list?envSId=ENV7f00000102a3106054b8e57700000014" -X GET  | python -m json.tool
 curl -k -u user:passwd "http://localhost:30080/api/application/list?environmentName=VAGUE5_INT" -X GET  | python -m json.tool
+```
 
 # Liste de tous les jobs
+```
 curl -k -u user:passwd "http://localhost:30080/api/job/list" -X GET  | python -m json.tool
 curl -k -u user:passwd "http://localhost:30080/api/job/list?appSId=APP7f00000129a98189539f1cb000000023" -X GET  | python -m json.tool
 curl -k -u user:passwd "http://localhost:30080/api/job/list?applicationName=BASCULE_DATE" -X GET  | python -m json.tool
+```
 
 # Détail d'un job
+```
 curl -k -u user:passwd "http://localhost:30080/api/job/getById?id=JOB7f0000012b10ca88539f1cb4000000c2" -X GET  | python -m json.tool
+```
 
 # carrément le contenu du script !!!
+```
 curl -k -u user:passwd "http://localhost:30080/api/job/getScript?id=JOB7f0000012b10ca88539f1cb4000000c2"  -X GET  | python -m json.tool
+```
 
 # Liste des Logs (utiliser le job xid et non l'id tout court)
+```
 curl -k -u user:passwd "http://localhost:30080/api/log/getLogList?id=JOBc2"  -X GET  | python -m json.tool
+```

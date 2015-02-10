@@ -8,9 +8,10 @@ categories: [resnopla, vtom.ini, déplanification, Visual TOM, VTOM]
 Une question de Bertrand :
 
 Comment exécuter une application seulement si la précédente se déplanifie et sans passer par des ressources ?
-(notamment utile sur une déplanification suite à une heure maximum ou une "non" ressource)
+(notamment utile sur une déplanification suite à une heure maximum dépassée ou une "non" ressource)
 
-Le plus simple est de configurer resnopla dans le fichier vtom.ini :
+Le plus simple est de configurer resnopla dans le fichier vtom.ini, dans la section du tengine en question :
+
 ```
 [TENGINE:exploitation]
 resnopla=1

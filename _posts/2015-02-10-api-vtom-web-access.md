@@ -69,7 +69,7 @@ curl -k -u user:passwd "http://localhost:30080/api/job/list?applicationName=BASC
     }
 }
 ```
-On a vérifié avec Stephane, les attributs sont hiérarchisés comme dans le vtexport (si pas dans Job, on remonte dans Application, si pas dans Application, on remonte sur Environnement).
+On a vérifié avec Stephane, les attributs sont hiérarchisés comme dans le vtexport xml (si pas dans Job, on remonte dans Application, si pas dans Application, on remonte sur Environnement).
 
 # Détail d'un job
 ```

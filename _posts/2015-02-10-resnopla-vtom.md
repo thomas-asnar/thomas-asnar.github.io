@@ -17,7 +17,7 @@ Le plus simple est de configurer resnopla dans le fichier vtom.ini, dans la sect
 resnopla=1
 ```
 
-Ainsi, l'application ne passera plus à l'état DDEPLANIFIE mais NON-PLANIFIE. 
+Ainsi, l'application ne passera plus à l'état DEPLANIFIE mais NON-PLANIFIE. 
 On peut alors définir un lien exclusif (noir) entre les applications.
 
 exemple :

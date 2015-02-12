@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Exécuter une application si parent déplanifié
+title: Clients VTOM zones Solaris 
 date: 2015-02-12 22:14
 author: Thomas ASNAR
 categories: [sun, solaris, zones, bdaemon, Visual TOM, clients VTOM]

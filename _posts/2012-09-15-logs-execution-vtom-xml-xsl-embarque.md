@@ -17,7 +17,7 @@ La sortie finale en xml a l'avantage d'être visible sur la plupart des navigate
 
 Je vous propose de regarder dans un premier temps le résultat final. Dans un deuxième temps, je vous montrerai mon script en shell qui génère ce fichier xml.
 
-```
+```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet href="#stylesheet" type="text/xsl"?>
 
@@ -405,7 +405,7 @@ Je me base sur la structure du nom des logs d'exécution VTOM. Il y aura suremen
 
 Attention, je ne test pas la volumétrie des logs.
 
-```
+```bash
 #!/bin/sh
 #
 #       AUTEUR : Thomas ASNAR

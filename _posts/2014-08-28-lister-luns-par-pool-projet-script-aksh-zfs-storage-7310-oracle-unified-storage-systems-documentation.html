@@ -31,7 +31,7 @@ Pour scripter, il suffira d'encapsuler ces commandes avec run('commande') soit :
 Pour le reste, ça ressemble comme deux gouttes d'eau à du javascript. Pour ceux qui sont habitués, ça va être très facile de comprendre mon script pour lister les LUNs. 
 
 <h3 id="scriptaksh">Script aksh pour lister les LUNs</h3>
-<pre lang="javascript">
+<pre class="hightlight"><code class="language-javascript" data-lang="javascript">
 run('cd /'); // certain d'être dans le répertoire racine
 run('shares'); // déplace dans shares
 var projects = list(); // liste de tous les projets 
@@ -51,6 +51,7 @@ for (var i = 0; i < projects.length; i++) { // pour chaque pool
    run('cd ..'); // remonte d'un cran pour sortir du select Pool
 }
 run('cd ..'); 
+</code>
 </pre>
 
 Voilà, rien de compliqué. Quand vous voulez adapter, connectez-vous en aksh sur la tête de baie et vérifier les attributs en faisant un " ls ". 

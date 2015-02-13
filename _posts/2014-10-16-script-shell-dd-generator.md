@@ -18,7 +18,7 @@ Toujours est-il que les paramètres de la commande ne sont pas forcément trivia
 # Script
 <a href="/wp-content/uploads/dd_generator.sh.txt">dd_generator.sh</a>
 
-```
+```bash
 #!/bin/sh
 #
 #	SCRIPT	: dd_generator

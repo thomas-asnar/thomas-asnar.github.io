@@ -12,7 +12,7 @@ Comment exécuter une application seulement si la précédente se déplanifie et
 
 Le plus simple est de configurer resnopla dans le fichier vtom.ini, dans la section du tengine en question :
 
-```data
+```
 [TENGINE:exploitation]
 resnopla=1
 ```

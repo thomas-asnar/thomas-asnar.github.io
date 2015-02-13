@@ -5,7 +5,7 @@ date: 2015-02-13 05:14
 author: Thomas ASNAR
 categories: [jekyll, javascript]
 ---
-J'utilise (Jekyll)[jekyllrb.com] pour générer les pages statiques que vous êtes en train de lire.
+J'utilise [Jekyll](jekyllrb.com) pour générer les pages statiques que vous êtes en train de lire.
 
 Le problème d'un site statique, c'est qu'on ne peut pas interroger son serveur web (php, node js ou autre) pour obtenir des informations.
 
@@ -17,12 +17,12 @@ Je ne dis pas que ma solution est la meilleure, mais elle fonctionne. Le princip
 
 J'ai trouvé que le plus simple était d'étoffer un peu le feed.xml proposé par défaut. Après, il est vrai que mon blog n'est pas bien gros, et je me suis permis de mettre tout le contenu dans feed.xml. Mais on peut se restreindre aux mots clés et à un excerpt par exemple.
 
-## (Exemple feed.xml)[https://github.com/thomas-asnar/thomas-asnar.github.io/blob/master/feed.xml]
+## [Exemple feed.xml](https://github.com/thomas-asnar/thomas-asnar.github.io/blob/master/feed.xml)
 
 ```
----
+--&#45;
 layout: null
----
+--&#45;
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>

@@ -9,7 +9,7 @@ Sur les superclusters Solaris, il ne faut pas faire un simple `ps -eaf | grep bd
 
 Le plus drôle arrive si on commence à kill les bdaemon des zones depuis le supercluster en croyant que c'était des bdaemons zombies, ça kill vraiment le client VTOM sur la zone.
 
-C'est pourquoi il vaut mieux effectuer la commande `ps -flz global |  grep bdaemon`
+C'est pourquoi il vaut mieux effectuer la commande `ps -flz global |  grep bdaemon` pour afficher les process du supercluster et, `ps -flZ | grep bdaemon` pour voir tous les clients et les zones associées.
 
 Autres commandes pratiques pour voir les zones : 
 `zoneadm list` 

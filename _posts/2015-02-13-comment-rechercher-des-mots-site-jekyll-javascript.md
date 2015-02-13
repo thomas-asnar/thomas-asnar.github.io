@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Recherche dans un site Jekyll statique en JS
+title: Recherche dans un site Jekyll statique en JS hébergé sur Github
 date: 2015-02-13 05:14
 author: Thomas ASNAR
-categories: [jekyll, javascript]
+categories: [jekyll, javascript, pages Github]
 ---
 J'utilise [Jekyll](jekyllrb.com) pour générer les pages statiques que vous êtes en train de lire.
 

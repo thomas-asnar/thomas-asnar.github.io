@@ -19,7 +19,7 @@ J'ai trouvé que le plus simple était d'étoffer un peu le feed.xml proposé pa
 
 ## [Exemple feed.xml](https://github.com/thomas-asnar/thomas-asnar.github.io/blob/master/feed.xml)
 
-Ensuite, l'idée est de charger avec ajax le fichier feed.xml et de chercher les mots. Puis je mets en forme grâce à javascript (jQuery).
+Ensuite, l'idée est de charger avec ajax le fichier feed.xml et de chercher les mots. Puis je rajoute les éléments dans le DOM avec javascript (jQuery).
 
 Voici ma fonction. L'avantage de la fonction, c'est que je peux créer ensuite plusieurs events (recherche par menu, par click sur les catégories, etc.)
 

@@ -25,7 +25,7 @@ Voici ma fonction. L'avantage de la fonction, c'est que je peux créer ensuite p
 
 ## Fonction de recherche de mots dans un site statique Jekyll
 
-```
+```javascript
 function searchSite(words){
   $.ajax({
     type:'GET',
@@ -76,7 +76,7 @@ function searchSite(words){
 
 ## Exemples d'events qui trigger la fonction
 
-```
+```javascript
 $(document).on('click','#exec-search',function(){
   searchSite($(this).siblings('input').val());
 });

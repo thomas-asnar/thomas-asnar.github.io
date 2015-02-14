@@ -4,7 +4,7 @@ titre-court: home
 ---
 <div id="page-content" class="bg-success">
   
-<h1 class="page-heading">Notes</h1>
+<h1 class="page-heading text-info">Notes</h1>
 
 <ul class="post-list">
 {% for post in paginator.posts %}
@@ -12,7 +12,7 @@ titre-court: home
     <h3>
       <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
       <button type="button" class="btn btn-default btn-xs post-footer-display-categories hidden-xs pull-right">
-        <span class="glyphicon glyphicon-tags"></span>
+        <span class="glyphicon glyphicon-tags text-info"></span>
       </button>
     </h3>
     <footer class="post-footer">

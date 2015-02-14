@@ -1,6 +1,13 @@
 $(".liste-cv").slideUp(1000);
+$(".post-footer-categories").slideUp(1000);
+
 
 /* EVENTS */
+$(document).on('click',".post-footer-display-categories",function(e){
+  var selThis = $(this);
+  selThis.parents('li').find('.post-footer-categories').slideToggle(1000);
+});
+
 $(document).on('click',".panel-slide,.titres-separator",function(e){
   var selThis = $(this);
   var selSpan ;

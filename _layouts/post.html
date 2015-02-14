@@ -12,6 +12,16 @@ layout: default
   <article class="post-content" itemprop="articleBody">
     {{ content }}
   </article>
+
+  <footer class="post-footer">
+    {% if page.categories %}
+      {% for category in page.categories %}
+        <button type="button"  itemprop="articleSection" class="btn btn-default btn-xs btn-categories"><a href="/#!{{ category }}"><span class="glyphicon glyphicon-asterisk"></span>{{ category }}</a></button>
+      {% endfor %}
+    {% endif %}
+    <span  itemprop="author" class="hidden">{{ page.author }}</span>
+  </footer>
+  
   <div id="disqus_thread" ></div>
   <script type="text/javascript">
       /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -24,12 +34,4 @@ layout: default
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       })();
   </script>
-  <footer class="post-footer">
-    {% if page.categories %}
-      {% for category in page.categories %}
-        <button type="button"  itemprop="articleSection" class="btn btn-default btn-xs btn-categories"><a href="/#!{{ category }}"><span class="glyphicon glyphicon-asterisk"></span>{{ category }}</a></button>
-      {% endfor %}
-    {% endif %}
-    <span  itemprop="author" class="hidden">{{ page.author }}</span>
-  </footer>
 </div>

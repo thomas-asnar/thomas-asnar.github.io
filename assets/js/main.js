@@ -35,7 +35,7 @@ doc.on('click',".panel-slide,.titres-separator",function(e){
 });
 
 doc.on('click',"#display-search",function(){
-  $('#exec-search-container').fadeToggle().find('input').focus();
+  $('#exec-search-container').toggle().find('input').focus();
 });
 
 doc.on('click','#exec-search',function(){

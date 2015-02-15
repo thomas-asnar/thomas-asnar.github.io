@@ -16,7 +16,7 @@ titre-court: home
       </button>
     </h2>
     <footer class="post-footer">
-      <div class="post-footer-categories hidden">
+      <div class="post-footer-categories" style="display:none;">
       {% if post.categories %}
         {% for category in post.categories %}
           <button type="button" class="btn btn-default btn-xs btn-categories"><span class="glyphicon glyphicon-asterisk"></span>{{ category }}</button>

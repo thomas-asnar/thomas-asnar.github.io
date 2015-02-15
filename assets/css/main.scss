@@ -126,8 +126,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85c8e2', end
 .post-list{
     padding-left:0;
 }
-.post-list h3{
+.post-list h2{
     margin:0;
+    font-size:$base-font-size;
 }
 .post-meta{
     font-size:0.8em;

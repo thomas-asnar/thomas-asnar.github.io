@@ -1,5 +1,5 @@
 $(".liste-cv").slideUp(1000);
-$(".post-footer-categories").slideUp(1000);
+
 var doc = $(document) ;
 
 /* EVENTS */

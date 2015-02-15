@@ -9,14 +9,14 @@ titre-court: home
 <ul class="post-list">
 {% for post in paginator.posts %}
   <li>
-    <h3>
+    <h2>
       <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
       <button type="button" class="btn btn-default btn-xs post-footer-display-categories hidden-xs pull-right">
         <span class="glyphicon glyphicon-tags text-info"></span>
       </button>
-    </h3>
+    </h2>
     <footer class="post-footer">
-      <div class="post-footer-categories">
+      <div class="post-footer-categories hidden">
       {% if post.categories %}
         {% for category in post.categories %}
           <button type="button" class="btn btn-default btn-xs btn-categories"><span class="glyphicon glyphicon-asterisk"></span>{{ category }}</button>

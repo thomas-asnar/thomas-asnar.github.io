@@ -31,6 +31,11 @@ curl -k -u user:passwd "http://localhost:30080/api/job/list" -X GET  | python -m
 curl -k -u user:passwd "http://localhost:30080/api/job/list?appSId=APP7f00000129a98189539f1cb000000023" -X GET  | python -m json.tool
 curl -k -u user:passwd "http://localhost:30080/api/job/list?applicationName=BASCULE_DATE" -X GET  | python -m json.tool
 ```
+
+# Détail d'un job
+```bash
+curl -k -u user:passwd "http://localhost:30080/api/job/getById?id=JOB7f0000012b10ca88539f1cb4000000c2" -X GET  | python -m json.tool
+```
 ## Exemple de résultat 
 ```json
 {
@@ -70,11 +75,6 @@ curl -k -u user:passwd "http://localhost:30080/api/job/list?applicationName=BASC
 }
 ```
 On a vérifié avec Stephane, les attributs sont hiérarchisés comme dans le vtexport xml (si pas dans Job, on remonte dans Application, si pas dans Application, on remonte sur Environnement).
-
-# Détail d'un job
-```bash
-curl -k -u user:passwd "http://localhost:30080/api/job/getById?id=JOB7f0000012b10ca88539f1cb4000000c2" -X GET  | python -m json.tool
-```
 
 # carrément le contenu du script !!!
 ```bash

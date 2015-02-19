@@ -1,8 +1,10 @@
+<div class="no-print">
 <div id="sun-course"></div>
 <div class="cloud" id="cloud-1"><span class="glyphicon glyphicon-cloud"></span></div>
 <div class="cloud" id="cloud-2"><span class="glyphicon glyphicon-cloud"></span></div>
 <div class="cloud" id="cloud-3"><span class="glyphicon glyphicon-cloud"></span></div>
-<header id="site-header" class="container">
+</div>
+<header id="site-header" class="container no-print">
   <ul id="site-header-menu" class="nav nav-pills">
   <li {% if page.titre-court == 'home' %}class="active"{% endif %}><a class="page-link" href="/" title="home">Blog</a></li>
 {% for pageSite in site.pages %}

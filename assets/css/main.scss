@@ -298,7 +298,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85c8e2', end
 }
 
 @media print{
-    *{display:none;}
     .print{display:block;}
     .no-print{
         display:none!important;

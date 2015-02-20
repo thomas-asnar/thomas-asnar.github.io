@@ -5,7 +5,7 @@ date: 2015-02-20 22:40
 author: Thomas ASNAR
 categories: [vthttpd, dump,SQL, Visual TOM, VTOM]
 ---
-Une autre astuce avec le Webaccess VTOM : on peut dump tout le contenu en un fichier lisible par SQLITE !
+Une autre astuce avec le Webaccess VTOM vthttpd : on peut dump tout le contenu en un fichier exploitable par SQLITE !
 
 Voici un petit exemple :
 

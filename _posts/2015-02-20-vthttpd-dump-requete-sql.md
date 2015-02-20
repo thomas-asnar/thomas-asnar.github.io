@@ -8,6 +8,7 @@ categories: [vthttpd, dump,SQL, Visual TOM, VTOM]
 Une autre astuce avec le Webaccess VTOM : on peut dump tout le contenu en un fichier lisible par SQLITE !
 
 Voici un petit exemple :
+
 ```
 vthttpd -dump /var/tmp/vthttpd.dat
 sqlite3 /var/tmp/vthttpd.dat

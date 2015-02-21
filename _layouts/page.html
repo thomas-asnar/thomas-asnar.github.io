@@ -13,7 +13,9 @@
 
     {% include footer.html %}
     <script src="/assets/js/main.js"></script>
-    
+    {% if page.titre-court == 'Timer' %}
+      <script src="/assets/js/timestamp.js"></script>
+    {% endif %}
   </body>
 
 </html>

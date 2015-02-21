@@ -5,7 +5,7 @@ date: 2015-02-10 20:45
 author: Thomas ASNAR
 categories: [API, webaccess, Visual TOM, VTOM]
 ---
-Vous n'êtes pas sans savoir que VTOM fournit, depuis quelques versions maintenant, un webaccess (un portail web d'accès à VTOM).
+Vous n'êtes pas sans savoir que VTOM fournit, depuis quelques versions maintenant, un webaccess (un portail web d'accès à VTOM / vthttpd).
 
 Sur une question de Stephane, je me suis penché sur son fonctionnement.
 

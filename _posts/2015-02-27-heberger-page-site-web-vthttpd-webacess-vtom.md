@@ -13,8 +13,10 @@ service WebAccess VTOM installé (vhttpd)
 
 ## Configuration du webacces VTOM
 Modifier le vthttpd.ini
+
 ```
 httpAliases="/monsiteweb/=C:\VTOM5\WWW\monsiteweb\"
 httpAllowedURI=/monsiteweb/*
 ```
+
 Se rendre sur la page de vore webacces VTOM suivi de l'alias ex. `localhost:30080/monsiteweb`

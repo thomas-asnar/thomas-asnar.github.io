@@ -26,3 +26,45 @@ Les API Github :
 * [repos](https://developer.github.com/v3/repos)
 * [trees](https://developer.github.com/v3/git/trees)
 
+1. Récupérer le dernier commit du repository (son sha)
+```javascript
+$.ajax({
+  url: "https://api.github.com/repos/laure-photographies/laure-photographies.github.io/branches",
+  success: function(data){
+    // récupération du dernier sha last commit du repos
+    console.log(data[0].commit.sha) ;
+  }
+ });
+```
+
+2. Lister le contenu du répertoire img/ où se trouve les répertoires préfixés qui constitueront les menus
+```javascript
+$.ajax({
+ // github_repo_sha qu'on a récupéré dans l'appel ajax précédant
+  url: "https://api.github.com/repos/laure-photographies/laure-photographies.github.io/git/trees/"+github_repo_sha,
+  success: function(data){
+  
+    // Récupération du sha du dossier img
+    $.each(data.tree,function(){
+      if( this.path == "img"){
+        console.log(this.sha);
+      }
+    });
+  }
+});
+```
+
+3. Lister les images du menu
+```javascript
+$.ajax({
+		url: siteinfo.github_repo+"/git/trees/"+img_sha,
+		success: function(data){
+      
+			// data.tree array des items d'un menu
+			$.each(data.tree,function(){
+			 // liste des noms des fichiers images
+				console.log(this.path) ;
+   });
+ }
+});
+```

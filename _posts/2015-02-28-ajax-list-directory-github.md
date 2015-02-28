@@ -28,7 +28,7 @@ Les API Github :
 * [repos](https://developer.github.com/v3/repos)
 * [trees](https://developer.github.com/v3/git/trees)
 
-1. Récupérer le dernier commit du repository (son sha)
+* Récupérer le dernier commit du repository (son sha)
 
 ```javascript
 $.ajax({
@@ -40,7 +40,7 @@ $.ajax({
 });
 ```
 
-2. Lister le contenu du répertoire img/ où se trouve les répertoires préfixés qui constitueront les menus
+* Lister le contenu du répertoire img/ où se trouve les répertoires préfixés qui constitueront les menus
 
 ```javascript
 $.ajax({
@@ -58,7 +58,7 @@ $.ajax({
 });
 ```
 
-3. Lister les images du menu
+* Lister les images du menu
 
 ```javascript
 $.ajax({

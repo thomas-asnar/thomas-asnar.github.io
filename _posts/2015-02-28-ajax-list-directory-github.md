@@ -14,8 +14,8 @@ categories: [ajax, github, lister, répertoire, images]
 
 # Structure du site 
 * img
-  * &lt;prefix&gt;&lt;nom d'un répertoire images&gt;
-  * img_dyptique (exemple)
+  * &lt;prefix&gt;&lt;nom d'un répertoire menu images&gt;
+  * img_dyptique (dyptique sera un menu)
     * image1.jpg
     * image2.jpg
 

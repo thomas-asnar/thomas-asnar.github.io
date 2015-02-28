@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Lister en ajax le contenu d'un répertoire Github
+title: Lister le contenu d'un répertoire Github en ajax 
 date: 2015-02-28 09:14
 author: Thomas ASNAR
 categories: [ajax, github, lister, répertoire, images]

@@ -9,6 +9,7 @@ Comment compter le nombre de traitements par client VTOM ?
 
 Rien de bien sorcier :
 
+
 ```shell
 # on liste tous les jobs et on redirige dans un fichier temporaire
 tlist jobs > /var/tmp/tlistjobs

@@ -29,7 +29,8 @@ Il vous donnera très certainement la documentation si vous la souhaitez et, vou
 ABSYSS
 15/17 boulevard du Général de Gaulle
 92120 MONTROUGE - France
-33 (0) 1 40 84 89 01
+33 (0) 1 40 84 89 01 (standard)
+33 (0) 1 40 84 85 91 (hotline)
 33 (0) 1 40 84 88 40 Fax
 hotline@absyss.com
 ```

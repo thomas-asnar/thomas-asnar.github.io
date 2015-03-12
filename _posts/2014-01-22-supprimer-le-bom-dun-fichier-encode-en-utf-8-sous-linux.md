@@ -9,7 +9,12 @@ Parfois sur un head file (pour voir la premier ligne) les caractères ï»¿ app
 
 Cela m'est déjà arrivé et mon shebang ne fonctionnait pas (vous savez le fameux  #! en début de script pour spécifier le shell dans lequel va s'exécuter les commandes du script)
 
-Autre cas, vous faites un grep censé fonctionner et aucun retour sur votre grep. Pourtant le cat fonctionne. 
+Autre cas, vous faites un grep censé fonctionner et aucun retour sur votre grep. Pourtant le cat fonctionne.
+essayez la commande head et vous serez fixé sur les premiers bits, les premiers caracteres devraient être étranges
+
+```
+head -n 1 fichier
+```
 
 Pour le supprimer sous LINUX :
 

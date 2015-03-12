@@ -10,26 +10,38 @@ Parfois sur un head file (pour voir la premier ligne) les caractères ï»¿ app
 Cela m'est déjà arrivé et mon shebang ne fonctionnait pas (vous savez le fameux  #! en début de script pour spécifier le shell dans lequel va s'exécuter les commandes du script)
 
 Pour le supprimer sous LINUX :
+
 ```
 tail --bytes=+4 UTF8WithBom.txt > UTF8WithoutBom.txt
 ```
+
 Ca parait tout bête, mais supprimer les premiers caractères semble suffisant.
 
 Pour voir tous les caractères sous LINUX vi : 
+
 ```
 vi file
 :set list
 ```
 
 Pour modifier un encoding sous vi : 
+
 ```
 vi file
-:set fileencodings=utf-8
+:set fileencoding=utf-8
+```
+
+autre methode en ligne de commande (pratique pour scripter)
+
+```
+vim +"set bomb | set fileencoding=utf-8 | wq" fichier
 ```
 
 Dans le même ordre d'idée, voici une solution pour convertir un fichier texte DOS en Unix : 
+
 ```
 :e ++ff=dos
 :setlocal ff=unix
 ```
+
 **source** : [VI file_format](http://vim.wikia.com/wiki/File_format)

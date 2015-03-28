@@ -117,6 +117,8 @@
             "Pour un client grand compte Euriware : Déploiement ~500 agents VTOM, Création ~3000 jobs VTOM",
             "Mise à niveau scripting Powershell en autodidacte (balance Windows/Linux inversée avec mon ancien poste)",
             "Création et mise en place de nouveaux scripts : 70% Windows - 30% Linux/Solaris",
+            "Industrialisation et intégration des Arrêts / Relances applicatifs",
+            "Industrialisation et intégration des Refresh de bases de données inter-plateformes",
             "Industrialisation et intégration des purges de clients VTOM",
             "Industrialisation et intégration des stratégies NetBackup dans VTOM",
             "Résolution des tickets d'incidents N1 à N3 ou escalade sur bug à Absyss (société éditrice)"

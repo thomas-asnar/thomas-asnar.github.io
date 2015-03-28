@@ -5,7 +5,7 @@ date: 2015-02-13 05:14
 author: Thomas ASNAR
 categories: [jekyll, javascript, pages Github]
 ---
-J'utilise [Jekyll](jekyllrb.com) pour générer les pages statiques que vous êtes en train de lire.
+J'utilise [Jekyll](http://jekyllrb.com) pour générer les pages statiques que vous êtes en train de lire.
 
 Le problème d'un site statique, c'est qu'on ne peut pas interroger son serveur web (php, node js ou autre) pour obtenir des informations.
 

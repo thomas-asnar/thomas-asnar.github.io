@@ -17,5 +17,5 @@ sqlite3 /var/tmp/vthttpd.dat
 pragma table_info(JOBS);
 pragma table_info(HOSTS);
 .schema JOBS;
-select JOBS.NAME,HOSTS.NAME from JOBS left joint HOSTS on JOBS.HOST_SID = HOSTS.HOST_SID ;
+select JOBS.NAME,HOSTS.NAME from JOBS left join HOSTS on JOBS.HOST_SID = HOSTS.HOST_SID ;
 ```

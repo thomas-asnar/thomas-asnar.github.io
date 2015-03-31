@@ -95,6 +95,14 @@
         {
             niveau: "2",
             nom: "JBoss"
+        },
+        {
+            niveau: "2",
+            nom: "Symfony"
+        },
+        {
+            niveau: "3",
+            nom: "Zend Framework"
         }
 
         ]

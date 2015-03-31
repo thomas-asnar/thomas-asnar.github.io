@@ -83,6 +83,21 @@
         }
 
         ]
+    },
+    {
+        nomCourt: "applications",
+        nomLong: "Applications",
+        competences: [
+        {
+            niveau: "2",
+            nom: "Weblogic"
+        },
+        {
+            niveau: "2",
+            nom: "JBoss"
+        }
+
+        ]
     }
 
 ]

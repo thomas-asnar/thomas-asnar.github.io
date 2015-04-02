@@ -14,7 +14,7 @@ Première solution, si vous avez ce binaire, le fameux /usr/ucb/ps -auxwww.
 Deuxième solution :
 
 ```
-# On fait un simple ps et on récupère les PID des process grepés
+# On fait un simple ps et on récupère les PID des process grepés (ici par exemple, les processus java lancés par l'utilisateur webadm
 # Ensuite on passe ce PID dans pargs -l pour les détails
 ps -ef | grep java | grep webadm | while read line; do pargs -l $(echo $line | awk '{print $2}') 2> /dev/null ; done
 ```

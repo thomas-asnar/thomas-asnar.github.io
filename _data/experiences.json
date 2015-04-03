@@ -23,7 +23,7 @@
     },
     {
         nomCourt: "armee-de-terre",
-        nomLong: "Formation militaire Armée de terre – dernier grade = Sergent-Chef",
+        nomLong: "Formation militaire Armée de terre (dernier grade Sergent-Chef)",
         ville: "Saint Maixent l'école (79)",
         annee: "2007-2008",
         description: {

@@ -7,8 +7,6 @@ comments: true
 categories: [crontab, crontab -l, sh, script, extraire crontab à distance]
 ---
 
-# Extraction des crontabs de tous les utilisateurs en local ou à distance
- 
 Le principe est d'exécuter  `crontab -l -u user` ou `crontab -l user` pour tous les utilisateurs et pour tous les serveurs distants passés en paramètre dans un fichier.
 
 

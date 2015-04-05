@@ -33,6 +33,9 @@ FIC_SUBSCRIPT=/var/tmp/`basename $0`_${RANDOM}_`date +"%d%m%Y"`.sh
 FIC_SORTIE_EXT_CRONTAB=/var/tmp/`basename $0`_${RANDOM}_`date +"%d%m%Y"`.csv
 > ${FIC_SORTIE_EXT_CRONTAB}
 
+# Ecriture du sous-script
+# si le crontab -l -u user ne fonctionne pas sur votre machine distante, on peut imaginer créer
+# une couche d'abstraction pour la commande crontab selon l'OS
 echo "awk -F\":\" '\$NF !~ /(nologin|sync|shutdown|halt|false)/ {print \$1}' /etc/passwd | while read user ;do \
 export user; \
 FIC_TEMP=/var/tmp/\${RANDOM}_crontab-l; \

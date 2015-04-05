@@ -62,7 +62,7 @@ $.ajax({
 
 ```javascript
 $.ajax({
- url: siteinfo.github_repo+"/git/trees/"+img_sha,
+ url: "https://api.github.com/repos/laure-photographies/laure-photographies.github.io/git/trees/"+img_sha,
  success: function(data){
   // data.tree array des items d'un menu
   $.each(data.tree,function(){

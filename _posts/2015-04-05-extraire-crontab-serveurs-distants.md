@@ -107,7 +107,7 @@ fi
 exit $CR
 ```
 
-Et pour les tâches planifiées voici technique (filtre des tâches microsoft) : 
+Version tâches planifiées Windows (filtre des tâches microsoft) schtasks /query : 
 ```batch
 @echo off
 set USER=administrateur

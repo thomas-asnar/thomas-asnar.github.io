@@ -4,10 +4,16 @@ title: Extraction des crontabs de tous les utilisateurs en local ou à distance
 date: 2015-04-05 10:58
 author: Thomas ASNAR
 comments: true
-categories: [crontab, crontab -l, sh, script, extraire crontab à distance]
+categories: [crontab, crontab -l, sh, script, extraire crontab à distance, tâches planifiees, schtasks /query]
 ---
 
 Le principe est d'exécuter  `crontab -l -u user` (linux) ou `crontab -l user` (solaris) pour tous les utilisateurs et pour tous les serveurs distants passés en paramètre dans un fichier.
+
+Voici comment récupérer facilement la liste de vos clients :
+```bash
+vtmachine | awk  -F"|" '$7 ~ /Win/ {print $3}' | sed 's/^[ \t]*\|[ \t]*$//g' > /var/tmp/liste_client_windows.txt
+vtmachine | awk  -F"|" '$7 ~ /Sol|Lin/ {print $3}' | sed 's/^[ \t]*\|[ \t]*$//g' > /var/tmp/liste_client_unix.txt
+```
 
 
 Script shell à télécharger : [Extract_Crontab.sh](http://thomas-asnar.github.io/scripts/Extract_Crontab.sh)
@@ -99,4 +105,15 @@ else
 fi
 
 exit $CR
+```
+
+Et pour les tâches planifiées voici technique (filtre des tâches microsoft) : 
+```batch
+@echo off
+set USER=administrateur
+set PASSWD=motdepasse
+for /F %i in (c:\temp\liste_client_windows.txt) do (
+schtasks /Query /FO CSV /V /S %i /U %USER% /P %PASSWD% | findstr /V "\Microsoft" | findstr /V '"HostName","TaskName","Next Run Time","Status","Logon Mode","Last Run Time","Last Result","Author","Task To Run","Start In","Comment"' 
+) >> c:\temp\taches_planifiees_windows.csv
+@echo on
 ```

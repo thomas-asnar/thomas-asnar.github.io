@@ -7,7 +7,7 @@ comments: true
 categories: [crontab, crontab -l, sh, script, extraire crontab à distance]
 ---
 
-Le principe est d'exécuter  `crontab -l -u user` ou `crontab -l user` pour tous les utilisateurs et pour tous les serveurs distants passés en paramètre dans un fichier.
+Le principe est d'exécuter  `crontab -l -u user` (linux) ou `crontab -l user` (solaris) pour tous les utilisateurs et pour tous les serveurs distants passés en paramètre dans un fichier.
 
 
 Script shell à télécharger : [Extract_Crontab.sh](http://thomas-asnar.github.io/scripts/Extract_Crontab.sh)
@@ -39,10 +39,12 @@ FIC_SORTIE_EXT_CRONTAB=/var/tmp/`basename $0`_${RANDOM}_`date +"%d%m%Y"`.csv
 echo "awk -F\":\" '\$NF !~ /(nologin|sync|shutdown|halt|false)/ {print \$1}' /etc/passwd | while read user ;do \
 export user; \
 FIC_TEMP=/var/tmp/\${RANDOM}_crontab-l; \
-crontab -l -u \${user} > \$FIC_TEMP 2> /dev/null ; \
 if test \$? -ne 0 ; then \
- rm -f \$FIC_TEMP; \
- continue ; \
+ crontab -l -u \${user} > \$FIC_TEMP 2> /dev/null ; \
+ if test \$? -ne 0 ; then \
+  rm -f \$FIC_TEMP; \
+  continue ; \
+ fi ; \
 fi ; \
 while read line ; do \
  if test -z \"\$line\" ; then \

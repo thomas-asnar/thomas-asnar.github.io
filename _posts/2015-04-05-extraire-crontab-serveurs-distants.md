@@ -10,6 +10,7 @@ categories: [crontab, crontab -l, sh, script, extraire crontab à distance, tâc
 Le principe est d'exécuter  `crontab -l -u user` (linux) ou `crontab -l user` (solaris) pour tous les utilisateurs et pour tous les serveurs distants passés en paramètre dans un fichier.
 
 Voici comment récupérer facilement la liste de vos clients :
+
 ```bash
 vtmachine | awk  -F"|" '$7 ~ /Win/ {print $3}' | sed 's/^[ \t]*\|[ \t]*$//g' > /var/tmp/liste_client_windows.txt
 vtmachine | awk  -F"|" '$7 ~ /Sol|Lin/ {print $3}' | sed 's/^[ \t]*\|[ \t]*$//g' > /var/tmp/liste_client_unix.txt

@@ -39,8 +39,9 @@ FIC_SORTIE_EXT_CRONTAB=/var/tmp/`basename $0`_${RANDOM}_`date +"%d%m%Y"`.csv
 echo "awk -F\":\" '\$NF !~ /(nologin|sync|shutdown|halt|false)/ {print \$1}' /etc/passwd | while read user ;do \
 export user; \
 FIC_TEMP=/var/tmp/\${RANDOM}_crontab-l; \
+crontab -l -u \${user} > \$FIC_TEMP 2> /dev/null ; \
 if test \$? -ne 0 ; then \
- crontab -l -u \${user} > \$FIC_TEMP 2> /dev/null ; \
+ crontab -l \${user} > \$FIC_TEMP 2> /dev/null ; \
  if test \$? -ne 0 ; then \
   rm -f \$FIC_TEMP; \
   continue ; \

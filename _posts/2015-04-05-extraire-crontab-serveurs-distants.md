@@ -109,6 +109,7 @@ exit $CR
 ```
 
 Version tâches planifiées Windows (filtre des tâches microsoft) schtasks /query : 
+
 ```batch
 @echo off
 set USER=administrateur

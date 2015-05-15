@@ -8,10 +8,10 @@ categories: [/etc/init.d, agent, Linux, Script, service, shell, Visual TOM, VTOM
 ---
 L'installation agent VTOM sur linux ne fournit pas de service dans /etc/init.d/ pour vérifier le statut, stopper ou démarrer l'agent. 
 VTOM fournit en revanche les scripts permettant d'administrer l'agent (stop et start). 
-Je vous dévoile le script agent_vtom (à copier coller dans /etc/init.d/agent_vtom en 755) permettant de s'intégrer dans le chkconfig.
-<!--more-->
-<pre lang="bash">
-#!/bin/bash
+Ce script agent_vtom (à copier coller dans /etc/init.d/agent_vtom en 755) permet de s'intégrer dans le chkconfig.
+
+```bash
+#!/bin/ksh
 #
 # chkconfig: 345 90 20
 # description: Agent VTOM.
@@ -129,5 +129,6 @@ case "$1" in
 esac
  
 exit $RETVAL
-</pre>
-Voilà comment installer un service agent vtom linux dans /etc/init.d et chkconfig.
+```
+Tapez `chkconfig --list` pour vérifier la prise en compte.
+

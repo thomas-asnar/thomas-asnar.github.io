@@ -14,7 +14,7 @@ Du coup, pas d'IHM VTOM sur votre poste de travail (IHM = Interface Homme Machin
 
 Qu'à cela ne tienne ! avec cette astuce, on peut créer un tunnel ssh de votre poste de travail vers votre serveur VTOM. On redirige alors tous les flux nécessaires (vtnotifier 30008 et vtserver 30007, ou les votres perso) de votre poste vers le serveur VTOM.
 
-1. Configurer le tunnel ssh avec les flux VTOM dans PuTTY
+* Configurer le tunnel ssh avec les flux VTOM dans PuTTY
 
 ```
 PuTTY Configuration > Connection > SSH > Tunnels :
@@ -37,12 +37,12 @@ vtnotifier 30008
 ```
 (ou vos ports spécifiques)
 
-2. Se connecter au serveur VTOM avec PuTTY pour créer le tunnel ssh
+* Se connecter au serveur VTOM avec PuTTY pour créer le tunnel ssh
 
 Connexion classique. PuTTY Configuration > Session > Host Name (or IP) = @IP du serveur VTOM
 
 Et "Open"
 
-3. Se connecter à VTOM via l'IHM depuis votre poste de travail
+* Se connecter à VTOM via l'IHM depuis votre poste de travail
 
 Ouvrir l'IHM VTOM, et mettre localhost au lieu du serveur VTOM. Et, voilà !

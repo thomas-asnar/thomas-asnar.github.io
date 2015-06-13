@@ -29,6 +29,8 @@ Destination = <@IP ou nom DNS du serveur VTOM>:30008
 ==> Add
 ```
 
+![Tunnel SSH pour IHM VTOM](www.thomas-asnar.github.io/assets/img/putty_Tunnels.jpg)
+
 A vérifier, mais il faut peut-être rajouter les services dans %systemroot%\system32\drivers\etc\services 
 
 ```

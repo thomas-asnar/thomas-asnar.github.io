@@ -28,6 +28,21 @@ Source Port = 30008
 Destination = <@IP ou nom DNS du serveur VTOM>:30008
 ==> Add
 ```
- 
+
+A vérifier, mais il faut peut-être rajouter les services dans %systemroot%\system32\drivers\etc\services 
+
+```
+vtserver 30007
+vtnotifier 30008
+```
+(ou vos ports spécifiques)
+
 2. Se connecter au serveur VTOM avec PuTTY pour créer le tunnel ssh
+
+Connexion classique. PuTTY Configuration > Session > Host Name (or IP) = @IP du serveur VTOM
+
+Et "Open"
+
 3. Se connecter à VTOM via l'IHM depuis votre poste de travail
+
+Ouvrir l'IHM VTOM, et mettre localhost au lieu du serveur VTOM. Et, voilà !

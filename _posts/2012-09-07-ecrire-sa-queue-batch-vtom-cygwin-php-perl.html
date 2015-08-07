@@ -151,13 +151,56 @@ Job ID :                        %TOM_JOB_ID% ou $TOM_JOB_ID
 Mode Exécution :                %TOM_JOB_EXEC% ou $TOM_JOB_EXEC
 Date d'exploitation :           %TOM_DATE% ou $TOM_DATE
 Valeur de la date :             %TOM_DATE_VALUE% ou $TOM_DATE_VALUE
-Log des erreurs :               %TOM_LOG_PATH_E% ou $TOM_LOG_PATH_E
-Log des sorties :               %TOM_LOG_PATH_O% ou $TOM_LOG_PATH_O
+Log des erreurs :               %TOM_LOG_PATH_E% ou $TOM_LOG_PATH_E (edit 2015 : n'existe plus, remplacé par TOM_LOG)
+Log des sorties :               %TOM_LOG_PATH_O% ou $TOM_LOG_PATH_O (edit 2015 : n'existe plus, remplacé par TOM_LOG)
 Action sur les logs :           %TOM_LOG_ACTION% ou $TOM_LOG_ACTION
 Répertoire des logs :           %TOM_LOG_DIR% ou $TOM_LOG_DIR
 Paramètres du script :          $TOM_SCRIPT_ARGS
 Champ famille :                 $TOM_FAMILY
 Répertoire racine :             $TOM_HOME
+
+
+exemple pour les voir toutes, on valorise le champ script d'un job VTOM sous Linux : 
+env |  grep "TOM_" | sort
+
+TOM_ABORT_SIGNAL=9
+TOM_ADMIN=/opt/vtom/vtom/admin
+TOM_APPLICATION=APP
+TOM_BACKUP=/opt/vtom/backup
+TOM_BASES=/opt/vtom/bases
+TOM_BIN=/opt/vtom/vtom/vtom/bin
+TOM_DATE=DATE_TEST
+TOM_DATE_VALUE=07/08/2015
+TOM_ENVIRONMENT=TEST
+TOM_FAMILY=
+TOM_HOME=/opt/vtom/vtom
+TOM_HOST=localhost
+TOM_JOB_EXEC=NORMAL
+TOM_JOB_ID=11934
+TOM_JOB=JOB_OK
+TOM_JOB_MAX_RETRY=1
+TOM_JOB_POINT=0
+TOM_JOB_REMAIN_RETRY=1
+TOM_JOB_RETRY=0
+TOM_LOG_ACTION=   
+TOM_LOGICAL_HOST=Localhost
+TOM_LOG=/opt/vtom/logs/TEST_APP_JOB_OK_150807-114115
+TOM_PERIODICITY=DAY
+TOM_PORT_tomDBd=30001
+TOM_PORT_vtserver=30007
+TOM_QUEUE_PRIORITY=5
+TOM_QUEUE=queue_ksh
+TOM_RECOVERY_MODE=NO
+TOM_REMOTE_SERVER=xxxxx
+TOM_REXX_NAME=rexx
+TOM_SCRIPT_ARGS=
+TOM_SCRIPT=env | sort
+TOM_STILL_WAIT=yes
+TOM_SUBMITTER=/opt/vtom/vtom/admin/tom_submit
+TOM_TRACES=/opt/vtom/traces
+TOM_USER_ADMIN=vtom
+TOM_USER=vtom
+TOM_VISUAL=/opt/vtom/vtom/visual
 </pre>
 <strong><em>Petite astuce</em></strong> :
 Vous voulez connaître toutes les variables envoyées à votre queue ?

@@ -55,3 +55,23 @@ sqlite3 /var/tmp/vthttpd.dat < /var/tmp/monfichier.sql
 Et on grep sur ce qu'on souhaite
 
 (je cherche comment requêter les paramètres si quelqu'un est doué en langage SQL !)
+<edit> alors j'ai trouvé ça mais le problème, c'est que ça me fait une ligne par job et par paramètres
+
+```
+select e.NAME, a.NAME, j.NAME, j.SCRIPT, h.NAME, u.NAME, q.NAME, d.NAME, p.VALUE, p.POSITION
+from jobs j
+left join applications a on j.APP_SID = a.APP_SID
+left join environments e on a.ENV_SID = e.ENV_SID
+left join hosts h on j.HOST_SID = h.HOST_SID or (ifnull(j.HOST_SID,'') = '' and ( a.HOST_SID = h.HOST_SID or (ifnull(a.HOST_SID,'') = '' and e.HOST_SID = h.HOST_SID) ) )
+left join users u on j.USER_SID = u.USER_SID or (ifnull(j.USER_SID,'') = '' and ( a.USER_SID = u.USER_SID or (ifnull(a.USER_SID,'') = '' and e.USER_SID = u.USER_SID) ) )
+left join queues q on j.QUEUE_SID = q.QUEUE_SID or (ifnull(j.QUEUE_SID,'') = '' and ( a.QUEUE_SID = q.QUEUE_SID or (ifnull(a.QUEUE_SID,'') = '' and e.QUEUE_SID = q.QUEUE_SID) ) )
+left join dates d on j.DATE_SID = d.DATE_SID or (ifnull(j.DATE_SID,'') = '' and ( a.DATE_SID = d.DATE_SID or (ifnull(a.DATE_SID,'') = '' and e.DATE_SID = d.DATE_SID) ) )
+left join job_parameters p on j.JOB_SID = p.JOB_SID ;
+```
+
+Après, on peut faire assez simplement des recherches avec awk :
+
+```
+# Exemple : je cherche les jobs qui ont pour paramètre la 3ème position, l'environnement IFP et l'application DATE-RUEIL
+sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql | awk -F"|" '$10 ~ /3/ && $1 ~ /IFP/ && $2 ~ /DATE-RUEIL/ {print}'
+```

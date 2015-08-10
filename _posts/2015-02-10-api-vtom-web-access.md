@@ -103,7 +103,7 @@ http://localhost:30080/api/<item>/list
 Pour avoir le détail d'un item en particulier
 http://localhost:30080/api/<item>/getById?id=<id>
 
-Pour avoir filtrer la liste d'un ensemble d'item sur un attribut particulier
+Pour filtrer la liste d'un ensemble d'item sur un attribut particulier
 http://localhost:30080/api/<item>/list?<attribut>=<valeur>
 
 Si l'attribut n'est pas présent dans l'item le plus bas (job), il faut remonter d'un cran (application) et encore d'un cran si besoin (environment). Notion de hiérarchie, notamment pour les dates, host, queue, user.

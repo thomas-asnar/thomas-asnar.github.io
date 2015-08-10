@@ -32,12 +32,12 @@ curl -k -u user:passwd "http://localhost:30080/api/job/list?appSId=APP7f00000129
 curl -k -u user:passwd "http://localhost:30080/api/job/list?applicationName=BASCULE_DATE" -X GET  | python -m json.tool
 ```
 
-# Détail d'un job
+# Détails d'un job
 ```bash
 curl -k -u user:passwd "http://localhost:30080/api/job/getById?id=JOB7f0000012b10ca88539f1cb4000000c2" -X GET  | python -m json.tool
 ```
 
-# Détail de tous les jobs (ou autres items)
+# Détails de tous les jobs (ou autres items)
 ```bash
 curl -k -u user:passwd "http://localhost:30080/api/job/getAll" -X GET  | python -m json.tool
 ```

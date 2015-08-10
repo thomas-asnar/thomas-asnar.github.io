@@ -19,4 +19,4 @@ httpAliases="/monsiteweb/=C:\VTOM5\WWW\monsiteweb\"
 httpAllowedURI=/monsiteweb/*
 ```
 
-Se rendre sur la page de vore webacces VTOM suivi de l'alias ex. `localhost:30080/monsiteweb`
+Se rendre sur la page de votre webacces VTOM suivi de l'alias ex. `localhost:30080/monsiteweb/`

@@ -92,6 +92,23 @@ curl -k -u user:passwd "http://localhost:30080/api/job/getScript?id=JOB7f0000012
 curl -k -u user:passwd "http://localhost:30080/api/log/getLogList?id=JOBc2"  -X GET  | python -m json.tool
 ```
 
+# Si je résume :
+```
+Pour avoir toutes les informations détaillées d'un ensemble d'items (environment, application, job, date, host etc)
+http://localhost:30080/api/<item>/getAll
+
+Pour avoir toute la liste d'un ensemble d'items mais avec moins de détails 
+http://localhost:30080/api/<item>/list
+
+Pour avoir le détail d'un item en particulier
+http://localhost:30080/api/<item>/getById?id=<id>
+
+Pour avoir filtrer la liste d'un ensemble d'item sur un attribut particulier
+http://localhost:30080/api/<item>/list?<attribut>=<valeur>
+
+Si l'attribut n'est pas présent dans l'item le plus bas (job), il faut remonter d'un cran (application) et encore d'un cran si besoin (environment). Notion de hiérarchie, notamment pour les dates, host, queue, user.
+```
+
 # Petite astuce côté client pour effectuer une request REST sur l'api VTOM sans utiliser jQuery
 ```javascript
 var serveurVtom = "http://monserveurvtom:30080" ;

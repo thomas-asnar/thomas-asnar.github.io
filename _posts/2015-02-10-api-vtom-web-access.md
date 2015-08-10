@@ -85,3 +85,37 @@ curl -k -u user:passwd "http://localhost:30080/api/job/getScript?id=JOB7f0000012
 ```bash
 curl -k -u user:passwd "http://localhost:30080/api/log/getLogList?id=JOBc2"  -X GET  | python -m json.tool
 ```
+
+# Petite astuce côté client pour effectuer une request REST sur l'api VTOM sans utiliser jQuery
+```javascript
+var serveurVtom = "http://monserveurvtom:30080" ;
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function(){
+      var status = xhr.status;
+
+      if (status == 200) {
+        
+        if(xhr.response != null) {
+                // toute la réponse avec les columns et les rows
+                console.log( xhr.response ) ;
+                // on récupère le nom par exemple et on l'affiche dans la console
+                xhr.response.result.rows.forEach(function(entry){
+                        console.log(entry.name);
+                });
+        }
+        
+      } else {
+        console.log("error");
+        console.log(status);
+      }
+}
+xhr.open('GET', serveurVtom + '/api/job/list');
+xhr.responseType = 'json';
+
+// attention sous unix echo "user:passwdord" | base64 interprète le saut de ligne du echo et vous donne une mauvaise authentification
+// il faut utiliser l'option -n, echo -n "user:password" | base64
+// on peut utiliser un encodage base64 via javascript directement mais dans ce cas le user:mdp est en clair dans le code
+xhr.setRequestHeader('Authorization', 'Basic dGFzbmFyOlZ0MG0xbkB0MHI=');
+xhr.send();
+```
+

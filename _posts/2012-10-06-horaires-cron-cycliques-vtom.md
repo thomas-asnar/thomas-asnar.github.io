@@ -12,7 +12,7 @@ MM HH1,HH2 -> se lance à HH1:MM, et HH2:MM
 MM1,MM2 HH1,HH2 -> se lance à HH1:MM1, HH1:MM2, HH2:MM1, et HH2:MM2
 
 
-Pour l'exemple de Guillaume, il faudra définir un cycle comme cela : 
+Pour l'exemple de Guillaume, pour un lancement à 13h, 16h et 19h, il faudra définir un cycle comme cela : 
 
 00 13,16,19
 

@@ -11,6 +11,27 @@ Je vois deux principaux intérêts à la commande dd unix.
 1. Copie bloc à bloc d'un support (CD, DVD, Clé, Disques, etc.)
 2. Test de performance d'écriture entre la source et la destination de la copie.
 
+<p>edit 2015)</p>
+<p>je viens de découvrir qu'on pouvait créer un fichier plein de zéro (avec dd par exemple), le formater, et le monter comme si c'était un filesystem ! ça me parait fou mais ça semble fonctionner. Très pratique quand il n'y a pas de VG ou plus de place pour créer des lv, ou pas de fs disponible. 
+
+Ca permet surtout de cloisonner l'espace disque si, par exemple, on ne veut pas qu'un répertoire impacte le fs complet.
+<a href="http://souptonuts.sourceforge.net/quota_tutorial.html" title="Linux quota tutorial">Magnifique tutorial de quota pour linux</a>
+<pre>
+Next, create a 20M file (disk image) in a suitable location. What I did below is create the file disk-quota.ext3 in the directory /usr/disk-img.
+
+   # mkdir -p /usr/disk-img
+   # dd if=/dev/zero of=/usr/disk-img/disk-quota.ext3 count=40960
+The dd command above created a 20MB file because, by default, dd uses a block size of 512 bytes. That makes this size: 40960*512=20971520. For kicks, we'll confirm this size.
+
+   # ls -lh /usr/disk-img/disk-quota.ext3
+   -rw-r--r--  1 root root 20M Jul 19 14:34 /usr/disk-img/disk-quota.ext3
+Next, format this as an ext3 filesystem.
+
+   # /sbin/mkfs -t ext3 -q /usr/disk-img/disk-quota.ext3 -F
+The "-t" gives it the type. You're not limited to ext3. In fact, you could use ext2 or other filesystems installed on your system. The "-q" is for the device, and "-F" is to force the creation without warning us that this is a file and not a block device.
+</pre>
+</p>
+
 <a title="Lien Wikipédia dd (Unix)" href="http://fr.wikipedia.org/wiki/Dd_%28Unix%29">Lien Wikipédia dd (Unix).</a>
 
 Toujours est-il que les paramètres de la commande ne sont pas forcément triviales. C'est pourquoi j'ai fait un petit script shell avec un menu.

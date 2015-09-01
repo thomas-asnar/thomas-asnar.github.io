@@ -77,5 +77,5 @@ Après, on peut faire assez simplement des recherches avec awk :
 sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql | awk -F"|" '$10 ~ /3/ && $1 ~ /IFP/ && $2 ~ /DATE-RUEIL/ {print}'
 
 # mettre tous les paramètres sur une seule ligne (j'ai rajouté le job.SID 
-sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql | sort | awk -F "|" 'BEGIN{ job_sid=null;} {if($1 == job_sid){ printf "%s:%s;",$11,$10 }else{ if(job_sid != null){ printf "\n" } ; printf "%s|%s|%s|%s|%s|%s|%s|%s|%s:%s;",$2,$3,$4,$5,$6,$7,$8,$9,$11,10 } ; job_sid=$1 ;}'
+sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql | sort | awk -F "|" 'BEGIN{ job_sid=null;} {if($1 == job_sid){ printf "%s:%s;",$11,$10 }else{ if(job_sid != null){ printf "\n" } ; printf "%s|%s|%s|%s|%s|%s|%s|%s|%s:%s;",$2,$3,$4,$5,$6,$7,$8,$9,$11,$10 } ; job_sid=$1 ;}'
 ```

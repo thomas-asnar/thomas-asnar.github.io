@@ -36,7 +36,7 @@ exploitation|appli_test|job3|jobok.bat|client_local|vtom|queue_wnt|date_exp
 
 
 
-select e.NAME, a.NAME, j.NAME, j.SCRIPT, h.NAME, u.NAME, q.NAME, d.NAME
+select j.JOB_SID, e.NAME, a.NAME, j.NAME, j.SCRIPT, h.NAME, u.NAME, q.NAME, d.NAME
 from jobs j
 left join applications a on j.APP_SID = a.APP_SID
 left join environments e on a.ENV_SID = e.ENV_SID

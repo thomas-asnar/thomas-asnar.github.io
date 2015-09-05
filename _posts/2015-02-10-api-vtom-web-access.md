@@ -141,4 +141,7 @@ xhr.responseType = 'json';
 xhr.setRequestHeader('Authorization', 'Basic dGFzbmFyOlZ0MG0xbkB0MHI=');
 xhr.send();
 ```
+
+
 [Un exemple pour lister tous les jobs, il faut changer l'ip, le port et encoder le user:password](/wp-content/uploads/list_all_jobs.html)
+Bon évidemment ça ne donnera rien mais importer cette page chez vous, et changer l'IP, le port et le mot de passe pour que ça fonctionne.

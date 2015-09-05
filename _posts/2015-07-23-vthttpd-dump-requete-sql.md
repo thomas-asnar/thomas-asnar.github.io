@@ -59,7 +59,7 @@ Et on grep sur ce qu'on souhaite
 edit) alors j'ai trouvé ça mais le problème, c'est que ça me fait une ligne par job et par paramètre (ex. 4 paramètres = 4 lignes du coup)
 
 ```sql
-select e.NAME, a.NAME, j.NAME, j.SCRIPT, h.NAME, u.NAME, q.NAME, d.NAME, p.VALUE, p.POSITION
+select j.JOB_SID, e.NAME, a.NAME, j.NAME, j.SCRIPT, h.NAME, u.NAME, q.NAME, d.NAME, p.POSITION, p.VALUE,
 from jobs j
 left join applications a on j.APP_SID = a.APP_SID
 left join environments e on a.ENV_SID = e.ENV_SID
@@ -73,9 +73,9 @@ left join job_parameters p on j.JOB_SID = p.JOB_SID ;
 Après, on peut faire assez simplement des recherches avec awk :
 
 ```bash
-# Exemple : je cherche les jobs qui ont pour paramètre la 3ème position, l'environnement IFP et l'application DATE-RUEIL
-sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql | awk -F"|" '$10 ~ /3/ && $1 ~ /IFP/ && $2 ~ /DATE-RUEIL/ {print}'
+# Exemple : je cherche les jobs qui ont pour paramètre la 3ème position, l'environnement TEST et l'application DATE-RUEIL
+sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql | awk -F"|" '$10 ~ /3/ && $2 ~ /TEST/ && $3 ~ /DATE-RUEIL/ {print}'
 
-# mettre tous les paramètres sur une seule ligne (j'ai rajouté le job.SID 
-sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql | sort | awk -F "|" 'BEGIN{ job_sid=null;} {if($1 == job_sid){ printf "%s:%s;",$11,$10 }else{ if(job_sid != null){ printf "\n" } ; printf "%s|%s|%s|%s|%s|%s|%s|%s|%s:%s;",$2,$3,$4,$5,$6,$7,$8,$9,$11,$10 } ; job_sid=$1 ;}'
+# mettre tous les paramètres sur une seule ligne 
+sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql | sort | awk -F "|" 'BEGIN{ job_sid=null;} {if($1 == job_sid){ printf "%s:%s;",$10,$11 }else{ if(job_sid != null){ printf "\n" } ; printf "%s|%s|%s|%s|%s|%s|%s|%s|%s:%s;",$2,$3,$4,$5,$6,$7,$8,$9,$10,$11 } ; job_sid=$1 ;}'
 ```

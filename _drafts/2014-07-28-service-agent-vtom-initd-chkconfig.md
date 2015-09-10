@@ -16,7 +16,7 @@ Ce script agent_vtom (à copier coller dans /etc/init.d/agent_vtom en 755) perme
 # chkconfig: 345 90 20
 # description: Agent VTOM.
 #========================================================
- 
+
 USER_VTOM=vtom
 if [ "$USER_VTOM" = "`whoami`" ]; then
   SUBMIT=""
@@ -28,94 +28,106 @@ else
 fi
 TOM_HOME=${TOM_HOME:-/opt/vtom}
 RETVAL=0
- 
+
 prog="Agent VTOM"
- 
+
 start(){
+	status
+        if test $RETVAL -eq 0; then
+		echo "$prog déjà démarré"
+		exit 0
+	fi	
+
         echo -n "Démarrage $prog: "
- 
+
         if test -z "$SUBMIT"; then
                         eval "${TOM_HOME}/admin/start_client &"
         else
                         $SUBMIT "${TOM_HOME}/admin/start_client &"
         fi
- 
+
         limite=5
         cpt=0
- 
+
         while test $cpt -lt $limite
         do
+		status
                 if test $RETVAL -eq 1; then
                         cpt=`expr $cpt + 1`
-                        status
                 else
-                        break
+                	echo -e "\nAgent VTOM \033[0;32mDEMARRé\E[0m\n"
+			exit 0
                 fi
                 sleep 2
         done
- 
+
+	status
         if test $RETVAL -eq 1; then
                 echo "Problème lors du démarrage $prog"
-                RETVAL=0
-        else
-                echo -e "\nAgent VTOM \033[0;32mDEMARRé\e[0m\n"
+		exit 123
         fi
 }
- 
-stop(){
-        echo -n $"Arrêt $prog: "
- 
+
+stop_vtom(){
+	status
+        if test $RETVAL -eq 1; then
+		echo "$prog déjà arrêté"
+		exit 0
+	fi	
+	
+        echo -n "Arrêt $prog: "
+
         if test -z "$SUBMIT" ; then
                         eval "${TOM_HOME}/admin/stop_client &"
-        else                                                                                                                                                                                                             28 07 2014 16:52:45
+        else 
                         $SUBMIT "${TOM_HOME}/admin/stop_client &"
         fi
- 
+
         limite=5
         cpt=0
- 
+
         while test $cpt -lt $limite
         do
+                status
                 if test $RETVAL -eq 0; then
                         cpt=`expr $cpt + 1`
-                        status
                 else
-                        break
+                	echo -e "\nAgent VTOM \033[0;31mARRETé\E[0m\n"
+			exit 0
                 fi
                 sleep 2
         done
- 
+	
+	status
         if test $RETVAL -eq 0; then
                 echo "Problème lors de l'arrêt $prog"
-        else
-                echo -e "\nAgent VTOM \033[0;31mARRETé\e[0m\n"
-                RETVAL=0
+		exit 124
         fi
- 
+
         }
- 
+
 status(){
-        ps -ef|grep vtom|grep bdaemon|grep -v status 1> /dev/null 2> /dev/null
+        ps -ef|grep bdaemon|grep -v grep 1> /dev/null 2>&1
         if [ $? != 0 ] ; then
-                        echo -e "\n$prog : \033[0;31mOFF\e[0m\n"
-                        RETVAL=1
+		echo -e "\n$prog : \033[0;31mOFF\E[0m\n"
+		RETVAL=1
         else
-                echo -e "\n$prog : \033[0;32mON\e[0m\n"
+                echo -e "\n$prog : \033[0;32mON\E[0m\n"
                 RETVAL=0
         fi
 }
- 
+
 restart(){
-    stop
+    stop_vtom
     start
 }
- 
+
 case "$1" in
     start)
         start
         ;;
     stop)
-        stop
+        stop_vtom
         ;;
     status)
         status
@@ -127,7 +139,7 @@ case "$1" in
         echo $"Usage: $0 {start|stop|status|restart}"
         RETVAL=1
 esac
- 
+
 exit $RETVAL
 ```
 

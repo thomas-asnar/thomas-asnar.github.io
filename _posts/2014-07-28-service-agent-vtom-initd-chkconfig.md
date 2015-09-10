@@ -11,6 +11,7 @@ VTOM fournit en revanche les scripts permettant d'administrer l'agent (stop et s
 Ce script agent_vtom (à copier coller dans /etc/init.d/agent_vtom en 755) permet de s'intégrer dans le chkconfig.
 
 [agent_vtom](/scripts/agent_vtom)
+
 ```bash
 #!/bin/ksh
 #

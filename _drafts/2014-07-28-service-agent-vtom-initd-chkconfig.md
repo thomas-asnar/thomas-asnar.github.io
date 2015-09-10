@@ -4,7 +4,7 @@ title: Service agent vtom dans /etc/init.d/ et chkconfig
 date: 2014-07-28 17:13
 author: Thomas ASNAR
 comments: true
-categories: [/etc/init.d, agent, Linux, Script, service, shell, Visual TOM, VTOM, VTOM]
+categories: [/etc/init.d, agent, Linux, Script, service, shell, Visual TOM, VTOM]
 ---
 L'installation agent VTOM sur linux ne fournit pas de service dans /etc/init.d/ pour vérifier le statut, stopper ou démarrer l'agent. 
 VTOM fournit en revanche les scripts permettant d'administrer l'agent (stop et start). 

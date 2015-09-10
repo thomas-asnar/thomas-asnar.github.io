@@ -32,7 +32,7 @@ RETVAL=0
 prog="Agent VTOM"
  
 start(){
-        echo -n $"Démarrage $prog: "
+        echo -n "Démarrage $prog: "
  
         if test -z "$SUBMIT"; then
                         eval "${TOM_HOME}/admin/start_client &"
@@ -129,6 +129,11 @@ case "$1" in
 esac
  
 exit $RETVAL
+```
+
+```bash
+chkconfig --add agent_vtom
+chkconfig agent_vtom on
 ```
 Tapez `chkconfig --list` pour vérifier la prise en compte.
 

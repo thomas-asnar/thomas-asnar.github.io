@@ -27,8 +27,8 @@ On veut un fichier généré par un script VTOM avec les objets suivants :
 env;app;job;script;host;[parameter|[parameter|]..]
 ```
 
-Cf. (vthttpd -dump)[http://thomas-asnar.github.io/vthttpd-dump-requete-sql]
-ou  (tlist amélioré)[http://thomas-asnar.github.io/vtom-tlist-ameliore-affichage-script-parametres-et-autres-champ]
+Cf. [vthttpd -dump](http://thomas-asnar.github.io/vthttpd-dump-requete-sql)
+ou  [tlist amélioré](http://thomas-asnar.github.io/vtom-tlist-ameliore-affichage-script-parametres-et-autres-champ)
 
 ```bash
     

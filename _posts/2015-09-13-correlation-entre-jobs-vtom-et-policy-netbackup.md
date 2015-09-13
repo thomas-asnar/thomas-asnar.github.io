@@ -13,19 +13,25 @@ Vérifier qu'on a bien autant de jobs VTOM que de couple Netbackup POLICY / SCHE
 
 ### Méthode :
 
-Je n'ai pas trouvé comment faire un dump des policies (stratégies de sauvegardes Netbackup) en XML ou autre format facilement exploitation.
+Je n'ai pas trouvé comment faire un dump des policies (stratégies de sauvegardes Netbackup) en XML ou autre format facilement exploitable.
 Il y a bien le `bppllist` mais la sortie à l'écran n'est pas très pratique à retraiter.
 
 Il semblerait que la base de données Netbackup soit consitutuée ou du moins qu'on retrouve toutes les données, dans des fichiers plats / nom de dossiers.
 
 J'ai pu retrouver toutes les policies dans `/usr/openv/netbackup/db/class` par exemple. On peut y récupérer les schedules, les hosts, etc.
 
+### Pré-requis
+
+On veut un fichier généré par un script VTOM avec les objets suivants : 
+```
+env;app;job;script;host;[parameter|[parameter|]..]
+```
+
+Cf. (vthttpd -dump)[http://thomas-asnar.github.io/vthttpd-dump-requete-sql]
+ou  (tlist amélioré)[http://thomas-asnar.github.io/vtom-tlist-ameliore-affichage-script-parametres-et-autres-champ]
+
 ```bash
-    # On veut un fichier généré par un script VTOM avec les objets suivants : 
-    # env;app;job;script;host;[parameter|[parameter|]..]
-    # voir mon article (vthttpd -dump)[http://thomas-asnar.github.io/vthttpd-dump-requete-sql]
-    # ou (tlist amélioré)[http://thomas-asnar.github.io/vtom-tlist-ameliore-affichage-script-parametres-et-autres-champ]
-		
+    
 		export FIC_ALL_JOBS=/var/tmp/all_jobs_tlist.txt
 		fn_Controle_Presence_Fichier ${FIC_ALL_JOBS}
 		test ${vRC_CODE} -ne 0 && break

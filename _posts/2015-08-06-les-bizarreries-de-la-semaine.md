@@ -52,3 +52,14 @@ compteur=0; while read line ; do echo -en "$line" ; if test `expr $compteur % 2`
 ```
 
 (Attention des fois le vtmachine /info ne donne pas de Username)
+
+
+
+* Petite astuce pour récupérer le dernier startup tomcat avec le log catalina.out
+
+```
+date --date="$(grep -B 1 "INFO: Server startup" catalina.out | grep -v "INFO: Server startup" | tail -n1 | awk '{$NF="";$(NF-1)="" ;print}')"
+
+# Si on décortique, 
+# on grep INFO: Server startup et la ligne d'avant, on affiche la ligne d'avant seulement sans les deux derniers champs (pour récupérer seulement l'heure de démarrage)
+```

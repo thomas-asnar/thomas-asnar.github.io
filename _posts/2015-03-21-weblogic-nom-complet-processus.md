@@ -23,4 +23,7 @@ Encore une autre solution si on a pas `pargs`
 
 ```
 /proc/<pid>/cmdline
+
+# attention si on fait du grep sur du binary file comme dans /proc il faut utiliser l'option --text ou -a
+egrep --color --text "pattern" /proc/<pid>/cmdline
 ```

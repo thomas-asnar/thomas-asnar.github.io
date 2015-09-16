@@ -18,3 +18,9 @@ Deuxième solution :
 # Ensuite on passe ce PID dans pargs -l pour les détails
 ps -ef | grep java | grep webadm | while read line; do pargs -l $(echo $line | awk '{print $2}') 2> /dev/null ; done
 ```
+
+Encore une autre solution si on a pas `pargs`
+
+```
+/proc/<pid>/cmdline
+```

@@ -25,7 +25,7 @@ sass:
 
 highlighter: pygments
 
-paginate: 15
+paginate: 10
 
 gems:
   - jekyll-sitemap

@@ -10,14 +10,23 @@ Pour faire simple, Docker va me permettre de déployer un serveur VTOM de test p
 
 (en fait, j'utilisais docker sans le savoir quand je déployais mes applications via Openshift de RedHat)
 
-Docker se base sur une image qui va être montée en r/o (dans mon cas une debian)
+Docker se base sur une image qui va être montée en r/o (dans mon cas une debian) grâce à la couche OS de la machine qui fait tourner Docker Engine.
+
 Puis, lors qu'on RUN l'image, il monte une surcouche UnionFS en r/w.
 Le tout, monté, s'appelle un conteneur.
 
-Le conteneur n'est autre qu'un OS avec l'application qu'on aura déployée dessus.
+En fait, la notion de conteneur semble exister depuis pas mal de temps. Mais Docker arrive à banaliser les opérations de création, déploiement, et de gestion. (pas beaucoup de lignes de commandes, très faciles à appréhender et utilisables par tous)
+
+Le conteneur n'est autre qu'un genre d'OS avec l'application qu'on aura déployée dessus.
+
+On est bien d'accord que ça n'est pas réellement un OS puisqu'il s'appuie sur l'OS du host et qu'il ne fait que charger les librairies/binaires et l'application qu'on aura éventuellement configurée ; tout ça grâce au Docker Engine.
+
+[Illustration très claire de ce qu'est Docker](https://www.docker.com/whatisdocker)
 
 Lorsqu'on quittera le conteneur, tout le travail effectué aura disparu. 
+
 Plusieurs solutions si on veut garder les modifications :
+
 * si c'est propre à l'OS ou de la configuration applicative, on va valider notre conteneur (commit) pour en faire une image
 * si c'est plus pour sauvegarder et utiliser des fichiers, on va créer un dossier partagé entre le host et l'image. On peut aussi partager des volumes entre les conteneurs avec les [Data Volumes](https://docs.docker.com/userguide/dockervolumes)
 

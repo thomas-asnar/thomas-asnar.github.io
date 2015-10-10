@@ -32,7 +32,10 @@ Plusieurs solutions si on veut garder les modifications :
 
 Je fais ça pour éviter d'avoir à ré-installer à la main à chaque fois un environenement de test avec la licence qui expire au bout de 30 jours.
 On pourra aussi scripter le déploiement d'une licence particulière ou d'une base VTOM (ou vtimport pourquoi pas).
- 
+
+Si vous voulez une intro en français de Docker, voici une vidéo qui dégrossit bien le concept :
+[video Grafikart](http://www.grafikart.fr/tutoriels/docker/docker-intro-634)
+
 ## Mode opératoire
 
 ### First things firt - Installation de Docker

@@ -66,6 +66,7 @@ date --date="$(grep -B 1 "INFO: Server startup" catalina.out | grep -v "INFO: Se
 
 
  * ouvrir les ports des firewalls pour les flux VTOM, c'est sympa mais des fois, iptables bloque aussi :
+
 ```
 cp -p /etc/sysconfig/iptables /etc/sysconfig/iptables.$(date +%Y%m%d) 
 #Editer le fichier /etc/sysconfig/iptables 

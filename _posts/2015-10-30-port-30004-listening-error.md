@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Port 30004 anormalement en LISTENING
+title: Port 30004 encore en LISTENING malgré l'arrêt du client VTOM
 date: 2015-10-30 20:21
 author: Thomas ASNAR
 categories: [client VTOM, port, 30004, WerFault.exe, bstat, LISTENING, VTOM]

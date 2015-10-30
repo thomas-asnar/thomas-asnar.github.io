@@ -63,3 +63,16 @@ date --date="$(grep -B 1 "INFO: Server startup" catalina.out | grep -v "INFO: Se
 # Si on décortique, 
 # on grep INFO: Server startup et la ligne d'avant, on affiche la ligne d'avant seulement sans les deux derniers champs (pour récupérer seulement l'heure de démarrage)
 ```
+
+
+ * ouvrir les ports des firewalls pour les flux VTOM, c'est sympa mais des fois, iptables bloque aussi :
+```
+cp -p /etc/sysconfig/iptables /etc/sysconfig/iptables.$(date +%Y%m%d) 
+#Editer le fichier /etc/sysconfig/iptables 
+#Ajouter avant la ligne "-A INPUT -j REJECT --reject-with icmp-host-prohibited" les 2 lignes suivantes : 
+-A INPUT -s x.x.x.x/32 -p tcp -m state --state NEW -m tcp --dport 30004 -j ACCEPT 
+
+#Relancer le serice iptables : 
+service iptables stop 
+service iptables start
+```

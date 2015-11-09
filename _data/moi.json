@@ -1,7 +1,7 @@
 {
     nom: "ASNAR",
     prenom: "Thomas",
-    metier: "Analyste d'exploitation",
+    metier: "Analyste d'exploitation<br>Expert Ordonnancement et Infrastructures",
     anniversaire-j: "19",
     anniversaire-m: "01",
     anniversaire-a: "1983",

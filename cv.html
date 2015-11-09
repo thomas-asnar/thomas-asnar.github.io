@@ -47,6 +47,7 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation, export o
     {% capture annee_exp %}{{ annee_exp }} {{ annee_text }}{% endcapture %}
     {% endif %}
     <p id="accroche">{{ site.data.moi.accroche | replace: 'annee_exp_totale',annee_exp_totale | replace: 'annee_exp',annee_exp | replace:'employeur_actuel',site.data.moi.employeur_actuel }}</p>  
+    <a href="{{ site.data.moi.downloadcv }}" title="CV Thomas ASNAR"><span class="glyphicon glyphicon-download-alt"></span>{{ site.data.moi.downloadcv }}</a>
   </div>
   
   <div id="experiences">

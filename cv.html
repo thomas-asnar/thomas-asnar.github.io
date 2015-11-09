@@ -22,7 +22,7 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation, export o
         <li itemprop="url"><span class="glyphicon glyphicon-globe"></span>{{ site.data.moi.home }}</li>
         <li itemprop="address"><span class="glyphicon glyphicon-home"></span>{{ site.data.moi.residence }}</li>
         <li><span class="glyphicon glyphicon-user"></span>&Acirc;ge {{ site.time| date:'%Y'| minus: site.data.moi.anniversaire-a }} ans, {{ site.data.moi.famille }}<span class="hidden" itemprop="birthDate">{{ site.data.moi.anniversaire-a }}-{{ site.data.moi.anniversaire-m }}-{{ site.data.moi.anniversaire-j }}</span></li>
-        <li><span class="glyphicon glyphicon-plane"></span>Télécharger CV en pdf</li>
+        <li><span class="glyphicon glyphicon-plane"></span>{{ site.data.moi.permis }}</li>
       </ul>
     </div>
     </div>
@@ -47,7 +47,7 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation, export o
     {% capture annee_exp %}{{ annee_exp }} {{ annee_text }}{% endcapture %}
     {% endif %}
     <p id="accroche">{{ site.data.moi.accroche | replace: 'annee_exp_totale',annee_exp_totale | replace: 'annee_exp',annee_exp | replace:'employeur_actuel',site.data.moi.employeur_actuel }}</p>  
-    <a href="{{ site.data.moi.downloadcv }}" title="CV Thomas ASNAR"><span class="glyphicon glyphicon-download-alt"></span>{{ site.data.moi.downloadcv }}</a>
+    <a href="{{ site.data.moi.downloadcv }}" title="CV Thomas ASNAR"><span class="glyphicon glyphicon-download-alt"></span>Télécharger CV en pdf</a>
   </div>
   
   <div id="experiences">

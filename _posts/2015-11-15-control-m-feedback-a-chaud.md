@@ -37,6 +37,6 @@ Après deux semaines d'intense utilisation sur Control-M pour un nouveau projet 
 
 Autant j'apprécie toujours la conception et les possibilités de Control-M, autant l'exploitation et l'utilisation quotidienne du produit est une vraie tannée (surtout que mon Control-M Desktop plante toutes les 10 minutes et présente des lenteurs vraiment contraignantes).
 
-Au final, rien qu'on ne puisse pas faire avec VTOM si ce n'est quelques lignes de code pour gérer tel ou tel envoie de mail ou parsing de log pour pallier aux options natives de Control-M. 
+Au final, rien qu'on ne puisse pas faire avec VTOM si ce n'est quelques lignes de code pour gérer tel ou tel envoi de mail ou parsing de log pour pallier aux options natives de Control-M. 
 
 Bref, vive VTOM !

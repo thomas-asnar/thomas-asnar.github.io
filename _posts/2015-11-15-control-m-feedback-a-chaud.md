@@ -15,6 +15,7 @@ Ce que j'ai apprécié (v8 pour info) :
 * les liens : les liens sont textuels (même s'il y a une représentation graphique) ! alors c'est bien et c'est pas bien (parceque ça complique) mais je trouve ça très puissant
 * les cycles : beaucoup d'options sympathiques (on peut relancer le cycle sur le début, la fin d'exécution par exemple), on peut spécifier le nombre de reruns etc.
 * le module "planning" : c'est là qu'on effectue la conception et modélisation des jobs. Je trouve le module bien fait, on peut s'attribuer l'exclusivité de modification d'un folder, n'appliquer les modifications que lorsqu'on le souhaite etc.
+* Les champs scripts "command line" : on peut écrire les commandes en ligne directement dans un champ texte
 * les variables qu'on peut utiliser directement dans les commandline, ou dans les paramètres
 * les modifications qu'on ne peut effectuer que sur le plan en cours
 * module d'interface avec SAP pratique : on peut lister et sélectionner les programmes ABAP et variantes directement

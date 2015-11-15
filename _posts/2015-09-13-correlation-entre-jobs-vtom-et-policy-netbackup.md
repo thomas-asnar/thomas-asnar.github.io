@@ -16,7 +16,7 @@ Vérifier qu'on a bien autant de jobs VTOM que de couple Netbackup POLICY / SCHE
 Je n'ai pas trouvé comment faire un dump des policies (stratégies de sauvegardes Netbackup) en XML ou autre format facilement exploitable.
 Il y a bien le `bppllist` mais la sortie à l'écran n'est pas très pratique à retraiter.
 
-Il semblerait que la base de données Netbackup soit consitutuée ou du moins qu'on retrouve toutes les données, dans des fichiers plats / nom de dossiers.
+Il semblerait que les données du référentiel Netbackup se retrouvent dans des fichiers plats / nom de dossiers.
 
 J'ai pu retrouver toutes les policies dans `/usr/openv/netbackup/db/class` par exemple. On peut y récupérer les schedules, les hosts, etc.
 

@@ -10,6 +10,7 @@ Après les premiers jours de formation sur Control-M, j'étais très enthousiast
 Je ne sais pas si c'était la nouveauté ou les possibilités natives du produit qui m'ont séduites mais, au début, j'étais conquis.
 
 Ce que j'ai apprécié (v8 pour info) :
+
 * le Do Action : on peut parser la log output directement, ajouter des conditions poussées, dire que le job est OK ou KO sur certaines conditions etc. etc.
 * les liens : les liens sont textuels (même s'il y a une représentation graphique) ! alors c'est bien et c'est pas bien (parceque ça complique) mais je trouve ça très puissant
 * les cycles : beaucoup d'options sympathiques (on peut relancer le cycle sur le début, la fin d'exécution par exemple), on peut spécifier le nombre de reruns etc.

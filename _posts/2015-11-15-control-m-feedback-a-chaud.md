@@ -17,6 +17,7 @@ Ce que j'ai apprécié (v8 pour info) :
 * le module "planning" : c'est là qu'on effectue la conception et modélisation des jobs. Je trouve le module bien fait, on peut s'attribuer l'exclusivité de modification d'un folder, n'appliquer les modifications que lorsqu'on le souhaite etc.
 * les variables qu'on peut utiliser directement dans les commandline, ou dans les paramètres
 * les modifications qu'on ne peut effectuer que sur le plan en cours
+* module d'interface avec SAP pratique : on peut lister et sélectionner les programmes ABAP et variantes directement
 
 Bon, le problème, c'est le reste de la semaine et la semaine d'après ... Quand j'ai commencé à utiliser le produit réellement pour modéliser et régler les premiers problèmes d'exploitation.
 
@@ -25,6 +26,11 @@ Ca fait deux semaines que je pète un câble sur l'exploitation de control-m.
 Par exemple, on ne peut pas voir le plan dans sa globalité. On ne voit que le plan du jour dans le module "Monitoring" ou les plans passés dans le module "History", a moins de faire du "Forecast" (en gros on monte fictivement un plan à une date future donnée).
 
 Autre exemple, on ne peut voir les log d'exécution que de la journée en cours dans le "Monitoring". Pas moyen, non plus de voir le script en direct depuis l'outil ...
+
+
+Le pire reste la visualisation du plan :
+
+Imaginez que toutes les applications de tous vos environnements VTOM se retrouvent dans un seul et même plan et que la disposition ne soit pas définie comme vous le souhaitiez (un peu n'importe comment d'ailleurs) et que les liens partent dans tous les sens.
 
 Après deux semaines d'intense utilisation sur Control-M pour un nouveau projet (migration de TNG à Control-M), je reviens sur mes premiers instants de découverte pendant lesquels j'ai vraiment apprécié le produit. 
 

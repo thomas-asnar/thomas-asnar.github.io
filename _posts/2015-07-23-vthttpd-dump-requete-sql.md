@@ -59,7 +59,7 @@ Et on grep sur ce qu'on souhaite
 edit) alors j'ai trouvé ça mais le problème, c'est que ça me fait une ligne par job et par paramètre (ex. 4 paramètres = 4 lignes du coup)
 
 ```sql
-select j.JOB_SID, e.NAME, a.NAME, j.NAME, j.SCRIPT, h.NAME, u.NAME, q.NAME, d.NAME, p.POSITION, p.VALUE,
+select j.JOB_SID, e.NAME, a.NAME, j.NAME, j.SCRIPT, h.NAME, u.NAME, q.NAME, d.NAME, p.POSITION, p.VALUE
 from jobs j
 left join applications a on j.APP_SID = a.APP_SID
 left join environments e on a.ENV_SID = e.ENV_SID

@@ -14,10 +14,11 @@ Les deux évolutions que j'adoooooooooore :
 
 Enfin !!! On peut désormais passer des variables personnalisables aux traitements.
 
-Elles sont accessibles comme n'importe quelle variable d'environnement. ** LOVE **
+Elles sont accessibles comme n'importe quelle variable d'environnement. _LOVE_
 
-Cerise sur le gâteau, on peut utiliser les variables directement dans le champ script ou paramètre ** TRIPLE LOVE **
+Cerise sur le gâteau, on peut utiliser les variables directement dans le champ script ou paramètre _TRIPLE LOVE_
 
+![variable_perso_vtom_v5.8](/assets/img/variable_perso_vtom_v5.8.jpg)
 
 ## unité de soumission
 
@@ -29,7 +30,7 @@ Prenons l'exemple qu'on a tous fait : on veut purger le répertoire logs de VTOM
 
 On crée une application (ou plusieurs regroupées par plateformes par exemple) avec des myriades de jobs lançant le même script de purge sur tous nos clients.
 
-### APRES : 
+### avec la version VTOM > 5.8  : 
 
 Lorsqu'on définit un nouvel agent VTOM, on peut aussi créer une unité de soumission. 
 
@@ -37,11 +38,15 @@ Par défaut, si on fait du 1 pour 1, on aura la même unité de soumission que l
 
 Mais on peut aussi regrouper les agents dans une même unité de soumission.
 
+![unite_de_soumission_vtom_v5.8](/assets/img/unite_de_soumission_vtom_v5.8.JPG)
+
 J'appelle mon unité de soumission PROD_PAIE_UNIX, par exemple, afin d'y regrouper tous mes agents Unix de l'application de PAIE, pour l'environnement de PROD.
 
 Je crée un seul job avec mon script de purge avec cette unité de soumission. Et voilà ! tous mes jobs de purges sont définis.
 
 En mode pilotage, si on double clique sur le job, on a accès à une sorte de "suivi d'exploitation" avec les différents agents et le statut.
+
+![suivi_exploitation_unite_de_soumission_vtom_v5.8](/assets/img/suivi_exploitation_unite_de_soumission_vtom_v5.8.JPG)
 
 On double clique sur une ligne et on a les logs d'exécution de l'agent final en question.
 

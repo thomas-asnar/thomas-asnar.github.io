@@ -14,9 +14,9 @@ Les deux évolutions que j'adoooooooooore :
 
 Enfin !!! On peut désormais passer des variables personnalisables aux traitements.
 
-Elles sont accessibles comme n'importe quelle variable d'environnement. _LOVE_
+Elles sont accessibles comme n'importe quelle variable d'environnement. **LOVE**
 
-Cerise sur le gâteau, on peut utiliser les variables directement dans le champ script ou paramètre _TRIPLE LOVE_
+Cerise sur le gâteau, on peut utiliser les variables directement dans le champ script ou paramètre **TRIPLE LOVE**
 
 ![variable_perso_vtom_v5.8](/assets/img/variable_perso_vtom_v5.8.jpg)
 
@@ -40,7 +40,7 @@ Mais on peut aussi regrouper les agents dans une même unité de soumission.
 
 ![unite_de_soumission_vtom_v5.8](/assets/img/unite_de_soumission_vtom_v5.8.JPG)
 
-J'appelle mon unité de soumission PROD_PAIE_UNIX, par exemple, afin d'y regrouper tous mes agents Unix de l'application de PAIE, pour l'environnement de PROD.
+J'appelle mon unité de soumission PROD\_PAIE\_UNIX, par exemple, afin d'y regrouper tous mes agents Unix de l'application de PAIE, pour l'environnement de PROD.
 
 Je crée un seul job avec mon script de purge avec cette unité de soumission. Et voilà ! tous mes jobs de purges sont définis.
 

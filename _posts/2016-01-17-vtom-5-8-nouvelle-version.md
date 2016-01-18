@@ -14,9 +14,9 @@ Les deux évolutions que j'adoooooooooore :
 
 Enfin !!! On peut désormais passer des variables personnalisables aux traitements.
 
-Elles sont accessibles comme n'importe quelle variable d'environnement. **LOVE**
+Elles sont accessibles comme n'importe quelle variable d'environnement. **LOVE** :heart:
 
-Cerise sur le gâteau, on peut utiliser les variables directement dans le champ script ou paramètre **TRIPLE LOVE**
+Cerise sur le gâteau, on peut utiliser les variables directement dans le champ script ou paramètre **TRIPLE LOVE** :heart::heart::heart:
 
 ![variable_perso_vtom_v5.8](/assets/img/variable_perso_vtom_v5.8.jpg)
 

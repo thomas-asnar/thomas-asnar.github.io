@@ -10,13 +10,13 @@ C'est incroyable comment le produit évolue dans le bon sens (c'est à dire, le 
 
 Les deux évolutions que j'adoooooooooore :
 
-## variables d'environnement personnalisable
+## variables d'environnement personnalisables
 
 Enfin !!! On peut désormais passer des variables personnalisables aux traitements.
 
 Elles sont accessibles comme n'importe quelle variable d'environnement. ** LOVE **
 
-Cerise sur le gâteau, on peut utilisé les variables directement dans le champ script ou paramètre ** TRIPLE LOVE **
+Cerise sur le gâteau, on peut utiliser les variables directement dans le champ script ou paramètre ** TRIPLE LOVE **
 
 
 ## unité de soumission
@@ -31,7 +31,7 @@ On crée une application (ou plusieurs regroupées par plateformes par exemple) 
 
 ### APRES : 
 
-Lorsqu'on définit un nouvel agent VTOM, on peut aussi créé une unité de soumission. 
+Lorsqu'on définit un nouvel agent VTOM, on peut aussi créer une unité de soumission. 
 
 Par défaut, si on fait du 1 pour 1, on aura la même unité de soumission que l'agent définit. 
 
@@ -39,7 +39,7 @@ Mais on peut aussi regrouper les agents dans une même unité de soumission.
 
 J'appelle mon unité de soumission PROD_PAIE_UNIX, par exemple, afin d'y regrouper tous mes agents Unix de l'application de PAIE, pour l'environnement de PROD.
 
-Je créé un seul job avec mon script de purge avec cette unité de soumission. Et voilà ! tous mes jobs de purges sont définis.
+Je crée un seul job avec mon script de purge avec cette unité de soumission. Et voilà ! tous mes jobs de purges sont définis.
 
 En mode pilotage, si on double clique sur le job, on a accès à une sorte de "suivi d'exploitation" avec les différents agents et le statut.
 

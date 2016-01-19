@@ -60,4 +60,4 @@ On peut aussi faire un clique droit sur un agent spécifique et relancer le trai
 On peut vraiment paufiner les représentations graphiques (pour moi, il manque encore la possiblité de réorganiser les différents éléments graphiques à différents plans - premier plan, arrière plan, augmenter ou diminuer de plan graphique)
 
 
-* ah une autre évolution que j'aime bien : on peut définir une heure de bascule des dates / date d'exploitation (exemple on veut une journée d'exploitation de 14h à 14h J+1, on n'est plus obligé de créer une application qui attend 37:59:00 !
+* ah une autre évolution que j'aime bien : on peut définir une heure de bascule sur les dates d'exploitation (exemple on veut une journée d'exploitation de 14h à 14h J+1, on n'est plus obligé de créer une application qui attend 37:59:00 !

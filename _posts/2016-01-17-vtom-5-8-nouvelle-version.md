@@ -53,7 +53,7 @@ On double clique sur une ligne et on a les logs d'exécution de l'agent final en
 On peut aussi faire un clique droit sur un agent spécifique et relancer le traitement uniquement sur cette machine.
 
 
-
+## What Else ?
 
 * En plus, je trouve l'interface de plus en plus belle et rapide. 
 

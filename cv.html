@@ -39,14 +39,7 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation, export o
     {% assign annee_text = "ans" %}
     {% capture annee_exp_totale %}{{ annee_exp_totale }} {{ annee_text }}{% endcapture %}
     
-    {% assign annee_exp = site.time | date:'%Y' | minus:'2014' %}
-    {% if annee_exp <= 1 %}
-    {% assign annee_exp = "début Novembre 2014" %}
-    {% else %}
-    {% assign annee_text = "ans" %}
-    {% capture annee_exp %}{{ annee_exp }} {{ annee_text }}{% endcapture %}
-    {% endif %}
-    <p id="accroche">{{ site.data.moi.accroche | replace: 'annee_exp_totale',annee_exp_totale | replace: 'annee_exp',annee_exp | replace:'employeur_actuel',site.data.moi.employeur_actuel }}</p>  
+    <p id="accroche">{{ site.data.moi.accroche | replace: 'annee_exp_totale',annee_exp_totale | replace:'employeur_actuel',site.data.moi.employeur_actuel }}</p>  
     <a href="{{ site.data.moi.downloadcv }}" title="CV Thomas ASNAR"><span class="glyphicon glyphicon-download-alt"></span>Télécharger CV en pdf</a>
   </div>
   

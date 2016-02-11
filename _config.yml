@@ -13,7 +13,7 @@ locale: fr_FR
 
 # Build settings
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"# Filtering Content
-markdown: redcarpet
+markdown: kramdown
 
 include: [".htaccess"]
 exclude: ["bower.json", "package.json", "node_modules", "Gemfile", "Gemfile.lock","_build"]

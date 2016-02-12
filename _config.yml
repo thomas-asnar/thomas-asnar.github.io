@@ -23,7 +23,7 @@ excerpt_separator: '<!--more-->'
 sass:
     style: :compressed
 
-highlighter: pygments
+highlighter: rouge
 
 paginate: 15
 

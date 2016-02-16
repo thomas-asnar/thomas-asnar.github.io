@@ -145,3 +145,33 @@ xhr.send();
 
 [Un exemple pour lister tous les jobs, il faut changer l'ip, le port et encoder le user:password](/wp-content/uploads/list_all_jobs.html)
 Bon évidemment ça ne donnera rien mais importer cette page chez vous, et changer l'IP, le port et le mot de passe pour que ça fonctionne.
+
+
+## Exemple pour lister toutes les consignes
+
+```
+# on récupère les données en JSON depuis l'API web access VTOM
+curl -k -u user:passwd "http://localhost:30080/api/instruction/getAll > /var/tmp/instructions.json
+
+# on créé le script qui va générer les consignes au format HTML
+vi /var/tmp/create_instructions_html.py
+#!/usr/bin/python
+import json
+import sys
+import io
+from pprint import pprint
+
+jdata = open(sys.argv[1])
+data = json.load(jdata)
+
+for result in data["result"]:
+        with io.open(result["name"] + ".html", "w", encoding='utf-8') as f:
+                f.write(result["content"])
+                f.close()
+jdata.close()
+
+
+# On exécute le script 
+chmod +x /var/tmp/create_instructions_html.py
+/var/tmp/create_instructions_html.py /var/tmp/instructions.json
+```

@@ -94,7 +94,7 @@ curl -k -u user:passwd "http://localhost:30080/api/log/getLogList?id=JOBc2"  -X 
 
 # Si je résume :
 ```
-Pour avoir toutes les informations détaillées d'un ensemble d'items (environment, application, job, date, host etc)
+Pour avoir toutes les informations détaillées d'un ensemble d'items (environment, application, job, date, host, instruction - pour info instruction c'est les consignes -  etc)
 http://localhost:30080/api/<item>/getAll
 
 Pour avoir toute la liste d'un ensemble d'items mais avec moins de détails 

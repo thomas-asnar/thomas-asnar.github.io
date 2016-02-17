@@ -159,7 +159,6 @@ vi /var/tmp/create_instructions_html.py
 import json
 import sys
 import io
-from pprint import pprint
 
 jdata = open(sys.argv[1])
 data = json.load(jdata)

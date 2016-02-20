@@ -6,7 +6,7 @@ author: Thomas ASNAR
 categories: [ordonnancement, vtom, astuce, vtom.ini, tengine]
 ---
 
-Une astuce de Fred, simple mais efficace, pour connaitre toutes les options possibles de votre tengine quand on n'a pas la documentation sous la main.
+Une astuce de Fred, simple mais efficace, pour connaitre toutes les options possibles de votre tengine (moteur VTOM) quand on n'a pas la documentation sous la main.
 
 ```
 strings $TOM_BIN/tengine

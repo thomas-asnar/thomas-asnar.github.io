@@ -10,6 +10,7 @@ Quelques bizarreries de le semaine :
 * Script batch : Le echo ne modifie pas le errorlevel ! 
 * Attention aux & dans les paramètres ou dans les ressources VTOM. Ca peut avoir comme résultat assez drôle de n'afficher aucun log VTOM tout en ayant un retour tsend
 * Les fichiers avec extension .i dans le répertoire de logs VTOM est normal depuis la 5.7xx ! Il semblerait que ça serve aux alarmes.
+* fichier log sur le client VTOM à 0 ko ou pas la fin de la log. Mais, le job se statue bien. Dans mon cas, c'est un bug, le tsend du client vers le serveur de backup VTOM était bloqué (impossible de communiquer avec le backup)
 
 
 Quelques bouts de code de la semaine : 

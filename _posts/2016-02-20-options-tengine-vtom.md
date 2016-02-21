@@ -12,4 +12,3 @@ strings $TOM_BIN/tengine
 ```
 
 Faites un grep sur le = ou %s par exemple
-

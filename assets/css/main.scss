@@ -279,7 +279,7 @@ img{
     body,p,h1,h2,h3,h4,h5,h6,.titres-cv,#presentation h1,#nom-complet{
         font-size:$small-font-size;
     }
-    .nav-pills>li a,.nav-pills>li a .glyphicon{
+    ul, .nav-pills>li a,.nav-pills>li a .glyphicon{
       padding:5px;
     }
     .bg-success,.container{

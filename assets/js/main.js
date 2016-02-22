@@ -1,4 +1,4 @@
-$(".liste-cv").slideUp(1000);
+// $(".liste-cv").slideUp(1000);
 
 var doc = $(document) ;
 

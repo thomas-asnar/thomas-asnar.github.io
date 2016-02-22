@@ -41,7 +41,9 @@ $on-laptop:        800px;
 
 
 html {
-    background-color:#1CAA00;
+    background-color:#1CAA00;	
+    position:relative;
+    z-index:1;
 }
 body{
   font-family:$base-font-family;

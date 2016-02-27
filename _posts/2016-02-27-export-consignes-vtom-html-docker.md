@@ -16,7 +16,6 @@ Et python pour le code d'export des consignes VTOM.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kkIw48L9EA0" frameborder="0" allowfullscreen></iframe>
 
-
 Code et commandes utilisés : 
 
 ```bash
@@ -58,4 +57,42 @@ for Instruction in tree.xpath('/Domain/Instructions/Instruction'):
 			s = s.decode('base64').decode('zlib')
 			f.write(s)
 			f.close
+```
+
+
+Au fait, comment j'en suis arrivé là ?!
+
+C'est sur la demande d'un client qui voulait toutes les consignes VTOM.
+
+J'ai vraiment galéré pour décoder les consignes qui sont encodées (ça m'a pris 2 jours ^^').
+
+En fait, ma piste a pris le bon chemin quand j'ai fait un `strings $TOM_BIN/vthttpd` car j'ai vu que le web access le décodait à la volée. Et là, on voit qu'il y a du `abs_zipbase64` et du `base64Binary`.
+
+Autant le base64, c'était assez clair, la chaîne avait une bonne tête de base64.
+
+Autant, je peux vous dire que j'en ai essayé des encodages pour trouver le zlib ! et j'ai perdu mon temps sur les sites de décodages du net car ils me supprimaient des caractères à chaque fois.
+
+Heureusement que python est là !
+
+
+Pour le web access si ça vous intéresse, regarder mon tuto : 
+```
+api/instruction/getAll 
+```
+
+Et vraiment pour le fun, vous pouvez extraire les consignes directement via le web access (en python avec du json) : 
+
+```
+import json
+import sys
+import io
+
+jdata = open(sys.argv[1])
+data = json.load(jdata)
+
+for result in data["result"]:
+        with io.open(result["name"] + ".html", "w", encoding='utf-8') as f:
+                f.write(result["content"])
+                f.close()
+jdata.close()
 ```

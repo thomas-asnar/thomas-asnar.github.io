@@ -83,7 +83,7 @@ api/instruction/getAll
 
 Et vraiment pour le fun, vous pouvez extraire les consignes directement via le web access (en python avec du json) : 
 
-```
+```python
 import json
 import sys
 import io

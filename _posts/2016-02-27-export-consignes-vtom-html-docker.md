@@ -5,10 +5,10 @@ date: 2016-02-27 08:44
 author: Thomas ASNAR
 categories: [ordonnancement, vtom, astuce, consignes, python, docker]
 ---
-Voici mon premier Tuto en image ! soyez indulgent ! 
+Voici mon premier Tuto en image ! soyez indulgents :) 
 Si ça plait, j'en ferai d'autres (mieux, avec le son etc)
 
-Ce tuto permet d'exporter les consignes VTOM.
+Ce tuto permet d'exporter les consignes VTOM et d'appréhender Docker.
 
 J'utilise Docker pour l'environenemnt de test (voir mon tuto sur Docker : [Environnement de test VTOM avec Docker](https://thomas-asnar.github.io/docker-installation-serveur-vtom-test/) )
 

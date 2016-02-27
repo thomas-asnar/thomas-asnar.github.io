@@ -1,9 +1,9 @@
 ---
 layout: post
-title: vthttpd -dump et requêtes SQL 
+title: vthttpd -dump et requêtes SQL - tlist ameliore
 date: 2015-07-23 17:40
 author: Thomas ASNAR
-categories: [vthttpd, dump,SQL, Visual TOM, VTOM]
+categories: [vthttpd, dump,SQL, Visual TOM, VTOM, tlist]
 ---
 Une autre astuce avec le Webaccess VTOM vthttpd : on peut dump tout le contenu de la base VTOM en un fichier exploitable par SQLITE !
 

@@ -85,7 +85,7 @@ Et vraiment pour le fun, vous pouvez extraire les consignes directement via le w
 
 ```bash
 # extraire les données en json
-curl -u TOM:TOM http://ip/api/instruction/getAll -X GET > /var/tmp/instructions.json
+curl -k -u TOM:TOM http://ip:30080/api/instruction/getAll -X GET > /var/tmp/instructions.json
 ```
 
 ```python

@@ -80,25 +80,3 @@ Pour le web access si ça vous intéresse, regarder mon tuto [Web Access API VTO
 ```
 api/instruction/getAll 
 ```
-
-Et vraiment pour le fun, vous pouvez extraire les consignes directement via le web access (en python avec du json) : 
-
-```bash
-# extraire les données en json
-curl -k -u TOM:TOM http://ip:30080/api/instruction/getAll -X GET > /var/tmp/instructions.json
-```
-
-```python
-import json
-import sys
-import io
-
-jdata = open(sys.argv[1])
-data = json.load(jdata)
-
-for result in data["result"]:
-        with io.open(result["name"] + ".html", "w", encoding='utf-8') as f:
-                f.write(result["content"])
-                f.close()
-jdata.close()
-```

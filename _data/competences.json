@@ -83,7 +83,7 @@
         competences: [
         {
             niveau: "4",
-            nom: "SH, KSH, PowerShell, PHP, PERL, HTML, CSS, JS, XML, jQuery (Framework JS), Wordpress (CMS)"
+            nom: "SH, KSH, PowerShell, PHP, PERL, Python, HTML, CSS, JS, XML, jQuery (Framework JS), Wordpress (CMS)"
         }
 
         ]
@@ -92,14 +92,6 @@
         nomCourt: "applications",
         nomLong: "Applications",
         competences: [
-        {
-            niveau: "2",
-            nom: "Weblogic"
-        },
-        {
-            niveau: "2",
-            nom: "JBoss"
-        },
         {
             niveau: "2",
             nom: "Symfony"

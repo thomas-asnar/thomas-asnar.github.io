@@ -14,7 +14,7 @@ J'utilise Docker pour l'environenemnt de test (voir mon tuto sur Docker : [Envir
 
 Et python pour le code d'export des consignes VTOM.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kkIw48L9EA0" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QfWva3NoZCE" frameborder="0" allowfullscreen></iframe>
 
 Code et commandes utilisés : 
 

@@ -75,7 +75,8 @@ Autant, je peux vous dire que j'en ai essayé des encodages pour trouver le zlib
 Heureusement que python est là !
 
 
-Pour le web access si ça vous intéresse, regarder mon tuto : 
+Pour le web access si ça vous intéresse, regarder mon tuto [Web Access API VTOM](https://thomas-asnar.github.io/api-vtom-web-access/)  : 
+
 ```
 api/instruction/getAll 
 ```

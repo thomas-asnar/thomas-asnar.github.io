@@ -7,6 +7,8 @@ categories: [vthttpd, dump,SQL, Visual TOM, VTOM]
 ---
 Une autre astuce avec le Webaccess VTOM vthttpd : on peut dump tout le contenu de la base VTOM en un fichier exploitable par SQLITE !
 
+L'utilisation principale est de lister tous les jobs, à la manière d'un `tlist`mais avec beaucoup plus d'informations (dont les paramètres et le script)
+
 Voici un petit exemple :
 
 ```

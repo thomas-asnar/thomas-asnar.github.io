@@ -9,7 +9,7 @@ categories: [queue, queue batch, Visual TOM, VTOM]
 
 Pour résumer et pour ceux dont le proxy bloque le slide Google :
 
-Tous les jobs dont le moteurs a validé les contraintes (horaires, liens, ressources) passent à « EN COURS » dans VTOM selon un ordre alphabétique propre au moteur. (ex. JOB_1 commence avant JOB_2 qui commence avant JOB_3 etc. ➔ peu importe la priorité des queues)
+Tous les jobs dont le moteur a validé les contraintes (horaires, liens, ressources) passent à « EN COURS » dans VTOM selon un ordre alphabétique propre au moteur. (ex. JOB_1 commence avant JOB_2 qui commence avant JOB_3 etc. ➔ peu importe la priorité des queues)
 
 « EN COURS » dans VTOM != de en cours d’exécution sur le host
 

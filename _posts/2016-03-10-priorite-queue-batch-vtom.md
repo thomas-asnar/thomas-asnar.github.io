@@ -13,7 +13,7 @@ Tous les jobs dont le moteur a validé les contraintes (horaires, liens, ressour
 
 « EN COURS » dans VTOM != de en cours d’exécution sur le host
 
-Seuls les n premiers jobs s’exécutent réellement sur le host, le reste passe en file d’attente. 
+Seuls les n premiers jobs s’exécutent réellement sur le host, le reste passe en file d’attente.(définis dans les paramètres de la queue) 
 
 Quand un job se termine, la priorité des queues est prise en compte.
 

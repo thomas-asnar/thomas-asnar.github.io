@@ -47,7 +47,7 @@ Remarques :
 
 ## Solutions pour améliorer votre file d'attente
 
-* mettre en place ce système de priorisation des queues batch <nom queue>.[0-10]
+* mettre en place ce système de priorisation des queues batch &lt;nom queue&gt;.[0-10]
 * analyser vos jobs, et éviter d'exécuter des jobs sur des clients de traitement/applicatif alors qu'ils pourraient/devraient tourner sur les clients du serveur VTOM par exemple (valorisation de ressource par exemple)
 * éviter les scripts qui ne font rien d'autres que temporiser ou attendre des ressources (typiquement le job : exit 0, qui attend que telle ou telle ressource soit dispo)
  * à une époque, il était pratique d'avoir la log d'exécution sur le traitement pour connaître les heures de passage, mais maintenant avec les statistiques sélectives, on s'en passe

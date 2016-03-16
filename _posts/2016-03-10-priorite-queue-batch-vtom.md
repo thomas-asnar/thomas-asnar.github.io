@@ -97,4 +97,4 @@ $ ls $ABM_SPOOL
 11      13      15      17      19      20.env  21.env  22.env  23.env  24.env  25.env  26.env  27.env  28.env  29.env  30.env  31.env  32.env
 ```
 
-
+[Ecrire sa queue batch VTOM](https://thomas-asnar.github.io/ecrire-sa-queue-batch-vtom-cygwin-php-perl/)

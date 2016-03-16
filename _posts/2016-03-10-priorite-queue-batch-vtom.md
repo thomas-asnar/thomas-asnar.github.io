@@ -7,7 +7,7 @@ categories: [queue, queue batch, Visual TOM, VTOM]
 ---
 # Problématique des gros environnements de production
 
-Certains clients VTOM à forte charge d'ordonnancement voient leurs files d'attente saturée, et des traitements non prioritaires qui durent des heures bloquent le passage de traitements "rapides" (qui pourraient débloquer des chaînes bien plus prioritaires).
+Certains clients VTOM à forte charge d'ordonnancement voient leurs files d'attente saturées, et des traitements non prioritaires qui durent des heures bloquent le passage de traitements "rapides" (qui pourraient débloquer des chaînes bien plus prioritaires).
 
 # priorité dans la file d'attente : queue batch VTOM
 

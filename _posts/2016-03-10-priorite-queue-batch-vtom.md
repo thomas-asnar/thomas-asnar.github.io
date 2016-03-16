@@ -34,16 +34,16 @@ Paramètre ABM_QUEUES_PRIORITY_INCREMENT dans le vtom.ini sous [BDAEMON] sont le
 
 Ex. priorité sur la queue batch « queue_ksh » :
 
-queue_ksh.0 » pour les Traitements non prioritaires,
-queue_ksh.3 » pour les Traitements peu prioritaires,
-queue_ksh[.5] » par défaut,
-queue_ksh.7 » pour les Traitements relativement prioritaires,
-queue_ksh.10 » pour les Traitements prioritaires.
+* queue_ksh.0 » pour les Traitements non prioritaires,
+* queue_ksh.3 » pour les Traitements peu prioritaires,
+* queue_ksh[.5] » par défaut,
+* queue_ksh.7 » pour les Traitements relativement prioritaires,
+* queue_ksh.10 » pour les Traitements prioritaires.
 
 Remarques :
 
-Les Traitements ayant une priorité initiale à 10 la conservent et sont prioritaires quelque soit la priorité des autres Traitements.
-Les Traitements ayant une priorité initiale à 0 la conservent.
+* Les Traitements ayant une priorité initiale à 10 la conservent et sont prioritaires quelque soit la priorité des autres Traitements.
+* Les Traitements ayant une priorité initiale à 0 la conservent.
 
 ## Solutions pour améliorer votre file d'attente
 

@@ -52,7 +52,6 @@ Remarques :
 * éviter les scripts qui ne font rien d'autres que temporiser ou attendre des ressources (typiquement le job : exit 0, qui attend que telle ou telle ressource soit dispo)
   * à une époque, il était pratique d'avoir la log d'exécution sur le traitement pour connaître les heures de passage, mais maintenant avec les statistiques sélectives, on s'en passe
   * soit on remplace par un job en simulation (pas de passage dans la file d'attente), soit on essaye de positionner les ressources au niveau de l'application plutôt que du job (si c'est faisable)
-  
 * multiplier les queues d'exécution :
   * 1 queue pour les traitements techniques "rapides"
   * 1 queue pour les traitements applicatifs "longs"

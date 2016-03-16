@@ -9,7 +9,7 @@ categories: [queue, queue batch, Visual TOM, VTOM]
 
 Certains clients VTOM à forte charge d'ordonnancement voient leurs files d'attente saturées, et des traitements non prioritaires qui durent des heures bloquent le passage de traitements "rapides" (qui pourraient débloquer des chaînes bien plus prioritaires).
 
-# priorité dans la file d'attente : queue batch VTOM
+# Priorité dans la file d'attente : principe
 
 Tous les jobs dont le moteur a validé les contraintes (horaires, liens, ressources) passent à « EN COURS » dans VTOM selon un ordre  propre au moteur. (ex. JOB_1 commence avant JOB_2 qui commence avant JOB_3 etc. quelque soit la priorité de vos queues).
 

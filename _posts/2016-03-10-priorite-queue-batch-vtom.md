@@ -50,11 +50,11 @@ Remarques :
 * mettre en place ce système de priorisation des queues batch &lt;nom queue&gt;.[0-10]
 * analyser vos jobs, et éviter d'exécuter des jobs sur des clients de traitement/applicatif alors qu'ils pourraient/devraient tourner sur les clients du serveur VTOM (valorisation de ressource par exemple)
 * éviter les scripts qui ne font rien d'autres que temporiser ou attendre des ressources (typiquement le job : exit 0, qui attend que telle ou telle ressource soit dispo)
- * à une époque, il était pratique d'avoir la log d'exécution sur le traitement pour connaître les heures de passage, mais maintenant avec les statistiques sélectives, on s'en passe
+  * à une époque, il était pratique d'avoir la log d'exécution sur le traitement pour connaître les heures de passage, mais maintenant avec les statistiques sélectives, on s'en passe
  * soit on remplace par un job en simulation (pas de passage dans la file d'attente), soit on essaye de positionner les ressources au niveau de l'application plutôt que du job (si c'est faisable)
 * multiplier les queues d'exécution :
- * 1 queue pour les traitements techniques "rapides"
- * 1 queue pour les traitements applicatifs "longs"
+  * 1 queue pour les traitements techniques "rapides"
+  * 1 queue pour les traitements applicatifs "longs"
 
 # rappel queue batch
 
@@ -62,7 +62,7 @@ Remarques :
 * 1 client VTOM = 1 process bdaemon sur 1 machine (si plusieurs bdaemon sur une machine, ce sont des clients VTOM différents - port qui change)
 
 * Les queues sont configurées dans $ABM/config/queues du client
- * 1 répertoire / queue :
+  * 1 répertoire / queue :
 
 ```bash
 $ ls -l $ABM/config/queues

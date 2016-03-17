@@ -34,7 +34,7 @@ layout: default
   <footer class="post-footer">
     {% if page.categories %}
       {% for category in page.categories %}
-        <button type="button"  itemprop="articleSection" class="btn btn-default btn-xs btn-categories"><a href="/#!{{ category }}"><span class="glyphicon glyphicon-asterisk"></span>{{ category }}</a></button>
+        <a type="button"  itemprop="articleSection" class="btn btn-default btn-xs btn-categories" href="/#!{{ category }}"><span class="glyphicon glyphicon-asterisk"></span>{{ category }}</a>
       {% endfor %}
     {% endif %}
     <span  itemprop="author" class="hidden">{{ page.author }}</span>

@@ -5,11 +5,11 @@ date: 2016-03-10 22:53
 author: Thomas ASNAR
 categories: [queue, queue batch, Visual TOM, VTOM]
 ---
-# Problématique des gros environnements de production
+## Problématique des gros environnements de production
 
 Certains clients VTOM à forte charge d'ordonnancement voient leurs files d'attente saturées, et des traitements non prioritaires qui durent des heures bloquent le passage de traitements "rapides" (qui pourraient débloquer des chaînes bien plus prioritaires).
 
-# Priorité dans la file d'attente : principe
+## Priorité dans la file d'attente : principe
 
 Tous les jobs dont le moteur a validé les contraintes (horaires, liens, ressources) passent à « EN COURS » dans VTOM selon un ordre  propre au moteur. (ex. JOB_1 commence avant JOB_2 qui commence avant JOB_3 etc. quelque soit la priorité de vos queues).
 
@@ -19,7 +19,7 @@ Seuls les n premiers jobs (nombre de jobs simultanés configuré dans le queue.c
 
 Dès qu'un job se termine, il libère une place et les jobs avec la queue batch la plus prioritaire se déclenchent.
 
-# Mise en place des queues prioritaires
+## Mise en place des queues prioritaires
 
 La gestion des priorités est prise en charge suite à :
 
@@ -56,7 +56,7 @@ Remarques :
   * 1 queue pour les traitements techniques "rapides"
   * 1 queue pour les traitements applicatifs "longs"
 
-# rappel queue batch
+## rappel queue batch
 
 * 1 file d’attente = 1 queue batch VTOM sur 1 client VTOM
 * 1 client VTOM = 1 process bdaemon sur 1 machine (si plusieurs bdaemon sur une machine, ce sont des clients VTOM différents - port qui change)

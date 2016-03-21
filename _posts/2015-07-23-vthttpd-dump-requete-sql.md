@@ -79,5 +79,7 @@ Après, on peut faire assez simplement des recherches avec awk :
 sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql | awk -F"|" '$10 ~ /3/ && $2 ~ /TEST/ && $3 ~ /DATE-RUEIL/ {print}'
 
 # mettre tous les paramètres sur une seule ligne 
-sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql | sort | awk -F "|" 'BEGIN{ job_sid=null;} {if($1 == job_sid){ printf "%s:%s;",$10,$11 }else{ if(job_sid != null){ printf "\n" } ; printf "%s|%s|%s|%s|%s|%s|%s|%s|%s:%s;",$2,$3,$4,$5,$6,$7,$8,$9,$10,$11 } ; job_sid=$1 ;}'
+# 1er awk, on rajoute des 0 au numéro de paramètre pour pouvoir trier correctement (premier paramètre en premier, etc.)
+# 2ème awk, on affiche sur la même ligne tant qu'on a le même jobID
+sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql |  awk 'BEGIN{ FS="|" ; OFS="|" } { l=length($10) ; if(l == 2) { $10="0"$10 ;} ;  if(l == 1){ $10="00"$10 }  ; print}' | sort -g | awk -F "|" 'BEGIN{ job_sid=null;} {if($1 == job_sid){ printf "%s:%s;",$10,$11 }else{ if(job_sid != null){ printf "\n" } ; printf "%s|%s|%s|%s|%s|%s|%s|%s|%s:%s;",$2,$3,$4,$5,$6,$7,$8,$9,$10,$11 } ; job_sid=$1 ;}'
 ```

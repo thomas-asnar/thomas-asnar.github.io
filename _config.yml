@@ -15,6 +15,11 @@ locale: fr_FR
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"# Filtering Content
 markdown: kramdown
 
+kramdown:
+  input: GFM
+  
+highlighter: rouge
+  
 include: [".htaccess"]
 exclude: ["bower.json", "package.json", "node_modules", "Gemfile", "Gemfile.lock","_build"]
 
@@ -23,9 +28,10 @@ excerpt_separator: '<!--more-->'
 sass:
     style: :compressed
 
-highlighter: rouge
+
 
 paginate: 15
 
 gems:
   - jekyll-sitemap
+  - jekyll-paginate

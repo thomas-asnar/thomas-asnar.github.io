@@ -9,6 +9,10 @@ categories: [node js, Ordonnancement, PHP, php, postgres, SQL, statistiques vtom
 Vous savez sans doute que VTOM tend à basculer sa base de données en full PostgreSQL (maybe en version 6 ?). Quelques données y sont déjà, statistiques, historique, calendriers etc.
 
 Pour l'instant, la base de données est "ouverte" et je vais vous montrer une manière de procéder pour accéder aux tables avec PHP. Vous pouvez tout aussi bien vous connecter à la base avec un utilitaire SQL du genre <a title="SQuirreL SQL client" href="http://squirrel-sql.sourceforge.net/">SQuirreL SQL client</a>.
+<p>
+ou encore avec le binaire psql de l'installation VTOM.
+vtom@f8eeaf8b30a0:/mnt/User/temp$ ~/sgbd/bin/psql -d vtom -p 30009
+</p>
 
 **Attention ! Ne faites pas n'importe quoi sur votre base de Prod. Ce genre de manipulation n'est pas soutenu par Absyss.**
 

@@ -125,6 +125,9 @@ awk -v fic=$allJobsManyTo1 'BEGIN{
 Beaucoup plus rapide avec Pandas - Python :
 
 ```
+python
+import pandas
+
 my_cols_csv1 = [ "vtobjectsid","vtbegin","vtduration","vtend","vtexpdatevalue","vtstatus","vterrmess" ]
 csv1 = pandas.read_csv('stats_raw',delimiter=r"|",names=my_cols_csv1)
 my_cols=["vtobjectsid","env","app","job","script","host","queue","vtdatename","param"]

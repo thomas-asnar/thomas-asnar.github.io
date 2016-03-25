@@ -85,8 +85,11 @@ and   (vtend::timestamp - vtbegin::timestamp) >= '00:10:00'
 order by (vtend::timestamp - vtbegin::timestamp) 
 ;
 EOF
+```
 
+Très long avec Awk (beaucoup d'itération :x)
 
+```
 awk -v fic=$allJobsManyTo1 'BEGIN{
     OFS="|";FS="|";
     i=0 ;
@@ -116,4 +119,17 @@ awk -v fic=$allJobsManyTo1 'BEGIN{
     }
     
 }' /var/tmp/stats
+```
+
+
+Beaucoup plus rapide avec Pandas - Python :
+
+```
+my_cols_csv1 = [ "vtobjectsid","vtbegin","vtduration","vtend","vtexpdatevalue","vtstatus","vterrmess" ]
+csv1 = pandas.read_csv('stats_raw',delimiter=r"|",names=my_cols_csv1)
+my_cols=["vtobjectsid","env","app","job","script","host","queue","vtdatename","param"]
+my_cols=my_cols + range(150)
+csv2 = pandas.read_csv('all_jobsSID_manyTo1Param_up2to006.txt',names=my_cols, sep="|")
+merge = pandas.merge(csv1,csv2, on='vtobjectsid')
+merge.to_csv("output.csv")
 ```

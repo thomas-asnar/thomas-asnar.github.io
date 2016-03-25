@@ -20,34 +20,6 @@ pragma table_info(JOBS) ; -- liste les champs de la table JOBS
 .schema JOBS ; -- idem mais avec le type de la colonne (varchar(35) par ex.)
 ```
 
-On peut par exemple lister tous les jobs avec quelques propriétés importantes. On le script dans un fichier .sql :
-
-```sql
-sqlite> select e.NAME, a.NAME, j.NAME, j.SCRIPT, h.NAME, u.NAME, q.NAME, d.NAME
-   ...> from jobs j
-   ...> left join applications a on j.APP_SID = a.APP_SID
-   ...> left join environments e on a.ENV_SID = e.ENV_SID
-   ...> left join hosts h on j.HOST_SID = h.HOST_SID or (ifnull(j.HOST_SID,'') = '' and ( a.HOST_SID = h.HOST_SID or (ifnull(a.HOST_SID,'') = '' and e.HOST_SID = h.HOST_SID) ) )
-   ...> left join users u on j.USER_SID = u.USER_SID or (ifnull(j.USER_SID,'') = '' and ( a.USER_SID = u.USER_SID or (ifnull(a.USER_SID,'') = '' and e.USER_SID = u.USER_SID) ) )
-   ...> left join queues q on j.QUEUE_SID = q.QUEUE_SID or (ifnull(j.QUEUE_SID,'') = '' and ( a.QUEUE_SID = q.QUEUE_SID or (ifnull(a.QUEUE_SID,'') = '' and e.QUEUE_SID = q.QUEUE_SID) ) )
-   ...> left join dates d on j.DATE_SID = d.DATE_SID or (ifnull(j.DATE_SID,'') = '' and ( a.DATE_SID = d.DATE_SID or (ifnull(a.DATE_SID,'') = '' and e.DATE_SID = d.DATE_SID) ) ) ;
-exploitation|appli_test|job1|jobok.bat|client_local|vtom|queue_wnt|date_exp
-exploitation|appli_test|job2|jobok.bat|client_local|vtom|queue_wnt|date_exp
-exploitation|appli_test|job3|jobok.bat|client_local|vtom|queue_wnt|date_exp
-
-
-
-
-select j.JOB_SID, e.NAME, a.NAME, j.NAME, j.SCRIPT, h.NAME, u.NAME, q.NAME, d.NAME
-from jobs j
-left join applications a on j.APP_SID = a.APP_SID
-left join environments e on a.ENV_SID = e.ENV_SID
-left join hosts h on j.HOST_SID = h.HOST_SID or (ifnull(j.HOST_SID,'') = '' and ( a.HOST_SID = h.HOST_SID or (ifnull(a.HOST_SID,'') = '' and e.HOST_SID = h.HOST_SID) ) )
-left join users u on j.USER_SID = u.USER_SID or (ifnull(j.USER_SID,'') = '' and ( a.USER_SID = u.USER_SID or (ifnull(a.USER_SID,'') = '' and e.USER_SID = u.USER_SID) ) )
-left join queues q on j.QUEUE_SID = q.QUEUE_SID or (ifnull(j.QUEUE_SID,'') = '' and ( a.QUEUE_SID = q.QUEUE_SID or (ifnull(a.QUEUE_SID,'') = '' and e.QUEUE_SID = q.QUEUE_SID) ) )
-left join dates d on j.DATE_SID = d.DATE_SID or (ifnull(j.DATE_SID,'') = '' and ( a.DATE_SID = d.DATE_SID or (ifnull(a.DATE_SID,'') = '' and e.DATE_SID = d.DATE_SID) ) ) ;
-```
-
 On peut exécuter un script .sql :
 
 ```bash
@@ -82,4 +54,66 @@ sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql | awk -F"|" '$10 ~ /3/ && $
 # 1er awk, on rajoute des 0 au numéro de paramètre pour pouvoir trier correctement (premier paramètre en premier, etc.)
 # 2ème awk, on affiche sur la même ligne tant qu'on a le même jobID
 sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql |  awk 'BEGIN{ FS="|" ; OFS="|" } { l=length($10) ; if(l == 2) { $10="0"$10 ;} ;  if(l == 1){ $10="00"$10 }  ; print}' | sort -g | awk -F "|" 'BEGIN{ job_sid=null;} {if($1 == job_sid){ printf "%s:%s;",$10,$11 }else{ if(job_sid != null){ printf "\n" } ; printf "%s|%s|%s|%s|%s|%s|%s|%s|%s:%s;",$2,$3,$4,$5,$6,$7,$8,$9,$10,$11 } ; job_sid=$1 ;}'
+```
+
+
+Reminder pour moi : consolidation des statistiques VTOM (en attendant que tout soit dans la base postgres, je passe par le vthttpd dump)
+
+```bash
+plateforme=up2to006
+vthttpdDat=vthttpd_${plateforme}.dat
+allJobsSQL=all_jobs.sql
+allJobs1to1=all_jobsSID_1to1Param_${plateforme}.txt
+allJobsManyTo1=all_jobsSID_manyTo1Param_${plateforme}.txt
+
+sqlite3 $vthttpdDat < $allJobsSQL |  awk 'BEGIN{ FS="|" ; OFS="|" } { l=length($10) ; if(l == 2) { $10="0"$10 ;} ;  if(l == 1){ $10="00"$10 }  ; print}' | sort -g  >  $allJobs1to1
+
+### All jobs manyto1 parameters
+awk -F "|" 'BEGIN{ job_sid=null;} {if($1 == job_sid){ printf "|%s",$11 }else{ if(job_sid != null){ printf "\n" } ; printf "%s|%s|%s|%s|%s|%s|%s|%s|%s|%s",$1,$2,$3,$4,$5,$6,$7,$8,$9,$11 } ; job_sid=$1 ;}' $allJobs1to1 | sort > $allJobsManyTo1
+
+# get stats with filter (modify where clauses)   
+~/sgbd/bin/psql -d vtom -p 30009 << EOF
+\pset tuples_only
+\pset footer off
+\a
+\o /var/tmp/stats 
+select vtobjectsid,vtenvname, vtapplname, vtjobname, vtbegin, (vtend::timestamp - vtbegin::timestamp), vtend, vtexpdatevalue, vthostname, vtusername, vtbqueuename, vtdatename,vtstatus, vterrmess  
+from vt_stats_job 
+where vthostname = 'PDECIB10' 
+and   (vtexpdatevalue = '2016-03-01' or  vtexpdatevalue = '2016-03-02' or  vtexpdatevalue = '2016-03-03' or  vtexpdatevalue = '2016-03-04')
+and   (vtend::timestamp - vtbegin::timestamp) >= '00:10:00'
+order by (vtend::timestamp - vtbegin::timestamp) 
+;
+EOF
+
+
+awk -v fic=$allJobsManyTo1 'BEGIN{
+    OFS="|";FS="|";
+    i=0 ;
+    while ((getline line < fic ) > 0){
+        tAllJobsManyTo1[i]=line ;
+        i++ ;
+    }
+    close (fic) ;
+    
+}{
+    if($1 ~ /^APP/){
+      print $0;
+      next
+    }
+    jobSID=$1 ;
+    lineStats=$0 ;
+    
+    for (i in tAllJobsManyTo1){
+        split(tAllJobsManyTo1[i],tLine,"|");
+   
+        if( tLine[1] == jobSID ){
+          script=tLine[5] ;
+          printf "%s|%s\n",lineStats,script ;
+          delete  tAllJobsManyTo1[i] ;
+          break; 
+        }
+    }
+    
+}' /var/tmp/stats
 ```

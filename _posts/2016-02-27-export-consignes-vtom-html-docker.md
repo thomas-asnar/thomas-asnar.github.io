@@ -64,7 +64,7 @@ Au fait, comment j'en suis arrivé là ?!
 
 C'est sur la demande d'un client qui voulait toutes les consignes VTOM.
 
-J'ai vraiment galéré pour décoder les consignes qui sont encodées (ça m'a pris 2 jours ^^').
+J'ai vraiment galéré pour décoder les consignes qui sont encodées.
 
 En fait, ma piste a pris le bon chemin quand j'ai fait un `strings $TOM_BIN/vthttpd` car j'ai vu que le web access le décodait à la volée. Et là, on voit qu'il y a du `abs_zipbase64` et du `base64Binary`.
 

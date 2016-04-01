@@ -74,7 +74,7 @@ Autant, je peux vous dire que j'en ai essayé des encodages pour trouver le zlib
 
 Heureusement que python est là !
 
-A l'inverse, si vous voulez intégrer massivement des consignes à partir de fichiers html, c'est possible - à vos risques et périls, testez toujours en environnement de test -  en encodant en ('zlib') puis en ('base64') et en intégrant un node <Instruction> dans le vtexport.xml.
+A l'inverse, si vous voulez intégrer massivement des consignes à partir de fichiers html, c'est possible - à vos risques et périls, testez toujours en environnement de test -  en encodant en ('zlib') puis en ('base64') et en intégrant un node &lt;Instruction&gt; dans le vtexport.xml.
 
 ```python
 import encodings

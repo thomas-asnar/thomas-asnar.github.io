@@ -74,6 +74,33 @@ Autant, je peux vous dire que j'en ai essayé des encodages pour trouver le zlib
 
 Heureusement que python est là !
 
+A l'inverse, si vous voulez intégrer massivement des consignes, c'est possible à vos risques et périls en encodant en ('zlib') puis en ('base64') et en intégrant un node <Instruction> dans le vtexport.xml.
+
+```python
+import encodings
+import sys
+f = open("monfichier.html","r")
+s = f.read()
+s.encode('zlib').encode('base64')
+sys.stdout.write(s)
+```
+
+```
+eJyzyTC0c8rPy8ovLVLwKc1OVVC00QcKcdkU2HmlKhSXZhYrlOTnKdgk2QW8KEq10U8CSukX2HEB
+APm2EWI=
+```
+
+```
+<Instructions>
+...
+  
+    <Instruction name="MA_CONSIGNE_1" comment="ceci est un commentaire">
+      <Content><![CDATA[eJyzyTC0c8rPy8ovLVLwKc1OVVC00QcKcdkU2HmlKhSXZhYrlOTnKdgk2QW8KEq10U8CSukX2HEB
+APm2EWI=]]></Content>
+    </Instruction>
+...
+</Instructions>
+```
 
 Pour le web access si ça vous intéresse, regarder mon tuto [Web Access API VTOM](https://thomas-asnar.github.io/api-vtom-web-access/)  : 
 

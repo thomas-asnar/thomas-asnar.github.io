@@ -1,1 +1,18 @@
 git add --all && git commit -m "all" && git push
+
+docker-machine env --shell powershell default
+
+sudo mount -t vboxsf -o uid=1000,gid=50 workspace /mnt/workspace
+
+docker run -v /mnt/workspace:/mnt/workspace -p 30007-30008:30007-30008 -ti docker_vtom_dev
+
+
+
+vi /etc/ssh/sshd_config
+
+ChallengeResponseAuthentication no
+PasswordAuthentication no
+UsePAM no
+
+/etc/init.d/sshd restart
+

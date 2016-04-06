@@ -3,8 +3,6 @@ import os as os
 import copy
 #import re
 
-# can be good to follow with git (for versioning)
-
 # loading tree
 tree = etree.parse('vtexport.xml')
 
@@ -22,11 +20,16 @@ DomainWithoutEnv.attrib['generationDate'] = ''
 
 # remove all status for Hosts and Links
 for Host in DomainWithoutEnv.findall('Hosts/Host'):
-	Host.attrib['lastStatus'] = ''
-	Host.attrib['lastTimeStatus'] = ''
-	Host.attrib['lastTimeResolv'] = ''
-	Host.attrib['lastTimeCheck'] = ''
-	Host.attrib['lastError'] = ''
+	if 'lastStatus' in Host.attrib:
+		del Host.attrib['lastStatus']
+	if 'lastTimeStatus' in Host.attrib:
+		del Host.attrib['lastTimeStatus']
+	if 'lastTimeResolv' in Host.attrib:
+		del Host.attrib['lastTimeResolv']
+	if 'lastTimeCheck' in Host.attrib:
+		del Host.attrib['lastTimeCheck']
+	if 'lastError' in Host.attrib:
+		del Host.attrib['lastError']
 
 for Link in DomainWithoutEnv.findall('Links/Link'):
 	Link.attrib['status'] = ''
@@ -48,10 +51,14 @@ for Environment in Domain.findall('Environments/Environment'):
 	# remove Applications node
 	EnvironmentWithoutApp = copy.deepcopy(Environment)
 	EnvironmentWithoutApp.remove(EnvironmentWithoutApp.find('Applications'))
+
+	# remove UsedResources (because the order changes on new vtimport)
+	EnvironmentWithoutApp.remove(EnvironmentWithoutApp.find('UsedResources'))
 	
 	# remove nodeSID from Graph/Node (because it changes on every vtimport)
 	for GraphNode in EnvironmentWithoutApp.findall('Graph/Node'):
-		GraphNode.attrib['nodeSId'] = ''
+		if 'nodeSId' in GraphNode.attrib:
+			del GraphNode.attrib["nodeSId"]
 	
 	# split all Environments into separate files xml without Applications node
 	# so we see the versioning (change, del, add)
@@ -77,7 +84,8 @@ for Environment in Domain.findall('Environments/Environment'):
 		
 		# remove nodeSID from Graph/Node (because it changes on every vtimport)
 		for GraphNode in ApplicationtWithoutApp.findall('Graph/Node'):
-			GraphNode.attrib['nodeSId'] = ''
+			if 'nodeSId' in GraphNode.attrib:
+				del GraphNode.attrib["nodeSId"]
 		
 		# split all Applications into separate files xml without Jobs node
 		# so we see the versioning (change, del, add)
@@ -91,8 +99,10 @@ for Environment in Domain.findall('Environments/Environment'):
 			JobName = Job.get('name')
 			
 			# remove status
-			Job.attrib['status'] = ''
-			Job.attrib['retcode'] = ''
+			if 'status' in Job.attrib:
+				del Job.attrib["status"]
+			if 'retcode' in Job.attrib:
+				del Job.attrib["retcode"]
 			
 			f = open(DomainName+"/"+EnvironmentName+"/"+ApplicationName+"/" +JobName +  ".xml","w")
 			f.write(etree.tostring(Job).strip())

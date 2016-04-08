@@ -36,6 +36,8 @@ On pourra aussi scripter le déploiement d'une licence particulière ou d'une ba
 Si vous voulez une intro en français de Docker, voici une vidéo qui dégrossit bien le concept :
 [video Grafikart](http://www.grafikart.fr/tutoriels/docker/docker-intro-634)
 
+Autre lien vers un post de mon ami qui bosse chez Google : [Kubernetes / Docker](http://beroux.com/english/articles/kubernetes/)
+
 ## Mode opératoire
 
 ### First things firt - Installation de Docker

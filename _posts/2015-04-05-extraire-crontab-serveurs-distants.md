@@ -108,6 +108,12 @@ fi
 exit $CR
 ```
 
+Pour déployer facilement un script depuis le serveur VTOM vers tous les clients, on peut aussi utiliser le `vtcopy`
+
+```
+vtmachine | grep -i running | awk -F"|" 'BEGIN{printf "tremote /machine="}{gsub(/[ 	]/, "", $2); printf "%s,",$2;}END{printf " vtcopy -i monfic_source -o mon_rep_dest\n"}'
+```
+
 Version tâches planifiées Windows (filtre des tâches microsoft) schtasks /query : 
 
 ```batch

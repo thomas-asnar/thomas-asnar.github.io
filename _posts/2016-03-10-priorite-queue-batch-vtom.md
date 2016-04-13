@@ -5,6 +5,14 @@ date: 2016-03-10 22:53
 author: Thomas ASNAR
 categories: [queue, queue batch, Visual TOM, VTOM]
 ---
+
+&lt;EDIT&gt;
+
+Obsolète depuis la 5.7+
+
+La priorité se gère au niveau des objets Applications et Traitements. (case à coché "Priorité" de 0 jusqu'à 127, 0 étant le moins prioritaire)
+
+
 ## Problématique des gros environnements de production
 
 Certains clients VTOM à forte charge d'ordonnancement voient leurs files d'attente saturées, et des traitements non prioritaires qui durent des heures bloquent le passage de traitements "rapides" (qui pourraient débloquer des chaînes bien plus prioritaires).

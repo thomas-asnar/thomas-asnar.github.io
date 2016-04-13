@@ -8,10 +8,9 @@ categories: [queue, queue batch, Visual TOM, VTOM]
 
 &lt;EDIT&gt;
 
-Obsolète depuis la 5.7+
+La priorité des queues est obsolète depuis la 5.7+ (même si elle est conservée pour des raisons de rétrocompatibilité pour le moment)
 
 La priorité se gère au niveau des objets Applications et Traitements. (case à coché "Priorité" de 0 jusqu'à 127, 0 étant le moins prioritaire)
-
 
 ## Problématique des gros environnements de production
 

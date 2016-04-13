@@ -16,3 +16,11 @@ UsePAM no
 
 /etc/init.d/sshd restart
 
+
+
+ldapsearch -D "ITGCE\S0076945" -h itgce.caisse-epargne.fr -p 389 -w "VTOMmars2016" -b "OU=Groupes,DC=itgce,DC=caisse-epargne,DC=fr" -s sub '(&(objectClass=*)(mail=itce-l-ppr-sim-gao-iom@it-ce.fr))'
+ldapsearch -D "ITGCE\S0076945" -h itgce.caisse-epargne.fr -p 389 -w "VTOMmars2016" -b "DC=itgce,DC=caisse-epargne,DC=fr" -s sub '(&(objectClass=*)(memberOf=CN=GUD_UO_ITCE-L-PPR-SIM-GAO-IOM,OU=OrgaV2,OU=GCETECH,OU=Groupes,DC=itgce,DC=caisse-epargne,DC=fr))'
+ldapsearch -D "ITGCE\S0076945" -h itgce.caisse-epargne.fr -p 389 -w "VTOMmars2016" -b "DC=itgce,DC=caisse-epargne,DC=fr" -s sub '(&(objectClass=user)(CN=BONVARLET Vincent (B0000455),OU=BPCE-IT,OU=Utilisateurs,DC=itgce,DC=caisse-epargne,DC=fr))'
+
+ldapsearch -D "ITGCE\S0076945" -h itgce.caisse-epargne.fr -p 389 -w "VTOMmars2016" -b "OU=Utilisateurs,DC=itgce,DC=caisse-epargne,DC=fr" -s sub '(&(objectClass=*)(memberOf=CN=GUD_UO_ITCE-L-PPR-SIM-GAO-IOM-INTERNES,OU=OrgaV2,OU=GCETECH,OU=Groupes,DC=itgce,DC=caisse-epargne,DC=fr))' | grep "^mail="
+

@@ -8,7 +8,7 @@ categories: [queue, queue batch, Visual TOM, VTOM]
 
 &lt;EDIT&gt;
 
-Une option de priorité a été ajoutée depuis 5.7+ et se gère au niveau des objets Applications et Traitements. (case à coché "Priorité" de 0 jusqu'à 127, 0 étant le moins prioritaire)
+Une option de priorité a été ajoutée depuis 5.7+ et se gère au niveau des objets Applications et Traitements. (case à cocher "Priorité" de 0 jusqu'à 127, 0 étant le moins prioritaire)
 
 ## Problématique des gros environnements de production
 

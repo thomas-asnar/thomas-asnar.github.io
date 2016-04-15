@@ -6,7 +6,14 @@ sudo mount -t vboxsf -o uid=1000,gid=50 workspace /mnt/workspace
 
 docker run -v /mnt/workspace:/mnt/workspace -p 30007-30008:30007-30008 -ti docker_vtom_dev
 
+### switch entre différent vtom server
+export TOM_PORT_vtserver=n°port
 
+#
+# ssh key 
+Le home user doit être en 750
+.ssh en 750
+authorized_keys en 600
 
 vi /etc/ssh/sshd_config
 

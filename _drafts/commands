@@ -11,7 +11,7 @@ export TOM_PORT_vtserver=n°port
 
 #
 # ssh key 
-Le home user doit être en 750
+Le home user doit être en 750 (ou 755) 
 .ssh en 750
 authorized_keys en 600
 

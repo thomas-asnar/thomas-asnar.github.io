@@ -5,14 +5,14 @@
 # Parameter : 1 . vtserver PORT (for vtmachine)
 # Parameter : 2 . env/app/job (purge log job vtom)
 # Parameter : 3 . host (host VTOM which is going to take the real IP of each host in vtmachine)
-# Parameter : 4 . list of hosts to exclude of the purge (not mandatory)
+# Parameter : 4 . list of hosts to exclude of the purge (not mandatory) separate by a blank
 #######################################
 if test $# -lt 3;then
-	echo "ERROR -- usage $0 <TOM_PORT_vtserver> <env/app/job>"
+	echo "ERROR -- usage $0 <TOM_PORT_vtserver> <env/app/job> <host> [host_to_exclude[ hosts_to_exclude]...]"
 	echo "# Parameter : 1 . vtserver PORT (for vtmachine)
 # Parameter : 2 . env/app/job (purge log job vtom)
 # Parameter : 3 . host (host VTOM which is going to take the real IP of each host in vtmachine)
-# Parameter : 4 . list of hosts to exclude of the purge (not mandatory)"
+# Parameter : 4 . list of hosts to exclude of the purge (not mandatory) separate by a blank"
 	echo "Exit -> 123"
 	exit 123
 fi

@@ -6,18 +6,17 @@ author: Thomas ASNAR
 comments: true
 categories: [HTML, naviseccli, SAN, Script, shell, Stockage, VTOM, xml, XML, xsl, XSL, xslt, XSLT]
 ---
-<h2>But : </h2>
-<p>
-Donner à la direction informatique une visualisation globale des indicateurs de l'état capacitaire (espace utilisé, disponible et total) des baies de stockage. L'outil doit fournir une aide décisionnelle qui permettra, par exemple, la commande de nouveaux disques, la prise en compte de nouveaux systèmes d'informations en étant sûr de pouvoir l'héberger.
-</p>
+## But :
 
+Donner à la direction informatique une visualisation globale des indicateurs de l'état capacitaire (espace utilisé, disponible et total) des baies de stockage. L'outil doit fournir une aide décisionnelle qui permettra, par exemple, la commande de nouveaux disques, la prise en compte de nouveaux systèmes d'informations en étant sûr de pouvoir l'héberger.
 
 Voici un <a href="/wp-content/uploads/etat-capacitaire.xml">rendu du fichier XML</a> basique. 
 
 Les explications, ça n'est pas votre tasse de thé ? On en vient directement au fait <a href="#demo-script" title="La démonstration par l'exemple">ici</a>.
-<h2>Comment ?</h2>
-<p>
-<h3>Les besoins :</h3>
+
+## Comment ?
+
+### Les besoins :
 <ul>
 <li>Une visualisation d'ensemble des KPI (indicateurs clefs de performances) : l'état capacitaire de toutes les baies de  stockage (espace utilisé, disponible et total). Si possible en pourcentage, en Giga Octet et en camembert.</li>
 <li>Une mise à jour régulière des données, sur demande ou temps réel selon les besoins. J'estime qu'une mise à jour quotidienne, et à la demande suffisent aux besoins.</li>
@@ -26,7 +25,7 @@ Les explications, ça n'est pas votre tasse de thé ? On en vient directement au
 <li>Un état imprimable. (Je pense que je vais améliorer cet aspect)</li>
 </ul>
 
-<h3>Les méthodes :</h3>
+### Les méthodes :
 <ul>
 <li>Pour les requêtes aux baies de stockage EMC, j'utilise : naviseccli. Le programme permet de récupérer toutes les informations qu'on souhaite.</li>
 <li>
@@ -44,9 +43,9 @@ De même, il est quasiment exclus de donner un accès direct au logiciel d'admin
 
 Pourquoi, me diriez-vous ? Navisphere, par exemple, dispose de toutes les informations, même sous forme graphique. 
 A cela, je répondrais : trop compliqué, trop de cliques à effectuer, trop de chargement, pas de visualisation d'ensemble. La direction a autre chose à faire que de naviguer dans les menus complexes que nous, administrateurs chevronnés, connaissons par coeur.
-</p>
-<div id="demo-script">
-<h2>naviseccli</h2>
+
+## naviseccli
+
 Je vous conseille d'authentifier votre utilisateur afin d'effectuer des requêtes sans mot de passe.
 
 ```
@@ -99,7 +98,7 @@ vi authorized_keys
 # sauvegarder
 ```
 
-<h2>Comment traiter les informations de naviseccli et du NAS ?</h2>
+## Comment traiter les informations de naviseccli et du NAS ?
 J'ai toutes mes informations. Maintenant, je les traite avec un script shell et les mets en forme en XML.
 Le fichier XML aura la feuille de style XSLT embarquée, avec un rendu HTML.
  
@@ -320,9 +319,9 @@ rm -f ${rep_script}/$tmpfile
 date_heure 'Fin du script'
 ```
 
-Vous avez remarqué qu'on(je) dis souvent que la feuille XSLT est embarquée dans le fichier XML. En réalité, c'est plutôt la data XML qui est embarquée dans la transformation XSLT. En fait, la feuille de transformation XSLT est un fichier XML en elle-même. Il suffit de lui insérer des datas et de définir un certain nombre de paramètres :
+Vous avez remarqué que je dis souvent que la feuille XSLT est embarquée dans le fichier XML. En réalité, c'est plutôt la data XML qui est embarquée dans la transformation XSLT. En fait, la feuille de transformation XSLT est un fichier XML en elle-même. Il suffit de lui insérer des datas et de définir un certain nombre de paramètres :
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?> <!-- Comme tout fichier XML -->
 <?xml-stylesheet href="#stylesheet" type="text/xsl"?> <!-- D'habitude on met l'url du fichier XML à transformer ici -->
 <!-- là, on fait référence à l'ID stylesheet, interne à ce fichier -->
@@ -359,8 +358,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 Petite aparté :
 Il faut savoir que vous pouvez sortir les informations en XML avec naviseccli. C'est possible mais, le format est tellement peu pratique et peu lisible (car non-imbriqué) que je ne l'utilise pas. Si vous voulez absolument avoir une sortie en XML il faut rajouter -Xml à naviseccli. 
 
-```
-naviseccli -Xml -h x.x.x.x storagepool -list  -userCap -availableCap
+`naviseccli -Xml -h x.x.x.x storagepool -list  -userCap -availableCap`
+
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <CIM CIMVERSION="2.0" DTDVERSION="2.0"><MESSAGE ID="877" PROTOCOLVERSION="1.0"><SIMPLERSP><METHODRESPONSE NAME="ExecuteClientRequest"><RETURNVALUE TYPE="Navi_Error">
 <VALUE.NAMEDINSTANCE>

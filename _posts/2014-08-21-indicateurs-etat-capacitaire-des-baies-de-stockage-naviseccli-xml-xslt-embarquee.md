@@ -322,7 +322,7 @@ date_heure 'Fin du script'
 
 Vous avez remarqué qu'on(je) dis souvent que la feuille XSLT est embarquée dans le fichier XML. En réalité, c'est plutôt la data XML qui est embarquée dans la transformation XSLT. En fait, la feuille de transformation XSLT est un fichier XML en elle-même. Il suffit de lui insérer des datas et de définir un certain nombre de paramètres :
 
-```XML
+```
 <?xml version="1.0" encoding="utf-8"?> <!-- Comme tout fichier XML -->
 <?xml-stylesheet href="#stylesheet" type="text/xsl"?> <!-- D'habitude on met l'url du fichier XML à transformer ici -->
 <!-- là, on fait référence à l'ID stylesheet, interne à ce fichier -->
@@ -359,7 +359,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 Petite aparté :
 Il faut savoir que vous pouvez sortir les informations en XML avec naviseccli. C'est possible mais, le format est tellement peu pratique et peu lisible (car non-imbriqué) que je ne l'utilise pas. Si vous voulez absolument avoir une sortie en XML il faut rajouter -Xml à naviseccli. 
 
-```XML
+```
 naviseccli -Xml -h x.x.x.x storagepool -list  -userCap -availableCap
 <?xml version="1.0" encoding="utf-8" ?>
 <CIM CIMVERSION="2.0" DTDVERSION="2.0"><MESSAGE ID="877" PROTOCOLVERSION="1.0"><SIMPLERSP><METHODRESPONSE NAME="ExecuteClientRequest"><RETURNVALUE TYPE="Navi_Error">
@@ -395,4 +395,3 @@ naviseccli -Xml -h x.x.x.x storagepool -list  -userCap -availableCap
 ...
 </METHODRESPONSE></SIMPLERSP></MESSAGE></CIM>
 ```
-</div>

@@ -60,28 +60,33 @@ sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql |  awk 'BEGIN{ FS="|" ; OFS
 Reminder pour moi : consolidation des statistiques VTOM (en attendant que tout soit dans la base postgres, je passe par le vthttpd dump)
 
 ```bash
-plateforme=up2to006
+plateforme=up2
 vthttpdDat=vthttpd_${plateforme}.dat
 allJobsSQL=all_jobs.sql
 allJobs1to1=all_jobsSID_1to1Param_${plateforme}.txt
 allJobsManyTo1=all_jobsSID_manyTo1Param_${plateforme}.txt
+outputStats=stats_${plateforme}
+vtsgbdPort=30509
+hostFilter=PDECIB10
 
+test -f $vthttpdDat && rm $vthttpdDat
+vthttpd -dump $vthttpdDat
 sqlite3 $vthttpdDat < $allJobsSQL |  awk 'BEGIN{ FS="|" ; OFS="|" } { l=length($10) ; if(l == 2) { $10="0"$10 ;} ;  if(l == 1){ $10="00"$10 }  ; print}' | sort -g  >  $allJobs1to1
 
 ### All jobs manyto1 parameters
 awk -F "|" 'BEGIN{ job_sid=null;} {if($1 == job_sid){ printf "|%s",$11 }else{ if(job_sid != null){ printf "\n" } ; printf "%s|%s|%s|%s|%s|%s|%s|%s|%s|%s",$1,$2,$3,$4,$5,$6,$7,$8,$9,$11 } ; job_sid=$1 ;}' $allJobs1to1 | sort > $allJobsManyTo1
 
-# get stats with filter (modify where clauses)   
-~/sgbd/bin/psql -d vtom -p 30009 << EOF
+# get stats with filters (modify where clauses)   
+# select vtobjectsid,vtenvname, vtapplname, vtjobname, vtbegin, (vtend::timestamp - vtbegin::timestamp), vtend, vtexpdatevalue, vthostname, vtusername, vtbqueuename, vtdatename,vtstatus, vterrmess  
+~/sgbd/bin/psql -d vtom -p $vtsgbdPort << EOF
 \pset tuples_only
 \pset footer off
 \a
-\o /var/tmp/stats 
-select vtobjectsid,vtenvname, vtapplname, vtjobname, vtbegin, (vtend::timestamp - vtbegin::timestamp), vtend, vtexpdatevalue, vthostname, vtusername, vtbqueuename, vtdatename,vtstatus, vterrmess  
+\o $outputStats
+select vtobjectsid,vtbegin,(vtend::timestamp - vtbegin::timestamp),vtend,vtexpdatevalue,vtstatus,vterrmess
 from vt_stats_job 
-where vthostname = 'PDECIB10' 
-and   (vtexpdatevalue = '2016-03-01' or  vtexpdatevalue = '2016-03-02' or  vtexpdatevalue = '2016-03-03' or  vtexpdatevalue = '2016-03-04')
-and   (vtend::timestamp - vtbegin::timestamp) >= '00:10:00'
+where vthostname = '$hostFilter' 
+and (vtend::timestamp - vtbegin::timestamp) >= '00:10:00'
 order by (vtend::timestamp - vtbegin::timestamp) 
 ;
 EOF
@@ -124,15 +129,14 @@ awk -v fic=$allJobsManyTo1 'BEGIN{
 
 Beaucoup plus rapide avec Pandas - Python :
 
-```
-python
+```python
 import pandas
 
 my_cols_csv1 = [ "vtobjectsid","vtbegin","vtduration","vtend","vtexpdatevalue","vtstatus","vterrmess" ]
-csv1 = pandas.read_csv('stats_raw',delimiter=r"|",names=my_cols_csv1)
-my_cols=["vtobjectsid","env","app","job","script","host","queue","vtdatename","param"]
+csv1 = pandas.read_csv('stats_up2',delimiter=r"|",names=my_cols_csv1)
+my_cols=["vtobjectsid","env","app","job","script","host","user","queue","vtdatename","param"]
 my_cols=my_cols + range(150)
-csv2 = pandas.read_csv('all_jobsSID_manyTo1Param_up2to006.txt',names=my_cols, sep="|")
+csv2 = pandas.read_csv('all_jobsSID_manyTo1Param_up2.txt',names=my_cols, sep="|")
 merge = pandas.merge(csv1,csv2, on='vtobjectsid')
 merge.to_csv("output.csv")
 ```

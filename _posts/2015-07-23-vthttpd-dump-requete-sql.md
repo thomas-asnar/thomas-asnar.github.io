@@ -140,3 +140,9 @@ csv2 = pandas.read_csv('all_jobsSID_manyTo1Param_up2.txt',names=my_cols, sep="|"
 merge = pandas.merge(csv1,csv2, on='vtobjectsid')
 merge.to_csv("output.csv")
 ```
+
+```
+	vtobjectsid	vtbegin	vtduration	vtend	vtexpdatevalue	vtstatus	vterrmess	env	app	job	script	host	user	queue	vtdatename	param
+0	JOB7ef5b39400006ad956a6113e00014e22	19/03/2016 03:58	00:10:00	19/03/2016 04:08	19/03/2016	3	Termine a 04:08:30	IWHJ	poz12daj1	p800ostp1	PATH_DWH_SHELL/RDWH_800_J010_odi.ksh	PDECIB10	prdwh12	queue_ksh	IWHJ_12_rdwh	
+1	JOB7ef5b39400006ad956a6113e00014e22	03/03/2016 03:29	00:12:24	03/03/2016 03:42	03/03/2016	3	Termine a 03:42:17	IWHJ	poz12daj1	p800ostp1	PATH_DWH_SHELL/RDWH_800_J010_odi.ksh	PDECIB10	prdwh12	queue_ksh	IWHJ_12_rdwh	
+```

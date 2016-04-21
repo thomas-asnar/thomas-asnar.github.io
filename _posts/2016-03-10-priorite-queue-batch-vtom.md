@@ -8,7 +8,7 @@ categories: [queue, queue batch, Visual TOM, VTOM]
 
 &lt;EDIT&gt;
 
-Une option de priorité a été ajoutée depuis 5.7+ et se gère au niveau des objets Applications et Traitements. (case à cocher "Priorité" de 0 jusqu'à 127, 0 étant le moins prioritaire)
+Une option de priorité a été ajoutée depuis 5.7+ et se gère au niveau des objets Applications et Traitements. (case à cocher "Priorité" de 0 jusqu'à 127, 0 étant le moins prioritaire). Cette nouvelle fonctionnalité palie à la décision arbitraire du moteur de mettre tel ou tel job (ou application) à ENCOURS avant tel ou tel autre, mais ne remplace pas la priorité de la queue batch dans la file d'attente.
 
 ## Problématique des gros environnements de production
 

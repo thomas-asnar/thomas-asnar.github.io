@@ -6,6 +6,9 @@ sudo mount -t vboxsf -o uid=1000,gid=50 workspace /mnt/workspace
 
 docker run -v /mnt/workspace:/mnt/workspace -p 30007-30008:30007-30008 -ti docker_vtom_dev
 
+# Postgres
+/opt/vtom/sgbd/bin/pg_restore /opt/vtom/bases/pg_dump.bakcup > /var/tmp/pg_dump.sql
+
 ### switch entre différent vtom server
 export TOM_PORT_vtserver=n°port
 

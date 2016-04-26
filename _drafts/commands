@@ -11,6 +11,9 @@ docker run -v /mnt/workspace:/mnt/workspace -p 30007-30008:30007-30008 -ti docke
 
 ### switch entre différent vtom server
 export TOM_PORT_vtserver=n°port
+export TOM_REMOTE_SERVER=UP2TO006
+export TOM_PORT_vtsgbd=30019
+export TOM_PORT_vtserver=30017
 
 #
 # ssh key 

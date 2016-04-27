@@ -9,6 +9,12 @@ docker run -v /mnt/workspace:/mnt/workspace -p 30007-30008:30007-30008 -ti docke
 # Postgres
 /opt/vtom/sgbd/bin/pg_restore /opt/vtom/bases/pg_dump.bakcup > /var/tmp/pg_dump.sql
 
+# Ouvrir les DBF
+# installer simpledbf et pandas
+from simpledbf import Dbf5
+dbf = Dbf5('/mnt/workspace/temp/bases_Thursday/appl.dbf', codec='latin-1')
+dbf.to_csv('/mnt/workspace/temp/osef.csv')
+
 ### switch entre différent vtom server
 export TOM_PORT_vtserver=n°port
 export TOM_REMOTE_SERVER=UP2TO006

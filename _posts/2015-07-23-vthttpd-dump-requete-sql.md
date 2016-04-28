@@ -61,7 +61,7 @@ J'ai enfin trouvé quelque chose de satisfaisant pour les paramètres en une seu
  * dans le SELECT : GROUPE_CONCAT(columnParameter,"x") 
  * GROUP BY columnID
 
-(exemple en Java, P.I je ne suis pas expert en Java. Ca ne suis surement pas les bonnes pratiques mais ça fonctionne)
+(exemple en Java, P.I je ne suis pas expert en Java - je suis tombé sur des machines qui n'avaient pas sqlite3 ... Ca ne suit surement pas les bonnes pratiques JAva mais ça fonctionne)
 
 ```java
 package top100_vthttpd_jobs_to_csv;

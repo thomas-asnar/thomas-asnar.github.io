@@ -56,6 +56,83 @@ sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql | awk -F"|" '$10 ~ /3/ && $
 sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql |  awk 'BEGIN{ FS="|" ; OFS="|" } { l=length($10) ; if(l == 2) { $10="0"$10 ;} ;  if(l == 1){ $10="00"$10 }  ; print}' | sort -g | awk -F "|" 'BEGIN{ job_sid=null;} {if($1 == job_sid){ printf "%s:%s;",$10,$11 }else{ if(job_sid != null){ printf "\n" } ; printf "%s|%s|%s|%s|%s|%s|%s|%s|%s:%s;",$2,$3,$4,$5,$6,$7,$8,$9,$10,$11 } ; job_sid=$1 ;}'
 ```
 
+J'ai enfin trouvé quelque chose de satisfaisant pour les paramètres en une seule ligne !!!
+
+ * dans le SELECT : GROUPE_CONCAT(columnParameter,"x") 
+ * GROUP BY columnID
+
+```java
+package top100_vthttpd_jobs_to_csv;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class Top100Main {
+
+	public static void main(String[] args) {
+		Connection c = null;
+		Statement stmt = null;
+		String sepCSV = "," ;
+		
+		try {
+			Class.forName("org.sqlite.JDBC");
+			c = DriverManager.getConnection("jdbc:sqlite:D:\\workspace\\java\\top100_vthttpd_jobs_to_csv\\vthttpd.dat");
+			c.setAutoCommit(false);
+			stmt = c.createStatement();
+			
+			String allJobs = "select j.JOB_SID, e.NAME, a.NAME, j.NAME, j.COMMENT, j.FAMILY, j.SCRIPT, h.NAME, u.NAME, q.NAME, d.NAME, GROUP_CONCAT(p.VALUE,'|')"
+					+ " from jobs j"
+					+ " left join applications a on j.APP_SID = a.APP_SID"
+					+ " left join environments e on a.ENV_SID = e.ENV_SID"
+					+ " left join hosts h on j.HOST_SID = h.HOST_SID or (ifnull(j.HOST_SID,'') = '' and ( a.HOST_SID = h.HOST_SID or (ifnull(a.HOST_SID,'') = '' and e.HOST_SID = h.HOST_SID) ) )"
+					+ " left join users u on j.USER_SID = u.USER_SID or (ifnull(j.USER_SID,'') = '' and ( a.USER_SID = u.USER_SID or (ifnull(a.USER_SID,'') = '' and e.USER_SID = u.USER_SID) ) )"
+					+ " left join queues q on j.QUEUE_SID = q.QUEUE_SID or (ifnull(j.QUEUE_SID,'') = '' and ( a.QUEUE_SID = q.QUEUE_SID or (ifnull(a.QUEUE_SID,'') = '' and e.QUEUE_SID = q.QUEUE_SID) ) )"
+					+ " left join dates d on j.DATE_SID = d.DATE_SID or (ifnull(j.DATE_SID,'') = '' and ( a.DATE_SID = d.DATE_SID or (ifnull(a.DATE_SID,'') = '' and e.DATE_SID = d.DATE_SID) ) )"
+					+ " left join job_parameters p on j.JOB_SID = p.JOB_SID"
+					+ " group by j.JOB_SID"
+				//	+ " limit 10"
+					+ " ;"
+			;
+
+			ResultSet rs = stmt.executeQuery( allJobs );
+			
+			
+			while ( rs.next() ) {
+			   String jSID = rs.getString(1);
+			   String eName = rs.getString(2);
+			   String aName = rs.getString(3);
+			   String jName = rs.getString(4);
+			   String jComment = rs.getString(5);
+			   String jFamily = rs.getString(6);
+			   String jScript = rs.getString(7);
+			   String hName = rs.getString(8);
+			   String uName = rs.getString(9);
+			   String qName = rs.getString(10);
+			   String dName = rs.getString(11);
+			   String pValue = rs.getString(12);
+			   System.out.print( 
+					   //jSID + sepCSV + 
+					   eName + sepCSV + aName + sepCSV + jName + sepCSV + jComment + sepCSV +
+					   jFamily + sepCSV + jScript + sepCSV +hName + sepCSV + uName + sepCSV +
+					   qName + sepCSV + dName + sepCSV + pValue
+					);
+			   System.out.println();
+			}
+		
+			rs.close();
+			stmt.close();
+			c.close();
+			
+		}catch ( Exception e ) {
+		  System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+		  System.exit(0);
+		}
+
+	}
+}
+```
 
 Reminder pour moi : consolidation des statistiques VTOM (en attendant que tout soit dans la base postgres, je passe par le vthttpd dump)
 

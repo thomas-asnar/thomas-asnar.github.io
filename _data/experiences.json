@@ -114,7 +114,7 @@
         annee: "2014 - mars 2016",
         garant: "Yves MARCHAND &lt;y.marchand@havana-it.com&gt; | 06.79.14.55.06<br/>Emmanuel CITTADINI&lt;emmanuel.cittadini@capgemini.com&gt; | 04.80.14.02.07",
         description: {
-            "Nov 15 to Jan 16 : Projet migration ordonnanceur TNG chez collaborateur extérieur vers CONTROL-M CAPGEMINI (environ 3k jobs + reverse engineering et adapations scripts). Run final en Inde (collaboration en anglais)",
+            "Nov 15 to Jan 16 : Projet migration ordonnanceur TNG chez collaborateur extérieur vers CONTROL-M CAPGEMINI (environ 3k jobs + reverse engineering et adaptations scripts). Run final en Inde (collaboration en anglais)",
             "Pour un client grand compte CAPGEMINI : Déploiement ~500 agents VTOM, Création ~3000 jobs VTOM",
             "Mise à niveau scripting Powershell en autodidacte (balance Windows/Linux inversée avec mon ancien poste)",
             "Création et mise en place de nouveaux scripts : 70% Windows - 30% Linux/Solaris",

@@ -8,7 +8,7 @@ Par exemple, Google exécute environ 3300 conteneurs à la seconde !
 
 > Everything at Google, from Search to Gmail, is packaged and run in a Linux container. Each week we launch more than 2 billion container instances 
 
-Après une légère introcution, je vous montrerai un exemple d'utilisation de Docker (niveau novice à intermédiaire).
+Après une légère introduction, je vous montrerai un exemple d'utilisation de Docker (niveau novice à intermédiaire).
 
 ## Introduction à Docker
 
@@ -22,10 +22,12 @@ Le plus facile pour appréhender Docker est de comprendre la différence entre u
 
 ### Produits Docker
 
-[Docker Compose](https://www.docker.com/products/docker-compose) permet de d'automatiser le déploiement et l'exécution de 
+[Docker Compose](https://www.docker.com/products/docker-compose) permet de définir la configuration d'un ou plusieurs conteneurs en un seul fichier puis, de les exécuter en une seule commande.
 
 [Docker Hub](https://www.docker.com/products/docker-hub) permet de publier sur le cloud (privé ou public) vos conteneurs versionnés. 
 
+
+## Exemple d'utilisation : Docker Compose
 
 ## Pour aller plus loin
 

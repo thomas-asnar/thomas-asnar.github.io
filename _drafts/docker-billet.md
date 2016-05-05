@@ -1,3 +1,5 @@
+# Introduction à Docker
+
 | VMs      |  Containers   |
 |----------|:-------------:|
 | col 1 is |  left-aligned |

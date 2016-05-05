@@ -1,7 +1,42 @@
-# Introduction à Docker
+# Comprendre et Exploiter Docker
 
-| VMs      |  Containers   |
-|----------|:-------------:|
-| col 1 is |  left-aligned |
-| col 2 is |    centered   |
-| col 3 is | right-aligned |
+La virtualisation des infrastructures est omniprésente. Les besoins et les méthodes de travail évoluant, les conteneurs ont pris de plus en plus d'importance.
+
+Notamment très populaire chez les développeurs et leur méthode AGILE, Docker permet facilement de partager les applications entre les équipes, de les tester simplement dans n'importe quel environnement et de les publier versionnées sur le cloud (controle, agilité et portabilité).
+
+Par exemple, Google exécute environ 3300 conteneurs à la seconde ! 
+
+> Everything at Google, from Search to Gmail, is packaged and run in a Linux container. Each week we launch more than 2 billion container instances 
+
+Après une légère introcution, je vous montrerai un exemple d'utilisation de Docker (niveau novice à intermédiaire).
+
+## Introduction à Docker
+
+Docker propose plusieurs produits pour construire, déployer et exécuter des conteneurs. La plupart du temps, on associera le terme de conteneur à une application ou à un espace de travail avec toutes les dépendances et les outils nécessaires.
+
+Notez que la notion de conteneur n'est pas toute jeune (voir les zones Solaris par exemple) mais la grande force de Docker est, pour moi, sa facilité d'utilisation.
+
+Le plus facile pour appréhender Docker est de comprendre la différence entre une machine virtuelle et un conteneur.
+
+### Différence entre les VM's et les Conteneurs
+
+### Produits Docker
+
+[Docker Compose](https://www.docker.com/products/docker-compose) permet de d'automatiser le déploiement et l'exécution de 
+
+[Docker Hub](https://www.docker.com/products/docker-hub) permet de publier sur le cloud (privé ou public) vos conteneurs versionnés. 
+
+
+## Pour aller plus loin
+
+[Documentation Docker](https://docs.docker.com/)
+
+[Automatisation des opérations d'exploitation de Docker](http://kubernetes.io/)
+
+J'adore les tutoriels Grafikart et c'est en français !
+
+[Présentation de Docker](https://www.grafikart.fr/tutoriels/docker/docker-intro-634)
+
+[Environnement de développement basé sur Docker](https://www.grafikart.fr/tutoriels/docker/docker-stack-web-635)
+
+ 

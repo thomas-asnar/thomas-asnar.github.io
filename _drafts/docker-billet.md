@@ -20,12 +20,19 @@ Le plus facile pour appréhender Docker est de comprendre la différence entre u
 
 ### Différence entre les VM's et les Conteneurs
 
+
+
 ### Produits Docker
+
+[Docker Engine](https://www.docker.com/products/docker-engine) est le moteur qui tourne sous Linux et permet la gestion/exécution des conteneurs.
+
+[Docker Machine](https://www.docker.com/products/docker-machine) permet de configurer et d'exécuter Docker Engine sur une machine virtuelle linux très légère. Indispensable sous Windows.
 
 [Docker Compose](https://www.docker.com/products/docker-compose) permet de définir la configuration d'un ou plusieurs conteneurs en un seul fichier puis, de les exécuter en une seule commande.
 
 [Docker Hub](https://www.docker.com/products/docker-hub) permet de publier sur le cloud (privé ou public) vos conteneurs versionnés. 
 
+D'autres produits existent cependant je ne les mentionnerai pas dans cet article. (voir # Pour aller plus loin)
 
 ## Exemple d'utilisation : Docker Compose
 
@@ -33,7 +40,9 @@ Le plus facile pour appréhender Docker est de comprendre la différence entre u
 
 [Documentation Docker](https://docs.docker.com/)
 
-[Automatisation des opérations d'exploitation de Docker](http://kubernetes.io/)
+[Docker en mode cluster](https://www.docker.com/products/docker-swarm)
+
+[Automatisation des opérations d'exploitation de conteneurs à travers le cloud et clusters de machines](http://kubernetes.io/)
 
 J'adore les tutoriels Grafikart et c'est en français !
 

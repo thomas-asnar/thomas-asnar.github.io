@@ -12,26 +12,42 @@ Après une légère introduction, je vous montrerai un exemple d'utilisation de 
 
 ## Introduction à Docker
 
-Docker propose plusieurs produits pour construire, déployer et exécuter des conteneurs. La plupart du temps, on associera le terme de conteneur à une application ou à un espace de travail avec toutes les librairies, dépendances, outils nécessaires.
+Docker propose plusieurs produits pour construire, déployer et exécuter des conteneurs. La plupart du temps, on associera le terme de conteneur à une application ou à un espace de travail avec toutes les librairies, dépendances et outils nécessaires.
 
-Notez que la notion de conteneur n'est pas toute jeune (voir les zones Solaris par exemple, ou namespace + cgroups linux pour isoler) mais la grande force de Docker est, pour moi, sa facilité d'utilisation.
+Notez que la notion de conteneur n'est pas toute jeune (voir les zones Solaris par exemple, ou namespace + cgroups linux pour isoler) mais, pour moi, la grande force de Docker est sa facilité d'utilisation.
 
 Le plus facile pour appréhender Docker est de comprendre la différence entre une machine virtuelle et un conteneur.
 
-### Différence entre les VM's et les Conteneurs
+### Différences entre les VM's et les Conteneurs
 
 (mettre les images)
 
-Les machines virtuelles ont leur propre système d'exploitation et ressources allouées (CPU, mémoire, stockage, etc.) C'est un avantage car on a ce que l'on paye (ressources réservées). Mais c'est aussi un inconvéniant car : d'une part, la limite de ressources à allouer est vite atteinte, et, d'autre part, les VM's en exécution sont bien souvent sous-exploitées (gaspillage). 
+Les machines virtuelles ont leur propre système d'exploitation et ressources allouées (CPU, mémoire, stockage, etc.) C'est un avantage car on a ce que l'on paye (ressources réservées). Mais c'est aussi un inconvéniant : d'une part, la limite de ressources à allouer est vite atteinte, et, d'autre part, les VM's en exécution sont bien souvent sous-exploitées (gaspillage). 
 
-Les conteneurs Docker, eux, se basent sur le système d'exploitation (noyau linux > à 3.10). Avec Docker, on peut lancer des milliers d'applications hétérogènes (sgbd, serveur web, serveur d'application, big data, etc.) sur le même host ; et cela, sans la complexité ni la lourde charge d'un hyperviseur (comme par exemple un gros vCenter pour VMWare).
+Les conteneurs Docker, eux, se basent sur le système d'exploitation du host (noyau linux > à 3.10). Avec Docker, on peut lancer des milliers d'applications hétérogènes (serveur web, serveur d'application, big data, etc.) sur la même machine ; et cela, sans la complexité ni la lourde charge d'un hyperviseur (comme par exemple un gros vCenter pour VMWare).
 
-Un autre avantage des conteneurs : ils garantissent que le code qui a été écrit et testé directement chez les Dev' sera exécuté de la même manière une fois déployé ailleurs (que ça soit sur le cloud, sur des VM's ou sur une infrastructure complètement différente, l'application dispose déjà dans son conteneur des librairies dont elle a besoin)
+Un autre avantage des conteneurs : ils garantissent que le code qui a été écrit et testé directement chez les Dev' sera exécuté de la même manière une fois déployé ailleurs. Que ça soit sur le cloud, sur des VM's ou sur une infrastructure complètement différente, l'application dispose déjà dans son conteneur des librairies dont elle a besoin.
 
-Une autre différence de taille (si je puis dire) : le poids du conteneur. Contraitement aux VMs qui embarquent le SE et qui pèsent plusieurs dizaines de Giga Octets, les conteneurs sont très légers et leur poids dépend des librairies qui font tourner l'application (en général quelques centaines de Méga Octets, par exemple pour le serveur web nginx : )
+Une autre différence de taille (si je puis dire) : le poids du conteneur. Contrairement aux VMs qui embarquent le SE et qui pèsent plusieurs dizaines de Giga Octets, les conteneurs sont très légers et leur poids dépend des librairies qui font tourner l'application (en général quelques centaines de Méga Octets)
 
 Les PCA et PRA (Plan de Continuité d'Activité ou Plan de Reprise d'Activité) deviendraient presque un jeu d'enfant (réplication et déploiement facilités)
 
+**Exemple pour récupérer une image de serveur web nginx** : je vous laisse juger de la simplicité des commandes
+
+```
+# pull de l'image depuis Docker Hub
+$ docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+...
+Digest: sha256:46a1b05e9ded54272e11b06e13727371a65e2ef8a87f9fb447c64e0607b90340
+Status: Downloaded newer image for nginx:latest
+
+# liste des images locales
+$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+nginx               latest              3edcc5de5a79        3 days ago          182.8 MB
+```
 
 ### Produits Docker
 
@@ -43,9 +59,58 @@ Les PCA et PRA (Plan de Continuité d'Activité ou Plan de Reprise d'Activité) 
 
 [Docker Hub](https://www.docker.com/products/docker-hub) permet de publier sur le cloud (privé ou public) vos conteneurs versionnés. 
 
-D'autres produits existent cependant je ne les mentionnerai pas dans cet article. (voir # Pour aller plus loin)
+D'autres produits existent mais font l'objet d'une utilisation plus poussée (voir #pour-aller-plus-loin)
 
-## Exemple d'utilisation : Docker Compose
+### [Principe de fonctionnement](https://docs.docker.com/engine/understanding-docker/)
+
+#### Les images
+
+Elles sont construites comme une succession de couches avec pour base, une distribution linux (type debian, ou fedora par exemple).
+
+Toutes les couches (exécution, ajout de fichier, variables d'environnement) peuvent être décrites comme des instructions dans un fichier `Dockerfile` qu'on peut utiliser comme template pour construire notre image.
+
+Autre possibilité pour construire votre image : exécutez une image de distribution de base (un conteneur donc), installez vos librairies et votre application puis perpétrez votre conteneur en image [commit](https://docs.docker.com/engine/reference/commandline/commit/)
+
+Avantages de cette construction en couches : si vous avez deux images basées sur deux ubuntu par exemple, la couche "ubuntu" ne prendra qu'une fois la place sur disque.
+
+#### Le conteneur
+
+C'est l'image exécutée avec `docker run`. Pour que le conteneur puisse "vivre" et l'image étant en lecture seule, des couches systèmes supplémentaires sont allouées comme UnionFS en écriture pour le filesystem ou une interface réseau par exemple.
+
+A noter : le conteneur se basant sur l'image, toutes les modifications qu'on effectuera dans le conteneur seront "perdues" à la prochaine exécution (à moins de [commit](https://docs.docker.com/engine/reference/commandline/commit/) le conteneur en image)
+
+#### Les volumes
+
+Indispensable pour la persistance de la donnée, on peut monter des volumes accessibles dans les conteneurs.
+
+[Plus de détails sur la data]https://docs.docker.com/engine/userguide/containers/dockervolumes/
+
+## Exemple d'utilisation avec Docker Compose
+
+### 
+
+### En aparté : Sauvegarde, déploiement
+
+```
+$ docker save -o monImageNginx.tar nginx
+$ ls -lh
+-rw-r--r-- 1 thoma 197609 182M mai    7 22:12 monImageNginx.tar
+
+# la compression fonctionne très bien sur les conteneurs
+$ zip monImageNginx.tar.zip monImageNginx.tar
+  adding: monImageNginx.tar (172 bytes security) (deflated 63%)
+$ ls -lh
+-rw-r--r-- 1 thoma 197609  69M mai    7 22:14 monImageNginx.tar.zip
+
+``` 
+
+Il n'y a plus qu'à transférer la sauvegarde et à la recharger sur n'importe quelle plateforme :
+
+```
+$ docker load -i monImageNginx.tar
+```
+
+On peut aussi [pousser](https://docs.docker.com/engine/reference/commandline/push/) son image sur le cloud (Docker Hub) en s'authentifiant sur son [login](https://docs.docker.com/engine/reference/commandline/login/)
 
 ## Pour aller plus loin
 
@@ -55,10 +120,12 @@ D'autres produits existent cependant je ne les mentionnerai pas dans cet article
 
 [Kubernetes](http://kubernetes.io/) : Automatisation des opérations d'exploitation de conteneurs à travers le cloud et clusters de machines
 
+et d'autres Docker Cloud, Datacenter, Kinematic etc. voir [tous les produits](https://www.docker.com/products/overview)
+
+[Openshift](https://www.openshift.com/) de RedHat. Plateforme d'hébergement basée sur Docker et Kubernetes qui propsent différents plans (dont un gratuit) pour développer et exécuter vos applications sur le cloud
+
 J'adore les tutoriels Grafikart et c'est en français :
 
 [Présentation de Docker](https://www.grafikart.fr/tutoriels/docker/docker-intro-634)
 
 [Environnement de développement basé sur Docker](https://www.grafikart.fr/tutoriels/docker/docker-stack-web-635)
-
- 

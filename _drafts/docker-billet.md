@@ -38,11 +38,11 @@ D'autres produits existent cependant je ne les mentionnerai pas dans cet article
 
 ## Pour aller plus loin
 
-[Documentation Docker](https://docs.docker.com/)
+[Documentation Docker](https://docs.docker.com/) : comment installer, utiliser les commandes en détails etc.
 
-[Docker en mode cluster](https://www.docker.com/products/docker-swarm)
+[Doker Swarm](https://www.docker.com/products/docker-swarm) : Docker en mode cluster
 
-[Automatisation des opérations d'exploitation de conteneurs à travers le cloud et clusters de machines](http://kubernetes.io/)
+[Kubernetes](http://kubernetes.io/) : Automatisation des opérations d'exploitation de conteneurs à travers le cloud et clusters de machines
 
 J'adore les tutoriels Grafikart et c'est en français !
 

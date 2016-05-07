@@ -20,7 +20,11 @@ Le plus facile pour appréhender Docker est de comprendre la différence entre u
 
 ### Différence entre les VM's et les Conteneurs
 
+(mettre les images)
 
+Les machines virtuelles ont leur propre système d'exploitation et ressources allouées (CPU, mémoire, stockage, etc.)
+
+Les conteneurs ont comme base, le SE  
 
 ### Produits Docker
 
@@ -44,7 +48,7 @@ D'autres produits existent cependant je ne les mentionnerai pas dans cet article
 
 [Kubernetes](http://kubernetes.io/) : Automatisation des opérations d'exploitation de conteneurs à travers le cloud et clusters de machines
 
-J'adore les tutoriels Grafikart et c'est en français !
+J'adore les tutoriels Grafikart et c'est en français :
 
 [Présentation de Docker](https://www.grafikart.fr/tutoriels/docker/docker-intro-634)
 

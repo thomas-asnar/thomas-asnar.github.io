@@ -8,13 +8,13 @@ Par exemple, Google exécute environ 3300 conteneurs à la seconde !
 
 > Everything at Google, from Search to Gmail, is packaged and run in a Linux container. Each week we launch more than 2 billion container instances 
 
-Après une légère introduction, je vous montrerai un exemple d'utilisation de Docker (niveau novice à intermédiaire).
+Après une légère introduction, je vous montrerai un exemple d'utilisation avec Docker Compose.
 
 ## Introduction à Docker
 
 Docker propose plusieurs produits pour construire, déployer et exécuter des conteneurs. La plupart du temps, on associera le terme de conteneur à une application ou à un espace de travail avec toutes les librairies, dépendances et outils nécessaires.
 
-Notez que la notion de conteneur n'est pas toute jeune (voir les zones Solaris par exemple, ou namespace + cgroups linux pour isoler) mais, pour moi, la grande force de Docker est sa facilité d'utilisation.
+Notez que la notion de conteneur n'est pas toute jeune (voir les zones Solaris par exemple, ou namespace + cgroups linux pour isoler) mais, pour moi, la grande force de Docker est sa facilité d'utilisation et une documentation en ligne vraiment riche en exemples et explications.
 
 Le plus facile pour appréhender Docker est de comprendre la différence entre une machine virtuelle et un conteneur.
 
@@ -87,7 +87,51 @@ Indispensable pour la persistance de la donnée, on peut monter des volumes acce
 
 ## Exemple d'utilisation avec Docker Compose
 
-### 
+[Getting started](https://docs.docker.com/compose/gettingstarted/)
+
+Et si on exécutait un wordpress ? Rien de plus simple :
+
+Créons un fichier wordpress-compose.yml 
+
+```
+wordpress:
+  image: wordpress
+  links:
+    - db:mysql
+  ports:
+    - 8080:80
+
+db:
+  image: mariadb
+  environment:
+    MYSQL_ROOT_PASSWORD: example
+```
+
+Lançons maintenant ces deux conteneurs. Vous allez voir, c'est très très dur ! ou pas, en fait, docker-compose s'occupe de tout. 
+
+Soit les images définies existent en local, soit il va les chercher sur Docker Hub. On peut aussi définir une commande build avec son propre Dockerfile pour construire sa propre image si elle n'existe pas. Par exemple, l'image `wordpress` ci-dessus est issue du [Dockerfile suivant](https://github.com/docker-library/wordpress/blob/618490d4bdff6c5774b84b717979bfe3d6ba8ad1/apache/Dockerfile#L5-L9)
+
+Il créé les dépendances, les ouvertures de ports, les variables d'environnement, etc.
+
+```
+$ docker-compose -f wordpress-compose.yml up
+Pulling db (mariadb:latest)...
+latest: Pulling from library/mariadb
+Digest: sha256:648500ff8eb35b9967a5e77735d0f66fefb8a48377a65312a375a944cdcfda0a
+Status: Downloaded newer image for mariadb:latest
+Creating compose_db_1
+Pulling wordpress (wordpress:latest)...
+latest: Pulling from library/wordpress
+Digest: sha256:282b474f38ef7c79b50ac45d7430a7c1851db54ccdd134472ad200fab405587e
+Status: Downloaded newer image for wordpress:latest
+Creating compose_wordpress_1
+Attaching to compose_db_1, compose_wordpress_1
+db_1        | Initializing database
+...
+
+```
+
+
 
 ### En aparté : Sauvegarde, déploiement
 

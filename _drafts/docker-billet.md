@@ -12,9 +12,9 @@ Après une légère introduction, je vous montrerai un exemple d'utilisation de 
 
 ## Introduction à Docker
 
-Docker propose plusieurs produits pour construire, déployer et exécuter des conteneurs. La plupart du temps, on associera le terme de conteneur à une application ou à un espace de travail avec toutes les dépendances et les outils nécessaires.
+Docker propose plusieurs produits pour construire, déployer et exécuter des conteneurs. La plupart du temps, on associera le terme de conteneur à une application ou à un espace de travail avec toutes les librairies, dépendances, outils nécessaires.
 
-Notez que la notion de conteneur n'est pas toute jeune (voir les zones Solaris par exemple) mais la grande force de Docker est, pour moi, sa facilité d'utilisation.
+Notez que la notion de conteneur n'est pas toute jeune (voir les zones Solaris par exemple, ou namespace + cgroups linux pour isoler) mais la grande force de Docker est, pour moi, sa facilité d'utilisation.
 
 Le plus facile pour appréhender Docker est de comprendre la différence entre une machine virtuelle et un conteneur.
 
@@ -22,9 +22,16 @@ Le plus facile pour appréhender Docker est de comprendre la différence entre u
 
 (mettre les images)
 
-Les machines virtuelles ont leur propre système d'exploitation et ressources allouées (CPU, mémoire, stockage, etc.)
+Les machines virtuelles ont leur propre système d'exploitation et ressources allouées (CPU, mémoire, stockage, etc.) C'est un avantage car on a ce que l'on paye (ressources réservées). Mais c'est aussi un inconvéniant car : d'une part, la limite de ressources à allouer est vite atteinte, et, d'autre part, les VM's en exécution sont bien souvent sous-exploitées (gaspillage). 
 
-Les conteneurs ont comme base, le SE  
+Les conteneurs Docker, eux, se basent sur le système d'exploitation (noyau linux > à 3.10). Avec Docker, on peut lancer des milliers d'applications hétérogènes (sgbd, serveur web, serveur d'application, big data, etc.) sur le même host ; et cela, sans la complexité ni la lourde charge d'un hyperviseur (comme par exemple un gros vCenter pour VMWare).
+
+Un autre avantage des conteneurs : ils garantissent que le code qui a été écrit et testé directement chez les Dev' sera exécuté de la même manière une fois déployé ailleurs (que ça soit sur le cloud, sur des VM's ou sur une infrastructure complètement différente, l'application dispose déjà dans son conteneur des librairies dont elle a besoin)
+
+Une autre différence de taille (si je puis dire) : le poids du conteneur. Contraitement aux VMs qui embarquent le SE et qui pèsent plusieurs dizaines de Giga Octets, les conteneurs sont très légers et leur poids dépend des librairies qui font tourner l'application (en général quelques centaines de Méga Octets, par exemple pour le serveur web nginx : )
+
+Les PCA et PRA (Plan de Continuité d'Activité ou Plan de Reprise d'Activité) deviendraient presque un jeu d'enfant (réplication et déploiement facilités)
+
 
 ### Produits Docker
 

@@ -22,11 +22,11 @@ Le plus facile pour appréhender Docker est de comprendre la différence entre u
 
 VMs
 
-![what-is-docker-diagram](https://www.docker.com/sites/default/files/what-is-docker-diagram.png "what-is-docker-diagram")
+![what-is-docker-diagram](https://www.docker.com/sites/default/files/what-is-docker-diagram.png =250x "what-is-docker-diagram")
 
 Conteneurs
 
-![what-is-vm-diagram](https://www.docker.com/sites/default/files/what-is-vm-diagram.png "what-is-vm-diagram")
+![what-is-vm-diagram](https://www.docker.com/sites/default/files/what-is-vm-diagram.png =250x "what-is-vm-diagram")
 
 Les machines virtuelles ont leur propre système d'exploitation et ressources allouées (CPU, mémoire, stockage, etc.) C'est un avantage car on a ce que l'on paye (ressources réservées). Mais c'est aussi un inconvéniant : d'une part, la limite de ressources à allouer est vite atteinte, et, d'autre part, les VM's en exécution sont bien souvent sous-exploitées (gaspillage). 
 
@@ -139,7 +139,7 @@ db_1        | Initializing database
 
 ```
 
-![wordpress accueil](http://thomas-asnar.github.io/assets/img/wordpress_intro.jpg "wordpress accueil")
+![wordpress accueil](http://thomas-asnar.github.io/assets/img/wordpress_intro.jpg =250x "wordpress accueil")
 
 ### En aparté : Sauvegarde, déploiement
 

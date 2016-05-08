@@ -139,7 +139,7 @@ db_1        | Initializing database
 
 ```
 
-![wordpress accueil](http://thomas-asnar.github.io/assets/img/wordpress_intro.jpg "wordpress accueil"){:width="250px"}
+![wordpress accueil](http://thomas-asnar.github.io/assets/img/wordpress_intro.jpg "wordpress accueil")
 
 ### En aparté : Sauvegarde, déploiement
 

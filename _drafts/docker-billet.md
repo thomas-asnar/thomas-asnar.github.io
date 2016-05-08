@@ -20,7 +20,8 @@ Le plus facile pour appréhender Docker est de comprendre la différence entre u
 
 ### Différences entre les VM's et les Conteneurs
 
-(mettre les images)
+![what-is-docker-diagram](https://www.docker.com/sites/default/files/what-is-docker-diagram.png "what-is-docker-diagram")
+![what-is-vm-diagram](https://www.docker.com/sites/default/files/what-is-vm-diagram.png "what-is-vm-diagram")
 
 Les machines virtuelles ont leur propre système d'exploitation et ressources allouées (CPU, mémoire, stockage, etc.) C'est un avantage car on a ce que l'on paye (ressources réservées). Mais c'est aussi un inconvéniant : d'une part, la limite de ressources à allouer est vite atteinte, et, d'autre part, les VM's en exécution sont bien souvent sous-exploitées (gaspillage). 
 

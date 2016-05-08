@@ -115,7 +115,7 @@ db:
 
 Lançons maintenant ces deux conteneurs. Vous allez voir, c'est très très dur ! ou pas, en fait, docker-compose s'occupe de tout. 
 
-Soit les images définies existent en local, soit il va les chercher sur Docker Hub. On peut aussi définir une commande build avec son propre Dockerfile pour construire sa propre image si elle n'existe pas. Par exemple, l'image `wordpress` ci-dessus est issue du [Dockerfile suivant](https://github.com/docker-library/wordpress/blob/618490d4bdff6c5774b84b717979bfe3d6ba8ad1/apache/Dockerfile#L5-L9)
+Soit les images définies existent en local, soit il va les chercher sur Docker Hub. On peut aussi définir une commande build avec son propre Dockerfile pour construire l'image si elle n'existe pas. Par exemple, l'image `wordpress` ci-dessus est issue du [Dockerfile suivant](https://github.com/docker-library/wordpress/blob/618490d4bdff6c5774b84b717979bfe3d6ba8ad1/apache/Dockerfile#L5-L9)
 
 Il créé les dépendances, les ouvertures de ports, les variables d'environnement, etc. 
 
@@ -139,7 +139,7 @@ db_1        | Initializing database
 
 ```
 
-mettre image wordpress accueil
+![wordpress accueil](http://thomas-asnar.github.io/assets/img/wordpress_intro.jpg "wordpress accueil")
 
 ### En aparté : Sauvegarde, déploiement
 

@@ -9,6 +9,7 @@ La question revient assez fréquemment. Comment se procurer la documentation off
 Je n'ai pas le droit de diffuser les documentations VTOM car c'est strictement interdit par l'éditeur Absyss.
  
 # Modalité pour télécharger la documentation
+
 ## Vous êtes client
 La documentation se trouve sur votre CD d'installation.
  

@@ -7,6 +7,7 @@ categories: [platform.sh, Orange Cloud, developpement, web, PaaS]
 ---
 
 Avec [platform.sh](https://platform.sh), Orange Cloud for Business nous promet pour nos applications Web :
+
  * un PaaS performant et sécurisé (datacenters situés en France)
  * jusqu'a 25% d'économies sur les couts de développements et sur le DevOps
  * de permettre aux developpeurs de se concentrer sur le code et non sur la gestion du systeme 
@@ -21,6 +22,7 @@ Quelques liens vers les [white papers et case studies](https://platform.sh/produ
  * [Data Sheet](https://platform.sh/files/en/Platform.sh%20-%20Data%20Sheet.pdf)
 
 Ce qu'on pourrait retenir : 
+
  * utilise principalement le mécanisme de Git : 
    * permet le versioning
    * permet la livraison entre les différents environnements avec le merging
@@ -197,6 +199,7 @@ Il semblerait que les deux projets fournis de base soient Symfony ou Drupal pour
 Il n'y a plus  qu'a intégrer ses Bundles et a coder.
 
 Pour le reste, il me semble que les services proposés sont suffisants et demandent peu de configuration : 
+
  * PHP
  * Python
  * Ruby

@@ -5,6 +5,7 @@ date: 2016-05-21 12:53
 author: Thomas ASNAR
 categories: [platform.sh, Orange Cloud, developpement, web, PaaS]
 ---
+
 Avec [platform.sh](https://platform.sh), Orange Cloud for Business nous promet pour nos applications Web :
  * un PaaS performant et sécurisé (datacenters situés en France)
  * jusqu'à 25% d'économies sur les coûts de développements et sur le DevOps

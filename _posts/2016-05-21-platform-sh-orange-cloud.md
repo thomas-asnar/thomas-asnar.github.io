@@ -75,7 +75,11 @@ platform ssh-key:add
 # Je clone mon projet sur la branch n-1
 git clone git clone --branch n-1 nkoaolx5osnio@git.eu.platform.sh:nkoaolx5osnio.git demo-dev
 ...
+```
 
+[!platform.sh.git-clone-n-1.jpg](/assets/img/platform.sh.git-clone-n-1.jpg)
+
+```
 # je regarde la configuration 
 cd demo-dev
 platform 
@@ -173,11 +177,13 @@ git add --all ; git commit -m "first app bonjour" ; git push
 
 ### Je teste et je merge sur la branch principale
 
-platform.sh s'occupe de tout, même de créer une url par environnement et par projet. 
+platform.sh s'occupe de tout. Il créé même une url par environnement et par projet. 
 
-Je vérifie que j'ai bien mon appli "bonjour" sur version-projet.eu.platform.sh ==> OK !
+Je vérifie que j'ai bien mon rendu d'appli "bonjour" sur version-projet.eu.platform.sh ==> OK !
 
-Je merge l'environnement n-1 vers la branche master
+Je merge l'environnement n-1 vers la branche master.
+
+[!platform.sh.merge-n-1.jpg](/assets/img/platform.sh.merge-n-1.jpg)
 
 Et voilà !
 

@@ -18,6 +18,7 @@ A premiere vue, c'est tres orienté Web et comme il y a un free trial de 30 jour
 ## Comment ça fonctionne ?
 
 Quelques liens vers les [white papers et case studies](https://platform.sh/product/enterprise/docs/) : 
+
  * [Introduction](https://platform.sh/files/fr/Platform.sh%20-%20Introduction_FR.pdf)
  * [Data Sheet](https://platform.sh/files/en/Platform.sh%20-%20Data%20Sheet.pdf)
 

@@ -6,40 +6,40 @@ author: Thomas ASNAR
 categories: [platform.sh, Orange Cloud, developpement, web, PaaS]
 ---
 Avec [platform.sh](https://platform.sh), Orange Cloud for Business nous promet pour nos applications Web :
- * un PaaS performant et sécurisé (datacenters situés en France)
- * jusqu'a 25% d'économies sur les couts de développements et sur le DevOps
+ * un PaaS performant et sÃ©curisÃ© (datacenters situÃ©s en France)
+ * jusqu'a 25% d'Ã©conomies sur les couts de dÃ©veloppements et sur le DevOps
  * de permettre aux developpeurs de se concentrer sur le code et non sur la gestion du systeme 
  * de simplifier au maximum les workflow jusqu'a la livraison du projet
 
-A premiere vue, c'est tres orienté Web et comme il y a un free trial de 30 jours, je vais tester ça !
+A premiere vue, c'est tres orientÃ© Web et comme il y a un free trial de 30 jours, je vais tester Ã§a !
 
-## Comment ça fonctionne ?
+## Comment Ã§a fonctionne ?
 
 Quelques liens vers les [white papers et case studies](https://platform.sh/product/enterprise/docs/) : 
  * [Introduction](https://platform.sh/files/fr/Platform.sh%20-%20Introduction_FR.pdf)
  * [Data Sheet](https://platform.sh/files/en/Platform.sh%20-%20Data%20Sheet.pdf)
 
 Ce qu'on pourrait retenir : 
- * utilise principalement le mécanisme de Git : 
+ * utilise principalement le mÃ©canisme de Git : 
    * permet le versioning
-   * permet la livraison entre les différents environnements avec le merging
-   * permet aux équipes une meilleure communication et moins de documentation a produire (il suffit de voir les différences entre les différentes versions dans l'outil directement)
+   * permet la livraison entre les diffÃ©rents environnements avec le merging
+   * permet aux Ã©quipes une meilleure communication et moins de documentation a produire (il suffit de voir les diffÃ©rences entre les diffÃ©rentes versions dans l'outil directement)
  * fonctionne avec des micro-services comme conteneurs linux LXC (un peu comme Docker)
-   * il suffit de référencer les services dans des fichiers de configuration (comme mysql, postgres, etc)
+   * il suffit de rÃ©fÃ©rencer les services dans des fichiers de configuration (comme mysql, postgres, etc)
  * basiquement, on n'a besoin que de trois fichiers pour initier notre environnement : .platform-app-yaml.html + .platform/services.yaml + .platform/routes.yaml
  * l'ensemble .platform-app-yaml.html + .platform/services.yaml ressemble fortement a ce qu'on pourrait faire avec docker-compose 
 
-Rentrons dans le vif du sujet, et voyons si ça vaut le coup de s'intéresser a platform.sh.
+Rentrons dans le vif du sujet, et voyons si Ã§a vaut le coup de s'intÃ©resser a platform.sh.
 
 ## Exemple : application simple - bonjour
 
 ### L'administration des projets sur platform.sh
 
-Je dois avouer que tout est pensé pour simplifier au maximum les actions et les configurations.
+Je dois avouer que tout est pensÃ© pour simplifier au maximum les actions et les configurations.
 
-Je trouve l'interface plutôt sympathique et tres fonctionnelle.
+Je trouve l'interface plutÃ´t sympathique et tres fonctionnelle.
 
-En 4 clics, j'ai créé mon free trial account, créé mon projet "Demo Dev" avec sa branche "master" et sa branche "n-1" (pour la version n-1 par exemple). Je peux presque commencer a écrire ou déployer mon code.
+En 4 clics, j'ai crÃ©Ã© mon free trial account, crÃ©Ã© mon projet "Demo Dev" avec sa branche "master" et sa branche "n-1" (pour la version n-1 par exemple). Je peux presque commencer a Ã©crire ou dÃ©ployer mon code.
 
 ### Installer platform CLI pour une meilleure gestion des projets et environnements
 
@@ -56,7 +56,7 @@ curl -sS https://platform.sh/cli/installer | php
 platform
 ...
 
-# Je configure mes clés ssh pour Git et acces ssh
+# Je configure mes clÃ©s ssh pour Git et acces ssh
 platform ssh-keys
 Your SSH keys are:
 +-------+----------------------------+----------------------------------+
@@ -153,8 +153,8 @@ web:
     to: "http://{default}/"
 
 .platform/services.yaml
-vide (pas de dépendance a d'autres services)
-par défaut,  : 
+vide (pas de dÃ©pendance a d'autres services)
+par dÃ©faut,  : 
 mysql:
     type: mysql:5.5
     disk: 2048
@@ -174,14 +174,14 @@ Il n'y a plus qu'a push ce qu'on a construit localement.
 ```
 git add --all ; git commit -m "first app bonjour" ; git push
 ...
-# on voit qu'il va plus loin qu'un simple push, il construit l'environnement et le lance comme conteneur (avec les instructions que j'ai défini dans les fichiers de configuration) 
+# on voit qu'il va plus loin qu'un simple push, il construit l'environnement et le lance comme conteneur (avec les instructions que j'ai dÃ©fini dans les fichiers de configuration) 
 ```
 
 ### Je teste et je merge sur la branch principale
 
-platform.sh s'occupe de tout. Il créé meme une url par environnement et par projet. 
+platform.sh s'occupe de tout. Il crÃ©Ã© meme une url par environnement et par projet. 
 
-Je vérifie que j'ai bien mon rendu d'appli "bonjour" sur version-projet.eu.platform.sh ==> OK !
+Je vÃ©rifie que j'ai bien mon rendu d'appli "bonjour" sur version-projet.eu.platform.sh ==> OK !
 
 Je merge l'environnement n-1 vers la branche master.
 
@@ -191,11 +191,11 @@ Et voila !
 
 ## Autres applications
 
-Il semblerait que les deux projets fournis de base soient Symfony ou Drupal pour le moment. J'ai testé deux minutes et ça semble fonctionner sans qu'on ne touche a rien.
+Il semblerait que les deux projets fournis de base soient Symfony ou Drupal pour le moment. J'ai testÃ© deux minutes et Ã§a semble fonctionner sans qu'on ne touche a rien.
 
-Il n'y a plus  qu'a intégrer ses Bundles et a coder.
+Il n'y a plus  qu'a intÃ©grer ses Bundles et a coder.
 
-Pour le reste, il me semble que les services proposés sont suffisants et demandent peu de configuration : 
+Pour le reste, il me semble que les services proposÃ©s sont suffisants et demandent peu de configuration : 
  * PHP
  * Python
  * Ruby
@@ -205,11 +205,11 @@ Pour le reste, il me semble que les services proposés sont suffisants et demande
 
 ## Conclusion
 
-platform.sh est vraiment intéressant pour les équipes de développements d'applications web de moyenne a grande envergure.
+platform.sh est vraiment intÃ©ressant pour les Ã©quipes de dÃ©veloppements d'applications web de moyenne a grande envergure.
 
-Tous les concepts sont connus (Git, CaaS (container as service), répartition de charge du trafic automatique, automatisation des tâches avec Grunt ou maintien des dépendances de librairies avec Composer, etc).
+Tous les concepts sont connus (Git, CaaS (container as service), rÃ©partition de charge du trafic automatique, automatisation des tÃ¢ches avec Grunt ou maintien des dÃ©pendances de librairies avec Composer, etc).
 
-Ca n'est donc pas une révolution. Cependant, la promesse de simplifier les actions d'administration semble tenue.
+Ca n'est donc pas une rÃ©volution. Cependant, la promesse de simplifier les actions d'administration semble tenue.
 
 Une fois qu'on a bien compris le fonctionnement des trois fichiers de configuration - .platform-app-yaml.html + .platform/services.yaml + .platform/routes.yaml - on peut, effectivement, se concentrer sur le code et la gestion des workflows.
 

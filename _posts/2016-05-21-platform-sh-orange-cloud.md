@@ -77,7 +77,7 @@ git clone git clone --branch n-1 nkoaolx5osnio@git.eu.platform.sh:nkoaolx5osnio.
 ...
 ```
 
-[!platform.sh.git-clone-n-1.jpg](/assets/img/platform.sh.git-clone-n-1.jpg)
+![platform.sh.git-clone-n-1.jpg](/assets/img/platform.sh.git-clone-n-1.jpg)
 
 ```
 # je regarde la configuration 
@@ -183,7 +183,7 @@ Je vérifie que j'ai bien mon rendu d'appli "bonjour" sur version-projet.eu.plat
 
 Je merge l'environnement n-1 vers la branche master.
 
-[!platform.sh.merge-n-1.jpg](/assets/img/platform.sh.merge-n-1.jpg)
+![platform.sh.merge-n-1.jpg](/assets/img/platform.sh.merge-n-1.jpg)
 
 Et voilà !
 

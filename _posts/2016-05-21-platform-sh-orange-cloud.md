@@ -71,13 +71,15 @@ Delete an SSH key with: platform ssh-key:delete [id]
 
 platform ssh-key:add
 ...
+```
 
+![platform.sh.git-clone-n-1.jpg](/assets/img/platform.sh.git-clone-n-1.jpg)
+
+```
 # Je clone mon projet sur la branch n-1
 git clone git clone --branch n-1 nkoaolx5osnio@git.eu.platform.sh:nkoaolx5osnio.git demo-dev
 ...
 ```
-
-![platform.sh.git-clone-n-1.jpg](/assets/img/platform.sh.git-clone-n-1.jpg)
 
 ```
 # je regarde la configuration 

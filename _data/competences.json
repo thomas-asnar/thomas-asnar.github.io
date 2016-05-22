@@ -83,7 +83,7 @@
         competences: [
         {
             niveau: "4",
-            nom: "SH, KSH, PowerShell, PHP, PERL, Python, HTML, CSS, JS, XML, jQuery (Framework JS), Wordpress (CMS)"
+            nom: "SH, KSH, PowerShell, PHP, PERL, Python, HTML, CSS, JS, XML, jQuery (Framework JS)"
         }
 
         ]
@@ -99,6 +99,10 @@
         {
             niveau: "3",
             nom: "Zend Framework"
+        },
+        {
+            niveau: "3",
+            nom: "Wordpress (CMS)"
         }
 
         ]

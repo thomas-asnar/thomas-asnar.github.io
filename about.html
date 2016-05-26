@@ -5,15 +5,9 @@ title: About | Thomas ASNAR
 description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation, export ordonnancement VTOM
 ---
 <div id="cv" class="print">
-  <div id="moi" itemscope itemtype ="http://schema.org/Person">
+  <div id="moi">
     <div>
-    <div id="nom-complet">
-      <h2 itemprop="name">{{ site.data.moi.prenom }}</h2>
-      <h1 itemprop="familyName">{{ site.data.moi.nom }}</h1>
-    </div>
-    <div id="metier">
-      <h2 itemprop="jobTitle">{{ site.data.moi.metier }}</h2>
-    </div>
+    
     <div id="photo">
       
     </div>
@@ -25,13 +19,13 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation, export o
   <div id="cv-inside" class="bg-success">
     
     <div id="presentation">
-      <h1>En résumé</h1>
+      <h1>Bonjour à tous, je m'appelle Thomas ASNAR</h1>
       
       {% assign annee_exp_totale = site.time | date:'%Y' | minus:'2007' %}
       {% assign annee_text = "ans" %}
       {% capture annee_exp_totale %}{{ annee_exp_totale }} {{ annee_text }}{% endcapture %}
       
-      <p id="accroche">{{ site.data.moi.accroche | replace: 'annee_exp_totale',annee_exp_totale | replace:'employeur_actuel',site.data.moi.employeur_actuel }}</p>  
+      <p id="accroche">{{ site.data.moi.accroche-about | replace: 'annee_exp_totale',annee_exp_totale }}</p>  
       <a href="{{ site.data.moi.downloadcv }}" title="CV Thomas ASNAR"><span class="glyphicon glyphicon-download-alt"></span>Télécharger CV en pdf</a>
     </div>
 

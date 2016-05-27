@@ -20,6 +20,10 @@
   <li class="pull-right">
     <a><span id="display-search" class="btn glyphicon glyphicon-search"></span></a>
   </li>
+  {% else %}
+  <li class="pull-right">
+    <a href="/search" title="Moteur de recherche sur le site VTOM de Thomas ASNAR"><span id="display-search-page" class="btn glyphicon glyphicon-search"></span></a>
+  </li>
   {% endif %}
   </ul>
   {% if page.titre-court == 'home' %}

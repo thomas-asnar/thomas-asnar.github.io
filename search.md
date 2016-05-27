@@ -14,9 +14,5 @@ description: "Moteur de recherche sur le site VTOM de Thomas ASNAR"
     s.parentNode.insertBefore(gcse, s);
   })();
 </script>
-<gcse:search>
-<gcse:searchbox>
-</gcse:searchbox>
-<gcse:searchresults>
-</gcse:searchresults>
-</gcse:search>
+<gcse:searchbox enableHistory="true" autoCompleteMaxCompletions="5" autoCompleteMatchType='any'>
+<gcse:searchresults refinementStyle="link">

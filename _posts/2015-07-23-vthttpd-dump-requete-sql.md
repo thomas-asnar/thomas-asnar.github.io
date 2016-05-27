@@ -28,12 +28,8 @@ sqlite3 /var/tmp/vthttpd.dat < /var/tmp/monfichier.sql
 
 Et on grep sur ce qu'on souhaite
 
-(je cherche comment requêter les paramètres si quelqu'un est doué en langage SQL !)
-
-edit) alors j'ai trouvé ça mais le problème, c'est que ça me fait une ligne par job et par paramètre (ex. 4 paramètres = 4 lignes du coup)
-
 ```sql
-select j.JOB_SID, e.NAME, a.NAME, j.NAME, j.SCRIPT, h.NAME, u.NAME, q.NAME, d.NAME, p.POSITION, p.VALUE
+select j.JOB_SID, e.NAME, a.NAME, j.NAME, j.COMMENT, j.FAMILY, j.SCRIPT, h.NAME, u.NAME, q.NAME, d.NAME, GROUP_CONCAT(p.VALUE,'|')
 from jobs j
 left join applications a on j.APP_SID = a.APP_SID
 left join environments e on a.ENV_SID = e.ENV_SID
@@ -41,25 +37,19 @@ left join hosts h on j.HOST_SID = h.HOST_SID or (ifnull(j.HOST_SID,'') = '' and 
 left join users u on j.USER_SID = u.USER_SID or (ifnull(j.USER_SID,'') = '' and ( a.USER_SID = u.USER_SID or (ifnull(a.USER_SID,'') = '' and e.USER_SID = u.USER_SID) ) )
 left join queues q on j.QUEUE_SID = q.QUEUE_SID or (ifnull(j.QUEUE_SID,'') = '' and ( a.QUEUE_SID = q.QUEUE_SID or (ifnull(a.QUEUE_SID,'') = '' and e.QUEUE_SID = q.QUEUE_SID) ) )
 left join dates d on j.DATE_SID = d.DATE_SID or (ifnull(j.DATE_SID,'') = '' and ( a.DATE_SID = d.DATE_SID or (ifnull(a.DATE_SID,'') = '' and e.DATE_SID = d.DATE_SID) ) )
-left join job_parameters p on j.JOB_SID = p.JOB_SID ;
+left join job_parameters p on j.JOB_SID = p.JOB_SID
+group by j.JOB_SID
+;
 ```
 
-Après, on peut faire assez simplement des recherches avec awk :
+ex.
 
-```bash
-# Exemple : je cherche les jobs qui ont pour paramètre la 3ème position, l'environnement TEST et l'application DATE-RUEIL
-sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql | awk -F"|" '$10 ~ /3/ && $2 ~ /TEST/ && $3 ~ /DATE-RUEIL/ {print}'
-
-# mettre tous les paramètres sur une seule ligne 
-# 1er awk, on rajoute des 0 au numéro de paramètre pour pouvoir trier correctement (premier paramètre en premier, etc.)
-# 2ème awk, on affiche sur la même ligne tant qu'on a le même jobID
-sqlite3 /var/tmp/vthttpd.dat < /var/tmp/all_jobs.sql |  awk 'BEGIN{ FS="|" ; OFS="|" } { l=length($10) ; if(l == 2) { $10="0"$10 ;} ;  if(l == 1){ $10="00"$10 }  ; print}' | sort -g | awk -F "|" 'BEGIN{ job_sid=null;} {if($1 == job_sid){ printf "%s:%s;",$10,$11 }else{ if(job_sid != null){ printf "\n" } ; printf "%s|%s|%s|%s|%s|%s|%s|%s|%s:%s;",$2,$3,$4,$5,$6,$7,$8,$9,$10,$11 } ; job_sid=$1 ;}'
 ```
-
-J'ai enfin trouvé quelque chose de satisfaisant pour les paramètres en une seule ligne !!!
-
- * dans le SELECT : GROUPE_CONCAT(columnParameter,"x") 
- * GROUP BY columnID
+root@acf59c2005cf:/mnt/workspace/temp# sqlite3 vthttpd.dat < all_jobs.sql
+JOBac1100030a411a8d570cf93000000004|exploitation|appli_test|job2|||jobok.bat|client_local|vtom|queue_ksh|date_exp|
+JOBac1100033f6aedb3570cf93000000002|exploitation|appli_test|job1|||jobok.bat|client_local|vtom|queue_ksh|date_exp|param1|param2|param3
+JOBac1100036f024b9d570cf93000000006|exploitation|appli_test|job3|||jobok.bat|client_local|vtom|queue_ksh|date_exp|
+```
 
 (exemple en Java, P.I je ne suis pas expert en Java - je suis tombé sur des machines qui n'avaient pas sqlite3 ... Ca ne suit surement pas les bonnes pratiques JAva mais ça fonctionne)
 

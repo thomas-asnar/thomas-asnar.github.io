@@ -9,26 +9,26 @@ description: Curriculum Vitae de Thomas ASNAR, analyste d'exploitation, export o
     <div>
     
     <div id="photo">
-      
+      <img src="/assets/img/thomas_asnar_portrait.jpg" style="height: 200px;border-radius: 200px;border: 5px lightblue dashed;">
     </div>
+    <div id="about-accroche" class="bg-success">
+      
+      <div id="quisuisje">
+        <h1>Salutations intrépide voyageur de la toile !</h1>
+        
+        {% assign annee_exp_totale = site.time | date:'%Y' | minus:'2007' %}
+        {% assign annee_text = "ans" %}
+        {% capture annee_exp_totale %}{{ annee_exp_totale }} {{ annee_text }}{% endcapture %}
+        
+        <p id="accroche">{{ site.data.moi.accroche-about | replace: 'annee_exp_totale',annee_exp_totale }}</p>  
+        <a href="{{ site.data.moi.downloadcv }}" title="CV Thomas ASNAR"><span class="glyphicon glyphicon-download-alt"></span>Télécharger CV en pdf</a>
+      </div>
+
+    </div><!-- .bg-sucess -->
     </div>
   </div><!-- End #moi -->
   
   <div class="clearfix"></div>
-  
-  <div id="cv-inside" class="bg-success">
-    
-    <div id="quisuisje">
-      <h1>Salutations intrépide voyageur de la toile !</h1>
-      
-      {% assign annee_exp_totale = site.time | date:'%Y' | minus:'2007' %}
-      {% assign annee_text = "ans" %}
-      {% capture annee_exp_totale %}{{ annee_exp_totale }} {{ annee_text }}{% endcapture %}
-      
-      <p id="accroche">{{ site.data.moi.accroche-about | replace: 'annee_exp_totale',annee_exp_totale }}</p>  
-      <a href="{{ site.data.moi.downloadcv }}" title="CV Thomas ASNAR"><span class="glyphicon glyphicon-download-alt"></span>Télécharger CV en pdf</a>
-    </div>
-
-  </div><!-- .bg-sucess -->
 
 </div><!-- End  #cv -->
+

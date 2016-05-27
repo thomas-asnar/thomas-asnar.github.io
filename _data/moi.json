@@ -13,5 +13,6 @@
     mobile: "06.95.14.94.59",
     employeur_actuel: "Squad",
     accroche: "Fort de annee_exp_totale d'expérience en production informatique, mes meilleurs atouts se caractérisent par un large panel de compétences (Ordonnancement, Stockage, Sauvegardes, Scripting, Sytèmes Unix) et une excellente capacité d'adaptation. Je poursuis ma carrière chez employeur_actuel, en tant qu'analyste d'exploitation, spécialisé en ordonnancement et infrastructures. Recherche d'emploi : en veille.",
+    accroche-about: "Passionné par mon métier, j'aime partager et faire profiter de mes annee_exp_totale années d'expérience en production informatique, notamment dans mes domaines de prédilection de scripting/dev et d'ordonnancement VTOM. Avide de knowledge (clin d'oeil à DukeAstar), mes prochains défis d'apprentissage s'orientent vers le Big Data, et encore plus de Python (vive les DataFrames avec Pandas !)<br/>test",
     downloadcv: "/assets/CV%20ASNAR%20Thomas.pdf"
 }

@@ -18,4 +18,3 @@ test{(aujourd'hui=1.jour.ouvr.mois-1.jour.cale) ou (aujourd'hui=dern.jour.cale.m
 ```
 test { (aujourd'hui=prem.lu.cale.mois et aujourd'hui=ouvr) ou (prem.lu.cale.mois=chom et aujourd'hui=prem.lu.cale.mois+1.jour et aujourd'hui=ouvr) }
 ```
-

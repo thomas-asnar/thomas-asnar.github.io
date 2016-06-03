@@ -9,11 +9,11 @@
 
 <script>
 // Variables Globales
-var serveurVtom = "http://ip:30080" ;
-var authVtom = "xxxxxxxxxxx" ; //base64 user:password
+var serveurVtom = "http://192.168.99.100:30080" ; // just an example, here my docker machine IP running my vtom container
+var authVtom = "VE9NOlRPTQ==" ; //base64 user:password, here TOM:TOM
 var itemsVtom = [ "environment", "application", "job", "date", "host", "queue" ] ; 
 itemsVtom.forEach(function(item){
-	eval("var API_" + item + "_LIST = null ;") ;
+	eval("window.API_" + item + "_LIST = null ;") ;
 });
 
 
@@ -26,28 +26,28 @@ function findItemById(source, id){
 
 function debutAffichage(){
 	
-	API_job_LIST.result.forEach(function(entry){
-		var application = findItemById(API_application_LIST.result, entry.applicationSId) ;
-		var environment = findItemById(API_environment_LIST.result, application.environmentSId) ;
-		var host = findItemById(API_host_LIST.result, entry.host) ;
+	window.API_job_LIST.result.forEach(function(entry){
+		var application = findItemById(window.API_application_LIST.result, entry.applicationSId) ;
+		var environment = findItemById(window.API_environment_LIST.result, application.environmentSId) ;
+		var host = findItemById(window.API_host_LIST.result, entry.host) ;
 		if(!host){
-			var host = findItemById(API_host_LIST.result, application.host) ;
+			var host = findItemById(window.API_host_LIST.result, application.host) ;
 			if(!host){
-				var host = findItemById(API_host_LIST.result, environment.host) ;
+				var host = findItemById(window.API_host_LIST.result, environment.host) ;
 			}
 		}
-		var dateVtom = findItemById(API_date_LIST.result, entry.date) ;
+		var dateVtom = findItemById(window.API_date_LIST.result, entry.date) ;
 		if(!dateVtom){
-			var dateVtom = findItemById(API_date_LIST.result, application.date) ;
+			var dateVtom = findItemById(window.API_date_LIST.result, application.date) ;
 			if(!dateVtom){
-				var dateVtom = findItemById(API_date_LIST.result, environment.date) ;
+				var dateVtom = findItemById(window.API_date_LIST.result, environment.date) ;
 			}
 		}
-		var queue = findItemById(API_queue_LIST.result, entry.queue) ;
+		var queue = findItemById(window.API_queue_LIST.result, entry.queue) ;
 		if(!queue){
-			var queue = findItemById(API_queue_LIST.result, application.queue) ;
+			var queue = findItemById(window.API_queue_LIST.result, application.queue) ;
 			if(!queue){
-				var queue = findItemById(API_queue_LIST.result, environment.queue) ;
+				var queue = findItemById(window.API_queue_LIST.result, environment.queue) ;
 			}
 		}
 		
@@ -79,7 +79,7 @@ function getItemsVtom(){
 		var isAllItemsInStorage = true ;
 		itemsVtom.forEach(function(item){
 			if(sessionStorage["API_"+item+"_LIST"]){
-				eval('API_'+item+'_LIST = JSON.parse(sessionStorage.getItem("API_'+item+'_LIST")) ;') ;
+				eval('window.API_'+item+'_LIST = JSON.parse(sessionStorage.getItem("API_'+item+'_LIST")) ;') ;
 			}else{
 				isAllItemsInStorage = false ;
 			}
@@ -100,7 +100,10 @@ function removeItemsFromSessionStorage(){
 	});
 }
 
+// http://www.html5rocks.com/en/tutorials/cors/
+// cross domain 
 function getItemsVtomAPI(){
+  
  itemsVtom.forEach(function(item){
 
 	eval('var xhr'+item+' = new XMLHttpRequest();') ; 
@@ -109,16 +112,16 @@ function getItemsVtomAPI(){
 
 	      'if (status == 200) {'+
 		'if(xhr'+item+'.response != null) {' +
-			'API_'+item+'_LIST = xhr'+item+'.response ;' +
+			'window.API_'+item+'_LIST = xhr'+item+'.response ;' +
 			'if(typeof(Storage) !== "undefined") {' +
-				'sessionStorage.setItem("API_'+item+'_LIST",JSON.stringify(API_'+item+'_LIST)) ;' +
+				'sessionStorage.setItem("API_'+item+'_LIST",JSON.stringify(window.API_'+item+'_LIST)) ;' +
 			'}' +
 		'}' + 
 	      '}' +
 
 	'}' ;
 	eval(strCode);
-	eval('xhr'+item+".open('GET', serveurVtom + '/api/"+item+"/getAll');") ;
+	eval('xhr'+item+".open('GET', serveurVtom + '/api/"+item+"/getAll',true);") ;
 	eval('xhr'+item+".responseType = 'json';") ;
 	eval('xhr'+item+".setRequestHeader('Authorization', 'Basic ' + authVtom);");
 	eval('xhr'+item+'.send();') ;
@@ -126,32 +129,45 @@ function getItemsVtomAPI(){
 
 } // eof getItemsVtomAPI
 
+// On récupère les items
+getItemsVtom() ;
 
+function _isAllItemsLoaded(){
 
-// Events
-
-// On vérifie qu'on a bien chargé toutes les données, on affiche quand c'est ok
-window.intervalDebutAffichage = setInterval(function(){
-
- console.log((new Date()).getTime());
+ console.log((new Date()).getTime()); // debug to make sure we pass through this
+ 
  var isAllItemsLoaded = true ;
  itemsVtom.forEach(function(item){
-	if(eval('API_'+item+'_LIST') == null){
+  
+	if(eval('window.API_'+item+'_LIST') == null){
 		isAllItemsLoaded = false ;
-	}
+	}else if(eval('window.API_'+item+'_LIST.rc') == 4){
+		isAllItemsLoaded = false ;
+    console.log(eval('window.API_'+item+'_LIST.errmsg')) ;
+    clearInterval(window.intervalDebutAffichage);
+  }
  });
  if( isAllItemsLoaded )
  { 
+  console.log("loaded"); // debug to make sure we pass through this 
 	clearInterval(window.intervalDebutAffichage);
 	debutAffichage();
- }  }, 3000
-); 
+  return true ;
+ }else{
+  return false ; 
+ }  
+}
+if(! _isAllItemsLoaded()){ // si les items ne sont pas chargés au démarrage, on lance une boucle interval
+  // On vérifie qu'on a bien chargé toutes les données, on affiche quand c'est ok
+  window.intervalDebutAffichage = setInterval(_isAllItemsLoaded,1000); 
 
-// on sort si on dépasse le timeout
-setTimeout(function(){ clearInterval(window.intervalDebutAffichage) }, 60000);
+  // quoi qu'il arrive on sort de la boucle au bout de x secondes
+  setTimeout(function(){ 
+    clearInterval(window.intervalDebutAffichage);
+  }, 60000);
+}
 
-// On récupère les items
-getItemsVtom() ;
+// Events
 
 // Refresh data
 document.querySelector('#refresh-button').addEventListener('click',function(e){

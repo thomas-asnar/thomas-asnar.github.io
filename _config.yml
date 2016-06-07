@@ -33,3 +33,4 @@ paginate: 15
 gems:
   - jekyll-sitemap
   - jekyll-paginate
+  - jekyll-redirect-from

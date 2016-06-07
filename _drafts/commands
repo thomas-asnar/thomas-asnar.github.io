@@ -51,3 +51,6 @@ ldapsearch -D "ITGCE\S0076945" -h itgce.caisse-epargne.fr -p 389 -w "VTOMmars201
 ldapsearch -D "ITGCE\S0076945" -h itgce.caisse-epargne.fr -p 389 -w "VTOMmars2016" -b "OU=Utilisateurs,DC=itgce,DC=caisse-epargne,DC=fr" -s sub '(&(objectClass=*)(memberOf=CN=GUD_UO_ITCE-L-PPR-SIM-GAO-IOM-INTERNES,OU=OrgaV2,OU=GCETECH,OU=Groupes,DC=itgce,DC=caisse-epargne,DC=fr))' | grep "^mail="
 
 vtaddaccount -name TOM -p TOM -d ADM_prf
+
+
+C:\LINDUS\wamp\bin\php\php5.4.16\php.exe C:\LINDUS\wamp\www\Symfony\app\console cache:clear -e prod

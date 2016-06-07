@@ -1,6 +1,12 @@
 git add --all && git commit -m "all" && git push
 
 docker-machine env --shell powershell default
+docker-machine -s /d/workspace/default start default
+docker-machine -s /d/workspace/default env --shell shell
+
+sudo mkdir /mnt/workspace ; sudo mount -t vboxsf workspace /mnt/workspace
+
+docker exec -it compose_dev_tools_1 bash
 
 sudo mount -t vboxsf -o uid=1000,gid=50 workspace /mnt/workspace
 
@@ -44,3 +50,4 @@ ldapsearch -D "ITGCE\S0076945" -h itgce.caisse-epargne.fr -p 389 -w "VTOMmars201
 
 ldapsearch -D "ITGCE\S0076945" -h itgce.caisse-epargne.fr -p 389 -w "VTOMmars2016" -b "OU=Utilisateurs,DC=itgce,DC=caisse-epargne,DC=fr" -s sub '(&(objectClass=*)(memberOf=CN=GUD_UO_ITCE-L-PPR-SIM-GAO-IOM-INTERNES,OU=OrgaV2,OU=GCETECH,OU=Groupes,DC=itgce,DC=caisse-epargne,DC=fr))' | grep "^mail="
 
+vtaddaccount -name TOM -p TOM -d ADM_prf

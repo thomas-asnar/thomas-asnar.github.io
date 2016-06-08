@@ -5,7 +5,7 @@ date: 2016-05-30 12:00
 author: Thomas ASNAR
 categories: [ordonnancement, vtom, formule]
 ---
-Je rassemble ici un recueil les formules VTOM qui valent le coup d'oeil.
+Je rassemble ici un recueil des formules VTOM qui valent le coup d'oeil.
 
  * Veille du premier jour ouvre mois : By Fred 
 

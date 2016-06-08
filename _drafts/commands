@@ -49,7 +49,7 @@ UsePAM no
 nltest /dclist:domaine
 ldapsearch -D "domaine\user" -h  server.domaine -p 389 -w "mdp" -b "OU=Groupes,DC=domaine,DC=fr" -s sub '(&(objectClass=*)(mail=mailachercher))'
 ldapsearch -D "domaine\user" -h  server.domaine -p 389 -w "mdp" -b "DC=domaine,DC=fr" -s sub '(&(objectClass=*)(memberOf=CN=cequonatrouve,OU=Groupes,DC=domaine,DC=fr))'
-ldapsearch -D "user" -h ip -p 389 -w "mdp" -b "DC=domaine,DC=fr" -s sub '(&(objectClass=user)(CN=nomachercher,OU=BPCE-IT,OU=Utilisateurs,DC=domaine,DC=fr))'
+ldapsearch -D "user" -h ip -p 389 -w "mdp" -b "DC=domaine,DC=fr" -s sub '(&(objectClass=user)(CN=nomachercher,OU=rouge,OU=Utilisateurs,DC=domaine,DC=fr))'
 
 vtaddaccount -name TOM -p TOM -d ADM_prf
 

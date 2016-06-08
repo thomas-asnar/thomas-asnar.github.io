@@ -44,11 +44,12 @@ UsePAM no
 # sort uniq by columns (vtstools uniq on env,app,job,status)
  vtstools -x -e "01-01-2000 00:00:00 20-05-2016 23:00:00" 2> /dev/null |sort -u -t";" -k"1,3" -k"18,18"
 
-ldapsearch -D "ITGCE\S0076945" -h itgce.caisse-epargne.fr -p 389 -w "mdp" -b "OU=Groupes,DC=itgce,DC=caisse-epargne,DC=fr" -s sub '(&(objectClass=*)(mail=itce-l-ppr-sim-gao-iom@it-ce.fr))'
-ldapsearch -D "ITGCE\S0076945" -h itgce.caisse-epargne.fr -p 389 -w "mdp" -b "DC=itgce,DC=caisse-epargne,DC=fr" -s sub '(&(objectClass=*)(memberOf=CN=GUD_UO_ITCE-L-PPR-SIM-GAO-IOM,OU=OrgaV2,OU=GCETECH,OU=Groupes,DC=itgce,DC=caisse-epargne,DC=fr))'
-ldapsearch -D "ITGCE\S0076945" -h itgce.caisse-epargne.fr -p 389 -w "mdp" -b "DC=itgce,DC=caisse-epargne,DC=fr" -s sub '(&(objectClass=user)(CN=BONVARLET Vincent (B0000455),OU=BPCE-IT,OU=Utilisateurs,DC=itgce,DC=caisse-epargne,DC=fr))'
 
-ldapsearch -D "ITGCE\S0076945" -h itgce.caisse-epargne.fr -p 389 -w "mdp" -b "OU=Utilisateurs,DC=itgce,DC=caisse-epargne,DC=fr" -s sub '(&(objectClass=*)(memberOf=CN=GUD_UO_ITCE-L-PPR-SIM-GAO-IOM-INTERNES,OU=OrgaV2,OU=GCETECH,OU=Groupes,DC=itgce,DC=caisse-epargne,DC=fr))' | grep "^mail="
+
+nltest /dclist:domaine
+ldapsearch -D "domaine\user" -h  server.domaine -p 389 -w "mdp" -b "OU=Groupes,DC=domaine,DC=fr" -s sub '(&(objectClass=*)(mail=mailachercher))'
+ldapsearch -D "domaine\user" -h  server.domaine -p 389 -w "mdp" -b "DC=domaine,DC=fr" -s sub '(&(objectClass=*)(memberOf=CN=cequonatrouve,OU=Groupes,DC=domaine,DC=fr))'
+ldapsearch -D "user" -h ip -p 389 -w "mdp" -b "DC=domaine,DC=fr" -s sub '(&(objectClass=user)(CN=nomachercher,OU=BPCE-IT,OU=Utilisateurs,DC=domaine,DC=fr))'
 
 vtaddaccount -name TOM -p TOM -d ADM_prf
 

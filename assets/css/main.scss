@@ -313,8 +313,11 @@ img{
         letter-spacing:0.1em;
     }
     /* user tactil exp */
-    #goto-site-header, .pagination li{
+    #goto-site-header{
       padding:15px;
+    }
+    .pagination li a{
+    	padding:12px 24px !important;
     }
 }
 

@@ -312,6 +312,10 @@ img{
     .titres-cv,#presentation h1,#nom-complet{
         letter-spacing:0.1em;
     }
+    /* user tactil exp */
+    #goto-site-header, .pagination li{
+      padding:15px;
+    }
 }
 
 @media print{

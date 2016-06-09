@@ -1,4 +1,11 @@
-// $(".liste-cv").slideUp(1000);
+// user xp for palm
+if(window.innerWidth < 500){
+  $(".post-list li:gt(5)").hide()
+  $(".post-list").after("<span id='more-posts'>Afficher plus</span>")
+  $("#more-posts").click(function(){
+    $(".post-list li:gt(5)").toggle()
+  })
+}
 
 var doc = $(document) ;
 

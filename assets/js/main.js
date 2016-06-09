@@ -1,4 +1,4 @@
-// user xp for palm
+/* user xp for palm
 if(window.innerWidth < 500){
   $(".post-list li:gt(5)").hide()
   $(".post-list").after("<span style='cursor:pointer' id='more-posts'>+ / -</span>")
@@ -6,6 +6,7 @@ if(window.innerWidth < 500){
     $(".post-list li:gt(5)").toggle()
   })
 }
+*/
 
 var doc = $(document) ;
 

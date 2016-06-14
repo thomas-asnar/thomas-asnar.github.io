@@ -110,6 +110,7 @@ Si l'attribut n'est pas présent dans l'item le plus bas (job), il faut remonter
 ```
 
 On peut aussi utiliser cette méthode pour s'authentifier, en passant par le header http : 
+
 ```
 # echo -n "user:password" | base64, ici TOM:TOM
 curl -H 'Authorization: Basic VE9NOlRPTQ=='

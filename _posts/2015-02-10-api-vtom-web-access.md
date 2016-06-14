@@ -109,6 +109,13 @@ http://localhost:30080/api/<item>/list?<attribut>=<valeur>
 Si l'attribut n'est pas présent dans l'item le plus bas (job), il faut remonter d'un cran (application) et encore d'un cran si besoin (environment). Notion de hiérarchie, notamment pour les dates, host, queue, user.
 ```
 
+On peut aussi utiliser cette méthode pour s'authentifier, en passant par le header http : 
+```
+# echo -n "user:password" | base64, ici TOM:TOM
+curl -H 'Authorization: Basic VE9NOlRPTQ=='
+```
+
+
 # Petite astuce côté client pour effectuer une request REST sur l'api VTOM sans utiliser jQuery
 ```javascript
 var serveurVtom = "http://monserveurvtom:30080" ;

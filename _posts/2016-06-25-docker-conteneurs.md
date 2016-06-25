@@ -1,3 +1,10 @@
+---
+layout: post
+title: Docker introductions aux conteneurs 
+date: 2016-06-25 22:03
+author: Thomas ASNAR
+categories: [docker, conteneurs]
+---
 # Comprendre et Exploiter Docker
 
 La virtualisation des infrastructures est omniprésente. Les besoins et les méthodes de travail évoluant, les conteneurs ont pris de plus en plus d'importance.

@@ -22,7 +22,7 @@ Le problème, c'est qu'on a des informations qu'on ne souhaite pas forcément. P
 On filtre avec `awk` tous les élements de la ressource pile VTOM qui sont après le mot `contenu` et où la ligne n'est pas vide (dernière ligne vide dans le résultat de mon `tpush`)
 
 ```bash
-tpush -name <nom ressource pile> | awk '\
+tpush -name <nom ressource pile> -info | awk '\
 BEGIN{ligneContenu="x";nbValues=0;}\
 ($1 ~ /contenu/ || NR > ligneContenu) && $0 != ""\
 {\
@@ -37,7 +37,7 @@ print $1;\
 # Compter le nombre d'éléments dans la pile
 
 ```bash
-tpush -name <nom ressource pile> | awk '\
+tpush -name <nom ressource pile> -info | awk '\
 BEGIN{ligneContenu="x";nbValues=0;}\
 ($1 ~ /contenu/ || NR > ligneContenu) && $0 != ""\
 {\

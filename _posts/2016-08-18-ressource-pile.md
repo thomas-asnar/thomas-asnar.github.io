@@ -19,12 +19,12 @@ contenu:
 
 Le problème, c'est qu'on a des informations qu'on ne souhaite pas forcément. Pas très pratique pour faire une boucle for par exemple.
 
-On filtre avec `awk` tous les élements de la ressource pile VTOM qui sont après le mot `contenu` et qui n'est pas vide (dernière ligne vide dans le résultat de mon `tpush`)
+On filtre avec `awk` tous les élements de la ressource pile VTOM qui sont après le mot `contenu` et où la ligne n'est pas vide (dernière ligne vide dans le résultat de mon `tpush`)
 
 ```bash
 tpush -name <nom ressource pile> | awk '\
 BEGIN{ligneContenu="x";nbValues=0;}\
-($1 ~ /contenu/ || NR > ligneContenu) && $1 != ""\
+($1 ~ /contenu/ || NR > ligneContenu) && $0 != ""\
 {\
 if(ligneContenu == "x"){ ligneContenu = NR ; next } ;\
 print $1;\
@@ -39,7 +39,7 @@ print $1;\
 ```bash
 tpush -name <nom ressource pile> | awk '\
 BEGIN{ligneContenu="x";nbValues=0;}\
-($1 ~ /contenu/ || NR > ligneContenu) && $1 != ""\
+($1 ~ /contenu/ || NR > ligneContenu) && $0 != ""\
 {\
 if(ligneContenu == "x"){ ligneContenu = NR ; next } ;\
 nbValues++;\

@@ -47,3 +47,33 @@ nbValues++;\
 END{print nbValues}'
 3
 ```
+
+# Vider le premier élément de la ressource pile VTOM
+
+```
+tpop -name <nom ressource pile>
+OK: <nom ressource pile>
+
+# le premier élément 1 que j'avais dans ma pile a été supprimé
+tpush -name <nom ressource pile> -info
+valeur         : 1
+contenu:
+2
+3
+```
+
+# Ajouter un élément à la fin de la ressource pile VTOM
+
+```
+tpush -name <nom ressource pile> -value 1
+OK: 1
+
+# la valeur 1 a été rajoutée en fin de pile
+tpush -name <nom ressource pile> -info
+valeur         : 1
+contenu:
+2
+3
+1
+```
+

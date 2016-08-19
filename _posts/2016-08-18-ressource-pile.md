@@ -98,8 +98,6 @@ Pratique par exemple pour exécuter une cyclique autant de fois que qu'il y a d'
 
 Autre exemple plus tordu : on a une pile initialisée avec `n` éléments (avec n = nombre de couloirs attendus, ces couloirs sont sur des environnements ou des serveurs VTOM différents par exemple), à chaque fois qu'un couloir (une chaine) est terminé, on dépile d'1 élément la ressource ; une autre chaine attend que les `n` couloirs se soient exécutés (la tête de chaine attend la ressource pile à `Absent`)
 
-C'est bien dommage qu'on soit limité à `Présent` ou `Absent`. J'aimerais voir apparaître le `index [<>=!] value` et qui conditionnerait le lancement si le nombre d'éléments (index) était égal (ou autre comparateur) à une certaine valeur (value).
-
 ### Une ressource pile VTOM peut être ajoutée en tant que paramètre d'un traitement
 
 Le traitement peut prendre en paramètre la ressource pile qui aura comme valeur le premier élément de cette dernière.
@@ -109,3 +107,9 @@ Le traitement peut prendre en paramètre la ressource pile qui aura comme valeur
 Et pourquoi pas ?
 
 Exemple : à l'issue d'une sauvegarde, vous empilez le nom de la sauvegarde et son statut (un genre de clé:valeur, `tpush -name <nom de la ressource> -value "masave1:OK"`). à l'issue de toutes vos sauvegardes, ou le matin, vous faites un reporting en dépilant tous les élements (`tval` pour récupérer la valeur courante, `tpop` pour supprimer la valeur courante). Ainsi, par exemple, on peut envoyé par mail un tableau avec le nom de la sauvegarde et OK vert ou KO rouge.
+
+# Les axes d'améliorations que j'aimerais voir
+
+C'est bien dommage qu'on soit limité à `Présent` ou `Absent`. J'aimerais voir apparaître le `$#index [<>=!] value` et qui conditionnerait le lancement si le nombre d'éléments ($#index) était égal (ou autre comparateur) à une certaine valeur (value).
+
+Bien dommage aussi qu'on ne puisse pas supprimer l'index souhaité ou ajouter avant/après l'index souhaité, genre de `splice` (c'est du FIFO, premier arrivé, premier sorti)

@@ -5,7 +5,7 @@ date: 2016-08-18 22:03
 author: Thomas ASNAR
 categories: [ordonnancement, vtom, ressource pile, ressource VTOM]
 ---
-# Lister le contenu de la ressource pile
+# Lister le contenu de la ressource pile VTOM
 
 `tpush -name <nom ressource pile> -info`
 
@@ -77,3 +77,8 @@ contenu:
 1
 ```
 
+# Vider tous les éléments de la ressource pile VTOM
+
+`tempty -name <nom ressource pile>`
+
+# A quoi ça sert ?

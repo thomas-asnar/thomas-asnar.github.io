@@ -110,6 +110,6 @@ Exemple : à l'issue d'une sauvegarde, vous empilez le nom de la sauvegarde et s
 
 # Les axes d'améliorations que j'aimerais voir
 
-C'est bien dommage qu'on soit limité à `Présent` ou `Absent`. J'aimerais voir apparaître le `$#index [<>=!] value` et qui conditionnerait le lancement si le nombre d'éléments ($#index) était égal (ou autre comparateur) à une certaine valeur (value).
+C'est bien dommage qu'on soit limité à `Présent` ou `Absent`. J'aimerais voir apparaître le `$#index [<>=!] value` et qui conditionnerait le lancement si le nombre total d'éléments ($#index) était égal (ou autre comparateur) à une certaine valeur (value).
 
 Bien dommage aussi qu'on ne puisse pas supprimer l'index souhaité ou ajouter avant/après l'index souhaité, genre de `splice` (c'est du FIFO, premier arrivé, premier sorti)

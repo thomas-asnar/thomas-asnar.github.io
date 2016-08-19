@@ -188,3 +188,5 @@ J'adore les tutoriels Grafikart et c'est en français :
 [Présentation de Docker](https://www.grafikart.fr/tutoriels/docker/docker-intro-634)
 
 [Environnement de développement basé sur Docker](https://www.grafikart.fr/tutoriels/docker/docker-stack-web-635)
+
+[Superbe vidéo pour bien comprendre les conteneurs. Microsoft fait de gros efforts en ce moment ! Hyper-v et Docker](https://msdn.microsoft.com/fr-fr/virtualization/windowscontainers/about/about_overview#vidéo-de-présentation)

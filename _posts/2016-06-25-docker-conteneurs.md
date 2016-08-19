@@ -23,7 +23,7 @@ Docker propose plusieurs produits pour construire, déployer et exécuter des co
 
 Notez que la notion de conteneur n'est pas toute jeune (voir les zones Solaris par exemple, ou namespace + cgroups linux pour isoler) mais, pour moi, la grande force de Docker est sa facilité d'utilisation et une documentation en ligne vraiment riche en exemples et explications.
 
-J'aime bien cette conversation qui illustre bien le changement des relations entre Dev et Ops :
+J'aime bien cette conversation qui illustre bien le changement des relations entre Dev (Build) et Ops (Run) :
 
 Avant les conteneurs : 
 

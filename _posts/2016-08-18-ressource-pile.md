@@ -82,3 +82,22 @@ contenu:
 `tempty -name <nom ressource pile>`
 
 # A quoi ça sert ?
+
+## Dans VTOM
+
+Une ressource pile VTOM peut être attendue sur une application ou un traitement.
+
+* Présent = au moins un élement dans la pile
+* Absent = aucun élément dans la pile
+
+Pratique par exemple pour exécuter une cyclique autant de fois que qu'il y a d'éléments dans une pile.
+
+Autre exemple plus tordu : on a une pile initialisée avec `n` éléments (avec n = nombre de couloirs attendus, ces couloirs sont sur des environnements ou des serveurs VTOM différents par exemple), à chaque fois qu'un couloir (une chaine) est terminé, on dépile d'1 élément la ressource ; une autre chaine attend que les `n` couloirs se soient exécutés (la tête de chaine attend la ressource pile à `Absent`)
+
+C'est bien dommage qu'on soit limité à `Présent` ou `Absent`. J'aimerais voir apparaître le `index [<>=!] value` et qui conditionnerait le lancement si le nombre d'éléments (index) était égal (ou autre comparateur) à une certaine valeur (value).
+
+## Dans les scripts
+
+Et pourquoi pas ?
+
+Exemple : à l'issue d'une sauvegarde, vous empilez le nom de la sauvegarde et son statut (un genre de clé:valeur, `tpush -name <nom de la ressource> -value "masave1:OK"`). à l'issue de toutes vos sauvegardes, ou le matin, vous faites un reporting en dépilant `tpop` tous les élements (par exemple un tableau le nom de la sauvegarde et OK vert ou KO rouge envoyé par mail)

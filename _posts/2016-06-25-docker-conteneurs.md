@@ -87,7 +87,7 @@ nginx               latest              3edcc5de5a79        3 days ago          
 
 D'autres produits existent mais font l'objet d'une utilisation plus poussée (voir [Pour aller plus loin](#pour-aller-plus-loin))
 
-### [Principe de fonctionnement](https://docs.docker.com/engine/understanding-docker/)
+### [Principe de fonctionnement](https://docs.docker.com/engine/understanding-docker/) : [tryit](http://docker.com/tryit)
 
 #### Les images
 

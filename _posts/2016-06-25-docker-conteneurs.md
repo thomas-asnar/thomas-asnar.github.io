@@ -85,7 +85,7 @@ nginx               latest              3edcc5de5a79        3 days ago          
 
 [Docker Hub](https://www.docker.com/products/docker-hub) permet de publier sur le cloud (privé ou public) vos conteneurs versionnés. 
 
-D'autres produits existent mais font l'objet d'une utilisation plus poussée (voir #pour-aller-plus-loin)
+D'autres produits existent mais font l'objet d'une utilisation plus poussée (voir [Pour aller plus loin](#pour-aller-plus-loin))
 
 ### [Principe de fonctionnement](https://docs.docker.com/engine/understanding-docker/)
 

@@ -100,4 +100,4 @@ C'est bien dommage qu'on soit limité à `Présent` ou `Absent`. J'aimerais voir
 
 Et pourquoi pas ?
 
-Exemple : à l'issue d'une sauvegarde, vous empilez le nom de la sauvegarde et son statut (un genre de clé:valeur, `tpush -name <nom de la ressource> -value "masave1:OK"`). à l'issue de toutes vos sauvegardes, ou le matin, vous faites un reporting en dépilant `tpop` tous les élements (par exemple un tableau le nom de la sauvegarde et OK vert ou KO rouge envoyé par mail)
+Exemple : à l'issue d'une sauvegarde, vous empilez le nom de la sauvegarde et son statut (un genre de clé:valeur, `tpush -name <nom de la ressource> -value "masave1:OK"`). à l'issue de toutes vos sauvegardes, ou le matin, vous faites un reporting en dépilant `tpop` tous les élements (par exemple envoyé par mail un tableau avec le nom de la sauvegarde et OK vert ou KO rouge)

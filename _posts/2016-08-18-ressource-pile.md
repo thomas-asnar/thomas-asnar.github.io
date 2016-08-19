@@ -48,6 +48,10 @@ END{print nbValues}'
 3
 ```
 
+# Afficher le premier élément de la ressource pile VTOM
+
+`tval -name <nom ressource pile>`
+
 # Vider le premier élément de la ressource pile VTOM
 
 ```
@@ -85,7 +89,7 @@ contenu:
 
 ## Dans VTOM
 
-Une ressource pile VTOM peut être attendue sur une application ou un traitement.
+### Une ressource pile VTOM peut être attendue sur une application ou un traitement
 
 * Présent = au moins un élement dans la pile
 * Absent = aucun élément dans la pile
@@ -96,8 +100,12 @@ Autre exemple plus tordu : on a une pile initialisée avec `n` éléments (avec 
 
 C'est bien dommage qu'on soit limité à `Présent` ou `Absent`. J'aimerais voir apparaître le `index [<>=!] value` et qui conditionnerait le lancement si le nombre d'éléments (index) était égal (ou autre comparateur) à une certaine valeur (value).
 
+### Une ressource pile VTOM peut être ajoutée en tant que paramètre d'un traitement
+
+Le traitement peut prendre en paramètre la ressource pile qui aura comme valeur le premier élément de cette dernière.
+
 ## Dans les scripts
 
 Et pourquoi pas ?
 
-Exemple : à l'issue d'une sauvegarde, vous empilez le nom de la sauvegarde et son statut (un genre de clé:valeur, `tpush -name <nom de la ressource> -value "masave1:OK"`). à l'issue de toutes vos sauvegardes, ou le matin, vous faites un reporting en dépilant `tpop` tous les élements (par exemple envoyé par mail un tableau avec le nom de la sauvegarde et OK vert ou KO rouge)
+Exemple : à l'issue d'une sauvegarde, vous empilez le nom de la sauvegarde et son statut (un genre de clé:valeur, `tpush -name <nom de la ressource> -value "masave1:OK"`). à l'issue de toutes vos sauvegardes, ou le matin, vous faites un reporting en dépilant tous les élements (`tval` pour récupérer la valeur courante, `tpop` pour supprimer la valeur courante). Ainsi, par exemple, on peut envoyé par mail un tableau avec le nom de la sauvegarde et OK vert ou KO rouge.

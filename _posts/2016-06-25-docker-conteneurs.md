@@ -182,7 +182,7 @@ Il n'y a plus qu'à transférer la sauvegarde et à la recharger sur n'importe q
 $ docker load -i monImageNginx.tar
 ```
 
-On peut aussi [pousser](https://docs.docker.com/engine/reference/commandline/push/) son image sur le cloud (Docker Hub) en s'authentifiant sur son [login](https://docs.docker.com/engine/reference/commandline/login/)
+On peut aussi [pousser](https://docs.docker.com/engine/reference/commandline/push/) son image sur le cloud (Docker Hub) en s'authentifiant sur son [Docker registry](https://docs.docker.com/engine/reference/commandline/login/)
 
 Vous voulez le meilleur ? toutes les modifications apportées à l'image de base constituent des couches (layers). Par conséquent, les transferts de vos applications conteneurs ne prennent en charge que les deltas des couches manquantes ou modifiées !!
 

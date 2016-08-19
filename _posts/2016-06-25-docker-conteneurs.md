@@ -81,7 +81,7 @@ nginx               latest              3edcc5de5a79        3 days ago          
 
 [Docker Machine](https://www.docker.com/products/docker-machine) permet de configurer et d'exécuter Docker Engine sur une machine virtuelle linux très légère. Indispensable sous Windows.
 
-[Docker Compose](https://www.docker.com/products/docker-compose) permet de définir la configuration d'un ou plusieurs conteneurs en un seul fichier puis, de les exécuter en une seule commande.
+[Docker Compose](https://www.docker.com/products/docker-compose) permet de définir la configuration d'un ou plusieurs conteneurs en un seul fichier puis, de les exécuter en une seule commande. On pourrait même dire, que c'est la configuration de l'application complète qui définit les liens entre les conteneurs, les ports à utiliser, les volumes, etc.
 
 [Docker Hub](https://www.docker.com/products/docker-hub) permet de publier sur le cloud (privé ou public) vos conteneurs versionnés. 
 

@@ -27,7 +27,7 @@ BEGIN{ligneContenu="x";nbValues=0;}\
 ($1 ~ /contenu/ || NR > ligneContenu) && $0 != ""\
 {\
 if(ligneContenu == "x"){ ligneContenu = NR ; next } ;\
-print $1;\
+print $0;\
 }'
 1
 2

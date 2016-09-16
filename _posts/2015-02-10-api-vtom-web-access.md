@@ -11,7 +11,7 @@ Sur une question de Stephane, je me suis penché sur son fonctionnement.
 
 Voici quelques API VTOM glannées dans les pages du webaccess.
 
-Peu importe comment vous y accédez, ici en curl (user:passwd à changer).
+Peu importe comment vous y accédez, ici en curl (user:passwd à changer) mais on peut très bien faire ça avec POSTMAN.
 
 # Liste de tous les environnements
 ```bash
@@ -116,6 +116,11 @@ On peut aussi utiliser cette méthode pour s'authentifier, en passant par le hea
 curl -H 'Authorization: Basic VE9NOlRPTQ=='
 ```
 
+# Vous en voulez plus ? 
+
+Aucune doc Absyss ne référence toutes les APIs. Donc petite astuce :
+
+Ouvrez votre navigateur Chrome F12 et aller dans l'onglet Network pour voir les appels aux API. Baladez vous sur l'interface Web du web access et glannez les différentes adresses et requêtes XHR.
 
 # Petite astuce côté client pour effectuer une request REST sur l'api VTOM sans utiliser jQuery
 ```javascript

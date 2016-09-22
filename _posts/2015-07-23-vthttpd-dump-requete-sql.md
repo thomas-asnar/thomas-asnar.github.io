@@ -200,6 +200,149 @@ javac Stylizer.java
 java Stylizer votrefichier.xsl vtorefichier.xml
 ```
 
+### Parser le vtexport XML VTOM en "pur" Java (un peu long)
+
+```java
+package vtexport_xml_to_csv;
+
+import java.io.File;
+import java.io.FileWriter ;
+import java.io.IOException;
+import java.util.Date;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathFactory;
+import javax.xml.xpath.XPathConstants ;
+import javax.xml.xpath.XPathExpressionException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
+
+public class VtexportXML {
+	private static String xmlPath ;
+	private static Document document;
+	private static final String separateurCSV = "£" ;
+	private static final String separateurEscape = "§" ;
+	private static String domainName;
+	
+	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException, XPathExpressionException {
+		if (args.length == 1) {
+			setXmlPath(args[0]);
+		}else{
+			System.err.println("Usage : 1 paramètre nécessaire");
+			System.err.println("1 : chemin complet du fichier xml");
+	        System.exit(1);
+		}
+
+        final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();    	
+        final DocumentBuilder builder = factory.newDocumentBuilder();
+	    setDocument( builder.parse( new File( getXmlPath() ) ) );
+    	listAllJobs();
+	}
+
+	public static String getXmlPath() {
+		return xmlPath;
+	}
+
+	public static void setXmlPath(String xmlPath) {
+		VtexportXML.xmlPath = xmlPath;
+	}
+	
+	public static Document getDocument() {
+		return document;
+	}
+
+	public static void setDocument(Document document) {
+		VtexportXML.document = document;
+	}
+	
+	public static void listAllJobs() throws XPathExpressionException, IOException{
+		System.out.println(new Date()) ;
+		
+		File file = new File(getXmlPath() + ".txt");
+		// creates the file
+		file.createNewFile();
+		// creates a FileWriter Object
+		FileWriter writer = new FileWriter(file); 
+		
+		// xPath instance
+		XPath xPath =  XPathFactory.newInstance().newXPath();
+		// set DomainName 
+		setDomainName((String) xPath.compile("/Domain/@name").evaluate( getDocument() ) );
+		
+		// get all nodelist job
+		NodeList nodeList = (NodeList) xPath.compile("/Domain/Environments/Environment/Applications/Application/Jobs/Job").evaluate(getDocument(),XPathConstants.NODESET);	
+		
+		int percentDone = 1 ;
+		System.out.print("0%.");
+		
+		// loop over nodelist job
+		for(int i = 0; i < nodeList.getLength() ; i++){
+			
+			// print evolution running script %
+			if(! ( (i * 100 / nodeList.getLength()) < percentDone ) ){
+				percentDone++ ;
+				if(percentDone % 10 == 0){
+					System.out.print(percentDone + "%");
+				}else{
+					System.out.print(".");
+				}
+			}
+			
+			// job node
+			Node jobNode = (Node) nodeList.item(i) ;
+			
+			// nodelist parameters
+			NodeList parametersNodes = (NodeList) xPath.evaluate("Parameters/Parameter",jobNode,XPathConstants.NODESET) ;
+			String[] parameters = new String [ parametersNodes.getLength() ] ;
+			
+			// all parameters as an Array
+			for(int j = 0 ; j < parametersNodes.getLength() ; j++){
+				parameters[j] = ((Node) parametersNodes.item(j)).getTextContent() ;
+			}
+			
+			writer.write(
+				
+				separateurEscape + xPath.evaluate("../../../../@name", jobNode) + separateurEscape + separateurCSV +	// envName
+				separateurEscape + xPath.evaluate("../../@name", jobNode) + separateurEscape + separateurCSV +			// appName
+				separateurEscape + xPath.evaluate("@name", jobNode) + separateurEscape + separateurCSV +				// jobName
+				separateurEscape + xPath.evaluate("../../@mode", jobNode) + separateurEscape + separateurCSV +			// AppMode
+				separateurEscape + xPath.evaluate("@mode", jobNode) + separateurEscape + separateurCSV +				// JobMode
+				separateurEscape + xPath.evaluate("../../@onDemand", jobNode) + separateurEscape + separateurCSV +		// AppOnDemand
+				separateurEscape + xPath.evaluate("@onDemand", jobNode) + separateurEscape + separateurCSV +			// JobOnDemand
+				separateurEscape + xPath.evaluate("Script",jobNode) + separateurEscape + separateurCSV +				// Script
+				separateurEscape + String.join("|", parameters) + separateurEscape + separateurCSV + 					// Parameters
+				separateurEscape + getDomainName() + separateurEscape + separateurCSV									// DomainName
+				+ "\n"
+			);
+			
+		}
+
+		// Flush the content to the file
+		writer.flush();
+		writer.close();
+		
+		// print prompt running script
+		System.out.println();
+		System.out.println("Fichier en sortie : " + file.getAbsolutePath());
+		System.out.println(new Date() + " The end");
+	}
+
+	public static String getDomainName() {
+		return domainName;
+	}
+
+	public static void setDomainName(String domainName) {
+		VtexportXML.domainName = domainName;
+	}
+
+}
+```
 
 ### Autre pour moi
 

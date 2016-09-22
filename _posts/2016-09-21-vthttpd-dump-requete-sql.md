@@ -1,10 +1,12 @@
 ---
 layout: post
 title: vthttpd -dump et requêtes SQL - tlist ameliore
-date: 2015-07-23 17:40
+date: 2016-09-21 22:00
 author: Thomas ASNAR
 categories: [vthttpd, dump,SQL, Visual TOM, VTOM, tlist]
 ---
+&lt;Article mis à jour&gt; J'ai rajouté pas mal de petites astuces sur cet article qui date de l'année dernière (filtre XSL - merci Joey pour l'inspiration !), parsing java, utilisation de Panda Python)
+
 Une autre astuce avec le Webaccess VTOM vthttpd : on peut dump tout le contenu de la base VTOM en un fichier exploitable par SQLITE !
 
 L'utilisation principale est de lister tous les jobs, à la manière d'un `tlist`mais avec beaucoup plus d'informations (dont les paramètres et le script)

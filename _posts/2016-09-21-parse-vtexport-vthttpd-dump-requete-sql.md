@@ -1,9 +1,9 @@
 ---
 layout: post
-title: vthttpd -dump et requêtes SQL - tlist ameliore
+title: vthttpd -dump et requêtes SQL - tlist ameliore - vtexport.xml to csv
 date: 2016-09-21 22:00
 author: Thomas ASNAR
-categories: [vthttpd, dump,SQL, Visual TOM, VTOM, tlist]
+categories: [vthttpd, dump,SQL, Visual TOM, VTOM, tlist, java, XSL, XML, vtexport, vtexport.xml, csv]
 ---
 &lt;Article mis à jour&gt; J'ai rajouté pas mal de petites astuces sur cet article qui date de l'année dernière (filtre XSL - merci Joey pour l'inspiration !), parsing java, utilisation de Panda Python)
 

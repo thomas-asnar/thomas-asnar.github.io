@@ -126,6 +126,83 @@ public class Top100Main {
 }
 ```
 
+### Filtrer directement un fichier XML avec un fichier XSL et sortie en texte (pour du csv)
+
+J'avais déjà utilisé ce langage de transformation XSL mais il m'était complétement sorti de la tête. Merci à JOEY de m'avoir inspriré ! :)
+
+Fichier XSL de transformation (à adapter selon vos besoin)
+
+```xsl
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="text" encoding="utf-8" />
+  
+  <!-- j'utilise cette sortie pour constituer mon fichier CSV utilisé en tant que data pour load dans Oracle une table avec SQLLDR et un fichier de controle .ctl -->
+  <!--
+  sqlldr do not set OPTIONALLY ENCLOSED BY '"' because this char appears in comments and params 
+
+        LOAD DATA APPEND
+        INTO TABLE nom_dela_table_oracle
+        FIELDS TERMINATED BY "£"
+        
+        (
+          "VTENVNAME"                     CHAR,
+          "VTAPPLNAME"                    CHAR,
+          "VTJOBNAME"                     CHAR,
+          "APPMODE"                     CHAR,
+          "JOBMODE"                     CHAR, 
+          etc...
+        )
+  -->
+  
+  <xsl:param name="delimCSV" select="'£'" /><!-- j'utilise ce char car il n'est pas utilisé dans mon référentiel VTOM -->
+  <xsl:param name="delimParam" select="'§'" />
+  <xsl:param name="break" select="'&#xA;'" />
+  <!--
+  <xsl:value-of select="$delimCSV" />
+   -->
+
+  <xsl:template match="/">
+	  <xsl:apply-templates select="Domain/Environments/Environment/Applications/Application/Jobs/Job" />
+  </xsl:template>
+
+  <!-- All Job node for root node -->
+  <xsl:template match="Domain/Environments/Environment/Applications/Application/Jobs/Job">
+    <xsl:value-of select="../../../../@name" /><xsl:value-of select="$delimCSV" />              <!-- EnvironmentName -->
+    <xsl:value-of select="../../@name" /><xsl:value-of select="$delimCSV" />                    <!-- ApplicationName -->
+    <xsl:value-of select="@name" /><xsl:value-of select="$delimCSV" />                          <!-- JobName -->
+    <xsl:value-of select="../../@mode" /><xsl:value-of select="$delimCSV" />                    <!-- ApplicationMode -->
+    <xsl:value-of select="@mode" /><xsl:value-of select="$delimCSV" />                          <!-- JobMode -->
+    <xsl:value-of select="../../@onDemand" /><xsl:value-of select="$delimCSV" />                <!-- ApplicationOnDemand -->
+    <xsl:value-of select="@onDemand" /><xsl:value-of select="$delimCSV" />                      <!-- JobOnDemand -->
+    <xsl:value-of select="Script/text()" /><xsl:value-of select="$delimCSV" />                  <!-- Script -->
+    <xsl:apply-templates select="Parameters/Parameter" /><xsl:value-of select="$delimCSV" />    <!-- Parameters -->
+    <xsl:value-of select="../../../../../../@name" /><xsl:value-of select="$delimCSV" />        <!-- DomainName -->
+    <xsl:value-of select="$break" />
+  </xsl:template>
+
+  <!-- All Parameter node for Job node -->
+  <xsl:template match="Parameters/Parameter">
+    <xsl:value-of select="text()" /><xsl:value-of select="$delimParam" />                       <!-- Parameter -->
+  </xsl:template>  
+
+</xsl:stylesheet>
+```
+
+Pour appliquer le fichier XSL au fichier XML vtexport VTOM, on peut faire ça assez simplement avec une class Java (Stylizer) fournie par Oracle.
+
+Si vous voulez plus d'information sur la classe et la télécharger, voici le lien Oracle [Transforming XML Data with XSLT](https://docs.oracle.com/javase/tutorial/jaxp/xslt/transformingXML.html).
+
+```bash
+# Compiler le code source java pour créer votre class Stylizer.class, A ne faire qu'une fois. La classe doit se trouver dans votre CLASSPATH (variable d'environnement)
+javac Stylizer.java
+
+# Lancer la commande pour transformer votre XML avec le fichier XSL
+java Stylizer votrefichier.xsl vtorefichier.xml
+```
+
+
+### Autre pour moi
+
 Reminder pour moi : consolidation des statistiques VTOM (en attendant que tout soit dans la base postgres, je passe par le vthttpd dump)
 
 ```bash

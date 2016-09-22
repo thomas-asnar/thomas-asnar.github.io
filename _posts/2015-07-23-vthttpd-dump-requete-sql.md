@@ -132,7 +132,7 @@ J'avais déjà utilisé ce langage de transformation XSL mais il m'était compl�
 
 Fichier XSL de transformation (à adapter selon vos besoin)
 
-```xsl
+```xml
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="text" encoding="utf-8" />
   

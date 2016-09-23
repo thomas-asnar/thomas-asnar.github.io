@@ -5,9 +5,9 @@ layout: default
   <span itemprop="logo" class="hidden">http://thomas-asnar.github.io/apple-touch-icon.png</span>
   
   <header class="post-header">
-    <h1 itemprop="name about" class="post-title">{{ page.title }}</h1>
+    <h1 itemprop="name about headline" class="post-title">{{ page.title }}</h1>
     <p class="post-meta">
-      <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d-%m-%Y" }}</time></p>
+      <time itemprop="datePublished dateModified" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d-%m-%Y" }}</time></p>
   </header>
 
   <article class="post-content" itemprop="articleBody">

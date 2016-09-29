@@ -59,6 +59,14 @@ Maintenant, il suffit d'installer normalement votre serveur VTOM et le tour est 
 
 Testé et validé en VTOM 5.7.4.
 
+```
+vtom@ac7a7f9c6c13:~$ vtlclient -keyinfo
+VT-JOB                  *               19/09/2016      19/09/2019      [fin] active encore 1085 jour(s)
+VT-IHM                  MULTI           19/09/2016      19/09/2019      [fin] active encore 1085 jour(s)
+VT-XAP-DEPLOY           1               19/09/2016      19/09/2019      [fin] active encore 1085 jour(s)
+VT-MACHINE              600             19/09/2016      19/09/2019      [fin] active encore 1085 jour(s)
+```
+
 
 ## juste pour comprendre cette histoire d' /etc/hostid
 

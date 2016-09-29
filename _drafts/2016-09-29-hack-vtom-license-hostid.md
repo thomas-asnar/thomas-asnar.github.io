@@ -5,7 +5,7 @@ date: 2016-09-29 22:00
 author: Thomas ASNAR
 categories: [Visual TOM, VTOM, license.xml, licence vtom, hostid]
 ---
-Vous avez une licence VTOM valide et vous aimeriez bien la déployer sur votre bac à sable (par exemple, vos containeurs Docker si vous êtes comme moi) ?
+Vous avez une licence VTOM valide et vous aimeriez bien la déployer sur votre bac à sable (par exemple, vos conteneurs Docker si vous êtes comme moi) ?
 
 C'est possible. L'idée est de changer votre `hostid` avant d'installer le serveur VTOM pour le faire correspondre à celui de la clé de licence.
 
@@ -65,7 +65,7 @@ Par exemple :
 
 ```bash
 cat /etc/hostid
-# donne des caractères bizarres ¯pö~
+# donne des caractères bizarres comme ~
 # mais ce sont jamais que les nombres héxa qui sont décodés en 'ascii' (ou toute autre translation de votre outil, voir dans le menu de Window > Translation dans Putty par exemple)
 # par exemple si on remet en héxa >>> base64.b16encode('~') donne '7E'
 ```

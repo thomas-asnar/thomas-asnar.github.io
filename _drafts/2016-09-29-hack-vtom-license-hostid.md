@@ -55,22 +55,41 @@ exit 0
 # va créer un fichier /etc/hostid qui restera au reboot
 ```
 
-Si vous voulez aller plus loin dans la compréhension, sachez qu'il suffit de découper votre hostid de 8 en 4x2 caractères (les derniers en premier, why je ne sais pas) et de dire qu'on écrit en héxadécimal (\x).
-
-Pour reprendre l'exemple, si mon `hostid` est 7e7f0100. Je découpe : `00 01 7f 7e`
-
-Si vous voyez des caractères bizarre dans /etc/hostid, c'est que votre putty interprète les caractères.
-
-Par exemple :
-
-```bash
-cat /etc/hostid
-# donne des caractères bizarres comme ~
-# mais ce sont jamais que les nombres héxa qui sont décodés en 'ascii' (ou toute autre translation de votre outil, voir dans le menu de Window > Translation dans Putty par exemple)
-# par exemple si on remet en héxa >>> base64.b16encode('~') donne '7E'
-```
-
 Maintenant, il suffit d'installer normalement votre serveur VTOM et le tour est joué.
 
 Testé et validé en VTOM 5.7.4.
 
+
+## juste pour comprendre cette histoire d' /etc/hostid
+
+D'après ce que j'ai compris le hostid de base est calculé d'après l'adresse MAC. Mais le fichier /etc/hostid suplante et même le `vtlclient -hostid` donnera celui de votre /etc/hostid.
+
+Si vous voulez aller plus loin dans la compréhension du changement, sachez qu'il suffit de découper votre hostid de 8 en 4x2 caractères (les derniers en premier, why je ne sais pas) et de dire qu'on écrit en héxadécimal (\x).
+
+Pour reprendre l'exemple, si mon `hostid` est 7e7f0100. Je découpe : `00 01 7f 7e`
+
+```
+# en python pour changer
+import binascii
+>>> x = binascii.unhexlify('00017f7e')
+'\x00\x01\x7f~'
+
+>>> f = open('/etc/hostid','w')
+>>> f.write(x)
+>>> f.close()
+```
+
+Si vous voyez des caractères bizarre dans /etc/hostid, c'est que votre putty interprète les caractères écrits en héxa.
+
+Par exemple :
+
+```
+vi /etc/hostid
+^@^A^?~
+
+# mais ce sont jamais que les nombres héxa qui sont décodés en 'ascii' (ou toute autre translation de votre outil, voir dans le menu de Window > Translation dans Putty par exemple)
+
+# Par exemple '~' donnera bien '7e'
+>>> binascii.hexlify('~')
+'7e'
+```

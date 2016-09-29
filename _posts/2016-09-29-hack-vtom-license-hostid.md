@@ -69,7 +69,7 @@ Si vous voulez aller plus loin dans la compréhension du changement, sachez qu'i
 Pour reprendre l'exemple, si mon `hostid` est 7e7f0100. Je découpe : `00 01 7f 7e`
 
 ```
-# en python pour changer
+# en python pour changer, mais c'est exactement ce que fait le script shell du dessus
 import binascii
 >>> x = binascii.unhexlify('00017f7e')
 '\x00\x01\x7f~'

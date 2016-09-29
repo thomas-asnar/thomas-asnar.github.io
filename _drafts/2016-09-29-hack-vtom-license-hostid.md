@@ -62,7 +62,7 @@ Testé et validé en VTOM 5.7.4.
 
 ## juste pour comprendre cette histoire d' /etc/hostid
 
-D'après ce que j'ai compris le hostid de base est calculé d'après l'adresse MAC. Mais le fichier /etc/hostid suplante et même le `vtlclient -hostid` donnera celui de votre /etc/hostid.
+D'après ce que j'ai compris le hostid de base est calculé d'après l'adresse MAC. Mais le fichier /etc/hostid la suplante et même le `vtlclient -hostid` donnera celui de votre /etc/hostid.
 
 Si vous voulez aller plus loin dans la compréhension du changement, sachez qu'il suffit de découper votre hostid de 8 en 4x2 caractères (les derniers en premier, why je ne sais pas) et de dire qu'on écrit en héxadécimal (\x).
 

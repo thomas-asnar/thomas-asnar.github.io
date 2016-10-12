@@ -26,3 +26,13 @@ version corrigée par Hervé G.
 ```
 test { aujourd'hui>=prem.lu.cale.mois et aujourd'hui=ouvr et aujourd'hui-1.jour.ouvre<prem.lu.cale.mois}
 ```
+
+ * premier jour ouvré du mois sauf en Janvier, et dernier jour ouvré de Décembre :
+ 
+```
+test{
+(aujourd'hui = prem.jour.ouvr.mois et aujourd'hui <> janvier)
+ou
+(aujourd'hui = dern.jour.ouvr.annee)
+}
+```

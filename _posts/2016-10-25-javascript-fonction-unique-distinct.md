@@ -19,10 +19,6 @@ var _distinctUniqueValuesInArray = function(myArray, myUniqueObjProperty){
 
 ## Exemple
 
-```json
-
-```
-
 ```javascript
 var monArray = [
 {"VTENVNAME":"ENV1","VTDOMAINE":"MONDOMAINE25","NB_JOBS_NON_STATS":"15"},

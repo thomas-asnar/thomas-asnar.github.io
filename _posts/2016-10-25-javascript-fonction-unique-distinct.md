@@ -6,7 +6,7 @@ author: Thomas ASNAR
 categories: [javascript]
 ---
 ## Mon besoin en Javascript 
-J'ai un tableau d'objets, et je veux récupérer un tableau de valeurs uniques ayant le même attribut.
+J'ai un tableau d'objets, et je veux récupérer un tableau de valeurs uniques d'objets ayant le même attribut.
 
 ## Fonction
 

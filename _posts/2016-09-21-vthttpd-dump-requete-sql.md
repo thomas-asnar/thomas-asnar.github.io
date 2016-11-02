@@ -5,7 +5,7 @@ date: 2016-09-21 22:00
 author: Thomas ASNAR
 categories: [vthttpd, dump,SQL, Visual TOM, VTOM, tlist, java, XSL, XML, vtexport, vtexport.xml, csv]
 ---
-&lt;Article mis à jour&gt; J'ai rajouté pas mal de petites astuces sur cet article qui date de l'année dernière (filtre XSL - merci Joey pour l'inspiration !), parsing java, utilisation de Panda Python)
+&lt;Article mis à jour&gt; J'ai rajouté pas mal de petites astuces sur cet article qui date de l'année dernière (filtre XSL - merci Joey pour l'inspiration !, parsing java, utilisation de Panda Python)
 
 Une autre astuce avec le Webaccess VTOM vthttpd : on peut dump tout le contenu de la base VTOM en un fichier exploitable par SQLITE !
 
@@ -358,7 +358,7 @@ allJobs1to1=all_jobsSID_1to1Param_${plateforme}.txt
 allJobsManyTo1=all_jobsSID_manyTo1Param_${plateforme}.txt
 outputStats=stats_${plateforme}
 vtsgbdPort=30509
-hostFilter=PDECIB10
+hostFilter=HOST1
 
 test -f $vthttpdDat && rm $vthttpdDat
 vthttpd -dump $vthttpdDat
@@ -434,6 +434,6 @@ merge.to_csv("output.csv")
 
 ```
 	vtobjectsid	vtbegin	vtduration	vtend	vtexpdatevalue	vtstatus	vterrmess	env	app	job	script	host	user	queue	vtdatename	param
-0	JOB7ef5b39400006ad956a6113e00014e22	19/03/2016 03:58	00:10:00	19/03/2016 04:08	19/03/2016	3	Termine a 04:08:30	IWHJ	poz12daj1	p800ostp1	PATH_DWH_SHELL/RDWH_800_J010_odi.ksh	PDECIB10	prdwh12	queue_ksh	IWHJ_12_rdwh	
-1	JOB7ef5b39400006ad956a6113e00014e22	03/03/2016 03:29	00:12:24	03/03/2016 03:42	03/03/2016	3	Termine a 03:42:17	IWHJ	poz12daj1	p800ostp1	PATH_DWH_SHELL/RDWH_800_J010_odi.ksh	PDECIB10	prdwh12	queue_ksh	IWHJ_12_rdwh	
+0	JOB7ef5b39400006ad956a6113e00014e22	19/03/2016 03:58	00:10:00	19/03/2016 04:08	19/03/2016	3	Termine a 04:08:30	ENV1	poz12daj1	p800ostp1	PATH_DWH_SHELL/OSEF_odi.ksh	HOST1	prdwh12	queue_ksh	ENV1J_12_rdwh	
+1	JOB7ef5b39400006ad956a6113e00014e22	03/03/2016 03:29	00:12:24	03/03/2016 03:42	03/03/2016	3	Termine a 03:42:17	ENV1	poz12daj1	p800ostp1	PATH_DWH_SHELL/OSEF_odi.ksh	HOST1	prdwh12	queue_ksh	ENV1_12_rdwh	
 ```

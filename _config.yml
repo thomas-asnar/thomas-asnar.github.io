@@ -28,7 +28,7 @@ excerpt_separator: '<!--more-->'
 sass:
     style: :compressed
 
-paginate: 15
+paginate: 30
 
 gems:
   - jekyll-sitemap

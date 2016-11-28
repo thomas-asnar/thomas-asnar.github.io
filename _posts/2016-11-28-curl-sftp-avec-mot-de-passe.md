@@ -7,7 +7,7 @@ categories: [curl, shell, sftp, ftp, script, sftp avec mot de passe]
 ---
 Je ne sais pas s'il existe une raison justifiant le fait de faire du sftp non sécurisé (mot de passe en clair, sans certificat SSL) mais des fois, il ne faut pas trop chercher à comprendre.
 
-Donc sachez que si on vous dit, "plus de FTP, il faut faire du SFTP" et qu'on vous dit, "ah non, impossible de mettre en place des clés privées, publiques", vous pouvez faire du sftp avec curl !
+Donc sachez que si on vous dit, "plus de FTP, il faut faire du SFTP" et qu'on vous dit, "ah non, impossible de mettre en place des clés privées, publiques", vous pouvez scripter du sftp avec curl avec le user / mot de passe !
 
 ## Lister, afficher, récupérer
 

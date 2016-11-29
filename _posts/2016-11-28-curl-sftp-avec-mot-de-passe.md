@@ -75,32 +75,24 @@ man curl
   chgrp group file
          The chgrp command sets the group ID of the file named by the file operand to the group ID specified by the group  operand.  The
          group operand is a decimal integer group ID.
-
   chmod mode file
          The chmod command modifies the file mode bits of the specified file. The mode operand is an octal integer mode number.
-
   chown user file
          The  chown  command sets the owner of the file named by the file operand to the user ID specified by the user operand. The user
          operand is a decimal integer user ID.
-
   ln source_file target_file
          The ln and symlink commands create a symbolic link at the target_file location pointing to the source_file location.
 
   mkdir directory_name
          The mkdir command creates the directory named by the directory_name operand.
-
   pwd    The pwd command returns the absolute pathname of the current working directory.
-
   rename source target
          The rename command renames the file or directory named by the source operand to the destination path named by the target  oper‐
          and.
-
   rm file
          The rm command removes the file specified by the file operand.
-
   rmdir directory
          The rmdir command removes the directory entry specified by the directory operand, provided it is empty.
-
   symlink source_file target_file
          See ln.
 

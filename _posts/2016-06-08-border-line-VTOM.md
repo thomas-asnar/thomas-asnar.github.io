@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Hack VTOM
+title: Border Line VTOM
 date: 2016-06-07 22:03
 author: Thomas ASNAR
-categories: [ordonnancement, vtom, vtexport, vtaddaccount, TOM, hack VTOM]
+categories: [ordonnancement, vtom, vtexport, vtaddaccount, TOM]
 ---
 Si vous lisez ces mots, c'est que le côté obscur vous a déjà envahi et que le border line ne vous fait pas peur ! :smiling_imp:
 
@@ -11,7 +11,7 @@ Par conséquent, ce qui va suivre ne vous effraiera point et pourrait même vous
 
 <small>(mais quand même, attention à vos prod, ne jouez que sur vos bacs à sable !)</small>
 
-## Ouvrir les DBF
+## Ouvrir les DBF (ne concerne que les versions <= v6.1 VTOM)
 
 Les .dbf c'est les fichiers de Table qui constituent la base de données VTOM actuelle (bientôt full Postgres SQL, adieu les .dbf) dans votre répertoire TOM_BASES (ou de votre vtbackup)
 

@@ -109,6 +109,9 @@ img{
     float:left;
     margin-right:3%;
 }
+#photo img {
+	animation: shrink 5s infinite alternate;
+}
 #about-accroche{
     width:60%;
     float:left;
@@ -210,6 +213,17 @@ img{
 #tree-2 .glyphicon{
   font-size:150px;
 }
+
+/* animation */
+@keyframes shrink {
+  0% {
+    background-size: 110% 110%;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}
+
 /* SUNCOURSE */
 .cloud{
     z-index:2;

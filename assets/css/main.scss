@@ -251,6 +251,7 @@ img{
     left:40%;
     top:2%;
     z-index:-1!important;
+	animation: shrink 5s infinite alternate;
 }
 #cloud-3 .glyphicon-cloud{
     font-size:50px;

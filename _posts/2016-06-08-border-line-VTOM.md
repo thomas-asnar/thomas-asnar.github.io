@@ -11,7 +11,7 @@ Par conséquent, ce qui va suivre ne vous effraiera point et pourrait même vous
 
 <small>(mais quand même, attention à vos prod, ne jouez que sur vos bacs à sable !)</small>
 
-## Ouvrir les DBF (ne concerne que les versions <= v6.1 VTOM)
+## Ouvrir les DBF (ne concerne que les versions < v6.1 VTOM)
 
 Les .dbf c'est les fichiers de Table qui constituent la base de données VTOM actuelle (bientôt full Postgres SQL, adieu les .dbf) dans votre répertoire TOM_BASES (ou de votre vtbackup)
 

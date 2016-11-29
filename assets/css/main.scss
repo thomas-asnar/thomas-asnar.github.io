@@ -109,7 +109,10 @@ img{
     float:left;
     margin-right:3%;
 }
-
+#photo img {
+	height: 200px;border-radius: 0 200px 200px 200px;border: 5px lightblue dashed;
+	animation: shrink 50s infinite alternate;
+}
 #about-accroche{
     width:60%;
     float:left;

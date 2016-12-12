@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Status dans le vtexport
+title: Statuts dans le vtexport
 date: 2016-12-12 20:45
 author: Thomas ASNAR
 categories: [vtom, status, vtexport]

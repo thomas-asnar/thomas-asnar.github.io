@@ -1,3 +1,10 @@
+---
+layout: post
+title: FAQ VTOM Dates - Dec
+date: 2016-12-23 20:45
+author: Thomas ASNAR
+categories: [vtom, tchkdate, tlist, xsl, xml, date, vtexport]
+---
 
 # unlock a locked date
 

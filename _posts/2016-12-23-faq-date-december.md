@@ -45,7 +45,7 @@ exploitation            appli_test              job1                    client_l
 
 Also, you can do a csv list of whatever column you want  with a vtexport and an preformatted xsl file.
 
-First compile the [Stylizer.java]((/wp-content/uploads/Stylizer.java) class : `javac Stylizer.java`
+First compile the [Stylizer.java](/wp-content/uploads/Stylizer.java) class : `javac Stylizer.java`
 
 Export your VTOM base in XML :
 

@@ -53,10 +53,9 @@ Export your VTOM base in XML :
 vtexport -x [-f <env>[/<app>[/job]]] > /somepath/your_vtexport.xml
 ```
 
-Filter the XML with the [XSL file](/wp-content/uploads/filter_env_app_date.xsl) :
+Filter the XML with the [XSL file](/wp-content/uploads/filter_env_app_date.xsl) : `java Stylizer filter_env_app_date.xsl your_vtexport.xml`
 
 ```
-java Stylizer filter_env_app_date.xsl your_vtexport.xml
 vtom@044d119e1768:/mnt/workspace$ javac Stylizer.java
 vtom@044d119e1768:/mnt/workspace$ ls
 Stylizer.class  Stylizer.java

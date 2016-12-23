@@ -5,7 +5,7 @@ date: 2016-12-23 20:45
 author: Thomas ASNAR
 categories: [vtom, tchkdate, tlist, xsl, xml, date, vtexport]
 ---
-Des fois, j'ai des questions en direct par e-mail. Je me dis que ça pourrait être bien de mettre les questions / réponses.
+Des fois, j'ai des questions en direct par e-mail. Je me dis que ça pourrait être bien de poster les questions / réponses.
 
 # unlock a locked date
 

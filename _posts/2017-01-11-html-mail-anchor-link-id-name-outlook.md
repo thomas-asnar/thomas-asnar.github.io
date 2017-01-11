@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Anchor (lien id #, name) dans un mail HTML Outlook
-date: 2016-01-11 20:45
+date: 2017-01-11 20:45
 author: Thomas ASNAR
 categories: [mail, outlook, html, tag, anchor, id, name]
 ---

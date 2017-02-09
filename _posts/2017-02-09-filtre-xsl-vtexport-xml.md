@@ -46,7 +46,7 @@ ou
 java -Xms512m -Xmx1g -cp /votrechemincompletcontenantlesclasses Stylizer votrefichier.xsl vtorefichier.xml  
 ```
 
-Notez que si vous avez une autre manière d'appliquer un filtre XSL sur du XML et de récupérer la sortie d'écran, ça m'intéresse (dans les commentaires svp) - python, PERL, bash, powershell, etc.
+Notez que si vous avez une autre manière d'appliquer un filtre XSLT sur du XML et de récupérer la sortie d'écran, ça m'intéresse (dans les commentaires svp) - python, PERL, bash, powershell, etc.
 
 ## Exemple Fichier XSL : Tous les jobs
 

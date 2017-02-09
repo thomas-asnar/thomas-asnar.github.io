@@ -41,6 +41,12 @@ Lancer la commande pour transformer votre XML avec le fichier XSL
 (ajouter le classpath si vous souhaitez avoir la classe dans un répertoire spécifique)
 
 ```
+vtexport -x > votrefichier.xml
+ou avec un filtre
+vtexport -x -f MONENV[/MONAPP[/MONJOB]] > votrefichier.xml
+```
+
+```
 java Stylizer votrefichier.xsl vtorefichier.xml
 ou
 java -Xms512m -Xmx1g -cp /votrechemincompletcontenantlesclasses Stylizer votrefichier.xsl vtorefichier.xml  

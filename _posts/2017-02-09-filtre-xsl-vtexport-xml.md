@@ -26,7 +26,7 @@ Dans mon cas, appliquée à mon vtexport XML, cette feuille de style sera une so
 
 Pour appliquer le fichier XSL au fichier XML vtexport VTOM, on peut faire ça assez simplement avec une class Java (Stylizer) fournie par Oracle.
 
-Si vous voulez plus d’information sur la classe et la télécharger, voici le lien (Oracle Transforming XML Data with XSLT)[https://docs.oracle.com/javase/tutorial/jaxp/xslt/transformingXML.html].
+Si vous voulez plus d’information sur la classe et la télécharger, voici le lien [Oracle Transforming XML Data with XSLT](https://docs.oracle.com/javase/tutorial/jaxp/xslt/transformingXML.html)
 
 Compiler le code source java pour créer votre class Stylizer.class. A ne faire qu'une fois. La classe doit se trouver dans votre CLASSPATH (variable d'environnement)
 

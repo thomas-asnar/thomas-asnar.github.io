@@ -44,6 +44,8 @@ UsePAM no
 # sort uniq by columns (vtstools uniq on env,app,job,status)
  vtstools -x -e "01-01-2000 00:00:00 20-05-2016 23:00:00" 2> /dev/null |sort -u -t";" -k"1,3" -k"18,18"
 
+tous les environnements touchés par une version 
+vthtools -e "17-12-2016 28-12-2020" | grep "/" | egrep "ihm|vtaddjob" | cut -d"/" -f1 | awk '{print $NF}' | sort -u
 
 
 nltest /dclist:domaine

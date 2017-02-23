@@ -38,3 +38,12 @@ ou
 (aujourd'hui = dern.jour.ouvr.annee)
 }
 ```
+
+ *  les lendemains de jour ouvré avec les dimanches chomés et les jours fériés de france. Calendrier = Dimanche chômés + jours fériés France
+ 
+```
+test{
+ aujourd'hui - 1.jour.cale = ouvr
+}
+``` 
+ 

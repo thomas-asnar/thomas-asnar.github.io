@@ -15,7 +15,7 @@ Attention, une formule VTOM dépend du calendrier sur lequel elle s'appuie. (jou
 test{(aujourd'hui=1.jour.ouvr.mois-1.jour.cale) ou (aujourd'hui=dern.jour.cale.mois+1.jour.ouvr-1.jour.cale)}
 ```
 
- * Premier Lundi du mois s'il est ouvré, sinon le jour ouvré qui suit : By Hervé G.
+ * Premier Lundi du mois s'il est ouvré, sinon le jour ouvré qui suit
 
 ```
 test { (aujourd'hui=prem.lu.cale.mois et aujourd'hui=ouvr) ou (prem.lu.cale.mois=chom et aujourd'hui=prem.lu.cale.mois+1.jour et aujourd'hui=ouvr) }

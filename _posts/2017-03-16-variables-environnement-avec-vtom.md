@@ -6,7 +6,7 @@ author: Thomas ASNAR
 categories: [unix, vtom, variables d'environnement, .profile, profil, startup files, shell, ksh, bash, csh]
 ---
 
-unix : si ce n'est à l'intérieur des scripts même, les variables d'environnement sont souvent regroupées à un seul endroit et fonctionne pour l'ensemble des scripts, dans les fichiers de démarrage (startup files)
+unix : si ce n'est à l'intérieur des scripts même, les variables d'environnement sont souvent regroupées à un seul endroit dans les fichiers de démarrage (et sont disponibles pour l'ensemble des scripts)
  
   * ces fichiers de démarrage (startup files) peuvent être différents selon les shells utilisés : [Lien vers un article clair et précis sur ces fichiers](https://kb.iu.edu/d/abdy) / [lien alternatif](/wp-content/uploads/startup_files_shells.pdf)
  

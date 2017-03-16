@@ -16,4 +16,4 @@ categories: [unix, vtom, variables d'environnement, .profile, profil, startup fi
  
    Résultat : j'ai des gens "bien intentionnés" qui m'ont surchargé le `.profile` du user `vtom` avec des variables d'env qui n'avaient rien à faire là
    
-   Au cas où, il faut bien recharger le profil `. .profile` de `vtom` avant de relancer le client si vous avez apporté des modifications sur le .profile
+   Au cas où, il faut bien recharger le profil par ex. `. .profile` avant de relancer le client si vous avez apporté des modifications sur le .profile de vtom

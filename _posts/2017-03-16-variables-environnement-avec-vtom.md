@@ -14,6 +14,7 @@ unix : si ce n'est à l'intérieur des scripts même, les variables d'environnem
    * ksh, sh, bash : .profile
    * csh, tcsh : .cshrc
    * zsh : .zprofile
+   
  * les variables d'environnement exportées sur la session de l'utilisateur d'administration (en général `vtom`) sont prises en compte lors du démarrage du client VTOM (`adminc` ou `start_client`)
  
    Résultat : j'ai des gens "bien intentionnés" qui m'ont surchargé le `.profile` du user `vtom` avec des variables d'env qui n'avaient rien à faire là

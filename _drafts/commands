@@ -57,3 +57,19 @@ vtaddaccount -name TOM -p TOM -d ADM_prf
 
 
 C:\LINDUS\wamp\bin\php\php5.4.16\php.exe C:\LINDUS\wamp\www\Symfony\app\console cache:clear -e prod
+
+
+# marche niquel pour mon nouveau Windows 10
+new-alias npm C:\Users\Bxxxxxxx\Documents\node-v6.10.0-win-x64\npm.cmd
+${ENV:PATH}="${ENV:PATH};C:/Users/Bxxxxxx/Documents/node-v6.10.0-win-x64"
+git config --global http.proxy http://domaine\\Bxxxx:mdp@proxy:8080
+git config --global https.proxy http://domaine\\Bxxxx:mdp@proxy:8080
+set HTTP_PROXY=http://domaine\\Bxxxx:mdp@proxy:8080
+npm config set http-proxy http://dom%5CBxxxxx:mdp@proxy:8080
+npm config set https-proxy http://dom%5CBxxxxx:mdp@proxy:8080
+bower config dans le même rep que bower.json
+.bowerrc
+{
+"proxy":"http://dom%5CBxxxx:mdp@proxy:8080",
+"https-proxy":"http://dom%5CBxxxxx:mdp@proxy:8080"
+}

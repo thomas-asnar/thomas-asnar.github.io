@@ -7,6 +7,11 @@ comments: true
 categories: [vtom, vtaddjob, ressource vtom]
 ---
 Le vthelp vtaddjob n'est pas très intuitif.
-Voici un exmple pour rajouter une ressource texte VTOM avec les options d'attente indéfiniment.
+Voici un exmple pour rajouter (+) une ressource texte VTOM avec les options d'attente indéfiniment.
 
 `vtaddjob /nom=env/app/job /script='monscript' /res="+nom_ressource = OK [attend==oui jusqu'a==Illimité]"`
+
+
+ * Modifier (~) une ressource de type poids en ligne de commande avec libération
+
+`vtaddapp /nom=$ITEM_VTOM /Res="~${ITEM_VTOM_RES} ! 1 [attend==oui jusqu'a==Illimité liberation==oui]"`

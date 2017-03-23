@@ -73,3 +73,25 @@ bower config dans le même rep que bower.json
 "proxy":"http://dom%5CBxxxx:mdp@proxy:8080",
 "https-proxy":"http://dom%5CBxxxxx:mdp@proxy:8080"
 }
+Visual Code
+     // Paramètre de proxy à utiliser. S'il n'est pas défini, il est récupéré à partir des variables d'environnement http_proxy et https_proxy
+    "http.proxy": "http://proxy:8080",
+    "https.proxy": "http://proxy:8080",
+    // Valeur à envoyer en tant qu'en-tête 'Proxy-Authorization' pour chaque requête réseau.
+    "http.proxyAuthorization": "DOM/BXXXX:mdp"
+}
+
+docker install windows 10
+1. Installer la fonctionnalité de conteneur
+La fonctionnalité de conteneur doit être activée avant d’utiliser des conteneurs Windows. Pour ce faire, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges.
+
+Si vous recevez un message d’erreur indiquant que Enable-WindowsOptionalFeature n’existe pas, vérifiez que vous exécutez PowerShell comme administrateur.
+
+Copy
+none
+Enable-WindowsOptionalFeature -Online -FeatureName containers -All
+Étant donné que Windows 10 prend uniquement en charge les conteneurs Hyper-V, la fonctionnalité Hyper-V doit également être activée. Pour activer la fonctionnalité Hyper-V à l’aide de PowerShell, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges.
+
+Copy
+none
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All

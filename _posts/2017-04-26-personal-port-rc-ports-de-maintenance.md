@@ -98,6 +98,16 @@ bdaemon    bdaemon:30004    arrete
 vthttpd    vthttpd:30080    actif
 ```
 
+En gros, lors de mes phases de maintenance :
+
+ * j'arrête le serveur VTOM `stop_servers`
+ * je copie le `~vtom/.personalport_rc.maint` sur `~vtom/.personalport_rc`
+ * je démarre le serveur VTOM `start_servers`
+ * je fais mes opérations de maintenance
+ * j'arrête le serveur VTOM `stop_servers`
+ * je copie le `~vtom/.personalport_rc.origin` sur `~vtom/.personalport_rc`
+ * je démarre le serveur VTOM `start_servers`
+
 ### Exemple : plusieurs installations VTOM sur un même serveur
 
 J'ai une installation classique avec un user vtom. J'ai les services classiques dans `/etc/services` :

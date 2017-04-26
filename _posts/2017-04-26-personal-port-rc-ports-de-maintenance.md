@@ -52,13 +52,13 @@ vtserverm 30107/tcp # port de maintenance vtom
 Je prépare 2 fichiers .personalport_rc.origin et .personalport_rc.maint (les noms n'ont pas d'importance) :
 
 ```
-~vtom/.personnalport_rc.origin et je fais correspondre le vtserver au service d'origine vtserver
+~vtom/.personalport_rc.origin et je fais correspondre le vtserver au service d'origine vtserver
 [ports]
 vtserver:vtserver
 ```
 
 ```
-~vtom/.personnalport_rc.maint et je fais correspondre le vtserver au service de maintenance vtserverm qui pointe sur un port différent
+~vtom/.personalport_rc.maint et je fais correspondre le vtserver au service de maintenance vtserverm qui pointe sur un port différent
 [ports]
 vtserver:vtserverm
 ```
@@ -83,7 +83,7 @@ tengine    exploitation             arrete
 ...
 ```
 
-Par exemple, je copie `~vtom/.personnalport_rc.maint` sur `~vtom/.personnalport_rc`, je fais `vtping` :
+Par exemple, je copie `~vtom/.personalport_rc.maint` sur `~vtom/.personalport_rc`, je fais `vtping` :
 
 ```
 je vois que le vtserver a bien été pris en compte avec le port de maintenance
@@ -130,7 +130,7 @@ vtmanager 40000/tcp
 ```
 
 
-Et je personnalise le `.personnalport_rc` dans le répertoire home de `vtomd` :
+Et je personnalise le `.personalport_rc` dans le répertoire home de `vtomd` :
 
 ```
 (vtomd)/usr/vtomd$ cat .personalport_rc

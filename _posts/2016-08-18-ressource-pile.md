@@ -98,6 +98,9 @@ contenu:
 
 Pratique par exemple pour exécuter une cyclique autant de fois que qu'il y a d'éléments dans une pile.
 
+`Sur une remarque de nagnag, je me rends compte que ce que je dis peut prêter à confusion. La pile ne se décharge pas automatiquement à chaque exécution de la cyclique. C'est bien un mécanisme perso par tpop (via un job/script) qui doit dépiler à chaque cycle.`
+
+
 Autre exemple plus tordu : on a une pile initialisée avec `n` éléments (avec n = nombre de couloirs attendus, ces couloirs sont sur des environnements ou des serveurs VTOM différents par exemple), à chaque fois qu'un couloir (une chaine) est terminé, on dépile d'1 élément la ressource ; une autre chaine attend que les `n` couloirs se soient exécutés (la tête de chaine attend la ressource pile à `Absent`)
 
 ### Une ressource pile VTOM peut être ajoutée en tant que paramètre d'un traitement

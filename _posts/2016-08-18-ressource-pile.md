@@ -94,6 +94,8 @@ contenu:
 * Présent = au moins un élement dans la pile
 * Absent = aucun élément dans la pile
 
+`mis à jour sur mon v5.7, on dit "Vide" et "Non vide" au lieu de présent/absent (plus logique remarquez)`
+
 Pratique par exemple pour exécuter une cyclique autant de fois que qu'il y a d'éléments dans une pile.
 
 Autre exemple plus tordu : on a une pile initialisée avec `n` éléments (avec n = nombre de couloirs attendus, ces couloirs sont sur des environnements ou des serveurs VTOM différents par exemple), à chaque fois qu'un couloir (une chaine) est terminé, on dépile d'1 élément la ressource ; une autre chaine attend que les `n` couloirs se soient exécutés (la tête de chaine attend la ressource pile à `Absent`)

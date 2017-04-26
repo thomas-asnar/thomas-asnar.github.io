@@ -153,3 +153,6 @@ vtnotifier:vtnotifierd
 vtsgbd:vtsgbdd
 vthttpd:vthttpdd
 ```
+
+
+Merci à Serge D, pour l'inspiration et l'astuce que je ne connaissais pas.

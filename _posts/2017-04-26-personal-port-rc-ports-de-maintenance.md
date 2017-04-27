@@ -130,13 +130,13 @@ J'installe un autre serveur VTOM sur le même serveur avec le user `vtomd` par e
 # ---------------------
 # Demons tcp Visual TOM
 # ---------------------
-tomDBd 40001/tcp
-bdaemon 40004/tcp
-vtserver 40007/tcp
-vtnotifier 40008/tcp
-vtsgbd 40009/tcp
-vthttpd 40080/tcp
-vtmanager 40000/tcp
+tomDBdd 40001/tcp
+bdaemond 40004/tcp
+vtserverd 40007/tcp
+vtnotifierd 40008/tcp
+vtsgbdd 40009/tcp
+vthttpdd 40080/tcp
+vtmanagerd 40000/tcp
 ```
 
 

@@ -126,7 +126,9 @@ vtmanager 30000/tcp
 ```
 
 J'installe un autre serveur VTOM sur le même serveur avec le user `vtomd` par exemple : 
+
 ```
+# pour mieux me repérer je mets le même nom de service qu'à l'origine et je rajoute "d" à la fin, comme vtom"d" de mon user
 # ---------------------
 # Demons tcp Visual TOM
 # ---------------------

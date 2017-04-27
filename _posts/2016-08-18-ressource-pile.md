@@ -60,7 +60,7 @@ OK: <nom ressource pile>
 
 # le premier élément 1 que j'avais dans ma pile a été supprimé
 tpush -name <nom ressource pile> -info
-valeur         : 1
+valeur         : 2
 contenu:
 2
 3
@@ -74,7 +74,7 @@ OK: 1
 
 # la valeur 1 a été rajoutée en fin de pile
 tpush -name <nom ressource pile> -info
-valeur         : 1
+valeur         : 2
 contenu:
 2
 3

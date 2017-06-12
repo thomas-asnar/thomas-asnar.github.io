@@ -6,12 +6,22 @@ author: Thomas ASNAR
 categories: [Java, Weblogic, ps, /usr/ucb/ps -auxwww, ps, nom complet processus, processus tronqué]
 ---
 
+### Mise à jour 12/06/17 pour Windows 
+
+```cmd
+WMIC PROCESS WHERE (name="java.exe") get CommandLine 
+ou
+jps
+```
+
 Petite astuce pour lister les processus java weblogic, avec le nom de l'application. 
-En effet, un simple `ps -ef` ne vous donnera, bien souvent, qu'une ligne tronquée ne contenant pas toutes les informations que vous aimeraiez.
+En effet, un simple `ps -ef` ne vous donnera, bien souvent, qu'une ligne tronquée ne contenant pas toutes les informations que vous aimeriez.
 
-Première solution, si vous avez ce binaire, le fameux /usr/ucb/ps -auxwww.
+## Première solution : ucb ps -aux
 
-Deuxième solution :
+si vous avez ce binaire, le fameux /usr/ucb/ps -auxwww.
+
+## Deuxième solution : pargs
 
 ```bash
 # On fait un simple ps et on récupère les PID des process grepés (ici par exemple, les processus java lancés par l'utilisateur webadm
@@ -19,7 +29,7 @@ Deuxième solution :
 ps -ef | grep java | grep webadm | while read line; do pargs -l $(echo $line | awk '{print $2}') 2> /dev/null ; done
 ```
 
-Encore une autre solution si on a pas `pargs`
+## Troisième solution : /proc/<pid>/cmdline
 
 ```
 /proc/<pid>/cmdline

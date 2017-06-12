@@ -29,7 +29,7 @@ si vous avez ce binaire, le fameux /usr/ucb/ps -auxwww.
 ps -ef | grep java | grep webadm | while read line; do pargs -l $(echo $line | awk '{print $2}') 2> /dev/null ; done
 ```
 
-## Troisième solution : /proc/<pid>/cmdline
+## Troisième solution : /proc/pid/cmdline
 
 ```
 /proc/<pid>/cmdline

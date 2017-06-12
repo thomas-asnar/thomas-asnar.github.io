@@ -38,6 +38,7 @@ ps -ef | grep java | grep webadm | while read line; do pargs -l $(echo $line | a
 egrep --color --text "pattern" /proc/<pid>/cmdline
 ```
 
+## pid job en cours dans VTOM
 
 Petit truc sympa pour voir les process tree des jobs en cours sur un client VTOM :
 

@@ -11,6 +11,7 @@ J'ai une table oracle partitionnée. Je veux un job mensuel qui drop les partiti
 __NE JAMAIS__ copier/coller sans comprendre et sans adapter à vos besoins. Pour le coup, c'est plus un mémo pour moi.
 
 ```sql
+-- exemple d'une partition PARTITION "P201608"  VALUES LESS THAN (TIMESTAMP' 2016-09-01 00:00:00')
 SET serveroutput ON
 DECLARE
   l_sql_stmt VARCHAR2(1000);

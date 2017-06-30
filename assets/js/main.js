@@ -1,3 +1,7 @@
+
+$(function() {
+  // Handler for .ready() called.
+
 /* user xp for palm
 if(window.innerWidth < 500){
   $(".post-list li:gt(5)").hide()
@@ -112,3 +116,4 @@ var slug = window.location.href.split("#!")[1] ;
 if(slug){
   searchSite(slug);
 }
+});

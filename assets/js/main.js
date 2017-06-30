@@ -1,5 +1,5 @@
 
-$(function() {
+jQuery(function($) {
   // Handler for .ready() called.
 
 /* user xp for palm

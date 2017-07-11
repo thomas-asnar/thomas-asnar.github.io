@@ -1,3 +1,14 @@
+---
+layout: post
+title: V6 VTOM Full PostgresSQL
+date: 2017-07-11 21:10
+author: Thomas ASNAR
+categories: [postgres, sql, VTOM, V6]
+---
+La V6 est bientôt chez nous ! il me tarde !
+
+C'est beau tout ce petit monde en full PostgresSQL.
+
 ```sql
 --
 -- sgbd/bin/psql -p <portsgbd> -d "vtom" -U "vtom"

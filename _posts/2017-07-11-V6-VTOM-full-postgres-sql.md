@@ -152,3 +152,8 @@ left join vt_core_hosts_groups h on coalesce(j.vthostsgroupid, a.vthostsgroupid,
 	-- e.vtname = 'ADAM'
 ;
 ```
+
+
+```
+
+```

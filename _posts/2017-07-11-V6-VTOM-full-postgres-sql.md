@@ -15,6 +15,8 @@ Je ne connaissais pas [coalesce()](https://www.postgresql.org/docs/8.1/static/fu
 
 On passe une liste d'éléments à la fonction, et elle retourne le premier élément non nul, ou `null` s'ils le sont tous.
 
+Les collections et les clichés me semblent très prometteurs. Prémices du versioning ??? en tous cas, pas mal du tout. Il faut que je me penche dessus. Il manquerait d'après moi, la possibilité d'exporter nos clichés au format XML (mais je n'ai peut-être pas encore tout vu !)
+
 ```sql
 --
 -- sgbd/bin/psql -p <portsgbd> -d "vtom" -U "vtom"

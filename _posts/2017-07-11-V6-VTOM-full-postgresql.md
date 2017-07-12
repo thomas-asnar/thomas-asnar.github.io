@@ -141,7 +141,7 @@ select
 			),
 			' ' -- separator entre les parametres
 		) as vtparameters,
-		h.vtname as vthostname,
+		h.vtname as vthostgroup, -- nom de l'unite de soumission, il faut faire une sous requete si on veut les hosts d'une u.s
 		q.vtname as vtqueuename,
 		u.vtname as vtusername,
 		coalesce(j.vtcomment,a.vtcomment) as vtcomment,

@@ -3,11 +3,17 @@ layout: post
 title: V6 VTOM Full PostgresSQL
 date: 2017-07-11 21:10
 author: Thomas ASNAR
-categories: [postgres, sql, VTOM, V6]
+categories: [postgres, sql, psql, VTOM, V6]
 ---
-La V6 est bientôt chez nous ! il me tarde !
+La V6 est entre mes mains !
 
 C'est beau tout ce petit monde en full PostgresSQL.
+
+En avant première :bowtie:, une p'tite requête psql qui va lister tous les jobs.
+
+Je ne connaissais pas [coalesce()](https://www.postgresql.org/docs/8.1/static/functions-conditional.html#AEN12663), c'est plutôt pratique ! surtout avec les hierarchies par défaut de VTOM env>app>job.
+
+On passe une liste d'éléments à la fonction, et elle retourne le premier élément non nul, ou `null` s'ils le sont tous.
 
 ```sql
 --
@@ -118,6 +124,7 @@ C'est beau tout ce petit monde en full PostgresSQL.
 */
 --
 
+
 select 	
 		e.vtname as vtenvname,
 		a.vtname as vtappname,
@@ -145,15 +152,32 @@ select
 from vt_core_jobs j
 left join vt_core_environments e on e.vtsid = j.vtenvsid
 left join vt_core_applications a on a.vtappsid = j.vtappsid
-left join vt_core_queues q on q.vtid = j.vtqueueid
-left join vt_core_users u on u.vtid = j.vtuserid
+left join vt_core_queues q on q.vtid = coalesce(j.vtqueueid,a.vtqueueid,e.vtqueueid)
+left join vt_core_users u on u.vtid = coalesce(j.vtuserid,a.vtuserid,e.vtuserid)
 left join vt_core_hosts_groups h on coalesce(j.vthostsgroupid, a.vthostsgroupid, e.vthostgroupid) = h.vtid
--- where 
-	-- e.vtname = 'ADAM'
+-- filtres dans le where
+--where 
+	--e.vtname = 'supervision'
 ;
 ```
 
 
 ```
+  vtenvname  | vtappname  |    vtjobname     |                   vtscript                   |                                       vtparameters                                        |   vthostnam
+e   | vtqueuename | vtusername  |                                      vtcomment                                       | vtminstart | vtmaxstart
+-------------+------------+------------------+----------------------------------------------+-------------------------------------------------------------------------------------------+------------
+----+-------------+-------------+--------------------------------------------------------------------------------------+------------+------------
+ supervision | appxxxxx   | jobxxxxx        | PATH_SERVICES_SHELL/scriptxxxxx.ksh             |                                                                                           | hostxxxxx
+    | queue_ksh.9 | userxxx | reception de fichiers                                                                | 08:00:00   | 19:30:00
+ supervision | appxxxxx   | jobxxxxx        | PATH_SERVICES_SHELL/scriptxxxxx.ksh          | 1:edi                                                                                     | hostxxxxx
+    | queue_ksh.9 | userxxx | Mise a disposition des fichiers client publipostage                                  | 20:00:00   | 30:00:00hostxxxxx
+ supervision | appxxxxx   | jobxxxxx        | PATH_ADMIN_SHELL/scriptxxxxx.sh                 |                                                                                           | hostxxxxx
+    | queue_ksh.9 | userxxx | Transfert des fichiers client publipostage editique                                  | 10:00:00   | 30:00:00
+ supervision | appxxxxx   | jobxxxxx        | PATH_SERVICES_SHELL/scriptxxxxx.ksh          | 1:rmp                                                                                     | hostxxxxx
+    | queue_ksh.9 | userxxx | Mise a disposition des fichiers encarts RMP                                          | 20:00:00   | 30:00:00
+ supervision | appxxxxx   | jobxxxxx        | PATH_ADMIN_SHELL/scriptxxxxx.sh                 |                                                                                           | hostxxxxx
+    | queue_ksh.9 | userxxx | Transfert des fichiers client encarts RMP                                            | 10:00:00   | 30:00:00
+ supervision | appxxxxx   | jobxxxxx        | PATH_SERVICES_SHELL/scriptxxxxx.ksh             |                                                                                           | hostxxxxx
+    | queue_ksh.9 | pdtrf0      | épuration des fichiers de plus de x jours GOC,DEI.......                             | 07:00:00   | Illimité
 
 ```

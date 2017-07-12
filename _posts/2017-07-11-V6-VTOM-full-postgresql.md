@@ -1,13 +1,13 @@
 ---
 layout: post
-title: V6 VTOM Full PostgresSQL
+title: V6 VTOM Full PostgreSQL
 date: 2017-07-11 21:10
 author: Thomas ASNAR
-categories: [postgres, sql, psql, VTOM, V6]
+categories: [postgresql, psql, VTOM, V6]
 ---
 La V6 est entre mes mains !
 
-C'est beau tout ce petit monde en full PostgresSQL.
+C'est beau tout ce petit monde en full PostgreSQL.
 
 En avant première :bowtie:, une p'tite requête psql qui va lister tous les jobs.
 

@@ -1,0 +1,242 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="iron-icons.html">
+<link rel="import" href="ta-clock/ta-clock.html">
+<link rel="import" href="moment.html">
+
+<dom-module id="cd-itime">
+  <template>
+    <style>
+      iron-input[invalid] > input {
+        border: 1px solid red;
+        background-color: #FFCDD2;
+      }
+      .pointages{
+        float:left; 
+      }
+      .pointages h3{
+        margin-top: 2px;
+      }
+      .clocks{
+        float:left;
+        margin:0 50px;
+        text-align:center;
+      }
+    </style>
+
+    <div class="clocks">
+      <ta-clock clock-type="h-fin" clock-sub-title="{{hDureeJTrav}}h{{mDureeJTrav}} + {{intervalDej}}m dej'" clock-title="Heure de fin théorique" clock-value="{{clockHFin}}"></ta-clock>
+      <br>
+      <ta-clock clock-type="h-fin-compteur-duration" clock-sub-title="Difference avec l'heure de sortie théorique" clock-title="Compteur fin de journée" clock-value="{{clockHFinCompteur}}"></ta-clock>
+    </div>
+
+
+    <div class="pointages">
+      <h3>Mouvements Pointages</h3>
+      <paper-input id="input-am-in" always-float-label="" pattern="[0-2]{0,1}[0-9]:[0-5]{0,1}[0-9]" allowed-pattern="[0-9:]" placeholder="HH:MM" auto-validate="" label="AM in">
+        <iron-icon icon="icons:chevron-left" slot="prefix"></iron-icon>
+      </paper-input>
+      <br>
+      
+      <paper-input id="input-am-out" always-float-label="" pattern="[0-2]{0,1}[0-9]:[0-5]{0,1}[0-9]" allowed-pattern="[0-9:]" placeholder="HH:MM" auto-validate="" label="AM out">
+        <iron-icon icon="icons:chevron-right" slot="suffix"></iron-icon>
+      </paper-input>
+      <br>
+
+      <paper-input id="input-pm-in" always-float-label="" pattern="[0-2]{0,1}[0-9]:[0-5]{0,1}[0-9]" allowed-pattern="[0-9:]" placeholder="HH:MM" auto-validate="" label="PM in">
+        <iron-icon icon="icons:chevron-left" slot="prefix"></iron-icon>
+      </paper-input>
+      <br>
+
+
+      <paper-input id="input-pm-out" always-float-label="" pattern="[0-2]{0,1}[0-9]:[0-5]{0,1}[0-9]" allowed-pattern="[0-9:]" placeholder="HH:MM" auto-validate="" label="PM out">
+        <iron-icon icon="icons:chevron-right" slot="suffix"></iron-icon>
+      </paper-input>
+      <br>
+    </div>
+
+
+    <div class="clocks">
+      <ta-clock clock-type="now" clock-title="Heure courante"></ta-clock>
+      <br>
+      <h3>Valeurs par défaut</h3>
+      <paper-input id="duree-travail-journee" always-float-label="" pattern="[0-2]{0,1}[0-9]:[0-5]{0,1}[0-9]" allowed-pattern="[0-9:]" auto-validate="" label="Durée d'une journée de travail" value="{{observedDureeJTrav}}">
+      </paper-input>
+      <br>
+      <paper-input id="duree-dej" always-float-label="" pattern="[0-2]{0,1}[0-9]:[0-5]{0,1}[0-9]" allowed-pattern="[0-9:]" auto-validate="" label="Durée incompressible du déjeuner" value="{{observedDureeDej}}">
+      </paper-input>
+    </div>
+  </template>
+  <script>
+
+    class CdItime extends Polymer.mixinBehaviors([Polymer.IronValidatableBehavior], Polymer.Element)  {
+      static get is() { return 'cd-itime'; }
+      static get properties() {
+        return {
+          clockHFin: Number,
+          clockHFinCompteur: Number,
+          intervalDejMin: {type: Number, value: 30},
+          intervalDej: Number,
+          hDureeJTrav: {type: Number, value: 7},
+          mDureeJTrav: {type: Number, value: 48},
+          observedDureeJTrav: {
+            type: String,
+            observer: '_onChangeDureeJTrav'
+          },
+          observedDureeDej: {
+            type: String,
+            observer: '_onChangeDureeDej'
+          },
+          momentAmIn: Object,
+          momentAmOut: Object,
+          momentPmIn: Object,
+          momentPmOut: Object,
+          momentClockHFin: Object
+        };
+      }
+
+      _onChangeDureeJTrav(newValue, oldValue){
+        let momentSplitColon = this._momentSplitColon(newValue)
+
+        if(momentSplitColon != undefined && momentSplitColon._isValid){
+          this.hDureeJTrav = momentSplitColon.hours()
+          this.mDureeJTrav = momentSplitColon.minutes()
+          // on lance l'event du am-in pour l'horaire de fin théorique si on a bien changé la valeur d'une journée de travail
+          this.shadowRoot.querySelector("#input-am-in").validate()
+        }
+      }
+
+      _onChangeDureeDej(newValue, oldValue){
+        let momentSplitColon = this._momentSplitColon(newValue)
+
+        if(momentSplitColon != undefined && momentSplitColon._isValid){
+          this.intervalDejMin, this.intervalDej = moment.duration()
+                .add(momentSplitColon.hours(),'h')
+                .add(momentSplitColon.minutes(),'m')
+                .asMinutes()
+          
+          // on lance l'event du am-in pour l'horaire de fin théorique si on a bien changé la valeur d'une journée de travail
+          this.shadowRoot.querySelector("#input-am-in").validate()
+        }
+      }
+
+      _momentSplitColon(inputColonValue){
+        let returnState = undefined
+        try { 
+          returnState = moment()
+                .hours(inputColonValue.split(':')[0])
+                .minutes(inputColonValue.split(':')[1])
+                .seconds(0)
+                .milliseconds(0)
+        }
+        finally { 
+          return returnState; 
+        } 
+      }
+
+      ready(){
+        super.ready()
+        // init values
+        this.observedDureeJTrav = this.hDureeJTrav + ":" + this.mDureeJTrav
+        this.observedDureeDej = moment.duration().add(this.intervalDejMin,'m').hours() + ":" + moment.duration().add(this.intervalDejMin,'m').minutes()
+        this.intervalDej = this.intervalDejMin
+
+        // #input-am-in
+        var elInputAmIn = this.shadowRoot.querySelector("#input-am-in")
+        
+        elInputAmIn.addEventListener("iron-input-validate", e => {
+          if( !elInputAmIn.invalid 
+              && elInputAmIn.value != ""
+              && elInputAmIn.value != undefined
+            ){
+            
+            this.momentAmIn = this._momentSplitColon(elInputAmIn.value)
+            
+            if(this.momentAmIn._isValid){
+              // on calcule l'heure de fin théorique
+              this.momentClockHFin = moment(this.momentAmIn)
+              this.momentClockHFin.add(this.hDureeJTrav,'h')
+                                  .add(this.mDureeJTrav,'m')
+                                  .add(this.intervalDej,'m')
+              // et on bind la valeur a ta-clock hfin
+              this.clockHFin = Number( this.momentClockHFin.format('x') )
+
+              // on lance l'event du compteur si moment pm-out est valid
+              if(this.momentPmOut != undefined && this.momentPmOut._isValid){
+                elInputPmOut.validate()
+              }
+            }
+          }
+        }) // #input-am-in end : validate event
+          
+        // #input-am-out
+        var elInputAmOut = this.shadowRoot.querySelector("#input-am-out")
+
+        elInputAmOut.addEventListener("iron-input-validate", e => {
+          if( !elInputAmOut.invalid 
+              && elInputAmOut.value != ""
+              && elInputAmOut.value != undefined
+            ){
+            
+            this.momentAmOut = this._momentSplitColon(elInputAmOut.value)
+            
+            if(this.momentAmOut._isValid){
+              if(this.momentPmIn != undefined && this.momentPmIn._isValid){
+                // si pointage pm-in, on validate() et on suit l'event pm-in
+                elInputPmIn.validate()
+              }
+            }
+          }
+        }) // #input-am-out end : validate event
+        
+        // #input-pm-in
+        var elInputPmIn = this.shadowRoot.querySelector("#input-pm-in")
+
+        elInputPmIn.addEventListener("iron-input-validate", e => {
+          if( !elInputPmIn.invalid 
+              && elInputPmIn.value != ""
+              && elInputPmIn.value != undefined
+            ){
+            
+            this.momentPmIn = this._momentSplitColon(elInputPmIn.value)
+            
+            if(this.momentPmIn._isValid){
+              if(this.momentAmOut != undefined && this.momentAmOut._isValid){
+                // on calcule l'interval dej en minutes
+                let intervalDejIci  = Math.round(moment.duration(this.momentPmIn.diff(this.momentAmOut)).asMinutes())
+                intervalDejIci < this.intervalDejMin ? this.intervalDej = this.intervalDejMin : this.intervalDej = intervalDejIci
+              }
+              // on validate() l'event am-in qui calcule l'heure de fin théorique
+              // am-in calcule hfin, am-out appelle pm-in si pm-in est valid, pm-in appelle am-in pour hfin si am-out est valid, la boucle est boulcée
+              elInputAmIn.validate()
+            }
+          }
+        }) // #input-pm-in end : validate event
+
+
+        // #input-pm-out
+        var elInputPmOut = this.shadowRoot.querySelector("#input-pm-out")
+
+        elInputPmOut.addEventListener("iron-input-validate", e => {
+          if( !elInputPmOut.invalid 
+              && elInputPmOut.value != ""
+              && elInputPmOut.value != undefined
+            ){
+            
+            this.momentPmOut = this._momentSplitColon(elInputPmOut.value)
+            
+            if(this.momentPmOut._isValid){
+              if(this.momentClockHFin != undefined && this.momentClockHFin._isValid){
+                // on calcule l'interval entre l'heure de fin théorique et l'heure de fin de pointage
+                this.clockHFinCompteur = this.momentPmOut.diff(this.momentClockHFin)
+              }
+            }
+          }
+        }) // #input-pm-out end : validate event
+
+      }
+    }
+
+    customElements.define(CdItime.is, CdItime);
+  </script>
+</dom-module>

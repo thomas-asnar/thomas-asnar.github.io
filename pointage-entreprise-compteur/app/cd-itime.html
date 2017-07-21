@@ -1,10 +1,11 @@
-<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<html><head><link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="iron-icons.html">
 <link rel="import" href="ta-clock/ta-clock.html">
 <link rel="import" href="moment.html">
 
-<dom-module id="cd-itime">
+</head><body><dom-module id="cd-itime">
   <template>
     <style>
       iron-input[invalid] > input {
@@ -22,12 +23,23 @@
         margin:0 50px;
         text-align:center;
       }
+      #compteur-semaine, #compteur-global{
+        margin-top: 20px;
+      }
     </style>
 
     <div class="clocks">
       <ta-clock clock-type="h-fin" clock-sub-title="{{hDureeJTrav}}h{{mDureeJTrav}} + {{intervalDej}}m dej'" clock-title="Heure de fin théorique" clock-value="{{clockHFin}}"></ta-clock>
       <br>
       <ta-clock clock-type="h-fin-compteur-duration" clock-sub-title="Difference avec l'heure de sortie théorique" clock-title="Compteur fin de journée" clock-value="{{clockHFinCompteur}}"></ta-clock>
+      <br>
+      <paper-input id="compteur-global" always-float-label="" pattern="[+-]{0,1}[0-2]{0,1}[0-9]:[0-5]{0,1}[0-9]" allowed-pattern="[0-9:\-+]" placeholder="[+ ou -]HH:MM" auto-validate="" label="Compteur global" value="{{compteurGlobal}}">
+      </paper-input>
+      <paper-button toggles="" raised=""><iron-icon icon="{{iconCompteurGlobalToggle}}"></iron-icon>{{textCompteurGlobalToggle}}</paper-button>
+      <br>
+      <paper-input id="compteur-semaine" always-float-label="" pattern="[+-]{0,1}[0-2]{0,1}[0-9]:[0-5]{0,1}[0-9]" allowed-pattern="[0-9:\-+]" placeholder="[+ ou -]HH:MM" auto-validate="" label="Compteur semaine" value="{{compteurSemaine}}">
+      </paper-input>
+      <paper-button toggles="" raised=""><iron-icon icon="{{iconCompteurSemaineToggle}}"></iron-icon>{{textCompteurSemaineToggle}}</paper-button>
     </div>
 
 
@@ -87,10 +99,46 @@
             type: String,
             observer: '_onChangeDureeDej'
           },
+          compteurGlobal: String,
+          compteurSemaine: String,
+          iconCompteurGlobalToggle: String,
+          iconCompteurSemaineToggle: String,
+          textCompteurGlobalToggle: String,
+          textCompteurSemaineToggle: String,
+          iconCompteurGlobalArray: {
+            type: Object,
+            value: {
+              true: "update",
+              false: "cancel"
+            }
+          },
+          iconCompteurSemaineArray: {
+            type: Object,
+            value: {
+              true: "update",
+              false: "cancel"
+            }
+          },
+          textCompteurGlobalArray: {
+            type: Object,
+            value: {
+              true: "Prendre en compte",
+              false: "Ne pas prendre en compte"
+            }
+          },
+          textCompteurSemaineArray: {
+            type: Object,
+            value: {
+              true: "Prendre en compte",
+              false: "Ne pas prendre en compte"
+            }
+          },
           momentAmIn: Object,
           momentAmOut: Object,
           momentPmIn: Object,
           momentPmOut: Object,
+          durationCompteurGlobal: Object,
+          durationCompteurSemaine: Object,
           momentClockHFin: Object
         };
       }
@@ -134,12 +182,38 @@
         } 
       }
 
+      _durationSplitColon(inputColonValue){
+        let returnState = undefined
+        let signe = ""
+
+        try { 
+          if(inputColonValue.charAt(0) == "+" || inputColonValue.charAt(0) == "-"){
+            signe = inputColonValue.charAt(0)
+            inputColonValue = inputColonValue.substr(1)
+          }
+          
+          returnState = moment.duration()
+                .add(Number(signe + inputColonValue.split(':')[0]),'h')
+                .add(Number(signe + inputColonValue.split(':')[1]),'m')
+        }
+        finally { 
+          return returnState; 
+        } 
+      }
+
       ready(){
         super.ready()
         // init values
         this.observedDureeJTrav = this.hDureeJTrav + ":" + this.mDureeJTrav
         this.observedDureeDej = moment.duration().add(this.intervalDejMin,'m').hours() + ":" + moment.duration().add(this.intervalDejMin,'m').minutes()
         this.intervalDej = this.intervalDejMin
+        this.iconCompteurGlobalToggle = this.iconCompteurGlobalArray.true
+        this.iconCompteurSemaineToggle = this.iconCompteurSemaineArray.true
+        this.textCompteurGlobalToggle = this.textCompteurGlobalArray.true
+        this.textCompteurSemaineToggle = this.textCompteurSemaineArray.true
+
+
+        /******* Events ******/
 
         // #input-am-in
         var elInputAmIn = this.shadowRoot.querySelector("#input-am-in")
@@ -158,10 +232,28 @@
               this.momentClockHFin.add(this.hDureeJTrav,'h')
                                   .add(this.mDureeJTrav,'m')
                                   .add(this.intervalDej,'m')
+
+              // on ajoute les compteurs si besoin
+              // si durationCompteurGlobal valid et button toggled, on ajoute le compteur global
+              if(this.durationCompteurGlobal != undefined 
+                && this.durationCompteurGlobal._isValid
+                && this.shadowRoot.querySelector("#compteur-global ~ paper-button").active
+              ){
+                this.momentClockHFin.subtract(this.durationCompteurGlobal.hours(),'h')
+                                    .subtract(this.durationCompteurGlobal.minutes(),'m')
+              }
+              // si durationCompteurSemaine valid et button toggled, on ajoute le compteur semaine
+              if(this.durationCompteurSemaine != undefined 
+                && this.durationCompteurSemaine._isValid
+                && this.shadowRoot.querySelector("#compteur-semaine ~ paper-button").active
+              ){
+                this.momentClockHFin.subtract(this.durationCompteurSemaine.hours(),'h')
+                                    .subtract(this.durationCompteurSemaine.minutes(),'m')
+              }
               // et on bind la valeur a ta-clock hfin
               this.clockHFin = Number( this.momentClockHFin.format('x') )
 
-              // on lance l'event du compteur si moment pm-out est valid
+              // on lance l'event du compteur pm-out si moment pm-out est valid
               if(this.momentPmOut != undefined && this.momentPmOut._isValid){
                 elInputPmOut.validate()
               }
@@ -234,9 +326,64 @@
           }
         }) // #input-pm-out end : validate event
 
+
+
+        // #compteur-global
+        var elCompteurGlobal = this.shadowRoot.querySelector("#compteur-global")
+
+        elCompteurGlobal.addEventListener("iron-input-validate", e => {
+          if( !elCompteurGlobal.invalid 
+              && elCompteurGlobal.value != ""
+              && elCompteurGlobal.value != undefined
+          ){
+            this.durationCompteurGlobal = this._durationSplitColon(elCompteurGlobal.value)
+            elInputAmIn.validate()
+          }
+        }) // #compteur-global end : iron-input-validate
+
+        var elButtonCompteurGlobal = this.shadowRoot.querySelector("#compteur-global ~ paper-button")
+
+        elButtonCompteurGlobal.addEventListener("active-changed", e => {
+          if(e.detail.value){
+            this.iconCompteurGlobalToggle = this.iconCompteurGlobalArray.false
+            this.textCompteurGlobalToggle = this.textCompteurGlobalArray.false
+          }else{
+            this.iconCompteurGlobalToggle = this.iconCompteurGlobalArray.true
+            this.textCompteurGlobalToggle = this.textCompteurGlobalArray.true
+          }
+          elInputAmIn.validate()
+        }) // #compteur-global end : active-changed
+
+        // #compteur-semaine
+        var elCompteurSemaine = this.shadowRoot.querySelector("#compteur-semaine")
+
+        elCompteurSemaine.addEventListener("iron-input-validate", e => {
+          if( !elCompteurSemaine.invalid 
+              && elCompteurSemaine.value != ""
+              && elCompteurSemaine.value != undefined
+          ){
+            this.durationCompteurSemaine = this._durationSplitColon(elCompteurSemaine.value)
+            elInputAmIn.validate()
+          }
+        }) // #compteur-semaine end : iron-input-validate
+
+        var elButtonCompteurSemaine = this.shadowRoot.querySelector("#compteur-semaine ~ paper-button")
+
+        elButtonCompteurSemaine.addEventListener("active-changed", e => {
+          if(e.detail.value){
+            this.iconCompteurSemaineToggle = this.iconCompteurSemaineArray.false
+            this.textCompteurSemaineToggle = this.textCompteurSemaineArray.false
+          }else{
+            this.iconCompteurSemaineToggle = this.iconCompteurSemaineArray.true
+            this.textCompteurSemaineToggle = this.textCompteurSemaineArray.true
+          }
+          elInputAmIn.validate()
+        }) // #compteur-semaine end : active-changed
+
       }
     }
 
     customElements.define(CdItime.is, CdItime);
   </script>
 </dom-module>
+</body></html>

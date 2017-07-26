@@ -323,6 +323,8 @@
                 this.clockHFinCompteur = this.momentPmOut.diff(this.momentClockHFin)
               }
             }
+          }else if (elInputPmOut.value == "") {
+            this.clockHFinCompteur = "--:--"
           }
         }) // #input-pm-out end : validate event
 

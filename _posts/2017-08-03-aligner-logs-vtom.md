@@ -16,11 +16,6 @@ Et, of course, dans les logs VTOM ça fonctionne aussi.
 
 ![Logs VTOM Courrier New](/wp-content/uploads/vtmachine_courrier_new.jpg)
 
-Voilà, c'est tout ! c'est les vacances, ne forcez pas trop.
-
-
-Ah non, en fait, ça n'est pas tout.
-
 Vous pouvez biensûr sauvegarder votre configuration et/ou ajouter ces options dans votre home dir `%userprofile%\VTXVision.ini` :
 
 ```
@@ -30,3 +25,5 @@ fontSize=10
 ```
 
 ![Logs VTOM save config log](/wp-content/uploads/vtmachine_save_config_log.jpg)
+
+Voilà, c'est tout ! c'est les vacances, ne forcez pas trop.

@@ -12,6 +12,8 @@ La police "Courrier New" permet d'aligner les tabulations. Je le fais très souv
 
 Et, of course, dans les logs VTOM ça fonctionne aussi.
 
+![Logs VTOM police par defaut](/wp-content/uploads/vtmachine_policepardefaut.jpg)
 
+![Logs VTOM Courrier New](/wp-content/uploads/vtmachine_courrier_new.jpg)
 
 Voilà, c'est tout ! c'est les vacances, ne forcer pas trop.

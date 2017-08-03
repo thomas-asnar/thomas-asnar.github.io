@@ -16,4 +16,4 @@ Et, of course, dans les logs VTOM ça fonctionne aussi.
 
 ![Logs VTOM Courrier New](/wp-content/uploads/vtmachine_courrier_new.jpg)
 
-Voilà, c'est tout ! c'est les vacances, ne forcer pas trop.
+Voilà, c'est tout ! c'est les vacances, ne forcez pas trop.

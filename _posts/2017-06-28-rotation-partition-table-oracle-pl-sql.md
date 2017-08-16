@@ -31,24 +31,23 @@ BEGIN
                 
                 is_at_least_one_drop := 1 ; -- on est passe au moins une fois dans un drop
            END IF ;
-           
-           IF is_at_least_one_drop =  1 THEN
-                SELECT TO_CHAR(ADD_MONTHS(partition_date,1),'"P"YYYYMM'), ADD_MONTHS(partition_date,2) INTO new_partition_name, new_range_lessdate FROM (
-                  SELECT partition_name, TO_DATE(SUBSTR(partition_name,2,6),'YYYYMM') as partition_date
-                  FROM user_tab_partitions
-                  WHERE table_name = 'TOP100_STATS_TRT'
-                  ORDER BY partition_date DESC
-                ) WHERE rownum = 1 ;
-                l_sql_stmt := 'ALTER TABLE TOP100_STATS_TRT ADD PARTITION '|| new_partition_name ||' VALUES LESS THAN ('''|| new_range_lessdate ||''')' ;
-                dbms_output.put_line( l_sql_stmt );
-                EXECUTE IMMEDIATE l_sql_stmt;
-                
-                l_sql_stmt := 'ALTER INDEX TOP100_STATS_TRT_PK REBUILD'; -- on reconstruit l'index
-                dbms_output.put_line( l_sql_stmt );
-                EXECUTE IMMEDIATE l_sql_stmt;
-           END IF ;
-           
+
     END LOOP;
+    IF is_at_least_one_drop =  1 THEN
+          SELECT TO_CHAR(ADD_MONTHS(partition_date,1),'"P"YYYYMM'), ADD_MONTHS(partition_date,2) INTO new_partition_name, new_range_lessdate FROM (
+            SELECT partition_name, TO_DATE(SUBSTR(partition_name,2,6),'YYYYMM') as partition_date
+            FROM user_tab_partitions
+            WHERE table_name = 'TOP100_STATS_TRT'
+            ORDER BY partition_date DESC
+          ) WHERE rownum = 1 ;
+          l_sql_stmt := 'ALTER TABLE TOP100_STATS_TRT ADD PARTITION '|| new_partition_name ||' VALUES LESS THAN ('''|| new_range_lessdate ||''')' ;
+          dbms_output.put_line( l_sql_stmt );
+          EXECUTE IMMEDIATE l_sql_stmt;
+
+          l_sql_stmt := 'ALTER INDEX TOP100_STATS_TRT_PK REBUILD'; -- on reconstruit l'index
+          dbms_output.put_line( l_sql_stmt );
+          EXECUTE IMMEDIATE l_sql_stmt;
+     END IF ;
  END;
  /
 ```

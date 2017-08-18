@@ -17,6 +17,8 @@ Mais quand on est pénible comme moi, on aimerait bien avoir le Nom + Commentair
 
 Qu'à cela ne tienne, on peut changer la représentation graphique (soit du/des noeuds, soit du graphique par défaut).
 
+![VTOM IHM Représentation Graphique](/wp-content/uploads/vtom_ihm_representation_graphique.jpg)
+
 ```
 <html>
 {prefix}<b>{name}</b>{suffix}<br>{comment}

@@ -17,11 +17,11 @@
         <xsl:value-of select="@type" />
         <xsl:value-of select="$csv" />
         <xsl:choose>
-          <xsl:when test="@type = F">
+          <xsl:when test="@type = 'F'">
             <xsl:value-of select="@host" />
             <xsl:value-of select="$csv" />
           </xsl:when>
-          <xsl:when test="@type = D">
+          <xsl:when test="@type = 'D'">
             <xsl:value-of select="@date" />
             <xsl:value-of select="$csv" />
             <xsl:value-of select="@calendar" />
@@ -29,7 +29,7 @@
             <xsl:value-of select="@format" />
             <xsl:value-of select="$csv" />
           </xsl:when>
-          <xsl:when test="@type = W">
+          <xsl:when test="@type = 'W'">
             <xsl:value-of select="@current" />
             <xsl:value-of select="$csv" />
           </xsl:when> 

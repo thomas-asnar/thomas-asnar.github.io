@@ -13,7 +13,7 @@ Par conséquent, ce qui va suivre ne vous effraiera point et pourrait même vous
 
 # Les collections VTOM V6 (et les clichés ou snaphots pour les intimes)
 
-Comme promis dans ce post [V6 VTOM Full PostgreSQL]({{ site.url }}/V6-VTOM-full-postgresql/), j'ai poussé un peu le bouchon (comme Maurice) sur les collections. 
+Comme promis dans ce post [V6 VTOM Full PostgreSQL](/V6-VTOM-full-postgresql/), j'ai poussé un peu le bouchon (comme Maurice) sur les collections. 
 
 C'est vraiment pas mal. Quelque fois, l'affichage est long ou bug. Mais ça promet d'être très fort.
 

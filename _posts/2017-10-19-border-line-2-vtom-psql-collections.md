@@ -160,6 +160,7 @@ xeax\xf8\xf2\xd3\x02\xe3\x99\x1f\xa1<\xc5&o:*?lP/\xcf^\xa8^\xddJ^\xf9\x9a\x94\xc
 
 
 >>> ziptext.decode('zlib')
+ou
 >>> zlib.decompress(ziptext)
 b'<?xml version="1.0" encoding="UTF-8"?>\n<Domain name="b71f2f8cc16b" stamp="VTEXPORT : 6.1.3 FR LINUX_X64 2017/05/03 Visual Tom (c) Absyss" version="6.1.3" generationDate="Thu Oct 19 12:49:48 2017">\n  <Properties/>\n  <Calendars>\n    <Calendar id="CAL1" name="c" year=
 "2017" publicHolidays="1" specificDays="0" firstInWeek="0" lastInWeek="0" firstInHalfMonth="0" lastInHalfMonth="0" firstInMonth="0" lastInMonth="0" firstInYear="0" lastInYear="0" daysInWeek="wwwwwhh" daysInYear="" holidaysGroupSId="SHG00000000000000000000000000000001"/>\

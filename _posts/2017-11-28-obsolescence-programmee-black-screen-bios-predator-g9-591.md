@@ -17,7 +17,7 @@ Bref, je poste aussi et surtout si d'autres gens ont ce problème.
 
 Acer Predator G9 591, procédure pour flash BIOS :
 
-https://community.acer.com/en/discussion/comment/536940
+[commentaire de mon sauveur](https://community.acer.com/en/discussion/comment/536940)
 
 ```
 First of all, download the following file (BIOS 1.11 with the correct recovery name): drive.google.com/file/d/1zsz6F6HonvnlDbOJMHi6OzpncW4GkwFX/view
@@ -32,4 +32,4 @@ Then, do the following steps:
 7. After everything is done, the notebook will shut down. 
 ```
 
-et au cas où le BIOS est sur mon site ici :
+et au cas où le BIOS est sur mon site ici : [BIOS Predator G9 591](/wp-content/uploads/P5P7NCN.fd)

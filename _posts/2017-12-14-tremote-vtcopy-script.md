@@ -17,7 +17,7 @@ REP_DEST="$2"
 SRV_DEST="$3"
 SRV_PORT="$4"
 
-if test $# -ne 3;then
+if test $# -lt 3;then
 	echo "1 parametre = chemin complet du fichier source"
 	echo "2 parametre = chemin complet du repertoire de destination"
 	echo "3 parametre = nom serveur client VTOM de destination"

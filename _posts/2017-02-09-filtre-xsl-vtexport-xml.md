@@ -13,6 +13,7 @@ Merci à JOEY de m’avoir inspriré ! :)
  * [Tous les jobs VTOM](http://thomas-asnar.github.io/wp-content/uploads/JobsAll.xsl)
  * [Tous les jobs qui attendent une ressource VTOM](http://thomas-asnar.github.io/wp-content/uploads/JobsExpectedRes.xsl)
  * [Tous les applications qui attendent une ressource VTOM](http://thomas-asnar.github.io/wp-content/uploads/ApplicationsExpectedRes.xsl)
+ * [Rajouter le commentaire sur le noeud graphique job - sortie XML - ex de keep CDATA](http://thomas-asnar.github.io/wp-content/uploads/add_comm_graph_job.xsl)
 
 # Pour ceux et celles qui ne connaissent pas
 

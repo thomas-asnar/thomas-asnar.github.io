@@ -80,6 +80,30 @@ allStats.trHead.forEach((th, i) => {
 ...
 ```
 
+`index.scss`
+```
+@import "custom_bootstrap"; 
+#maincontainer {
+    min-height: 800px;
+    border-radius: 0 0 10px 10px;
+    color: $purple;
+}
+
+#switchform,thead th {
+    cursor: pointer;
+}
+```
+
+`custom_bootstrap.scss` 
+```
+// on peut surdéfinir bootstrap ici
+// violet BPCE-IT
+$purple: #691F75 !default;
+
+@import "./../../node_modules/bootstrap/scss/bootstrap";
+```
+
+
 ```
     mon package.json ou à la main
     "build": "./node_modules/.bin/parcel build --public-url ./ index.html",

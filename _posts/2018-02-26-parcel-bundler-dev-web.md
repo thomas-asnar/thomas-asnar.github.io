@@ -97,7 +97,7 @@ allStats.trHead.forEach((th, i) => {
 `custom_bootstrap.scss` 
 ```
 // on peut surdéfinir bootstrap ici
-// violet BPCE-IT
+// violet chez nous
 $purple: #691F75 !default;
 
 @import "./../../node_modules/bootstrap/scss/bootstrap";

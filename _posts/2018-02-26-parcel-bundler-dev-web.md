@@ -121,5 +121,7 @@ THAT SIMPLE !
 
 [site officiel Parcel avec la documentation](https://parceljs.org)
 
-[Excellente vidéo de Grafikart](https://www.grafikart.fr/tutoriels/javascript/parcel-bundler-985)
+[Excellente vidéo de Grafikart sur Parcel](https://www.grafikart.fr/tutoriels/javascript/parcel-bundler-985)
+
+[Encore une vidéo de Grafikart afin d'appréhender les nouveautés ES6](https://www.grafikart.fr/formations/debuter-javascript/ecmascript-2015)
 

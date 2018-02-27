@@ -11,6 +11,8 @@ C'est tellement plus simple ! Webpack est beaucoup trop compliqué à configurer
 
 En gros `parcel-bundler` et vous êtes good to go pour dev en ECMAScript 6  et autres fioritures intéressantes dont on rafole en tant que dev web.
 
+Si besoin, pour convertir en ES5, il suffira d'installer babel. Voir les liens utiles. Grafikart montre ça très bien `npm install -D babel-preset-env`
+
 Si vous l'installez localement `npm install -D parcel-bundler`, le binaire pour monter la DEV ou build la dist est sous `node_modules/.bin/parcel`
 
 # Petit exemple

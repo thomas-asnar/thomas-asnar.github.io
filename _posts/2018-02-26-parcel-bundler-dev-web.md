@@ -50,7 +50,7 @@ Si vous l'installez localement `npm install -D parcel-bundler`, le binaire pour 
 <script src="./src/js/index.js"></script>
 ```
 
-`src/index.js` (on se fiche du code, c'est juste pour montrer qu'on peut utiliser du code en ES6, comme avec webpack)
+`src/index.js` (on se fiche du code, c'est juste pour montrer qu'on peut utiliser du code en ES6, importer des modules etc., comme avec webpack mais sans aucune configuration)
 ```javascript
 class Stats{
     constructor() {
@@ -119,7 +119,7 @@ THAT SIMPLE !
 
 # Liens utiles
 
-[site officiel avec la documentation](https://parceljs.org)
+[site officiel Parcel avec la documentation](https://parceljs.org)
 
 [Excellente vidéo de Grafikart](https://www.grafikart.fr/tutoriels/javascript/parcel-bundler-985)
 

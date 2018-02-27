@@ -50,7 +50,7 @@ Si vous l'installez localement `npm install -D parcel-bundler`, le binaire pour 
 <script src="./src/js/index.js"></script>
 ```
 
-`src/index.js` (on se fiche du code, c'est juste pour montrer qu'on peut utiliser du code en ES6, importer des modules etc., comme avec webpack mais sans aucune configuration)
+`src/index.js` (on se fiche du code, c'est juste pour montrer qu'on peut utiliser du code en ES6, importer des modules, les classes,  etc., comme avec webpack mais sans aucune configuration)
 ```javascript
 class Stats{
     constructor() {

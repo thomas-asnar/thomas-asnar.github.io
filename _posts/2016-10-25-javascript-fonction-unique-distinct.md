@@ -77,6 +77,6 @@ v (valeur), i (index), a (le tableau complet, ici monnouveautableau qui correspo
 
 `monnouveautableau.filter((v, i, a) => a.indexOf(v) == i)`
 
-En français : retourne l'élément du nouveau tableau si son index (i) correspond à l'index du premier élément (indexOf) du nouveau tableau qui a la valeur v.
+En français : on boucle sur tous les élements de monnouveautableau et on retourne chaque élément dans un nouveau tableau si son index (i) correspond à l'index du premier élément (indexOf) de monnouveautableau qui a la valeur v.
 
-
+Je ne sais pas si c'est français, mais j'me comprends !

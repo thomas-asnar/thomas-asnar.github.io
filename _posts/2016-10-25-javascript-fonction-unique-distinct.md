@@ -62,7 +62,21 @@ _distinctUniqueValuesInArray(monArray,"VTENVNAME")
 
 [Array.prototype.map()](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/map)
 
-[Array.prototype.filter()](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/filter)
+Mon talbeau d'entrée étant constitué d'objets, et ne voulant qu'un tableau de valeurs pour une clé donnée, je créé un nouveau tableau avec map qui satisfait mes besoins.
 
+`(arr, prop) => arr.map(obj => obj[prop])`
+
+[Array.prototype.filter()](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/filter)
 [Array.prototype.indexOf()](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/indexOf)
+
+Comme map() retourne un tableau, je peux l'enchainer avec filter()
+
+Je ne retourne que les élements qui vérifient ma condition. 
+
+v (valeur), i (index), a (le tableau complet, ici monnouveautableau qui correspond à arr.map(obj => obj[prop]))
+
+`monnouveautableau.filter((v, i, a) => a.indexOf(v) == i)`
+
+En français : retourne l'élément du nouveau tableau si son index (i) correspond à l'index du premier élément (indexOf) du nouveau tableau qui a la valeur v.
+
 

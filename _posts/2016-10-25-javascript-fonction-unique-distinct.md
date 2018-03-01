@@ -11,10 +11,7 @@ J'ai un tableau d'objets, et je veux récupérer un tableau de valeurs uniques d
 ## Fonction
 
 ```javascript
-var _distinctUniqueValuesInArray = function(myArray, myUniqueObjProperty){
-  var a = myArray.map(function(obj) { return obj[myUniqueObjProperty] })
-  return a.filter(function(v,i){ return a.indexOf(v) == i })
-}
+let _distinctUniqueValuesInArray = (arr, prop) => arr.map(obj => obj[prop]).filter((v, i, a) => a.indexOf(v) == i)
 ```
 
 ## Exemple

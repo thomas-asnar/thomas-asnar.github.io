@@ -9,11 +9,11 @@ Après quelques projets web montés avec webpack, je suis tombé sur `parcel-bun
 
 C'est tellement plus simple ! Webpack est beaucoup trop compliqué à configurer. On passe plus de temps à peaufiner la conf qu'à écrire l'application.
 
-En gros `parcel-bundler` et vous êtes good to go pour dev en ECMAScript 6  et autres fioritures intéressantes dont on rafole en tant que dev web.
+En gros `parcel-bundler` et vous êtes good to go pour dev en ECMAScript 6  et autres fioritures intéressantes dont on rafole en tant que dev web (build une distribution de prod minifié, un seul fichier css, js, etc.)
 
-Si besoin, pour convertir en ES5, il suffira d'installer babel. Voir les liens utiles. Grafikart montre ça très bien `npm install -D babel-preset-env`
+Si besoin, pour plus de compatibilité, convertir en ES5, il suffira d'installer babel. Voir les liens utiles. Grafikart montre ça très bien `npm install -D babel-preset-env`
 
-Si vous l'installez localement `npm install -D parcel-bundler`, le binaire pour monter la DEV ou build la dist est sous `node_modules/.bin/parcel`
+Si vous installez parcel localement `npm install -D parcel-bundler`, le binaire pour monter la DEV ou build la dist est sous `node_modules/.bin/parcel`
 
 # Petit exemple
 
@@ -50,7 +50,7 @@ Si vous l'installez localement `npm install -D parcel-bundler`, le binaire pour 
 <script src="./src/js/index.js"></script>
 ```
 
-`src/index.js` (on se fiche du code, c'est juste pour montrer qu'on peut utiliser du code en ES6, importer des modules, les classes,  etc., comme avec webpack mais sans aucune configuration)
+`src/index.js` (on se fiche du code, c'est juste pour montrer qu'on peut utiliser du code en ES6, importer des modules, des js, css, utiliser les classes,  etc.)
 ```javascript
 class Stats{
     constructor() {

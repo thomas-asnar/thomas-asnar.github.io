@@ -39,4 +39,21 @@ Après si vous êtes joueur comme moi, vous testez d'autres variables :
 </html>
 ```
 
-etc.
+Mise à jour 06/03/18 ! Bon en fait, Absyss nous met même un exemple sur sa base de démo
+
+![VTOM IHM Base de démo Absyss](/wp-content/uploads/vtom_ihm_base_demo.jpg)
+
+```
+<html>
+<font size='3'>
+<center>
+{prefix}<b> {name} </b>
+<br>
+Début : {statExecBeginHourAvg} - Durée : {statExecTimeAvg}
+<br><br>
+{comment}
+</center>
+</font>
+```
+
+

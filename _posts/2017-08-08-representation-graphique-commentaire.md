@@ -37,10 +37,11 @@ Après si vous êtes joueur comme moi, vous testez d'autres variables :
 </html>
 ```
 
-Mise à jour 20/04/18 ! Bon en fait, Absyss nous a même mis un menu contextuel pour ça.
+Mise à jour 20/04/18 !Absyss nous a même mis un menu contextuel pour ça.
 Testé en version 5.7
 
 Représentation graphique (app, job) > clique droit dans le champ "Texte" et vous avez toutes les variables !
+
 Mise à jour 06/03/18 ! Bon en fait, Absyss nous met même un exemple sur sa base de démo
 
 ![VTOM IHM Base de démo Absyss](/wp-content/uploads/vtom_ihm_base_demo.jpg)

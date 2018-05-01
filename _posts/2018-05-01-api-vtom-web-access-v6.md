@@ -32,4 +32,4 @@ Voici un exemple (notez qu'on n'est pas obligé de mettre les noms en entier, ge
 
 Et une capture d'écran :
 
-![Suivi d'exploitation VTOM WebAccess API](/wp-content/uploads/suivi_exploitation.png)
+![Suivi d'exploitation VTOM WebAccess API](/wp-content/uploads/suivi_exploitation_webaccess.png)

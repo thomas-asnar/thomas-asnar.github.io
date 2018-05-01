@@ -5,7 +5,7 @@ date: 2018-05-01 20:00:00
 author: Thomas ASNAR
 categories: [API, webaccess, Visual TOM, VTOM]
 ---
-Petite update du [1 er post API VTOM via le WebAccess ici](2015-02-10-api-vtom-web-access.md).
+Petite update du [1 er post API VTOM via le WebAccess ici](/api-vtom-web-access).
 
 ## Rappels importants sur le portail web et les API
 

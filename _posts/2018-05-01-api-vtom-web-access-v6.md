@@ -22,7 +22,7 @@ Petite update du [1 er post API VTOM via le WebAccess ici](/api-vtom-web-access)
 
 Le Suivi en temps réel du WebAccess était pas trop mal pour avoir les statuts en temps réel sur VTOM. Malheureusement, on était limité à 1000 jobs dans la requête (très peu donc). Bref, ça n'allait pas. 
 
-Maintenant, on a une nouvellLe fonctionnalité depuis la v6.2, le "Suivi d'exploitation". On peut filtrer par env, app, ou job. C'est excellent, on a tout ce qu'il faut pour un suivi météo : vtbegin, vtend, status etc.
+Maintenant, on a une nouvelle fonctionnalité depuis la v6.2, le "Suivi d'exploitation". On peut filtrer par env, app, ou job. C'est excellent. On a tout ce qu'il faut pour un suivi météo : vtbegin, vtend, status etc.
 
 Voici un exemple (notez qu'on n'est pas obligé de mettre les noms en entier, genre de LIKE %) : 
 

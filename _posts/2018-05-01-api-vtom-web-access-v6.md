@@ -14,9 +14,9 @@ Petite update du [1 er post API VTOM via le WebAccess ici](2015-02-10-api-vtom-w
 * Ouvrez votre navigateur Chrome F12 et allez dans l’onglet Network pour voir les appels aux API. Baladez vous sur l’interface Web du web access et glannez les différentes adresses et requêtes XHR.
 * Les APIs ne sont pas soutenues pas Absyss pour le moment (ni documentées). Vous pouvez les utiliser mais on ne vous fournira aucune aide, assistance, ou débuggage d'après moi.
 * Requêter : 
- * Rajouter dans le header des requêtes le user:mdp en base64 (voir mon premier post pour les détails) : ex. pour une XMLHttpRequest `xhr.setRequestHeader('Authorization', 'Basic VE9NOlRPTQ==')`
- * En local depuis le même serveur VTOM, les appels directs XMLHttpRequest Chrome passent sans soucis. En revanche, je n'ai pas réussi à faire fonctionner depuis un autre domaine (à cause du Cross-origin resource sharing - [CORS](https://developer.mozilla.org/fr/docs/Web/HTTP/CORS))
- * sinon les appels en back-end fonctionnent très bien de n'importe où : `curl`, `node js`, `php` etc. 
+ ** Rajouter dans le header des requêtes le user:mdp en base64 (voir mon premier post pour les détails) : ex. pour une XMLHttpRequest `xhr.setRequestHeader('Authorization', 'Basic VE9NOlRPTQ==')`
+ ** En local depuis le même serveur VTOM, les appels directs XMLHttpRequest Chrome passent sans soucis. En revanche, je n'ai pas réussi à faire fonctionner depuis un autre domaine (à cause du Cross-origin resource sharing - [CORS](https://developer.mozilla.org/fr/docs/Web/HTTP/CORS))
+ ** sinon les appels en back-end fonctionnent très bien de n'importe où : `curl`, `node js`, `php` etc. 
 
 ## La grosse nouveauté que j'attendais !
 

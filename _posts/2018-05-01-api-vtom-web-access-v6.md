@@ -18,6 +18,74 @@ Petite update du [1 er post API VTOM via le WebAccess ici](/api-vtom-web-access)
   * En local depuis le même serveur VTOM, les appels directs XMLHttpRequest Chrome passent sans soucis. En revanche, je n'ai pas réussi à faire fonctionner depuis un autre domaine (à cause du Cross-origin resource sharing - [CORS](https://developer.mozilla.org/fr/docs/Web/HTTP/CORS))
   * sinon les appels en back-end fonctionnent très bien de n'importe où : `curl`, `node js`, `php` etc. 
 
+Exemple avec NodeJS
+
+```nodejs
+// ./vtom-api-client.js
+const rp = require('request-promise-native')
+
+module.exports = class VtomApiClient {
+    constructor(url, token, options) {
+        this.url = url
+        this.token = token
+        this.options = options || {}
+    }
+    
+    getJob(env, app, job){
+        return this._request('GET',
+        "/api/job/list?"+
+            "environmentName="+env+
+            "&applicationName="+app+
+            "&name="+job
+        )
+    }
+
+    _buildOptions(method, endpoint, data) {
+        return {
+            method: method,
+            uri: this.url + endpoint,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': this.token ? `Basic ${this.token}` : undefined,
+            },
+            body: data,
+            json: true,
+            strictSSL: this.options.strictSSL,
+        };
+    }
+
+    _request(method, endpoint, data) {
+        const options = this._buildOptions(method, endpoint, data);
+        //console.log(options);
+        return rp(options);
+    }
+};
+```
+
+```nodejs
+// ./server.js 
+// (...)
+const VtomApiClient = require('./vtom-api-client.js')
+const makeBasicToken = (user,password) => {
+  return Buffer.from(
+    user+":"+Buffer.from(password, 'base64').toString('ascii')
+  ).toString('base64')
+}
+let monVtomApiClient = new VtomApiClient(
+  Config.vthttpd[domaine].url,
+  makeBasicToken(Config.vthttpd[domaine].user,Config.vthttpd[domaine].password),
+  {strictSSL: false}
+)
+// (...)
+monVtomApiClient.getJob(Jalon.env,Jalon.app,Jalon.job)
+            .then(data => {
+              // data resultat de la requête API webaccess
+              io.emit('updateAllStatus', data)
+            })
+            .catch((e) => console.log('Error: ' + e))
+// (...)
+```
+
 ## La grosse nouveauté que j'attendais !
 
 Le Suivi en temps réel du WebAccess était pas trop mal pour avoir les statuts en temps réel sur VTOM. Malheureusement, on était limité à 1000 jobs dans la requête (très peu donc). Bref, ça n'allait pas. 

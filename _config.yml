@@ -13,7 +13,8 @@ locale: fr_FR
 
 # Build settings
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"# Filtering Content
-markdown: kramdown
+#markdown: kramdown
+markdown: redcarpet
 
 kramdown:
   input: GFM

@@ -20,7 +20,7 @@ Petite update du [1 er post API VTOM via le WebAccess ici](/api-vtom-web-access)
 
 Exemple avec NodeJS
 
-```node
+```javascript
 // ./vtom-api-client.js
 const rp = require('request-promise-native')
 
@@ -62,7 +62,7 @@ module.exports = class VtomApiClient {
 };
 ```
 
-```node
+```javascript
 // ./server.js 
 // (...)
 const VtomApiClient = require('./vtom-api-client.js')

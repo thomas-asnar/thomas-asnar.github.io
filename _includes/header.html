@@ -1,36 +1,16 @@
-<div class="no-print">
-<div id="sun-course"></div>
-<div class="cloud" id="cloud-1"><span class="glyphicon glyphicon-cloud"></span></div>
-<div class="cloud" id="cloud-2"><span class="glyphicon glyphicon-cloud"></span></div>
-<div class="cloud" id="cloud-3"><span class="glyphicon glyphicon-cloud"></span></div>
-</div>
-<header id="site-header" class="container no-print">
-  <ul id="site-header-menu" class="nav nav-pills">
-  <li {% if page.titre-court == 'home' %}class="active"{% endif %}><a class="page-link" href="/" title="home">Blog</a></li>
+<header id="site-header">
+  <h1 {% if page.titre-court == 'home' %}class="active"{% endif %}><a href="/" title="home">Blog</a></h1>
 {% for pageSite in site.pages %}
   {% if pageSite.title %}
     {% if pageSite.titre-court %}
-  <li {% if page.titre-court == pageSite.titre-court %}class="active"{% endif %}><a class="page-link" href="{{ pageSite.url | prepend: site.baseurl }}">
+  <h1 {% if page.titre-court == pageSite.titre-court %}class="active"{% endif %}><a href="{{ pageSite.url | prepend: site.baseurl }}">
     {{ pageSite.titre-court }}
-  </a></li>
+  </a></h1>
     {% endif %}
   {% endif %}
 {% endfor %}
-    <li><a class="page-link" href="/vos-commentaires-livre-d-or/" title="Commentaires - livre d'or">?</a></li>
-  {% if page.titre-court == 'home' %}
-  <li class="pull-right">
-    <a><span id="display-search" class="btn glyphicon glyphicon-search"></span></a>
-  </li>
-  {% else %}
-  <li class="pull-right">
-    <a href="/search" title="Moteur de recherche sur le site VTOM de Thomas ASNAR"><span id="display-search-page" class="btn glyphicon glyphicon-search"></span></a>
-  </li>
-  {% endif %}
-  </ul>
-  {% if page.titre-court == 'home' %}
-  <div style="display:none;" id="exec-search-container" class="input-group">
-    <span id="exec-search" class="input-group-addon btn glyphicon glyphicon-search"></span>
-    <input type="text" class="form-control" aria-label="Chercher dans le site" placeholder="Chercher..." />
-  </div>
-  {% endif %}
+    <h1><a href="/vos-commentaires-livre-d-or/" title="Commentaires - livre d'or">Comment'</a></h1>
+  <h1>
+    <a href="/search" title="Moteur de recherche sur le site VTOM de Thomas ASNAR">Search</a>
+  </h1>
 </header>

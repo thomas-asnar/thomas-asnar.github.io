@@ -1,29 +1,13 @@
 ---
-layout: page
+layout: default
 titre-court: home
 ---
-<div id="page-content" class="bg-success">
-  
-  <div class="page-heading"></div>
+<div id="page-content">
   
 <ul class="post-list">
 {% for post in paginator.posts %}
   <li>
-    <h2>
       <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      <button type="button" class="btn btn-default btn-xs post-footer-display-categories hidden-xs pull-right">
-        <span class="glyphicon glyphicon-tags text-info"></span>
-      </button>
-    </h2>
-    <footer class="post-footer">
-      <div class="post-footer-categories" style="display:none;">
-      {% if post.categories %}
-        {% for category in post.categories %}
-          <button type="button" class="btn btn-default btn-xs btn-categories"><span class="glyphicon glyphicon-asterisk"></span>{{ category }}</button>
-        {% endfor %}
-      {% endif %}
-      </div>
-  </footer>
   </li>
 {% endfor %}
 </ul>

@@ -100,6 +100,7 @@ html {
   }
 }
 
+
 body {
   line-height: 1.85;
 }
@@ -182,7 +183,7 @@ body {
   font-weight: 300;
   margin: 0 5%;
   /* max-width: 48rem; */
-  line-height: 1.45;
+  /* line-height: 1.45; */
   padding: .25rem;
 }
 

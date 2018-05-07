@@ -31,3 +31,15 @@ body{
   grid-gap: 10px;
   justify-items: center;
 }
+
+@media screen and (max-width: 48rem) {
+  #site-header{
+    grid-template-columns: 1fr;
+  }
+  html {
+    font-size: 12px;
+  }
+  h1{
+    font-size:1.5rem!important;
+  }
+}

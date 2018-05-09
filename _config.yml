@@ -27,9 +27,18 @@ excerpt_separator: '<!--more-->'
 
 paginate: 30
 
+compression: true
+
+gzip: true
+
+sass:
+  style: compressed
+  sass_dir: _sass
+
 plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-redirect-from
+  - jekyll-coffeescript
   - jemoji
   - jekyll-seo-tag

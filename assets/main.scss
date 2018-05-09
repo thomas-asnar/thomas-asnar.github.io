@@ -1,10 +1,19 @@
-.hidden { display:none;}
+---
+sitemap : false
+---
+@import "modest.css";
+@import "_syntax-highlighting.scss";
+.hidden {
+  display:none;
+}
 body{
   padding:0;
   margin:0;
 }
+#grille-principale{
+  padding:0 1% ;
+}
 #site-footer{
-  grid-area: footer;
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -19,19 +28,6 @@ body{
 #site-header h1, #site-footer div {
   justify-self: center;
 }
-.post{
-  grid-area: main;
-}
-#grille-principale{
-  display:grid;
-  grid-template-areas: 
-    "header"
-    "main"
-    "footer";
-  grid-gap: 10px;
-  justify-items: center;
-}
-
 @media screen and (max-width: 48rem) {
   #site-header{
     grid-template-columns: 1fr;

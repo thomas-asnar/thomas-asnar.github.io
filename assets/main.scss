@@ -12,6 +12,7 @@ body{
 }
 #grille-principale{
   padding:0 1% ;
+  max-width:80%;
 }
 #site-footer{
   display:grid;
@@ -31,6 +32,9 @@ body{
 @media screen and (max-width: 48rem) {
   #site-header{
     grid-template-columns: 1fr;
+  }
+  #grille-principale{
+    max-width:100%;
   }
   html {
     font-size: 12px;

@@ -15,17 +15,12 @@ body{
   max-width:80%;
   margin:0 auto;
 }
-#site-footer{
+#site-header, #site-footer{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 #footer-disclaimer{
   grid-column: 1 / span 3;
-}
-#site-header{
-  grid-area: header;
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
 }
 #site-header h1, #site-footer div {
   justify-self: center;

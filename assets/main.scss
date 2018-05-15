@@ -17,9 +17,12 @@ body{
 }
 #site-header, #site-footer{
   display:grid;
+  -ms-display:grid;
   grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-template-columns: 1fr 1fr 1fr;
 }
 #footer-disclaimer{
+  -ms-grid-column: 1 / span 3;
   grid-column: 1 / span 3;
 }
 #site-header h1, #site-footer div {
@@ -28,6 +31,7 @@ body{
 @media screen and (max-width: 48rem) {
   #site-header{
     grid-template-columns: 1fr;
+    -ms-grid-template-columns: 1fr;
   }
   #grille-principale{
     max-width:100%;

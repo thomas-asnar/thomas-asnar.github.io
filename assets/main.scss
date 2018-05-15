@@ -25,6 +25,12 @@ body{
 #site-header h1, #site-footer div {
   justify-self: center;
 }
+.pagination ul {
+  list-style-type: none;
+}
+.pagination li {
+  display:inline;
+}
 @media screen and (max-width: 48rem) {
   #site-header{
     grid-template-columns: 1fr;

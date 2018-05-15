@@ -16,8 +16,7 @@ body{
   margin:0 auto;
 }
 #site-header, #site-footer{
-  display:grid;
-  -ms-display:grid;
+  display:grid -ms-grid;
   grid-template-columns: 1fr 1fr 1fr;
   -ms-grid-template-columns: 1fr 1fr 1fr;
 }

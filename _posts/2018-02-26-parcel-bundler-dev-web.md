@@ -11,9 +11,11 @@ C'est tellement plus simple ! Webpack est beaucoup trop compliqué à configurer
 
 En gros `parcel-bundler` et vous êtes good to go pour dev en ECMAScript 6  et autres fioritures intéressantes dont on rafole en tant que dev web (build une distribution de prod minifié, un seul fichier css, js, etc.)
 
-Si besoin, pour plus de compatibilité, convertir en ES5, il suffira d'installer babel. Voir les liens utiles. Grafikart montre ça très bien `npm install -D babel-preset-env`
+Si besoin de convertir en ES5 pour plus de compatibilité navigateur,il suffira d'installer le module babel. Voir les liens utiles. Grafikart montre ça très bien `npm install -D babel-preset-env` et rajout du fichier `.babelrc`.
 
-Si vous installez parcel localement `npm install -D parcel-bundler`, le binaire pour monter la DEV ou build la dist est sous `node_modules/.bin/parcel`
+Si vous installez parcel localement `npm install -D parcel-bundler`, et que vous voulez l'exécuter en ligne de commande, le binaire `parcel` est sous `node_modules/.bin/parcel`
+
+(dans la clé "scripts" du package.json pas besoin de mettre le full path, npm "sait" qu'il faut aller chercher dans ./node_modules/.bin/)
 
 # Petit exemple
 
@@ -25,14 +27,16 @@ Si vous installez parcel localement `npm install -D parcel-bundler`, le binaire 
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/parcel build --public-url ./ index.html",
-    "dev": "./node_modules/.bin/parcel index.html",
+    "build": "parcel build --public-url ./ index.html",
+    "dev": "parcel index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "bootstrap": "^4.0.0",
     "node-sass": "^4.7.2",
     "parcel-bundler": "^1.6.2"

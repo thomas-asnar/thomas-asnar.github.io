@@ -129,3 +129,4 @@ THAT SIMPLE !
 
 [Encore une vidéo de Grafikart afin d'appréhender les nouveautés ES6](https://www.grafikart.fr/formations/debuter-javascript/ecmascript-2015)
 
+[Compatibilité et support des features par navigateur](https://caniuse.com/)

@@ -15,7 +15,7 @@ body{
   max-width:80%;
   margin:0 auto;
 }
-#site-header, #site-footer{
+#site-footer{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -25,24 +25,41 @@ body{
 #site-header h1, #site-footer div {
   justify-self: center;
 }
-.pagination ul {
+#site-header h1{
+	margin-top: 5px;
+	margin-left: 20px;
+	font-size: 1rem;
+}
+#site-header nav ul{
+	margin:0;
+	padding:0;
+}
+#site-header nav {
+	position: absolute;
+	top: 5px; 
+	left: 5px; 
+}
+ul {
   list-style-type: none;
 }
 .pagination li {
   display:inline;
   margin: 0 10px 0 0 ;
 }
+.svg-icon{
+	width:20px;
+}
+
 @media screen and (max-width: 48rem) {
-  #site-header{
-    grid-template-columns: 1fr;
-  }
   #grille-principale{
     max-width:100%;
+    margin: 20px;
   }
+
   html {
     font-size: 12px;
   }
   h1{
-    font-size:1.5rem!important;
+    font-size:0.8rem;
   }
 }

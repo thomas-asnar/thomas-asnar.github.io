@@ -1,7 +1,7 @@
 # Site settings
 title: Thomas ASNAR | Blog-notes VTOM et informatique
 email: thomas.asnar@gmail.com
-description: "Blog-notes VTOM, informatique, industrialisation, ordonnancement."
+description: "Blog-notes VTOM, informatique, industrialisation, ordonnancement"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://thomas-asnar.github.io" # the base hostname & protocol for your site
 github_username:  thomas-asnar

@@ -16,7 +16,7 @@ jps
 
 De visu' aussi avec le task manager :
 
-![process_java_windows_taskmg](/wp_content/uploads/process_java_windows_taskmgr.jpg)
+![process_java_windows_taskmg](/wp-content/uploads/process_java_windows_taskmgr.jpg)
 
 
 Petite astuce pour lister les processus java weblogic, avec le nom de l'application. 

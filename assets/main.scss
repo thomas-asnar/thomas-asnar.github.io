@@ -39,7 +39,11 @@ body{
 	top: 5px; 
 	left: 5px; 
 }
-ul {
+#page-content{
+  display:grid;
+  grid-template-columns: 3fr 1fr;
+}
+ul.post-list {
   list-style-type: none;
 }
 .pagination li {
@@ -55,7 +59,9 @@ ul {
     max-width:100%;
     margin: 20px;
   }
-
+  #page-content{ 
+    grid-template-columns: 1fr;
+  }
   html {
     font-size: 12px;
   }

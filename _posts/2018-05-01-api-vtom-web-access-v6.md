@@ -17,7 +17,7 @@ Petite update du [1 er post API VTOM via le WebAccess ici](/api-vtom-web-access)
   * Rajouter dans le header des requêtes le user:mdp en base64 (voir mon premier post pour les détails) : ex. pour une XMLHttpRequest `xhr.setRequestHeader('Authorization', 'Basic VE9NOlRPTQ==')`
   * En local depuis le même serveur VTOM, les appels directs XMLHttpRequest Chrome passent sans soucis. En revanche, je n'ai pas réussi à faire fonctionner depuis un autre domaine (à cause du Cross-origin resource sharing - [CORS](https://developer.mozilla.org/fr/docs/Web/HTTP/CORS))
   * sinon les appels en back-end fonctionnent très bien de n'importe où : `curl`, `node js`, `php` etc. 
-
+<!--more-->
 Exemple avec NodeJS
 
 ```javascript

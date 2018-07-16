@@ -13,6 +13,8 @@ titre-court: home
 
       <article class="post-content" itemprop="articleBody">
         {{ site.posts[0].excerpt }}
+        (voir plus)
+        <a class="post-link" href="{{ site.posts[0].url | prepend: site.baseurl }}">{{ site.posts[0].title }}</a>
         <p class="post-meta">
           <time class="post-meta" itemprop="datePublished dateModified" datetime="{{ site.posts[0].date | date_to_xmlschema }}">{{ site.posts[0].date | date: "%d-%m-%Y" }}</time>
         </p>

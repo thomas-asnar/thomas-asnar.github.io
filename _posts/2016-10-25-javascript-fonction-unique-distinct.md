@@ -80,3 +80,65 @@ v (valeur), i (index), a (le tableau complet, ici monnouveautableau qui correspo
 En français : on boucle sur tous les élements de monnouveautableau et on retourne chaque élément dans un nouveau tableau si son index (i) correspond à l'index du premier élément (indexOf) de monnouveautableau qui a la valeur v.
 
 Je ne sais pas si c'est français, mais j'me comprends !
+
+
+# sort sur un tableau de tableaux sur plusieurs index
+[https://stackoverflow.com/a/2784879](https://stackoverflow.com/a/2784879)
+
+```js
+Array.prototype.deepSortAlpha= function(){
+    var itm, L=arguments.length, order=arguments;
+
+    var alphaSort= function(a, b){
+        a= a.toLowerCase();
+        b= b.toLowerCase();
+        if(a== b) return 0;
+        return a> b? 1:-1;
+    }
+    if(!L) return this.sort(alphaSort);
+
+    this.sort(function(a, b){
+        var tem= 0,  indx=0;
+        while(tem==0 && indx<L){
+            itm=order[indx];
+            tem= alphaSort(a[itm], b[itm]); 
+            indx+=1;        
+        }
+        return tem;
+    });
+    return this;
+}
+
+monArr = [
+  ["EVOLAN", "libéléEVOLAN2", "applEVOLAN", "jobEVOLAN", "domEVOLAN", "caisse1", "endEVOLAN", "YES"],
+  ["ALIS", "libéléALIS2", "applALIS", "jobALIS", "domALIS", "caisse2", "endALIS", "YES"],
+  ["ALIS", "libéléALIS", "applALIS", "jobALIS", "domALIS", "caisse2", "endALIS", "YES"],
+  ["ALIS", "libéléALIS", "applALIS", "jobALIS", "domALIS", "caisse3", "endALIS", "NO"],
+  ["EVOLAN", "libéléEVOLAN", "applEVOLAN", "jobEVOLAN", "domEVOLAN", "caisse1", "endEVOLAN", "YES"],
+  ["IAM", "libéléIAM1", "applIAM", "jobIAM", "domIAM", "caisse1", "endIAM", "YES"],
+  ["IAM", "libéléIAM", "applIAM", "jobIAM", "domIAM", "caisse1", "endIAM", "YES"],
+  ["OUI", "libéléOUI", "applOUI", "jobOUI", "domOUI", "caisse1", "endOUI", "YES"],
+  ["ALIS", "libéléALIS2", "applALIS", "jobALIS", "domALIS", "caisse2", "endALIS", "NO"],
+  ["EVOLAN", "libéléEVOLAN3", "applEVOLAN", "jobEVOLAN", "domEVOLAN", "caisse1", "endEVOLAN", "YES"],
+  ["ALIS", "libéléALIS", "applALIS", "jobALIS", "domALIS", "caisse1", "endALIS", "YES"],
+  ["IAM", "libéléIAM3", "applIAM", "jobIAM", "domIAM", "caisse1", "endIAM", "NO"],
+  ["IAM", "libéléIAM2", "applIAM", "jobIAM", "domIAM", "caisse1", "endIAM", "NO"],
+  ["IAM", "libéléIAM", "applIAM", "jobIAM", "domIAM", "caisse2", "endIAM", "NO"]
+]
+monArr.deepSortAlpha(0,1,7)
+(14) [Array(8), Array(8), Array(8), Array(8), Array(8), Array(8), Array(8), Array(8), Array(8), Array(8), Array(8), Array(8), Array(8), Array(8)]
+0:(8) ["ALIS", "libéléALIS", "applALIS", "jobALIS", "domALIS", "caisse3", "endALIS", "NO"]
+1:(8) ["ALIS", "libéléALIS", "applALIS", "jobALIS", "domALIS", "caisse2", "endALIS", "YES"]
+2:(8) ["ALIS", "libéléALIS", "applALIS", "jobALIS", "domALIS", "caisse1", "endALIS", "YES"]
+3:(8) ["ALIS", "libéléALIS2", "applALIS", "jobALIS", "domALIS", "caisse2", "endALIS", "NO"]
+4:(8) ["ALIS", "libéléALIS2", "applALIS", "jobALIS", "domALIS", "caisse2", "endALIS", "YES"]
+5:(8) ["EVOLAN", "libéléEVOLAN", "applEVOLAN", "jobEVOLAN", "domEVOLAN", "caisse1", "endEVOLAN", "YES"]
+6:(8) ["EVOLAN", "libéléEVOLAN2", "applEVOLAN", "jobEVOLAN", "domEVOLAN", "caisse1", "endEVOLAN", "YES"]
+7:(8) ["EVOLAN", "libéléEVOLAN3", "applEVOLAN", "jobEVOLAN", "domEVOLAN", "caisse1", "endEVOLAN", "YES"]
+8:(8) ["IAM", "libéléIAM", "applIAM", "jobIAM", "domIAM", "caisse2", "endIAM", "NO"]
+9:(8) ["IAM", "libéléIAM", "applIAM", "jobIAM", "domIAM", "caisse1", "endIAM", "YES"]
+10:(8) ["IAM", "libéléIAM1", "applIAM", "jobIAM", "domIAM", "caisse1", "endIAM", "YES"]
+11:(8) ["IAM", "libéléIAM2", "applIAM", "jobIAM", "domIAM", "caisse1", "endIAM", "NO"]
+12:(8) ["IAM", "libéléIAM3", "applIAM", "jobIAM", "domIAM", "caisse1", "endIAM", "NO"]
+13:(8) ["OUI", "libéléOUI", "applOUI", "jobOUI", "domOUI", "caisse1", "endOUI", "YES"]
+```

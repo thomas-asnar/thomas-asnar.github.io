@@ -77,7 +77,6 @@ platform ssh-key:add
 ...
 ```
 
-![platform.sh.git-clone-n-1.jpg](/assets/img/platform.sh.git-clone-n-1.jpg)
 
 ```
 # Je clone mon projet sur la branch n-1

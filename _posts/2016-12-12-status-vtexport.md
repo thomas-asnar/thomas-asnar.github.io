@@ -24,3 +24,9 @@ categories: [vtom, status, vtexport]
   "U" : {"rvb":"250,250,250","nom":"NONPLANIFIE"}
 }
 ```
+
+Et dans la table vt_stats_job : (index de 0 à 6)
+
+```
+let Status = ["", "AVENIR ", "ENCOURS", "TERMINE", "ENERREUR", "DEPLANIFIE", "NONPLANIFIE"]
+```

@@ -108,5 +108,5 @@ log VOTM plutôt explicite :
 10:12:27 | INFO  | Save result to file: 'server-info.xml'
 ```
 
-
-Petite dédicace à DukeAstar car il me semble que s'il n'y est pas pour quelque chose, il n'y est pas pour rien non plus. Enfin j'me comprends ! ON T'AIME DUKEEEE *pourceverslehaut*
+<small>
+Petite dédicace à DukeAstar car il me semble que s'il n'y est pas pour quelque chose, il n'y est pas pour rien non plus. Enfin j'me comprends ! ON T'AIME DUKEEEE HashTag*pourceverslehaut* HashTag*DukeEqualsDieu*</small>

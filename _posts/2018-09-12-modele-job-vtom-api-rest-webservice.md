@@ -107,3 +107,6 @@ log VOTM plutôt explicite :
 10:12:27 | INFO  | Variable 'classPathEntry' value: 'D:\XLDeploy\xl-deploy-7.0.1-server\serviceWrapper\wrapperApp.jar'
 10:12:27 | INFO  | Save result to file: 'server-info.xml'
 ```
+
+
+Petite dédicace à DukeAstar car il me semble que s'il n'y est pas pour quelque chose, il n'y est pas pour rien non plus. Enfin j'me comprends ! ON T'AIME DUKEEEE *pourceverslehaut*

@@ -101,3 +101,19 @@ Voici un exemple (notez qu'on n'est pas obligé de mettre les noms en entier, ge
 Et une capture d'écran :
 
 ![Suivi d'exploitation VTOM WebAccess API](/wp-content/uploads/suivi_exploitation_webaccess.png)
+
+## Pour mes collègues de la 89C3 : Est-il possible de déclencher un job VTOM par API ?
+
+Of course !
+
+ * Lister les applications/jobs à la demande : 
+
+`/api/status/getOnDemand`
+
+```json
+{"result": [{"jobSId": "JOBc0a8178000001547559555ab00000010", "environmentSId": "ENVc0a8178000000029559555a900000001", "applicationSId": "APPc0a81780000041bb559555a900000009", "isAsked": "0", "retained": "0", "status": "F", "environmentName": "exploitation", "comment": "Traitement termine (0)", "timeEnd": "1536755283", "applicationName": "APPLICATION", "jobName": "JOB_Unix", "onDemand": "1", "executionMode": "E", "timeBegin": "1536755282", "exploited": "E", "cycleEnabled": "0"}, {"jobSId": "JOBc0a8178000004d06559555ab0000000e", "environmentSId": "ENVc0a8178000000029559555a900000001", "applicationSId": "APPc0a81780000041bb559555a900000009", "isAsked": "0", "retained": "0", "status": "F", "environmentName": "exploitation", "comment": "Job en simulation, considere termine", "timeEnd": "1536710401", "applicationName": "APPLICATION", "jobName": "JOB_Windows", "onDemand": "1", "executionMode": "S", "timeBegin": "1536710400", "exploited": "E", "cycleEnabled": "0"}], "rc": 0}
+```
+
+ * On récupère `jobSId` et on le demande (en changeant les paramètres si nécessaire) `/api/utilities/setObjectAction?id=JOBc0a8178000001547559555ab00000010&action=JOB_ACTION_ASK&parameters=%5B%22aurevoir+luke%22%5D`
+
+ (il faut faire des requêtes authentifiées bien sûr)

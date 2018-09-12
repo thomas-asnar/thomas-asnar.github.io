@@ -53,7 +53,7 @@ J'ai mis quelques minutes à comprendre le truc, mais une fois qu'on a tâtonné
 ![Job VTOM Webservice REST 03](/wp-content/uploads/job_vtom_modele_webrest_03.jpg "Job VTOM Webservice REST 03")
  3. Ajouter autant d'étapes que l'on souhaite
  
- ## Résultats 
+ # Résultats 
  
   1. Job récup' JSON
  Je ne fais que du copier/coller des actions définies dans l'onglet "Résultat". On voit que c'est très "compréhensible" :
@@ -85,8 +85,12 @@ vtom@5a21957e2896:~$ cat test.json
  
 ```
 vtom@5a21957e2896:~$ cat server-info.xml
-<server-info><classpath><classpath-entry>D:\XLDeploy\xl-deploy-7.0.1-server\serviceWrapper\wrapperApp.jar</classpath-entry><classpath-entry>D:\XLDeploy\xl-deploy-7.0.1-server\conf</classpath-entry><classpath-entry>D:\XLDeploy\
-xl-deploy-7.0.1-server\hotfix\lib\readme.txt</classpath-entry><classpath-entry>D:\XLDeploy\xl-deploy-7.0.1-server\lib\activation-1.1.1.jar</classpath-entry><classpath-entry>D:\XLDeploy\xl-deploy-7.0.1-server\lib\aeron-client-1
+<server-info>
+ <classpath>
+  <classpath-entry>D:\XLDeploy\xl-deploy-7.0.1-server\serviceWrapper\wrapperApp.jar</classpath-entry>
+  <classpath-entry>D:\XLDeploy\xl-deploy-7.0.1-server\conf</classpath-entry>
+  <classpath-entry>D:\XLDeploy\xl-deploy-7.0.1-server\hotfix\lib\readme.txt</classpath-entry>
+  ....
 ```
 
 log VOTM plutôt explicite : 

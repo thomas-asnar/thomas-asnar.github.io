@@ -52,8 +52,8 @@ J'ai mis quelques minutes à comprendre le truc, mais une fois qu'on a tâtonné
         * Ecrire le résultat dans un fichier
 ![Job VTOM Webservice REST 03](/wp-content/uploads/job_vtom_modele_webrest_03.jpg "Job VTOM Webservice REST 03")
  3. Ajouter autant d'étapes que l'on souhaite
- 
- # Résultats 
+
+## Résultats 
  
   1. Job récup' JSON
  Je ne fais que du copier/coller des actions définies dans l'onglet "Résultat". On voit que c'est très "compréhensible" :

@@ -9,9 +9,9 @@ categories: [API, webservice, Visual TOM, VTOM, modele, REST]
 > Anyone who doesn't do this will be fired.
 > Thank you; have a nice day!
 
-Dixit [Jeff Bezos (Amazon's CEO) Mandate 2012](/wp-content/uploads/modularization.pdf). 7 ans déjà. 
+Dixit [Jeff Bezos (Amazon's CEO) Mandate 2012](/wp-content/uploads/modularization.pdf). 
 
-C'est pourtant devenu la norme. Et la paraphrase "Si vous développez une application sans API, vous êtes viré !" est, plus que jamais, de mise.
+2012 ... C'est pourtant devenu la norme. Et la paraphrase "Si vous développez une application sans API, vous êtes viré !" est toujours d'actualité. Les API sont partout. 
 
 Vous connaissez sans doute XLDeploy / XLRelease et Jenkins ?! Dans le monde DevOps, ces outils semblent incontournables, notamment pour le déploiement et/ou intégration continu, la gestion d'un workflow, etc...
 Et, devinez quoi ? ils fonctionnent et proposent des API REST. 

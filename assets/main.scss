@@ -43,6 +43,9 @@ body{
   display:grid;
   grid-template-columns: 2fr 2fr;
 }
+#page-first-post code{
+	max-width: 400px;
+}
 ul.post-list {
   list-style-type: none;
 }

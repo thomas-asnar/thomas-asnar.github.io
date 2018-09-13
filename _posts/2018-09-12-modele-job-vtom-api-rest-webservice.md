@@ -21,7 +21,7 @@ What about notre ordonnanceur préféré VTOM dans tout ça ? Après tout, il po
 Oui, mais pas que ! Sâchez qu'il existe des modèles de traitement "Web Service REST" qui peut nous simplifier la vie et avoir quelque chose de bien plus exploitable et visuel.
 
 Je vais faire deux exemples GET et je m'arrêterai là pour cette introduction. Mais ça donnera les bases pour faire du GET, PUT, POST, DELETE.
- * Une récurépation de fichier XML si dans la réponse j'ai une certaine valeur texte d'un noeud en particulier me convient (grâce à une expression XPath)
+ * Une récurépation de fichier XML si, dans la réponse, j'ai une certaine valeur, d'un noeud en particulier, qui me sied (grâce à une expression XPath)
  * Une récupération de fichier JSON si dans la réponse j'ai un attribut JSON "status" à OK (grâce au JSONPath)
 <!--more-->
 # Prérequis pour utiliser les modèles de Job Webservice REST VTOM

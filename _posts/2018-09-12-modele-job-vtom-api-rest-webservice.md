@@ -55,7 +55,7 @@ J'ai mis quelques minutes à comprendre le truc, mais une fois qu'on a tâtonné
 
 ## Résultats 
  
-  1. Job récup' JSON
+ 1. Job récup' JSON
  Je ne fais que du copier/coller des actions définies dans l'onglet "Résultat". On voit que c'est très "compréhensible" :
  
   * 1ère étape du job sur l'url /api/ qui me retourn `{"version":"1.0","status":"ok"}` :

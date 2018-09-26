@@ -157,3 +157,164 @@ Of course !
  * On récupère `jobSId` et on le demande (en changeant les paramètres si nécessaire) `/api/utilities/setObjectAction?id=JOBc0a8178000001547559555ab00000010&action=JOB_ACTION_ASK&parameters=%5B%22aurevoir+luke%22%5D`
 
  (il faut faire des requêtes authentifiées bien sûr)
+ 
+ 
+ ```
+ Pour le test dans la définition du « Type » dans XLR :
+http://url:port/api/utilities/login
+Il faut passer en clair les clés :
+{ login : "logintest", password : "logintest" }
+(user sans aucun droit)
+Et attendre un retour comme ça : 
+{
+    "rc": 0,
+    "result": {
+        "rc": "0"
+    }
+}
+ 
+
+
+Dans la tâche, ça sera des appels de ce type :
+
+avec en Header : 
+Authorization   Basic 
+Avec user XLRTest et mdp XLRTest
+Ou directement :
+Authorization : Basic WExSVGVzdDpYTFJUZXN0
+Ce user n’aura que les droits qu’on lui donne dans VTOM
+
+
+Pour tout un tas de raison, il faut récupérer le jobSId, applicationSId et environmentSId.
+Dans tous les cas, on devra connaître le nom du job VTOM à lancer : environmentName/applicationName/jobName
+
+Deux possibilités,  : 
+•	Soit on liste tous les jobs à la demande (le user ne voit que ce qu’on lui donne dans les droits du profil)
+Je ne peux pas filtrer les tâches à la demande VTOM. Il faudra le faire sur le retour JSON.
+Liste des tâches à la demande : 
+/api/status/getOnDemand
+{
+    "rc": 0,
+    "result": [
+        {
+            "jobSId": "",
+            "jobName": "",
+            "environmentName": "89C3",
+            "environmentSId": "ENV7ef670af000006df5b990a310000000f",
+            "exploited": "E",
+            "status": "F",
+            "comment": "",
+            "applicationName": "APPTEST01",
+            "applicationSId": "APP7ef670af00007faa5b990a4e000013bb",
+            "timeEnd": "0",
+            "timeBegin": "0",
+            "onDemand": "1",
+            "retained": "0",
+            "isAsked": "1",
+            "cycleEnabled": "0",
+            "executionMode": "J"
+        },
+        {
+            "jobSId": "JOB7ef670af0000053b5b990a95000062e4",
+            "jobName": "JOB01",
+            "environmentName": "89C3",
+            "environmentSId": "ENV7ef670af000006df5b990a310000000f",
+            "exploited": "E",
+            "status": "F",
+            "comment": "termine (0)",
+            "applicationName": "APPTEST01",
+            "applicationSId": "APP7ef670af00007faa5b990a4e000013bb",
+            "timeEnd": "0",
+            "timeBegin": "1537966364",
+            "onDemand": "1",
+            "retained": "0",
+            "isAsked": "0",
+            "cycleEnabled": "0",
+            "executionMode": "E"
+        }
+    ]
+}
+
+•	Soit on sait que le job est bien un job à la demande VTOM, dans ce cas, on peut filtrer et on récupère les SId :
+/api/job/list/?environmentName=89C3&applicationName=APPTEST01&name=JOB01
+{
+    "rc": 0,
+    "result": {
+        "rows": [
+            {
+                "envSId": "ENV7ef670af000006df5b990a310000000f",
+                "exploited": "E",
+                "status": "F",
+                "comment": "",
+                "applicationName": "APPTEST01",
+                "environmentName": "89C3",
+                "isAsked": "0",
+                "retained": "0",
+                "appSId": "APP7ef670af00007faa5b990a4e000013bb",
+                "onDemand": "1",
+                "id": "JOB7ef670af0000053b5b990a95000062e4",
+                "name": "JOB01",
+                "message": "termine (0)",
+                "cycleEnabled": "0",
+                "execMode": "E"
+            }
+        ],
+        "columns": [
+            "envSId",
+            "environmentName",
+            "appSId",
+            "applicationName",
+            "id",
+            "name",
+            "comment",
+            "message",
+            "status",
+            "exploited",
+            "retained",
+            "onDemand",
+            "isAsked",
+            "cycleEnabled",
+            "execMode"
+        ]
+    }
+}
+
+
+(a voir si on fait cette étape)
+Il faut s’assurer que le moteur de l’environnement est bien démarré (result.rows[0].enginePid = 1): 
+/api/environment/list?id=environmentSId
+{
+    "rc": 0,
+    "result": {
+        "rows": [
+            {
+                "id": "ENV7ef670af000006df5b990a310000000f",
+                "enginePid": "1",
+                "name": "89C3"
+            }
+        ],
+        "columns": [
+            "id",
+            "name",
+            "enginePid"
+        ]
+    }
+}
+
+
+Si status différent de W, Remettre AVENIR l’application - si tous les jobs à l’intérieur sont à lancer - et le job – si un job en particulier dans une application VTOM plus globale : 
+/api/utilities/setObjectAction?id=applicationSId&action=APP_ACTION_SET_WAIT
+/api/utilities/setObjectAction?id=jobSId&action=JOB_ACTION_SET_WAIT
+
+Pour « demander » l’application VTOM : 
+/api/utilities/setObjectAction?id=applicationSId&action=APP_ACTION_ASK
+
+Dans tous les cas, on demande le job avec les paramètres :
+/api/utilities/setObjectAction
+1.	id: 
+JOB7ef670af0000053b5b990a95000062e4
+2.	action: 
+JOB_ACTION_ASK
+3.	parameters: 
+["taskIdXLR"]
+```

@@ -93,7 +93,7 @@ vtom@5a21957e2896:~$ cat server-info.xml
   ....
 ```
 
-log VOTM plutôt explicite : 
+log VTOM plutôt explicite : 
  ```
 10:12:26 | INFO  | Add Header name: 'Content-Type' value: 'application/xml'
 10:12:26 | INFO  | Perform request

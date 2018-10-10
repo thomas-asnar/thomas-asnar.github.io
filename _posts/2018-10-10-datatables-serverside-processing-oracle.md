@@ -5,8 +5,6 @@ date: 2018-10-10 12:00:00
 author: Thomas ASNAR
 categories: [javascript, datatables, oracle, php]
 ---
-# DataTables ServerSide Processing pour Oracle
-
 ## oracle.ssp.class.php
 
 [https://github.com/thomas-asnar/DataTables/blob/master/oracle.ssp.class.php](https://github.com/thomas-asnar/DataTables/blob/master/oracle.ssp.class.php)

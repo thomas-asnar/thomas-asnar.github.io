@@ -16,6 +16,7 @@ Originale pour MySQL :
 [https://github.com/DataTables/DataTables/blob/master/examples/server_side/scripts/ssp.class.php](https://github.com/DataTables/DataTables/blob/master/examples/server_side/scripts/ssp.class.php)
 
 [https://datatables.net/examples/data_sources/server_side](https://datatables.net/examples/data_sources/server_side)
+<!-- more -->
 
 ## api exemple
 ```php

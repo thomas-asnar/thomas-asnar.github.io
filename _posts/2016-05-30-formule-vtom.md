@@ -46,4 +46,11 @@ test{
  aujourd'hui - 1.jour.cale = ouvr
 }
 ``` 
+
+ * 2ème dimanche du mois
+ 
+ ```
+ test{ aujourd'hui = 2.di.cale.mois }
+ ```
+ 
  

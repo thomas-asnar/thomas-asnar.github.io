@@ -175,3 +175,67 @@ $('#example tfoot th').each( function () {
 
 }); // end ready
 ```
+
+
+On peut aussi passer les data dans "ajax" de DataTables : 
+
+```js
+
+index.php
+<script>
+window.myColumns = <?php echo json_encode($columns); ?> ;
+window.myTable = <?php echo json_encode($table); ?> ;
+window.myPrimaryKey = <?php echo json_encode($primaryKey); ?> ;
+</script>
+<script src="index.js" type="text/javascript"></script>
+
+
+index.js
+...
+let table = $('#example').DataTable({
+...
+...
+  "processing": true,
+  "serverSide": true,
+  "ajax": {
+    "url" :"/api/dtServerSideProcessing.php",
+    "data": function(d){
+      let objTable = {}
+      if(window.myColumns){
+        objTable["myColumns"] = window.myColumns
+      }
+      if(window.myTable){
+        objTable["myTable"] = window.myTable
+      }
+      if(window.myPrimaryKey){
+        objTable["myPrimaryKey"] = window.myPrimaryKey
+      }
+      return $.extend({},d,objTable)
+    }
+  },
+...
+...
+```
+
+afin de se passer de définition des colonnes dans le dtServerSideProcessing.php : 
+
+```php
+...
+...
+if(isset($_REQUEST['myTable'])){
+	$table = $_REQUEST['myTable'] ;
+}
+if(isset($_REQUEST['myPrimaryKey'])){
+	$primaryKey = $_REQUEST['myPrimaryKey'] ;
+}
+if(isset($_REQUEST['myColumns'])){
+	$columns = $_REQUEST['myColumns'] ;
+}
+
+echo json_encode(
+	SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns )
+);
+```
+
+
+

@@ -177,11 +177,37 @@ $('#example tfoot th').each( function () {
 ```
 
 
-On peut aussi passer les data dans "ajax" de DataTables : 
+On peut aussi passer des data dans "ajax" de DataTables : 
 
 ```js
 
 index.php
+<?php
+// PHP 
+$table = 'USI_LOG_TRT';
+$primaryKey = 'USI_INDEX';
+$columns = array(
+	array( 'db' => 'USI_INDEX', 'dt' => 0 ),
+	array( 'db' => 'USI_TRTNAME',  'dt' => 1 ),
+	array( 'db' => 'USI_ENVNAME',   'dt' => 2 ),
+	array( 'db' => 'USI_FICTRT',     'dt' => 3 ),
+	array(
+		'db'        => 'USI_DATE_DEB',
+		'dt'        => 4,
+		'formatter' => function( $d, $row ) {
+			return date( 'jS M y', strtotime($d));
+		}
+	),
+	array(
+		'db'        => 'USI_DATE_FIN',
+		'dt'        => 5,
+		'formatter' => function( $d, $row ) {
+			return date( 'jS M y', strtotime($d));
+		}
+	),
+	array( 'db' => 'USI_INFO',     'dt' => 6 )
+);
+?>
 <script>
 window.myColumns = <?php echo json_encode($columns); ?> ;
 window.myTable = <?php echo json_encode($table); ?> ;
@@ -217,7 +243,7 @@ let table = $('#example').DataTable({
 ...
 ```
 
-afin de se passer de définition des colonnes dans le dtServerSideProcessing.php : 
+afin de se passer de définition des colonnes dans le dtServerSideProcessing.php (réutilisable pour d'autres DataTables du coup) : 
 
 ```php
 ...

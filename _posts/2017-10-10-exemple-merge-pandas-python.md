@@ -7,12 +7,13 @@ categories: [python, csv, pandas, merge]
 ---
 Note à moi même :
 
+```
 Merge method	SQL Join Name	Description
 left	LEFT OUTER JOIN	Use keys from left frame only
 right	RIGHT OUTER JOIN	Use keys from right frame only
 outer	FULL OUTER JOIN	Use union of keys from both frames
 inner	INNER JOIN	Use intersection of keys from both frames
-
+```
 Image docker : docker run -v D:\MonDossier\csvpandas:/mnt/workspace -t -i  fastgenomics/pandas bash
 
 ```python

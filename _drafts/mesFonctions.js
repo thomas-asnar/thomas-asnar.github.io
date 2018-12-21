@@ -57,6 +57,8 @@ function readFile(input, callback) {
 
 // The download function takes a CSV string, the filename and mimeType as parameters
 // Scroll/look down at the bottom of this snippet to see how download is called
+// Pour avoir les accents et télécharger en CSV lisible par Excel, il faut rajouter le BOM dans content
+//  ex. downloadFileJS('\ufeff' + rowTabs.join("\r\n").replace(/,/g, ";"), "lastexecvtom.csv", 'text/csv;charset:utf-8');
 var downloadFileJS = function (content, fileName, mimeType) {
   var a = document.createElement('a');
   mimeType = mimeType || 'application/octet-stream';

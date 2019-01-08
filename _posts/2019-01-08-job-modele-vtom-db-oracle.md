@@ -6,17 +6,20 @@ author: Thomas ASNAR
 categories: [VTOM, sgbd, oracle]
 ---
 
-1. Copier les drivers JDBC sur le client
+1. Copier les drivers JDBC sur le client et dans votre répertoire IHM
 2. Créer une connexion à la base SGBD dans VTOM (partie Modèle)
 3. Glisser / Déposer le modèle de Job SGBD dans une APPLICATION VTOM (je précise APPPLICATION :smile:)
 4. Configurer le job (requête SQL ou fichier SQL, actions à effectuer etc)
 
 ### configuration client (v6 ok avec queue_vt2db obligatoire)
 
-copier les drivers dans $ABM_BIN/jdbc/drivers/
+copier les drivers JDBC dans $ABM_BIN/jdbc/drivers/
 
 exemple /usr/vtom/abm/bin/jdbc/drivers/ojdbc6.jar
 
+### configuration IHM
+
+copier les drivers JDBC dans votre répertoire IHM (où se trouve le VtomXvision.exe) .\plugins\jdbc\drivers
 
 ### configuration de la chaîne de connexion (Exemple Oracle)
 

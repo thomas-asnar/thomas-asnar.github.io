@@ -6,6 +6,12 @@ author: Thomas ASNAR
 categories: [excel, formule]
 ---
 Recherche dans une feuille qui check si une de ces colonnes (test de chaque ligne d'une colonne IP Adresse) est présente dans deux feuilles différentes (correspondance adresse)
+
+Les formules présentes pourraient être utile pour : 
+ * supprimer une retour chariot, saut de ligne, d'une cellule à plusieurs lignes
+ * trouver des valeurs identiques dans des colonnes différentes
+ * modifier la valeur d'une cellule
+
 ```
 =SI.NON.DISP(
   SI.NON.DISP(

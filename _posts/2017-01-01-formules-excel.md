@@ -94,3 +94,147 @@ Les formules présentes pourraient être utile pour :
   )
 )
 ```
+
+
+```
+=SI.NON.DISP(
+  SI.NON.DISP(
+    RECHERCHEV(
+      [@adresses];
+      Tableau1[[#Tout];[IP]:[IP]];
+      1;
+      FAUX
+    );
+    RECHERCHEV(
+      [@adresses];
+      Tableau2[[#Tout];[IP]:[IP]];
+      1;
+      FAUX
+    )
+  );
+  SI.NON.DISP(
+    SI.NON.DISP(
+      RECHERCHEV(
+        GAUCHE(
+          [@adresses];
+          CHERCHE(CAR(10);[@adresses]) - 1
+        );
+        Tableau1[[#Tout];[IP]:[IP]];
+        1;
+        FAUX
+      );
+      RECHERCHEV(
+        GAUCHE(
+          [@adresses];
+          CHERCHE(CAR(10);[@adresses]) - 1
+        );
+        Tableau2[[#Tout];[IP]:[IP]];
+        1;
+        FAUX
+      )
+    );
+    SI.NON.DISP(
+      SI.NON.DISP(
+        RECHERCHEV(
+          GAUCHE(
+            DROITE(
+              [@adresses];
+              CHERCHE(CAR(10);[@adresses])
+            );
+            CHERCHE(
+              CAR(10);
+              DROITE(
+                [@adresses];
+                CHERCHE(CAR(10);[@adresses])
+              )
+            ) - 1
+          );
+          Tableau1[[#Tout];[IP]:[IP]];
+          1;
+          FAUX
+        );
+        RECHERCHEV(
+          GAUCHE(
+            DROITE(
+              [@adresses];
+              CHERCHE(CAR(10);[@adresses])
+            );
+            CHERCHE(
+              CAR(10);
+              DROITE(
+                [@adresses];
+                CHERCHE(CAR(10);[@adresses])
+              )
+            ) - 1
+          );
+          Tableau2[[#Tout];[IP]:[IP]];
+          1;
+          FAUX
+        )
+      );
+      SI.NON.DISP(
+        RECHERCHEV(
+          GAUCHE(
+            DROITE(
+              DROITE(
+                [@adresses];
+                CHERCHE(CAR(10);[@adresses])
+              );
+              CHERCHE(CAR(10);DROITE(
+                [@adresses];
+                CHERCHE(CAR(10);[@adresses])
+              ))
+            );
+            CHERCHE(
+              CAR(10);
+              DROITE(
+                DROITE(
+                  [@adresses];
+                  CHERCHE(CAR(10);[@adresses])
+                );
+                CHERCHE(CAR(10);DROITE(
+                  [@adresses];
+                  CHERCHE(CAR(10);[@adresses])
+                ))
+              )
+            ) - 1
+          );
+          Tableau1[[#Tout];[IP]:[IP]];
+          1;
+          FAUX
+        );
+        RECHERCHEV(
+          GAUCHE(
+            DROITE(
+              DROITE(
+                [@adresses];
+                CHERCHE(CAR(10);[@adresses])
+              );
+              CHERCHE(CAR(10);DROITE(
+                [@adresses];
+                CHERCHE(CAR(10);[@adresses])
+              ))
+            );
+            CHERCHE(
+              CAR(10);
+              DROITE(
+                DROITE(
+                  [@adresses];
+                  CHERCHE(CAR(10);[@adresses])
+                );
+                CHERCHE(CAR(10);DROITE(
+                  [@adresses];
+                  CHERCHE(CAR(10);[@adresses])
+                ))
+              )
+            ) - 1
+          );
+          Tableau2[[#Tout];[IP]:[IP]];
+          1;
+          FAUX
+        )
+      )
+    )
+  )
+)
+```

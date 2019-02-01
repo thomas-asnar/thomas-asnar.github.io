@@ -13,40 +13,9 @@ But du jeu, récupérer la data d'un tableau créé avec TablePress (retour JSON
 ## Ajout dans plugins/tablepress/tablepress.php
 ```php
 // Add API Route to ajax request on ShortCode table Id
-function safe_json_encode($value, $options = 0, $depth = 512){
-  $encoded = json_encode($value, $options, $depth);
-  switch (json_last_error()) {
-      case JSON_ERROR_NONE:
-          return $encoded;
-      case JSON_ERROR_DEPTH:
-          return 'Maximum stack depth exceeded'; // or trigger_error() or throw new Exception()
-      case JSON_ERROR_STATE_MISMATCH:
-          return 'Underflow or the modes mismatch'; // or trigger_error() or throw new Exception()
-      case JSON_ERROR_CTRL_CHAR:
-          return 'Unexpected control character found';
-      case JSON_ERROR_SYNTAX:
-          return 'Syntax error, malformed JSON'; // or trigger_error() or throw new Exception()
-      case JSON_ERROR_UTF8:
-          $clean = utf8ize($value);
-          return safe_json_encode($clean, $options, $depth);
-      default:
-          return 'Unknown error'; // or trigger_error() or throw new Exception()
-
-  }
-}
-function utf8ize($mixed) {
-  if (is_array($mixed)) {
-      foreach ($mixed as $key => $value) {
-          $mixed[$key] = utf8ize($value);
-      }
-  } else if (is_string ($mixed)) {
-      return utf8_encode($mixed);
-  }
-  return $mixed;
-}
 function getTableJSON( $data ) {
   $table = TablePress::$model_table->load( $data['id'], true, true );
-  return safe_json_encode($table);
+  return $table;
 }
 add_action( 'rest_api_init', function () {
   register_rest_route( 'tablepress/api/v1', '/table/(?P<id>\d+)', array(

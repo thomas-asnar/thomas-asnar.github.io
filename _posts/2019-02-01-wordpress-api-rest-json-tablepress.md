@@ -149,6 +149,4 @@ Excellentissime plugin Wordpress pour gestion et affichage de Tables / Tableaux 
 Excellentissime plugin pour une authentification Basic sur l'API wordpress.
 [WP-API Basic-Auth](https://github.com/WP-API/Basic-Auth)
 
-Très bonne doc officielle sur la REST API Wordpress et l'ajout des endpoints :
-
-[Add Endpoints REST API Wordpress](https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/)
+Très bonne doc officielle sur la REST API Wordpress et l'ajout des endpoints : [Add Endpoints REST API Wordpress](https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/)

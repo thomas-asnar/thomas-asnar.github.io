@@ -17,6 +17,9 @@ Voici un exmple pour rajouter (+) une ressource texte VTOM avec les options d'at
 
 `vtaddapp /nom=$ITEM_VTOM /Res="~${ITEM_VTOM_RES} ! 1 [attend==oui jusqu'a==Illimité liberation==oui]"`
 
+ * Remplacer une ressource de type fichier par une autre (P présent)
+ 
+ `vtaddjob /nom=$ITEM_VTOM /res="-${OLD_RESS} P,+${NEW_RESS} P [attend==oui jusqu'a==Illimité]"`
 
 exemple de changement de masse sur des jobs. Retrait d'une ressource poids et ajout d'une autre (prend 1, libère et attente illimité) :
 

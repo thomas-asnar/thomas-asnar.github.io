@@ -54,7 +54,15 @@ compteur=0; while read line ; do echo -en "$line" ; if test `expr $compteur % 2`
 
 (Attention des fois le vtmachine /info ne donne pas de Username)
 
+* lister les dates communes à plusieurs environnements (dangereux ! ne pas faire ça, sinon on ne sait pas quel moteur va faire basculer la date)
 
+```shell
+tlist env/date | sort -u -k"2,2" -k"1,1" | awk '{print $2}' | uniq -c | awk '$1 > 1'
+      2 date_system
+      2 prod_0_agp
+      2 prod_0_jour
+      2 prod_0_saveUn
+```
 
 * Petite astuce pour récupérer le dernier startup tomcat avec le log catalina.out
 

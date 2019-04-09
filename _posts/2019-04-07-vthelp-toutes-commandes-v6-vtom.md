@@ -51,7 +51,7 @@ vtserver         vtsgbd           vtstart          vtstep           vtstools    
 vthelp vtlist
 ```
 
-```
+```bash
 # une boucle for avec la sortie à l'écran du vthelp 
 # for <une variable n'importe - admettons : luke> in des mots separes par un espace; do # ici on écrit toutes les instructions qu'on souhaite séparées par un point virgule ou un saut de ligne - et on pourra reprendre la variable for luke du début en rajoutant un $ dollar. ex echo $luke ; done
 # $luke prendra alors, tour à tour, la valeur : des, mots, separes, par, un, espace
@@ -73,7 +73,7 @@ vthelp $cmd > ${cmd}.txt
 done
 ```
 
-```
+```bash
 # c'est loin d'être la seule méthode !!! amusez-vous avec les boucles while, for, awk
 # regardez sur le net ces commandes pratiques pour parser, triturer, modifier des chaînes de caractères : sed, grep, egrep, tr, cut, awk
 # quelques petits exemples

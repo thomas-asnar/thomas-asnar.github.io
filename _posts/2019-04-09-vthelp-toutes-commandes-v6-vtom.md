@@ -5,7 +5,7 @@ date: 2019-04-09 12:00:00
 author: Thomas ASNAR
 categories: [vtom, v6, vthelp, ligne de commande]
 ---
-Je1 viens de prendre une claque. Ca fait 10 ans, peu ou prou, que j'ai fait la connaissance de mon Sergent-Chef préféré (et par la même occasion, mon instructeur - Dieu - VTOM et futur bon ami).
+Je viens de prendre une claque. Ca fait 10 ans, peu ou prou, que j'ai fait la connaissance de mon Sergent-Chef préféré (et par la même occasion, mon instructeur - Dieu - VTOM et futur bon ami).
 
 A défaut de m'accueillir convenablement, pour sauver la France sans doute, je me souviens qu'il m'avait laissé une pile de dossiers à éplucher pour découvrir VTOM.
 
@@ -15,7 +15,7 @@ Je n'y connaissais rien à l'époque (et surtout pas le scripting) et je me rapp
 
 L'idée est de boucler sur la commande `vthelp` qui donne à l'écran toutes les commandes VTOM.
 
-Placez-vous sous votre user d'admin serveur vtom et c'est parti :
+Placez-vous sous votre user d'admin serveur vtom bac à sable (je précise ! car on ne sait jamais quand on commence, on pourrait lancer un vtserver sans le vouloir ou autre) et c'est parti :
 
 ```bash
 # commande pour lister toutes les commandes - et même + (fichiers ini etc)
@@ -71,6 +71,30 @@ done
 # c'est loin d'être la seule méthode !!! amusez-vous avec les boucles while, for, awk
 # quelques petits exemples
 # vous pouvez aussi vous orientez vers une boucle while read <un nom de variable, peu importe> mais dans ce cas, il faudra "parser votre" ligne car une ligne contient plusieurs commandes (ou mettre à plat les commandes ligne à ligne)
+# exemple sur une colonne ligne à ligne
+vthelp | grep -A200 "Liste des commandes" | grep -v "Liste des commandes" | tr [:space:] "\n" | egrep -v "^$"
+# puis while
+vthelp | grep -A200 "Liste des commandes" | grep -v "Liste des commandes" | tr [:space:] "\n" | egrep -v "^$" | while read cmd ;do
+vthelp $cmd
+done
 
-
+# avec awk
+# sur une colonne ligne à ligne
+vthelp | awk '
+BEGIN{i=0}
+{
+  if(i){
+    for(j = 1; j <= NF; j++) { print $j; }
+  };
+  if(match($0,/Liste des commandes/)){i=1};
+}'
+# avec l'exécution du vthelp cmd
+vthelp | awk '
+BEGIN{i=0}
+{
+  if(i){
+    for(j = 1; j <= NF; j++) { system("vthelp "$j); }
+  };
+  if(match($0,/Liste des commandes/)){i=1};
+}'
 ```

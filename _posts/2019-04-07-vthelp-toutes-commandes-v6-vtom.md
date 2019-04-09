@@ -52,6 +52,7 @@ vthelp vtlist
 
 # une boucle for avec la sortie à l'écran du vthelp 
 # for <une variable n'importe - admettons : luke> in des mots separes par un espace; do # ici on écrit toutes les instructions qu'on souhaite séparées par un point virgule ou un saut de ligne - et on pourra reprendre la variable for luke du début en rajoutant un $ dollar. ex echo $luke ; done
+# $luke prendra alors, tour à tour, la valeur : des, mots, separes, par, un, espace
 # $(instructions) permet d'exécuter les instructions et d'en avoir la sortie à l'écran - plus ou moins idem que `instructions`
 # le pipe | permet de prendre la "sortie de gauche" pour la "mettre en entrée" de la commande à droite
 # le grep -A200 permet de prendre 200 lignes After/Après la chaîne de caractères "Liste des commandes" - c'est arbitraire
@@ -70,6 +71,7 @@ vthelp $cmd > ${cmd}.txt
 done
 
 # c'est loin d'être la seule méthode !!! amusez-vous avec les boucles while, for, awk
+# regardez sur le net ces commandes pratiques pour parser, triturer, modifier des chaînes de caractères : sed, grep, egrep, tr, cut, awk
 # quelques petits exemples
 # vous pouvez aussi vous orientez vers une boucle while read <un nom de variable, peu importe> mais dans ce cas, il faudra "parser votre" ligne car une ligne contient plusieurs commandes (ou mettre à plat les commandes ligne à ligne)
 # exemple sur une colonne ligne à ligne

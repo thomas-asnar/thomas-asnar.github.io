@@ -7,7 +7,7 @@ categories: [vtom, v6, vthelp, ligne de commande]
 ---
 Je viens de prendre une claque. Ca fait 10 ans, peu ou prou, que j'ai fait la connaissance de mon Sergent-Chef préféré (et par la même occasion, mon instructeur - Dieu - VTOM et futur bon ami).
 
-A défaut de m'accueillir convenablement, pour sauver la France sans doute, je me souviens qu'il m'avait laissé une pile de dossiers à éplucher pour découvrir VTOM.
+A défaut de m'accueillir convenablement, pour sauver la France sans doute, je me souviens d'un charmant cadeau : une pile de dossiers à éplucher pour découvrir VTOM.
 
 Une des mes premières tâches consistait à effectuer une boucle sur toutes les commandes VTOM (en ligne de commande) afin de savoir comment elles fonctionnaient.
 

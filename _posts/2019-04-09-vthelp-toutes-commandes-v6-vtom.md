@@ -16,6 +16,7 @@ Je n'y connaissais rien à l'époque (et surtout pas le scripting) et je me rapp
 L'idée est de boucler sur la commande `vthelp` qui donne à l'écran toutes les commandes VTOM.
 
 Placez-vous sous votre user d'admin serveur vtom bac à sable (je précise ! car on ne sait jamais quand on commence, on pourrait lancer un vtserver sans le vouloir ou autre) et c'est parti :
+<!--more-->
 
 ```bash
 # commande pour lister toutes les commandes - et même + (fichiers ini etc)

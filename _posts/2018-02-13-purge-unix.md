@@ -39,7 +39,7 @@ while read ligne ; do
     echo "[INFO] Purge de REP=$REP FIC=$FIC_PATTERN RETENTION=$RETENTION VERSION=$VERSION"
 
     # on vérifie que REP est un répertoire
-    if ! test -d "$REP";then
+    if test ! -d "$REP" -o -z "$REP"; then
         echo "[ERROR] $REP n'est pas un répertoire"
         CR=`$CR + 1`
         continue

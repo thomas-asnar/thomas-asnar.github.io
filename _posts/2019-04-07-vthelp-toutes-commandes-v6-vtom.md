@@ -11,7 +11,7 @@ A défaut de m'accueillir convenablement, pour sauver la France sans doute, je m
 
 Une des mes premières tâches consistait à effectuer une boucle sur toutes les commandes VTOM (en ligne de commande) afin de savoir comment elles fonctionnaient.
 
-Je n'y connaissais rien à l'époque (et surtout pas le scripting) et je me rappelle en avoir bavé ! Sorte de revanche face à l'adversité de cette (belle) époque, je pense au petit jeune qui, comme moi, commence et galère aujourd'hui.
+Je n'y connaissais rien à l'époque (et surtout pas le scripting) et je me rappelle en avoir bavé ! Sorte de revanche face à l'adversité de cette (belle) époque, j'espère aider ce petit jeune qui, comme moi, commence et galère aujourd'hui.
 
 L'idée est de boucler sur la commande `vthelp` qui donne à l'écran toutes les commandes VTOM.
 

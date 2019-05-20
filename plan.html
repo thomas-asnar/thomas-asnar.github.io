@@ -22,6 +22,14 @@ title: Plan
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+    <script>
+      jQuery.ajax("/sitemap.xml").done(data => 
+         Query("#page-content").append("<ul></ul>")                                       
+         $(data).find("loc").each((o,v) => 
+                                  jQuery("#page-content ul").append('<li><a href="'+ v.textContent + '" title="' + v.textContent + '">' + v.textContent + "</a></li>")
+                                 )
+        )
+    </script>
     
   </body>
 

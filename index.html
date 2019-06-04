@@ -77,9 +77,7 @@ titre-court: home
     <div itemscope itemtype="http://schema.org/Article" class="post">
 
       <article class="post-content" itemprop="articleBody">
-        <header class="post-header">
-          <h1 itemprop="name about headline" class="post-title">{{ site.posts[0].title }}</h1>
-        </header>
+        <h1 itemprop="name about headline" class="post-title">{{ site.posts[0].title }}</h1>
         {{ site.posts[0].excerpt }}
         (voir plus)
         <a class="post-link" href="{{ site.posts[0].url | prepend: site.baseurl }}">{{ site.posts[0].title }}</a>

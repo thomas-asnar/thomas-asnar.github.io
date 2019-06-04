@@ -82,6 +82,7 @@ titre-court: home
       </header>
 
       <article class="post-content" itemprop="articleBody">
+        <h1 class="hidden">{{ site.posts[0].title }}</h1>
         {{ site.posts[0].excerpt }}
         (voir plus)
         <a class="post-link" href="{{ site.posts[0].url | prepend: site.baseurl }}">{{ site.posts[0].title }}</a>

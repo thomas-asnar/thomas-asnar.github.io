@@ -5,8 +5,10 @@
   
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   
+  <!-- Remplacé par Jekyll SEO (sinon apparait en double)
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  --> 
   
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   

@@ -15,3 +15,4 @@ On peut avoir ce genre d'erreur par exemple quand on lance le client VTOM bdaemo
 
 En fait, le `find` essaie de revenir au répertoire d'où il s'est lancé (et sur un 700 n'y arrive pas selon le user de soumission)
 
+note à moi-même, éviter de lancer le client bdaemon depuis / :X ça peut être grave du coup

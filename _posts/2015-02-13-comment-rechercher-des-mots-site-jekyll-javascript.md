@@ -26,10 +26,7 @@ fetch("/feed.xml")
    })
 ```
 
-résultat :
-
-
-
+![Résultat](/wp-content/uploads/resultat_console_log_js.JPG)
 
 exemple de template de `feed.xml`, on retrouve le contenu du post dans le noeud <item>
   

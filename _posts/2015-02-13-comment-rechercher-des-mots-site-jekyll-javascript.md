@@ -31,36 +31,38 @@ fetch("/feed.xml")
 exemple de template de `feed.xml`, on retrouve le contenu du post dans le noeud <item>
   
 ```
+{% raw %}
 ---
 layout: null
 ---
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;rss version=&quot;2.0&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot;&gt;
-  &lt;channel&gt;
-    &lt;title&gt;{{ site.title | xml_escape }}&lt;/title&gt;
-    &lt;description&gt;{{ site.description | xml_escape }}&lt;/description&gt;
-    &lt;link&gt;{{ site.url }}{{ site.baseurl }}/&lt;/link&gt;
-    &lt;atom:link href=&quot;{{ &quot;/feed.xml&quot; | prepend: site.baseurl | prepend: site.url }}&quot; rel=&quot;self&quot; type=&quot;application/rss+xml&quot;/&gt;
-    &lt;pubDate&gt;{{ site.time | date_to_rfc822 }}&lt;/pubDate&gt;
-    &lt;lastBuildDate&gt;{{ site.time | date_to_rfc822 }}&lt;/lastBuildDate&gt;
-    &lt;generator&gt;Jekyll v{{ jekyll.version }}&lt;/generator&gt;
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title | xml_escape }}</title>
+    <description>{{ site.description | xml_escape }}</description>
+    <link>{{ site.url }}{{ site.baseurl }}/</link>
+    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <generator>Jekyll v{{ jekyll.version }}</generator>
     {% for post in site.posts %}
-      &lt;item&gt;
-        &lt;title&gt;{{ post.title | xml_escape }}&lt;/title&gt;
-        &lt;description&gt;{{ post.content | xml_escape }}&lt;/description&gt;
-        &lt;pubDate&gt;{{ post.date | date_to_rfc822 }}&lt;/pubDate&gt;
-        &lt;link&gt;{{ post.url | prepend: site.baseurl | prepend: site.url }}&lt;/link&gt;
-        &lt;guid isPermaLink=&quot;true&quot;&gt;{{ post.url | prepend: site.baseurl | prepend: site.url }}&lt;/guid&gt;
+      <item>
+        <title>{{ post.title | xml_escape }}</title>
+        <description>{{ post.content | xml_escape }}</description>
+        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
+        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
         {% for tag in post.tags %}
-        &lt;category&gt;{{ tag | xml_escape }}&lt;/category&gt;
+        <category>{{ tag | xml_escape }}</category>
         {% endfor %}
         {% for cat in post.categories %}
-        &lt;category&gt;{{ cat | xml_escape }}&lt;/category&gt;
+        <category>{{ cat | xml_escape }}</category>
         {% endfor %}
-      &lt;/item&gt;
+      </item>
     {% endfor %}
-  &lt;/channel&gt;
-&lt;/rss&gt;
+  </channel>
+</rss>
+{% endraw %}
 ```
 
 J'utilise [Jekyll](http://jekyllrb.com) pour générer les pages statiques que vous êtes en train de lire.

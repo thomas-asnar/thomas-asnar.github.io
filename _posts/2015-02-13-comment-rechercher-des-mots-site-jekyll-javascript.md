@@ -65,6 +65,9 @@ layout: null
 {% endraw %}
 ```
 
+fin de l'édit 2019 :)
+
+
 J'utilise [Jekyll](http://jekyllrb.com) pour générer les pages statiques que vous êtes en train de lire.
 
 Le problème d'un site statique, c'est qu'on ne peut pas interroger son serveur web (php, node js ou autre) pour obtenir des informations.

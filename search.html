@@ -35,10 +35,9 @@ function buildResult(arr, textToMatch){
   let res = document.querySelector("#result")
   res.innerHTML = ""
   arr.forEach(item => {
-    let resMatch = "(...) " +  item.textContent.slice(item.textContent.indexOf(textToMatch) - 10, item.textContent.indexOf(textToMatch).length) + "(...)"
+    let resMatch = "(...) " +  item.textContent.slice(item.textContent.indexOf(textToMatch) - 10, item.textContent.indexOf(textToMatch) + textToMatch.length) + "(...)"
     let resCard = document.createElement("div")
-    console.log(new DOMParser().parseFromString(item.innerHTML, 'application/xml').getElementsByTagName("link"))
-    let resLink = new DOMParser().parseFromString(item.innerHTML, 'application/xml').getElementsByTagName("guid")[0]
+    let resLink = new DOMParser().parseFromString(item.innerHTML, 'application/xml').getElementsByTagName("guid")[0].textContent
     resCard.innerHTML = `<a href="${resLink}">${resLink}</a>
         <p>
           ${resMatch}

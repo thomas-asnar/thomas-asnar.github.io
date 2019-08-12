@@ -18,6 +18,9 @@ description: "Moteur de recherche sur le site VTOM de Thomas ASNAR"
 <style>.gsib_a{padding:0}</style>
 
 
+
+
+
 <div class="mb-4">
   <label class="block text-gray-700 text-sm font-bold mb-2" for="recherche">
     Recherche via le feed.xml Jekyll (<a href="/comment-rechercher-des-mots-site-jekyll-javascript/" title="search js jekyll feed.xml">voir le post ici</a>)
@@ -35,14 +38,12 @@ function buildResult(arr, textToMatch){
   res.innerHTML = ""
   arr.forEach(item => {
     let resMatch = "(...) " +  item.textContent.slice(item.textContent.indexOf(textToMatch) - 10, item.textContent.indexOf(textToMatch).length) + "(...)"
-    res.append(`
-      <div>
-        <a href="${item.baseURI}">${item.baseURI}</a>
+    let resCard = document.createElement("div")
+    resCard.innerHTML = `<a href="${item.baseURI}">${item.baseURI}</a>
         <p>
           ${resMatch}
-        </p>
-      </div>
-    `)
+        </p>`
+    res.append(resCard)
   })
 }
 

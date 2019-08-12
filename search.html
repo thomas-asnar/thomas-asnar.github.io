@@ -33,7 +33,7 @@ function buildResult(arr, textToMatch){
   let res = document.querySelector("#result")
   res.innerHTML = ""
   arr.forEach(item => {
-    let resMatch = "(...) " +  item.textContent.slice(item.textContent.indexOf(textToMatch) - 10, item.textContent.indexOf(textToMatch) + textToMatch.length + 10 ) + "(...)"
+    let resMatch = "(...) " +  item.textContent.slice(item.textContent.indexOf(textToMatch) - 25, item.textContent.indexOf(textToMatch) + textToMatch.length + 25 ) + "(...)"
     let resCard = document.createElement("div")
     let resLink = item.innerHTML.slice(
       item.innerHTML.indexOf("<link>") + 6, 

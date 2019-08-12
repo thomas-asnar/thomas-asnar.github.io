@@ -33,7 +33,9 @@ function buildResult(arr, textToMatch){
   let res = document.querySelector("#result")
   res.innerHTML = ""
   arr.forEach(item => {
-    let resMatch = "(...) " +  item.textContent.slice(item.textContent.indexOf(textToMatch) - 100, item.textContent.indexOf(textToMatch) + textToMatch.length + 100) + "(...)"
+    let resMatch = "(...) " +  item.textContent.slice(item.textContent.indexOf(textToMatch) - 100, item.textContent.indexOf(textToMatch))
+    resMatch += "<span class='font-bold'>" +  item.textContent.slice(item.textContent.indexOf(textToMatch), item.textContent.indexOf(textToMatch) + textToMatch.length) + "<span>"
+    resMatch += item.textContent.slice(item.textContent.indexOf(textToMatch) + textToMatch.length, item.textContent.indexOf(textToMatch) + textToMatch.length + 100) + "(...)"
     let resCard = document.createElement("div")
     resCard.classList.add("mb-4", "p-4", "rounded", "border")
     let resLink = item.innerHTML.slice(

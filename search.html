@@ -19,7 +19,6 @@ description: "Moteur de recherche sur le site VTOM de Thomas ASNAR"
 
 
 
-
 <div class="mb-4">
   <label class="block text-gray-700 text-sm font-bold mb-2" for="recherche">
     Recherche via le feed.xml Jekyll (<a href="/comment-rechercher-des-mots-site-jekyll-javascript/" title="search js jekyll feed.xml">voir le post ici</a>)
@@ -38,8 +37,7 @@ function buildResult(arr, textToMatch){
   arr.forEach(item => {
     let resMatch = "(...) " +  item.textContent.slice(item.textContent.indexOf(textToMatch) - 10, item.textContent.indexOf(textToMatch).length) + "(...)"
     let resCard = document.createElement("div")
-    console.log( new DOMParser().parseFromString(item.innerHTML, 'text/html'))
-    let resLink = new DOMParser().parseFromString(item.innerHTML, 'text/html').getElementsByTagName("Link")
+    let resLink = new DOMParser().parseFromString(item.innerHTML, 'text/html').getElementsByTagName("guid")[0]
     resCard.innerHTML = `<a href="${resLink}">${resLink}</a>
         <p>
           ${resMatch}

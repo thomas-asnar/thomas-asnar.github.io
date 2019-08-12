@@ -34,6 +34,7 @@ description: "Moteur de recherche sur le site VTOM de Thomas ASNAR"
 document.querySelector("head").innerHTML = document.querySelector("head").innerHTML + '<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">'
 
 function buildResult(arr, textToMatch){
+  console.log(arr)
   let res = document.querySelector("#result")
   res.innerHTML = ""
   arr.forEach(item => {

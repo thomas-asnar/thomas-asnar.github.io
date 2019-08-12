@@ -16,6 +16,9 @@ description: "Moteur de recherche sur le site VTOM de Thomas ASNAR"
 </script>
 <gcse:search></gcse:search>
 <style>.gsib_a{padding:0}</style>
+
+
+
 <div class="mb-4">
   <label class="block text-gray-700 text-sm font-bold mb-2" for="recherche">
     Recherche via le feed.xml Jekyll (<a href="/comment-rechercher-des-mots-site-jekyll-javascript/" title="search js jekyll feed.xml">voir le post ici</a>)
@@ -28,18 +31,32 @@ description: "Moteur de recherche sur le site VTOM de Thomas ASNAR"
 <script type="text/javascript">
 document.querySelector("head").innerHTML = document.querySelector("head").innerHTML + '<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">'
 
+function buildResult(arr, ){
+  let res = document.querySelector("#result")
+  res.innerHTML = ""
+  arr.forEach(item => {
+    let resMatch = "(...) " +  text.slice(text.indexOf(textToMatch) - 10, text.indexOf(textToMatch).length) + "(...)"
+    res.append(`
+      <div>
+        <a href="${item.baseURI}">${item.baseURI}</a>
+        <p>
+          ${resMatch}
+        </p>
+      </div>
+    `)
+  })
+}
 
 // events search
 document.querySelector("#recherche").addEventListener('keyup',function(e){
-    console.log(e.target)
   fetch("/feed.xml")
   .then(r => r.text())
   .then(xmlAsText => {
     let responseDoc = new DOMParser().parseFromString(xmlAsText, 'application/xml')
-    console.log(
+    buildResult(
       Array.from(responseDoc.getElementsByTagName('item'))
-        .filter(item => item.textContent.match(e.target.value)
-      )
+      .filter(item => item.textContent.match(e.target.value))
+      , e.target.value
     )
   })
 })

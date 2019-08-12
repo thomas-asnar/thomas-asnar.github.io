@@ -38,7 +38,7 @@ document.querySelector("#recherche").addEventListener('keyup',function(e){
     let responseDoc = new DOMParser().parseFromString(xmlAsText, 'application/xml')
     console.log(
       Array.from(responseDoc.getElementsByTagName('item'))
-        .filter(item => item.textContent.match(e.target.textContent)
+        .filter(item => item.textContent.match(e.target.value)
       )
     )
   })

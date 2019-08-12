@@ -17,7 +17,6 @@ description: "Moteur de recherche sur le site VTOM de Thomas ASNAR"
 <gcse:search></gcse:search>
 <style>.gsib_a{padding:0}</style>
 
-
 <div class="mb-4">
   <label class="block text-gray-700 text-sm font-bold mb-2" for="recherche">
     Recherche via le feed.xml Jekyll (![voir le post ici](/comment-rechercher-des-mots-site-jekyll-javascript/))
@@ -29,11 +28,11 @@ description: "Moteur de recherche sur le site VTOM de Thomas ASNAR"
 </div>
 <script type="text/javascript">
 document.querySelector("head").innerHTML = document.querySelector("head").innerHTML + '<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">'
-let _PromFeed = fetch("/feed.xml")
+
 
 // events search
 document.querySelector("#recherche").addEventListener('keyup',function(e){
-  _PromFeed
+  fetch("/feed.xml")
   .then(r => r.text())
   .then(xmlAsText => {
     let responseDoc = new DOMParser().parseFromString(xmlAsText, 'application/xml')

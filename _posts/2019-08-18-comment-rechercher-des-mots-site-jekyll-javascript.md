@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Recherche dans un site Jekyll statique en JS hébergé sur Github
-date: 2015-02-13 05:14
+date: 2019-08-18 09:14
 author: Thomas ASNAR
 categories: [jekyll, javascript, pages Github]
 ---
@@ -14,7 +14,7 @@ Voici le code complet : [https://github.com/thomas-asnar/thomas-asnar.github.io/
 ```js
 // l'idée c'est de récupérer le contenu du fichier /feed.xml que vous construisez dans votre template Jekyll 
 // on parse le contenu en XML et on va chercher le mot clé (ici par exemple "jekyll") dans le noeud qui contient tout le contenu des _posts, chez moi c'est le noeud "item" mais vous mettez ce que vous avez définit dans le template feed.xml de votre site
-// là pour l'exemple je ne fais que l'affichage en console.log des noeuds qui contiennent le mot clé, mais l'idée ça va être de récupérer par exemple l'url du post avec la baslise <Link> du flux RSS"
+// là pour l'exemple je ne fais que l'affichage en console.log des noeuds qui contiennent le mot clé, mais l'idée ça va être de récupérer par exemple l'url du post avec la baslise <link> du flux RSS"
 
 fetch("/feed.xml")
   .then(r => r.text())

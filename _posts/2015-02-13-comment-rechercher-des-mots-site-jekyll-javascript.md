@@ -12,7 +12,7 @@ Puisque je vois que ça peut intéresser des personnes, vous trouverez ci-après
 ```js
 // l'idée c'est de récupérer le contenu du fichier /feed.xml que vous construisez dans votre template Jekyll 
 // on parse le contenu en XML et on va chercher le mot clé (ici par exemple "jekyll") dans le noeud qui contient tout le contenu des _posts, chez moi c'est le noeud "item" mais vous mettez ce que vous avez définit dans le template feed.xml de votre site
-// là pour l'exemple je ne fais que l'affichage en console.log des noeuds qui contiennent le mot clé, mais l'idée ça va être de récupérer par exemple l'url du post avec "baseURI"
+// là pour l'exemple je ne fais que l'affichage en console.log des noeuds qui contiennent le mot clé, mais l'idée ça va être de récupérer par exemple l'url du post avec la baslise <Link> du flux RSS"
 
 fetch("/feed.xml")
   .then(r => r.text())

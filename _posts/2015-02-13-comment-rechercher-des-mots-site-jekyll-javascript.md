@@ -9,6 +9,8 @@ categories: [jekyll, javascript, pages Github]
 <edit 2019>
 Puisque je vois que ça peut intéresser des personnes, vous trouverez ci-après un bout de code beaucoup plus synthétique (et moderne :p) que celui utilisé dans le post original (sans jQuery mais le principe est le même)
 
+Voici le code complet : [https://github.com/thomas-asnar/thomas-asnar.github.io/blob/master/search.html](https://github.com/thomas-asnar/thomas-asnar.github.io/blob/master/search.html)
+
 ```js
 // l'idée c'est de récupérer le contenu du fichier /feed.xml que vous construisez dans votre template Jekyll 
 // on parse le contenu en XML et on va chercher le mot clé (ici par exemple "jekyll") dans le noeud qui contient tout le contenu des _posts, chez moi c'est le noeud "item" mais vous mettez ce que vous avez définit dans le template feed.xml de votre site
@@ -64,8 +66,6 @@ layout: null
 </rss>
 {% endraw %}
 ```
-
-[https://github.com/thomas-asnar/thomas-asnar.github.io/blob/master/search.html](https://github.com/thomas-asnar/thomas-asnar.github.io/blob/master/search.html)
 
 fin de l'édit 2019 :)
 

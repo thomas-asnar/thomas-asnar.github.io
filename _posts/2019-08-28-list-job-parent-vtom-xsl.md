@@ -11,7 +11,7 @@ Besoin (comme un autre :relaxed:) : Lister tous les jobs dont le script est 'xxx
 
 ## XSL 
 
-```xsl
+```xslt
 <xsl:stylesheet version="2.0" 
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="text" encoding="utf-8" />

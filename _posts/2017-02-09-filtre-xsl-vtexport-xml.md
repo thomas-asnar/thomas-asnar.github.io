@@ -9,6 +9,7 @@ Merci à JOEY de m’avoir inspriré ! :)
 
 # Liste des filtres XSL que je créé au fil des besoins
 
+ * [Tous les jobs VTOM, avec filtre sur le script, affichage csv unite soumission, job, parents](http://thomas-asnar.github.io/wp-content/uploads/GetParentJob.xsl)
  * [Toutes les ressources VTOM](http://thomas-asnar.github.io/wp-content/uploads/ResourcesAll.xsl)
  * [Tous les jobs VTOM](http://thomas-asnar.github.io/wp-content/uploads/JobsAll.xsl)
  * [Tous les jobs qui attendent une ressource VTOM](http://thomas-asnar.github.io/wp-content/uploads/JobsExpectedRes.xsl)

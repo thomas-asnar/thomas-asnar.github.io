@@ -6,7 +6,8 @@ author: Thomas ASNAR
 categories: [vtexport, xml, xsl]
 ---
 
-Besoin (comme un autre :relaxed:) : Lister tous les jobs dont le script est <xxx>, ses parents directs, et son unité de soumission
+Besoin (comme un autre :relaxed:) : Lister tous les jobs dont le script est 'xxx', ses parents directs, et son unité de soumission
+<!--more-->
 
 ## XSL 
 

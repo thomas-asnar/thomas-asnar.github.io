@@ -306,6 +306,19 @@ Si status différent de W, Remettre AVENIR l’application - si tous les jobs à
 /api/utilities/setObjectAction?id=applicationSId&action=APP_ACTION_SET_WAIT
 /api/utilities/setObjectAction?id=jobSId&action=JOB_ACTION_SET_WAIT
 
+Pour « demander » l’application VTOM : 
+/api/utilities/setObjectAction?id=applicationSId&action=APP_ACTION_ASK
+
+Dans tous les cas, on demande le job avec les paramètres :
+/api/utilities/setObjectAction
+1.	id: 
+JOB7ef670af0000053b5b990a95000062e4
+2.	action: 
+JOB_ACTION_ASK
+3.	parameters: 
+["taskIdXLR"]
+```
+
 Forcer un statut sur APP ou JOB_ACTION_SET_XXX, on remplace XXX
 (ce qui vaut pour JOB, vaut pour APP)
 
@@ -323,17 +336,4 @@ Forcer une action
 JOB_ACTION_RETAIN ==> RETENIR
 JOB_ACTION_CONTINUE ==> RETENIR
 JOB_ACTION_ASK ==> DEMANDER
-```
-
-Pour « demander » l’application VTOM : 
-/api/utilities/setObjectAction?id=applicationSId&action=APP_ACTION_ASK
-
-Dans tous les cas, on demande le job avec les paramètres :
-/api/utilities/setObjectAction
-1.	id: 
-JOB7ef670af0000053b5b990a95000062e4
-2.	action: 
-JOB_ACTION_ASK
-3.	parameters: 
-["taskIdXLR"]
 ```

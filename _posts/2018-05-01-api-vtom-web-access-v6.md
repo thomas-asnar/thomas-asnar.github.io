@@ -306,6 +306,25 @@ Si status différent de W, Remettre AVENIR l’application - si tous les jobs à
 /api/utilities/setObjectAction?id=applicationSId&action=APP_ACTION_SET_WAIT
 /api/utilities/setObjectAction?id=jobSId&action=JOB_ACTION_SET_WAIT
 
+Forcer un statut sur APP ou JOB_ACTION_SET_XXX, on remplace XXX
+(ce qui vaut pour JOB, vaut pour APP)
+
+```
+JOB_ACTION_SET_FINISHED ==> TERMINE
+JOB_ACTION_SET_ERROR ==> EN ERREUR
+JOB_ACTION_SET_RUNNING ==> EN COURS
+JOB_ACTION_SET_WAIT ==> A VENIR
+JOB_ACTION_SET_UNSCHEDULED ==> NON PLANIFIE
+```
+
+Forcer une action 
+
+```
+JOB_ACTION_RETAIN ==> RETENIR
+JOB_ACTION_CONTINUE ==> RETENIR
+JOB_ACTION_ASK ==> DEMANDER
+```
+
 Pour « demander » l’application VTOM : 
 /api/utilities/setObjectAction?id=applicationSId&action=APP_ACTION_ASK
 

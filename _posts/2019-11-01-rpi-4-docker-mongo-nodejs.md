@@ -89,7 +89,11 @@ ExecStart=/sbin/dhclient wlan0
 [Install]
 WantedBy=multi-user.target
 sudo systemctl enable dhclient.service
+
+# rajout d'un serveur dns dans /etc/resolv.conf (on peut mettre directement les DNS google aussi : nameserver 8.8.8.8)
+nameserver 192.168.1.254
 ```
+
 * mise à jour : il est possible que ça soit fait en auto par la crontab (ça a été mon cas dès que j'ai branché le net). Sinon `sudo apt update && sudo apt upgrade`
 * sécurité :
   * changer son password ubuntu (mais normalement c'est demandé lors de la première connexion)

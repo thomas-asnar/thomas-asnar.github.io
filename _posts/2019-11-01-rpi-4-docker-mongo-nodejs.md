@@ -76,6 +76,7 @@ ExecStart=/sbin/wpa_supplicant -u -s -c /etc/wpa_supplicant.conf -i wlan0
 #Alias=dbus-fi.w1.wpa_supplicant1.service
 sudo systemctl enable wpa_supplicant.service
 # dhcp client au boot pour l'interface wifi
+sudo vi /etc/systemd/system/dhclient.service
 [Unit]
 Description= DHCP Client
 Before=network.target

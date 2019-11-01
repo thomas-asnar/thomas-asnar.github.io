@@ -94,8 +94,7 @@ sudo systemctl enable dhclient.service
 * sécurité :
   * changer son password ubuntu (mais normalement c'est demandé lors de la première connexion)
   * accès ssh avec clé uniquement (à noter que ça ne change rien à la connexion en direct sur le rpi) :
-    * Créer un couple clé privé/publique avec PuttyGen (avec une passphrase, c'est mieux)
- TODO lien vers image
+    * Créer un couple clé privé/publique avec PuttyGen (avec une passphrase, c'est mieux) ![puttygen](/wp-content/uploads/puttygen.png)
     * copier/coller la clé publique (ssh-rsa xxxxxx) dans `~/.ssh/authorized_keys`
     * configurer `sudo vi /etc/ssh/sshd_config`
     ```
@@ -109,7 +108,7 @@ sudo systemctl enable dhclient.service
   * installer fail2ban `sudo apt install fail2ban`
 * (optionnel) monter le nas freebox. Ca peut être très intéressant pour configurer un repository git perso, stocker des données, etc. :
   * activer le samba ([fusionné](https://www.youtube.com/watch?v=HAiHEQblKeQ)) : [http://mafreebox.freebox.fr/#Fbx.os.app.settings.ShareSamba](http://mafreebox.freebox.fr/#Fbx.os.app.settings.ShareSamba)
- TODO lien vers image
+ ![freebox_samba.png](/wp-content/uploads/freebox_samba.png)
   * config fstab
   ```sh
   sudo apt install cifs-utils
@@ -276,5 +275,5 @@ idem pour http://192.168.1.17:1234 qui sera mon front
 Reste à faire joujou avec Traefik et le reverse proxy pour que le port 80 http et 443 https fonctionnent correctement.
 
 # Pour en faire un pc de bureau
-Attention 3,5Go en plus
+Attention 3,5 Go en plus
 `sudo apt-get install lubuntu-desktop`

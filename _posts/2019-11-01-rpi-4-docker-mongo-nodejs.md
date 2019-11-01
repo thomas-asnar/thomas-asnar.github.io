@@ -173,6 +173,23 @@ sudo apt udpate
 sudo apt install docker-ce
 sudo apt install docker-compose
 ```
+### Visual Studio Code Insiders
+S'il y a bien un truc qui rox, c'est ça. Et ça ne voulait pas fonctionner avec la Raspbian pour une raison qui m'échappe.
+
+Là, tout fonctionne (répertoire à distance, gestion du git, docker etc) ! On dev à distance sur le rpi depuis un autre poste avec [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/)
+
+config .ssh/config sur votre poste :
+```
+Host rpi
+    User ubuntu
+    HostName 192.168.1.17
+    IdentityFile d:/cle/rpi_priv
+```
+
+Attention, il faut deux choses importantes :
+ * le fichier en format PuttyGen .ppk ne fonctionne pas, il faut l'exporter (vraiment mettez une passephrase sur votre clé). Depuis PuttyGen > menu Conversions > Exporter Open SSH key d:/cle/rpi_priv
+ * le fichier doit être sécurisé et accessbile uniquement à vous (600 en windows c'est Clique droit > Propriétés > Sécurité > Avancé > Désactiver l'héritage > supprimer tout > ne rajouter que votre utilisateur en control total)
+ 
 # Mon premier projet avec Docker
 ## Dépôt de partage git sur le NAS de la Freebox
 

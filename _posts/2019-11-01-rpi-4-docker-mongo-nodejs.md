@@ -90,8 +90,18 @@ ExecStart=/sbin/dhclient wlan0
 WantedBy=multi-user.target
 sudo systemctl enable dhclient.service
 
-# rajout d'un serveur dns dans /etc/resolv.conf (on peut mettre directement les DNS google aussi : nameserver 8.8.8.8)
-nameserver 192.168.1.254
+# rajout d'un serveur dns 
+vi /etc/netplan/01-wifi.yaml
+network:
+    ethernets:
+        wlan0:
+            gateway4: 192.168.1.254
+            nameservers:
+                addresses: [192.168.1.254,8.8.8.8, 8.8.4.4]
+            dhcp4: true
+            dhcp6: true
+    version: 2
+sudo netplan apply
 ```
 
 * mise à jour : il est possible que ça soit fait en auto par la crontab (ça a été mon cas dès que j'ai branché le net). Sinon `sudo apt update && sudo apt upgrade`

@@ -281,12 +281,8 @@ volumes:
 sudo docker-compose up
 ```
 
-Voilà, c'est tout pour aujourd'hui. L'url locale http://192.168.1.17:2345/api et front monsiteperso.hd.free.fr de ma box fonctionne et me renvoie bien :
+Voilà, c'est tout pour aujourd'hui. L'url locale http://192.168.1.17/api et front monsiteperso.hd.free.fr de ma box fonctionne et me renvoie bien :
 `{"version":"1.0"}`
-
-idem pour http://192.168.1.17:1234 qui sera mon front
-
-Reste à faire joujou avec Traefik et le reverse proxy pour que le port 80 http et 443 https fonctionnent correctement.
 
 # Pour en faire un pc de bureau
 Attention 3,5 Go en plus

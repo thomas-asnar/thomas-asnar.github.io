@@ -209,21 +209,25 @@ services:
   traefik:
     # The official v2.0 Traefik docker image
     image: traefik:v2.0
+    # Enables the web UI and tells Traefik to listen to docker
+    # Expose containers by default through Traefik. If set to false, containers that don't have a traefik.enable=true label will be ignored from the resulting routing configuration.
     command:
       - --api.insecure=true
       - --providers.docker=true
       - --providers.docker.exposedByDefault=false
       - --entrypoints.web.address=:80
-      - --entryPoints.web-secured.address=:443
-      - --certificatesResolvers.sample.acme.email=admin@blabla.fr
-      - --certificatesResolvers.sample.acme.storage=acme.json
-      - --certificatesResolvers.sample.acme.httpChallenge.entryPoint=front
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.mytlschallenge.acme.tlschallenge=true"
+      #- "--certificatesresolvers.mytlschallenge.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+      - "--certificatesresolvers.mytlschallenge.acme.email=admin@voter.fr"
+      - "--certificatesresolvers.mytlschallenge.acme.storage=acme.json"
     ports:
       - "80:80"
       # The Web UI (enabled by --api.insecure=true)
       - "8080:8080"
     volumes:
       # So that Traefik can listen to the Docker events
+      - ./acme.json:/acme.json
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
   front:
@@ -232,18 +236,15 @@ services:
       - "1234:1234"
     volumes:
       - ./front:/app/front
-      - ./acme.json:/acme.json
     working_dir: /app/front
     privileged: true
     command: npm run dev
     labels:
       - traefik.enable=true
-      - traefik.http.routers.web.rule=( Host(`localhost`) || Host(`monserveurperso.hd.free.fr`) )
-      - traefik.http.routers.web.entrypoints=web
-      - traefik.http.routers.web.middlewares=redirect@file
-      - traefik.http.routers.web-secured.rule=( Host(`localhost`) || Host(`monserveurperso.hd.free.fr`) )
-      - traefik.http.routers.web-secured.entrypoints=web-secure
-      - traefik.http.routers.web-secured.tls=true
+      - traefik.http.routers.web.rule=( Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) )
+      - traefik.http.routers.websecure.rule=( Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) )
+      - traefik.http.routers.websecure.tls=true
+        #- traefik.http.services.front.loadbalancer.server.port=1234
     depends_on:
       - api
 
@@ -257,11 +258,10 @@ services:
     volumes:
       - ./api:/app/api
     working_dir: /app/api
-    privileged: true
     command: npm run start
     labels:
       - traefik.enable=true
-      - traefik.http.routers.to-api.rule=( Host(`localhost`) || Host(`monserveurperso.hd.free.fr`) ) && PathPrefix(`/api`)
+      - traefik.http.routers.to-api.rule=( Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) ) && PathPrefix(`/api`)
     depends_on:
       - mongo
 
@@ -281,7 +281,7 @@ volumes:
 sudo docker-compose up
 ```
 
-Voilà, c'est tout pour aujourd'hui. L'url locale http://192.168.1.17:2345/api et front monserveurperso.hd.free.fr de ma box fonctionne et me renvoie bien :
+Voilà, c'est tout pour aujourd'hui. L'url locale http://192.168.1.17:2345/api et front monsiteperso.hd.free.fr de ma box fonctionne et me renvoie bien :
 `{"version":"1.0"}`
 
 idem pour http://192.168.1.17:1234 qui sera mon front

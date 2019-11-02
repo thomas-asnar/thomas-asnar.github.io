@@ -202,6 +202,7 @@ sudo git init --shared --bare monpremierprojet.git
 Initialized empty shared Git repository in /free/git/monpremierprojet.git/
 ```
 ## init projet (docker pour un paysage varié bdd, front, api, traefik pour le reverse proxy et let's encrypt https)
+
 ```sh
 cd ~
 git clone /free/git/monpremierprojet.git
@@ -218,9 +219,19 @@ FROM alpine:latest
 RUN apk add --no-cache npm
 ```
 
+Le traefik a un point d'entrée (:80). Ma box redirige évidemment le port 80 vers le port 80 de mon rpi.
+
+Le traefik se charge ensuite de rediriger en interne les flux et agit comme un reverse proxy.
+
 `vi docker-compose.yml`
 ```yml
 version: '3'
+
+networks:
+  default:
+  traefik_proxy:
+    external:
+      name: traefik_proxy
 
 services:
   traefik:
@@ -228,96 +239,71 @@ services:
     image: traefik:v2.0
     # Enables the web UI and tells Traefik to listen to docker
     # Expose containers by default through Traefik. If set to false, containers that don't have a traefik.enable=true label will be ignored from the resulting routing configuration.
+    # https://www.reddit.com/r/selfhosted/comments/dfs7cz/docker_traefik_v2_calibreweb_404_page_not_found/
     command:
-      - --api.insecure=true
       - --providers.docker=true
+      - --providers.docker.watch=true
       - --providers.docker.exposedByDefault=false
       - --entrypoints.web.address=:80
-      - "--entrypoints.websecure.address=:443"
-      - "--certificatesresolvers.mytlschallenge.acme.tlschallenge=true"
-      #- "--certificatesresolvers.mytlschallenge.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
-      - "--certificatesresolvers.mytlschallenge.acme.email=admin@monsiteperso.hd.free.fr"
-      - "--certificatesresolvers.mytlschallenge.acme.storage=acme.json"
     ports:
       - "80:80"
-      # The Web UI (enabled by --api.insecure=true)
-      - "8080:8080"
+      #- "443:443"
     volumes:
       # So that Traefik can listen to the Docker events
       - ./acme.json:/acme.json
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - default
+      - traefik_proxy
 
   front:
     image: node
-    ports: 
-      - "1234:1234"
+    # ports: 
+    #   - "1234:1234"
     volumes:
       - ./front:/app/front
     working_dir: /app/front
-    privileged: true
     command: npm run dev 
+    networks:
+      - traefik_proxy
     labels:
+      - traefik.docker.network=traefik_proxy
+      - traefik.http.services.front.loadbalancer.server.port=1234
       - traefik.enable=true
       - traefik.http.routers.to-front.rule=( Host(`192.168.1.5`) || Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) )
-      - traefik.http.routers.to-front.entrypoints=web
-      - traefik.http.routers.to-front-secure.rule=( Host(`192.168.1.5`) || Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) )
-      - traefik.http.routers.to-front-secure.tls=true
-      - traefik.http.routers.to-front-secure.entrypoints=websecure
-        #- traefik.http.services.front.loadbalancer.server.port=1234
     depends_on:
       - api 
- 
+
   api:
     build:
       context: .
       dockerfile: Dockerfile-alpine-nodejs
     image: alpine:nodejs
-    ports: 
-      - "2345:2345"
+    # ports: 
+    #   - "2345:2345"
     volumes:
       - ./api:/app/api
     working_dir: /app/api
     command: npm run start
+    networks:
+      - traefik_proxy
     labels:
+      - traefik.docker.network=traefik_proxy
+      - traefik.http.services.api.loadbalancer.server.port=2345
       - traefik.enable=true
       - traefik.http.routers.to-api.rule=( Host(`192.168.1.5`) || Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) ) && PathPrefix(`/api`)
-      - traefik.http.routers.to-api.entrypoints=web
-      - traefik.http.routers.to-api-secure.rule=( Host(`192.168.1.5`) || Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) ) && PathPrefix(`/api`)
-      - traefik.http.routers.to-api-secure.tls=true
-      - traefik.http.routers.to-api-secure.entrypoints=websecure
-    depends_on:
-      - mongo 
-  
-  nodebb:
-    # image: node
-    # prérequis, à voir si on peut l'automatiser ou en faire une image
-    # apt-get install git build-essential imagemagick
-    # git clone https://github.com/NodeBB/NodeBB.git nodebb
-    # ./nodebb setup
-    # ./nodebb dev
-    # tant pis j'en fais une image
-    # auth https://community.nodebb.org/topic/11372/sso-single-sign-on-opportunities
-    image: nodebb:thomas
-    ports: 
-      - "3456:3456"
-    volumes:
-      - ./nodebb:/app/nodebb
-    working_dir: /app/nodebb
-    command: ./nodebb dev
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.to-nodebb.rule=( Host(`192.168.1.5`) || Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) ) && PathPrefix(`/forum`)
-      - traefik.http.routers.to-nodebb.entrypoints=web
-      - traefik.http.routers.to-nodebb-secure.rule=( Host(`192.168.1.5`) || Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) ) && PathPrefix(`/forum`)
-      - traefik.http.routers.to-nodebb-secure.tls=true
-      - traefik.http.routers.to-nodebb-secure.entrypoints=websecure
     depends_on:
       - mongo
 
   mongo:
     image: mongo 
-    ports:
-      - "27017:27017"
+    # ports:
+    #   - "27017:27017"
+    networks:
+      - traefik_proxy
+    labels:
+      - traefik.docker.network=traefik_proxy
+      - traefik.http.services.mongo.loadbalancer.server.port=27017
     volumes:
       - ./mongod.conf:/etc/mongod.conf
       - ./data/db:/data/db
@@ -325,8 +311,6 @@ services:
 
 volumes:
   mongo:
-    driver: local
-  nodebb:
     driver: local
   api:
     driver: local
@@ -337,9 +321,6 @@ volumes:
 ```
 sudo docker-compose up
 ```
-
-Voilà, c'est tout pour aujourd'hui. L'url locale http://192.168.1.17/api et front monsiteperso.hd.free.fr de ma box fonctionne et me renvoie bien :
-`{"version":"1.0"}`
 
 # Pour en faire un pc de bureau
 Attention 3,5 Go en plus

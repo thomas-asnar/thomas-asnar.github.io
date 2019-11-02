@@ -236,7 +236,7 @@ services:
       - "--entrypoints.websecure.address=:443"
       - "--certificatesresolvers.mytlschallenge.acme.tlschallenge=true"
       #- "--certificatesresolvers.mytlschallenge.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
-      - "--certificatesresolvers.mytlschallenge.acme.email=admin@voter.fr"
+      - "--certificatesresolvers.mytlschallenge.acme.email=admin@monsiteperso.hd.free.fr"
       - "--certificatesresolvers.mytlschallenge.acme.storage=acme.json"
     ports:
       - "80:80"
@@ -249,28 +249,30 @@ services:
 
   front:
     image: node
-    ports:
+    ports: 
       - "1234:1234"
     volumes:
       - ./front:/app/front
     working_dir: /app/front
     privileged: true
-    command: npm run dev
+    command: npm run dev 
     labels:
       - traefik.enable=true
-      - traefik.http.routers.web.rule=( Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) )
-      - traefik.http.routers.websecure.rule=( Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) )
-      - traefik.http.routers.websecure.tls=true
+      - traefik.http.routers.to-front.rule=( Host(`192.168.1.5`) || Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) )
+      - traefik.http.routers.to-front.entrypoints=web
+      - traefik.http.routers.to-front-secure.rule=( Host(`192.168.1.5`) || Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) )
+      - traefik.http.routers.to-front-secure.tls=true
+      - traefik.http.routers.to-front-secure.entrypoints=websecure
         #- traefik.http.services.front.loadbalancer.server.port=1234
     depends_on:
-      - api
-
+      - api 
+ 
   api:
     build:
       context: .
       dockerfile: Dockerfile-alpine-nodejs
     image: alpine:nodejs
-    ports:
+    ports: 
       - "2345:2345"
     volumes:
       - ./api:/app/api
@@ -278,19 +280,57 @@ services:
     command: npm run start
     labels:
       - traefik.enable=true
-      - traefik.http.routers.to-api.rule=( Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) ) && PathPrefix(`/api`)
+      - traefik.http.routers.to-api.rule=( Host(`192.168.1.5`) || Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) ) && PathPrefix(`/api`)
+      - traefik.http.routers.to-api.entrypoints=web
+      - traefik.http.routers.to-api-secure.rule=( Host(`192.168.1.5`) || Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) ) && PathPrefix(`/api`)
+      - traefik.http.routers.to-api-secure.tls=true
+      - traefik.http.routers.to-api-secure.entrypoints=websecure
+    depends_on:
+      - mongo 
+  
+  nodebb:
+    # image: node
+    # prérequis, à voir si on peut l'automatiser ou en faire une image
+    # apt-get install git build-essential imagemagick
+    # git clone https://github.com/NodeBB/NodeBB.git nodebb
+    # ./nodebb setup
+    # ./nodebb dev
+    # tant pis j'en fais une image
+    # auth https://community.nodebb.org/topic/11372/sso-single-sign-on-opportunities
+    image: nodebb:thomas
+    ports: 
+      - "3456:3456"
+    volumes:
+      - ./nodebb:/app/nodebb
+    working_dir: /app/nodebb
+    command: ./nodebb dev
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.to-nodebb.rule=( Host(`192.168.1.5`) || Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) ) && PathPrefix(`/forum`)
+      - traefik.http.routers.to-nodebb.entrypoints=web
+      - traefik.http.routers.to-nodebb-secure.rule=( Host(`192.168.1.5`) || Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) ) && PathPrefix(`/forum`)
+      - traefik.http.routers.to-nodebb-secure.tls=true
+      - traefik.http.routers.to-nodebb-secure.entrypoints=websecure
     depends_on:
       - mongo
 
   mongo:
-    image: mongo
+    image: mongo 
     ports:
-      - "6379:6379"
+      - "27017:27017"
     volumes:
-      - ./data:/data
+      - ./mongod.conf:/etc/mongod.conf
+      - ./data/db:/data/db
+      - ./data/configdb:/data/configdb
 
 volumes:
   mongo:
+    driver: local
+  nodebb:
+    driver: local
+  api:
+    driver: local
+  front:
     driver: local
 ```
 

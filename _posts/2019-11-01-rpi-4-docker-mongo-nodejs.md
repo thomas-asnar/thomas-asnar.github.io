@@ -235,21 +235,14 @@ networks:
 
 services:
   traefik:
-    # The official v2.0 Traefik docker image
     image: traefik:v2.0
-    # Enables the web UI and tells Traefik to listen to docker
-    # Expose containers by default through Traefik. If set to false, containers that don't have a traefik.enable=true label will be ignored from the resulting routing configuration.
-    # https://www.reddit.com/r/selfhosted/comments/dfs7cz/docker_traefik_v2_calibreweb_404_page_not_found/
     command:
       - --providers.docker=true
-      - --providers.docker.watch=true
       - --providers.docker.exposedByDefault=false
       - --entrypoints.web.address=:80
     ports:
-      - "80:80"
-      #- "443:443"
+      - "8383:80"
     volumes:
-      # So that Traefik can listen to the Docker events
       - ./acme.json:/acme.json
       - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
@@ -258,8 +251,6 @@ services:
 
   front:
     image: node
-    # ports: 
-    #   - "1234:1234"
     volumes:
       - ./front:/app/front
     working_dir: /app/front
@@ -270,17 +261,31 @@ services:
       - traefik.docker.network=traefik_proxy
       - traefik.http.services.front.loadbalancer.server.port=1234
       - traefik.enable=true
-      - traefik.http.routers.to-front.rule=( Host(`192.168.1.5`) || Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) )
+      - traefik.http.routers.front.rule=Host(`monsiteperso.hd.free.fr`)
     depends_on:
       - api 
+
+  nodebb:
+    image: nodebb:thomas
+    volumes:
+      - ./nodebb:/app/nodebb
+    working_dir: /app/nodebb
+    command: ./nodebb dev
+    networks:
+      - traefik_proxy
+    labels:
+      - traefik.docker.network=traefik_proxy
+      - traefik.http.services.nodebb.loadbalancer.server.port=4567
+      - traefik.enable=true
+      - traefik.http.routers.nodebb.rule=Host(`monsiteperso.hd.free.fr`) && PathPrefix(`/forum`)
+    depends_on:
+      - mongo 
 
   api:
     build:
       context: .
       dockerfile: Dockerfile-alpine-nodejs
     image: alpine:nodejs
-    # ports: 
-    #   - "2345:2345"
     volumes:
       - ./api:/app/api
     working_dir: /app/api
@@ -291,14 +296,31 @@ services:
       - traefik.docker.network=traefik_proxy
       - traefik.http.services.api.loadbalancer.server.port=2345
       - traefik.enable=true
-      - traefik.http.routers.to-api.rule=( Host(`192.168.1.5`) || Host(`localhost`) || Host(`monsiteperso.hd.free.fr`) ) && PathPrefix(`/api`)
+      - traefik.http.routers.api.rule=Host(`monsiteperso.hd.free.fr`) && PathPrefix(`/api`)
+    depends_on:
+      - mongo
+  
+  apiv2:
+    build:
+      context: .
+      dockerfile: Dockerfile-alpine-nodejs
+    image: alpine:nodejs
+    volumes:
+      - ./apiv2:/app/api
+    working_dir: /app/api
+    command: npm run start
+    networks:
+      - traefik_proxy
+    labels:
+      - traefik.docker.network=traefik_proxy
+      - traefik.http.services.apiv2.loadbalancer.server.port=3456
+      - traefik.enable=true
+      - traefik.http.routers.apiv2.rule=Host(`monsiteperso.hd.free.fr`) && PathPrefix(`/apiv2`)
     depends_on:
       - mongo
 
   mongo:
     image: mongo 
-    # ports:
-    #   - "27017:27017"
     networks:
       - traefik_proxy
     labels:
@@ -315,6 +337,8 @@ volumes:
   api:
     driver: local
   front:
+    driver: local
+  nodebb:
     driver: local
 ```
 

@@ -109,7 +109,7 @@ sudo netplan apply
   * changer son password ubuntu (mais normalement c'est demandé lors de la première connexion)
   * accès ssh avec clé uniquement (à noter que ça ne change rien à la connexion en direct sur le rpi) :
     * Créer un couple clé privé/publique avec PuttyGen (avec une passphrase, c'est mieux) ![puttygen](/wp-content/uploads/puttygen.png)
-    * copier/coller la clé publique (ssh-rsa xxxxxx) dans `~/.ssh/authorized_keys`
+    * copier/coller la clé publique (ssh-rsa xxxxxx) dans `~/.ssh/authorized_keys` (attention ce fichier ne doit pas avoir de droits trop permissif, 600 c'est une valeur sûre)
     * configurer `sudo vi /etc/ssh/sshd_config`
     ```
     #PubkeyAuthentication yes

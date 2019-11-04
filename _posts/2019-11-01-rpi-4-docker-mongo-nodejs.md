@@ -188,12 +188,12 @@ Host rpi
 
 Attention, il faut deux choses importantes :
  * le fichier en format PuttyGen .ppk ne fonctionne pas, il faut l'exporter (vraiment mettez une passephrase sur votre clé). Depuis PuttyGen > menu Conversions > Exporter Open SSH key d:/cle/rpi_priv
- * le fichier doit être sécurisé et accessbile uniquement à vous (600 en windows c'est Clique droit > Propriétés > Sécurité > Avancé > Désactiver l'héritage > supprimer tout > ne rajouter que votre utilisateur en control total)
+ * ce fichier (cle_priv) doit être sécurisé et accessbile uniquement à vous (600 en windows c'est : Clique droit > Propriétés > Sécurité > Avancé > Désactiver l'héritage > supprimer tout > ne rajouter que votre utilisateur en control total)
  
 # Mon premier projet avec Docker
 ## Dépôt de partage git sur le NAS de la Freebox
 
-Juste parce que ça peut être sympa d'avoir plusieurs remote (un sur github et un sur le NAS par exemple)
+Juste parce que ça peut être sympa d'avoir plusieurs remote (un sur github et un sur le NAS par exemple). Ou si on ne veut pas partager son code en phase de Dev, on le garde en local + NAS de la Box (sans faire de pub, la freebox est vraiment pas mal pour ça, assez rapide et capacité correcte).
 ```sh
 cd /free
 sudo mkdir git

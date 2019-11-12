@@ -118,6 +118,7 @@ curl -H 'Authorization: Basic VE9NOlRPTQ=='
 
 On peut aussi se pré-authentifier avec `/api/utilities/login` POST { login: "xxx", password: "xxx" }.
 Ca renvoie un cookie avec `vtsession` et `webdoc_account_id` qu'il faudra rajouter aux futures requêtes.
+Ce qui est bien avec cette méthode, c'est que les utilisateurs LDAP passent, alors que l'Authorization Basic ne fonctionne qu'avec des utilisateurs "locaux".
 
 # Vous en voulez plus ? 
 

@@ -116,6 +116,9 @@ On peut aussi utiliser cette méthode pour s'authentifier, en passant par le hea
 curl -H 'Authorization: Basic VE9NOlRPTQ=='
 ```
 
+On peut aussi se pré-authentifier avec `/api/utilities/login` POST { login: "xxx", password: "xxx" }.
+Ca renvoie un cookie avec `vtsession` et `webdoc_account_id` qu'il faudra rajouter aux futures requêtes.
+
 # Vous en voulez plus ? 
 
 Aucune doc Absyss ne référence toutes les APIs. Donc petite astuce :

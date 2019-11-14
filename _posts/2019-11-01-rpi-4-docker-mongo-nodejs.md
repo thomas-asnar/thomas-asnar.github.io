@@ -18,8 +18,11 @@ Tout dépend de votre utilisation, mais pour ma part, "ma vie a changé" depuis 
 Entendez-moi bien, la Raspbian est super stable, elle fait le taff à merveille pour un pc standard et du dev standard 99% du temps. Mais alors quand il s'agit de monter un docker, la moitié des images du Hub ne fonctionnent pas, certains paquets apt non plus (style mongodb)
 
 Bref, tout ça pour dire, vive Ubuntu Server !
+
+<MAJ après 10 jours d'utilisation : ubuntu server + GUI c'est naze. Ubuntu server tout seul oui, mais si besoin d'un desktop, je trouve Raspbian 100 fois mieux>
+
 # Premiers pas
-Pour info', j'ai la version 4Go RAM du rpi4.
+Pour info', j'ai la version 4Go RAM du rpi4, avec un boitier ventilé (tout petit ventilo suffit, je tourne à 52°C en charge ~)
 ## Install Ubuntu Server
 Toutes les instructions sont là en fait : [Ubuntu](https://ubuntu.com/download/iot/raspberry-pi).
 ### Petit bug

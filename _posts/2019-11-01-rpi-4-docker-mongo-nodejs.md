@@ -27,9 +27,10 @@ Je suis repassé sur Raspbian et suis agréablement surpris en 2 mois de voir le
 
 [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/)
 
-Pour passer en arm64, rajouter `arm_64bit=1` dans /boot/config.txt :
+Pour passer en arm64, `rpi-update` et rajouter `arm_64bit=1` dans /boot/config.txt :
 
 ```
+sudo rpi-update
 sudo vi /boot/config.txt
 ...
 [all]

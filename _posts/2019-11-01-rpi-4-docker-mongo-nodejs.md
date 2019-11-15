@@ -19,7 +19,54 @@ Entendez-moi bien, la Raspbian est super stable, elle fait le taff à merveille 
 
 Bref, tout ça pour dire, vive Ubuntu Server !
 
-<MAJ après 10 jours d'utilisation : ubuntu server + GUI c'est naze. Ubuntu server tout seul oui, mais si besoin d'un desktop, je trouve Raspbian 100 fois mieux>
+&lt; Ou pas ! edit MAJ du billet après 10 jours d'utilisation d'Ubuntu server :
+
+ubuntu server + GUI c'est naze (grosse lenteur avec Lubuntu, on sent que ça n'est pas opti' du tout). Ubuntu server c'est pas mal oui, mais si besoin d'un desktop, je trouve Raspbian 100 fois mieux.
+
+Je suis repassé sur Raspbian et suis agréablement surpris en 2 mois de voir les améliorations sur la buster. J'ai dû tomber au moment où on est passé de la stretch à buster et beaucoup de paquet ne suivaient pas le rythme. 
+
+[https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/)
+
+Pour passer en arm64, rajouter `arm_64bit=1` dans /boot/config.txt :
+
+```
+sudo vi /boot/config.txt
+...
+[all]
+arm_64bit=1
+...
+```
+ 
+Install vscode
+[https://github.com/futurejones/code-oss-aarch64/blob/master/raspbian-buster-pi4/README.md](https://github.com/futurejones/code-oss-aarch64/blob/master/raspbian-buster-pi4/README.md)
+```
+# https://packagecloud.io/swift-arm/vscode, c'est dispo' pour buster maintenant
+curl -s https://packagecloud.io/install/repositories/swift-arm/vscode/script.deb.sh | sudo bash
+sudo apt-get install code-oss
+```
+
+Install Docker-ce
+https://docs.docker.com/install/linux/docker-ce/debian/
+https://download.docker.com/linux/debian/dists/buster/stable/
+```
+sudo apt update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg2 \
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo apt-key add -
+echo "deb https://download.docker.com/linux/raspbian/ buster stable" > /etc/apt/sources.list.d/docker.list
+# ou dans /etc/apt/sources.list, rajouter la ligne deb [arch=arm64] https://download.docker.com/linux/raspbian/ buster stable
+sudo apt update
+sudo apt install docker-ce docker-compose docker-ce-cli containerd.io
+```
+le seul truc c'est que le package aufs-dkms essaie de s'installer en recommandé et plante sur le RPI. Mais ça n'affecte pas l'installation de Docker-CE. (à voir pour `sudo apt install --no-install-recommends docker-ce`, pas testé)
+
+Je ferme la parenthèse pour Raspbian :)
+
+&gt;
 
 # Premiers pas
 Pour info', j'ai la version 4Go RAM du rpi4, avec un boitier ventilé (tout petit ventilo suffit, je tourne à 52°C en charge ~)

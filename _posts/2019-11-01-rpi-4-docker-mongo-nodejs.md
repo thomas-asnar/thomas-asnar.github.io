@@ -13,6 +13,7 @@ Petit retour d'expérience sur mon nouveau pc, le raspberry pi 4.
 * consommation ridicule (bien pour la planète et mon portefeuille ~ 5€ par an)
 * une interface avec le monde (GPIO, ces petites broches d'entrée/sortie qui nous permettent de faire de la domotique, des stations météos, etc.)
 * je joue de moins en moins sur ma grosse machine, il n'est pas impossible qu'il devienne mon pc principal avec une GUI
+
 ## Les galères du début
 Tout dépend de votre utilisation, mais pour ma part, "ma vie a changé" depuis que je suis passé de la distribution [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) à l'[Ubuntu](https://ubuntu.com/download/iot/raspberry-pi).
 Entendez-moi bien, la Raspbian est super stable, elle fait le taff à merveille pour un pc standard et du dev standard 99% du temps. Mais alors quand il s'agit de monter un docker, la moitié des images du Hub ne fonctionnent pas, certains paquets apt non plus (style mongodb)
@@ -20,7 +21,7 @@ Entendez-moi bien, la Raspbian est super stable, elle fait le taff à merveille 
 Bref, tout ça pour dire, vive Ubuntu Server !
 
 &lt; Ou pas ! edit MAJ du billet après 10 jours d'utilisation d'Ubuntu server :
-
+<!--more-->
 ubuntu server + GUI c'est naze (grosse lenteur avec Lubuntu, on sent que ça n'est pas opti' du tout). Ubuntu server c'est pas mal oui, mais si besoin d'un desktop, je trouve Raspbian 100 fois mieux.
 
 Je suis repassé sur Raspbian et suis agréablement surpris en 2 mois de voir les améliorations sur la buster. J'ai dû tomber au moment où on est passé de la stretch à buster et beaucoup de paquet ne suivaient pas le rythme. 

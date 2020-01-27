@@ -189,7 +189,9 @@ sudo netplan apply
   ```sh
   sudo mount -a
   ```
+  
   c'est vraiment important car une erreur de syntaxe peut bloquer votre boot. Au cas où si ça vous arrive :
+  
   ```
   You can repair most such problems on the Pi by rebooting to a root shell.
 
@@ -198,6 +200,7 @@ sudo netplan apply
   Your root file system is mounted as readonly now, so remount it as read/write
   mount -n -o remount,rw /
   ```
+  
 ## Installation environnement de Dev
 ### Quelques paquets prérequis
 ```sh

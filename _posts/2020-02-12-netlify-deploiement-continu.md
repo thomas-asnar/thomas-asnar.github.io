@@ -6,7 +6,6 @@ author: Thomas ASNAR
 comments: true
 categories: [devOps, nodejs, parcel, deno, Netlify]
 ---
-# Netlify
 Petit exemple de site : [https://goofy-jepsen-1836b2.netlify.com/](https://goofy-jepsen-1836b2.netlify.com/). Le code de ce site est hébergé sur Github [monsite](https://github.com/thomas-asnar/monsite). A chaque commit sur la branch de mon choix (master), le déploiement du site statique est effectué par [Netlify](https://netlify.com). Le build se fait avec [Parcel Bundler](https://parceljs.org/) que j'adore pour sa simplicité.
 A petite échelle, c'est ce qu'on appelle du déploiement continu. 
 

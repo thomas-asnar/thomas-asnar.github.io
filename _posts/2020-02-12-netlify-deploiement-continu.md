@@ -17,9 +17,9 @@ Netlify est Gratuit pour sa version de base. C'est un peu fou mais pas plus qu'u
 
 # Comment mettre en oeuvre
  * Avoir un compte Github et l'utiliser très classiquement (rien de change de ce côté là). Repo, coder, avoir une branche principale, publier.
- * Avoir un nom de domaine à vous si vous voulez le faire correspondre à votre site déployé sur Netlify. Sinon, notamment pour des besoins de Dev, Netlify fournit un DNS, sous-domaine de son domaine netfly.com.
+ * Avoir un nom de domaine à vous si vous voulez le faire correspondre à votre site déployé sur Netlify. Sinon, notamment pour des besoins de Dev, Netlify fournit un DNS, sous-domaine de son domaine Netlify.com.
  * Créer un compte Netlify et rajouter le lien vers son repo/branch Github (Tout est très intuitif)
- `Create a new site` &gt; `Continuous Deployment` en selectionnant Github (ou autre fournisseur git). Personnellement, je n'ai autorisé que le repo' que je souhaitais à Netfly.
+ `Create a new site` &gt; `Continuous Deployment` en selectionnant Github (ou autre fournisseur git). Personnellement, je n'ai autorisé que le repo' que je souhaitais à Netlify.
  * Configurer le `Build & Deploy`
 ```
 Build settings

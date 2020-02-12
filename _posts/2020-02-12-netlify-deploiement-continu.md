@@ -9,7 +9,7 @@ categories: [devOps, nodejs, parcel, deno, Netlify]
 Petit exemple de site : [https://goofy-jepsen-1836b2.netlify.com/](https://goofy-jepsen-1836b2.netlify.com/). Le code de ce site est hébergé sur Github [monsite](https://github.com/thomas-asnar/monsite). A chaque commit sur la branch de mon choix (master), le déploiement du site statique est effectué par [Netlify](https://netlify.com). Le build se fait avec [Parcel Bundler](https://parceljs.org/) que j'adore pour sa simplicité.
 A petite échelle, c'est ce qu'on appelle du déploiement continu. 
 
-J'ai outrageusement pompé l'idée et la façon de faire de Ryan Dahl (juste le développeur de NodeJS qui planche en ce moment sur le successeur de son bébé : Deno. Le site [deno.land](https://deno.land) utilise à peu près le même principe de déploiement, au Cloudflare worker près - qui lui sert à présenter du code raw brut selon si on a un header navigateur ou si c'est un appel API par ex - et son front qui est codé en React)
+J'ai outrageusement pompé l'idée et la façon de faire de Ryan Dahl (juste le développeur de NodeJS qui planche en ce moment sur le successeur de son bébé : Deno. Le site [deno.land](https://deno.land) utilise à peu près le même principe de déploiement, au Cloudflare worker près - qui lui sert à présenter de l'html ou du code raw brut selon si on a un header navigateur ou si c'est un appel API par ex - et son front qui est codé en React)
 
 <!--more-->
 # Prix

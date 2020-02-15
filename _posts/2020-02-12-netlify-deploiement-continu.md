@@ -17,7 +17,7 @@ Netlify est Gratuit pour sa version de base. C'est un peu fou mais pas plus qu'u
 
 # Comment mettre en oeuvre
  * Avoir un compte Github et l'utiliser très classiquement (rien de change de ce côté là). Repo, coder, avoir une branche principale, publier.
- * Avoir un nom de domaine à vous si vous voulez le faire correspondre à votre site déployé sur Netlify. Sinon, notamment pour des besoins de Dev, Netlify fournit un DNS, sous-domaine de son domaine Netlify.com.
+ * Avoir un nom de domaine à vous si vous voulez le faire correspondre à votre site déployé sur Netlify. Sinon, notamment pour des besoins de Dev, Netlify fournit un DNS, sous-domaine de son domaine Netlify.com (personnalisable en plus).
  * Créer un compte Netlify et rajouter le lien vers son repo/branch Github (Tout est très intuitif)
  `Create a new site` &gt; `Continuous Deployment` en selectionnant Github (ou autre fournisseur git). Personnellement, je n'ai autorisé que le repo' que je souhaitais à Netlify.
  * Configurer le `Build & Deploy`
@@ -36,4 +36,4 @@ Publish directory : dist
   Dans mon cas, parcel build va construire le site et le déposer dans le répertoire dist
 ```
 
-Et voilà. Pas plus compliqué. Dès qu'on modifie la branche configurée, et qu'on push, un webhook de Netlify se déclenche, suivi du process de build & deploy.
+Et voilà. Pas plus compliqué. Dès qu'on modifie la branche configurée, et qu'on push, un webhook de Netlify se déclenche, suivi du process de build & deploy. A noter que dans le process, le `npm install -y` est automatique et télécharge tous les node_modules nécessaires.

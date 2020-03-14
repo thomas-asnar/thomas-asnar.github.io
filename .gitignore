@@ -5,3 +5,5 @@ _build
 Gemfile.lock
 nohup.out
 _local_config.yml
+vendor/
+.bundle

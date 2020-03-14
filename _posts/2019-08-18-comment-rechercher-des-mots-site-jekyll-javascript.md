@@ -11,6 +11,8 @@ Puisque je vois que ça peut intéresser des personnes, vous trouverez ci-après
 
 Voici le code complet : [https://github.com/thomas-asnar/thomas-asnar.github.io/blob/master/search.html](https://github.com/thomas-asnar/thomas-asnar.github.io/blob/master/search.html)
 
+<!--more-->
+
 ```js
 // l'idée c'est de récupérer le contenu du fichier /feed.xml que vous construisez dans votre template Jekyll 
 // on parse le contenu en XML et on va chercher le mot clé (ici par exemple "jekyll") dans le noeud qui contient tout le contenu des _posts, chez moi c'est le noeud "item" mais vous mettez ce que vous avez définit dans le template feed.xml de votre site
@@ -74,7 +76,7 @@ J'utilise [Jekyll](http://jekyllrb.com) pour générer les pages statiques que v
 
 Le problème d'un site statique, c'est qu'on ne peut pas interroger son serveur web (php, node js ou autre) pour obtenir des informations.
 
-En PHP, par exemple, si l'on veut rajouter un module de recherche sur son site, il suffit d’interroger un contrôleur qui va se charger d'aller chercher dans un modèle les mots recherchés en POST.
+En PHP, par exemple, si l'on veut rajouter un module de recherche sur son site, il suffit d'interroger un contrôleur qui va se charger d'aller chercher dans un modèle les mots recherchés en POST.
 
 Mais qu'à cela ne tienne. Avec un peu de javascript / ajax, c'est facile.
 

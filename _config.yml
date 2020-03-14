@@ -21,7 +21,7 @@ kramdown:
 highlighter: rouge
   
 include: [".htaccess"]
-exclude: ["bower.json", "package.json", "node_modules", "Gemfile", "Gemfile.lock","_build"]
+exclude: ["bower.json", "package.json", "node_modules", "Gemfile", "Gemfile.lock","_build", "vendor", ".bundle"]
 
 excerpt_separator: '<!--more-->'
 

@@ -10,6 +10,8 @@ But du jeu, récupérer la data d'un tableau créé avec TablePress (retour JSON
 
 !! Attention !! Vous devez savoir ce que vous faites quand on modifie un plugin et les hooks, on peut potentiellement ne plus avoir accès à son site wp.
 
+<!--more-->
+
 ## Ajout dans plugins/tablepress/tablepress.php
 ```php
 // Add API Route to ajax request on ShortCode table Id

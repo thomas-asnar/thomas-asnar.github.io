@@ -10,7 +10,7 @@ categories: [rpi, raspberry pi, rpi 4, docker, devOps, nodejs, parcel]
 Petit retour d'expérience sur mon nouveau pc, le raspberry pi 4. 
 ## Pourquoi une framboise à la maison ?!
 * un cloud personnel, aussi bien compute que file, et même, pourquoi pas, un serveur web perso en activant le domaine gratuit free (soit par la box "Nom de domaine", soit par le compte free)
-* consommation ridicule (bien pour la planète et mon portefeuille ~ 5€ par an)
+* consommation ridicule (bien pour la planète et mon portefeuille ~ 5&euro; par an)
 * une interface avec le monde (GPIO, ces petites broches d'entrée/sortie qui nous permettent de faire de la domotique, des stations météos, etc.)
 * je joue de moins en moins sur ma grosse machine, il n'est pas impossible qu'il devienne mon pc principal avec une GUI
 
@@ -20,7 +20,7 @@ Entendez-moi bien, la Raspbian est super stable, elle fait le taff à merveille 
 
 Bref, tout ça pour dire, vive Ubuntu Server !
 
-&lt; Ou pas ! edit MAJ du billet après 10 jours d'utilisation d'Ubuntu server :
+&lt; Ou pas ! edit MAJ du billet après 10 jours d'utilisation d'Ubuntu server : vive raspbian Buster :) C'est pas grave, je laisse l'article :x
 <!--more-->
 ubuntu server + GUI c'est naze (grosse lenteur avec Lubuntu, on sent que ça n'est pas opti' du tout). Ubuntu server c'est pas mal oui, mais si besoin d'un desktop, je trouve Raspbian 100 fois mieux.
 

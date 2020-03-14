@@ -7,7 +7,7 @@ categories: [xld, api, DevOps]
 ---
 
 Exemple de création d'une infrastructure XLD (v7) via API. C'est à adapter bien sûr, mais ça donne une bonne idée pour créer en masse des infra' en ligne de commande.
-
+<!--more-->
 ```sh
 urlAPI="http://urlxldserver:4516/deployit/repository/ci/"
 

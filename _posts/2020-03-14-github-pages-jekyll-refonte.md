@@ -126,3 +126,5 @@ Le simple fait de commit va redéployer le site.
 # Les p'tits trucs sympas
 Dans [_data](https://jekyllrb.com/docs/datafiles/), on peut mettre des info's "stockées" dans des json ou yml, genre database.  
 Après, on y accède facilement dans les articles .md avec les moustaches {{ site.data.nomdufichierjson.cle }}.
+
+Avoir des commentaires sur un site statique pour toutes les pages/articles (mettre un permalink: /:title/ dans _config.yml ) : [https://disqus.com/](https://disqus.com/).

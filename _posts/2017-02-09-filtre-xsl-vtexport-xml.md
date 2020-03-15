@@ -5,7 +5,7 @@ date: 2017-02-09 20:45
 author: Thomas ASNAR
 categories: [xsl, xslt, xml, vtexport, vtom, filtre, tlist]
 ---
-Merci à JOEY de m’avoir inspriré ! :)
+Merci à JOEY de m'avoir inspriré ! :)
 
 # Liste des filtres XSL que je créé au fil des besoins
 
@@ -15,7 +15,7 @@ Merci à JOEY de m’avoir inspriré ! :)
  * [Tous les jobs qui attendent une ressource VTOM](http://thomas-asnar.github.io/wp-content/uploads/JobsExpectedRes.xsl)
  * [Tous les applications qui attendent une ressource VTOM](http://thomas-asnar.github.io/wp-content/uploads/ApplicationsExpectedRes.xsl)
  * [Rajouter le commentaire sur le noeud graphique job - sortie XML - ex de keep CDATA](http://thomas-asnar.github.io/wp-content/uploads/add_comm_graph_job.xsl)
-
+<!--more-->
 # Pour ceux et celles qui ne connaissent pas
 
 ## A quoi ça sert ?
@@ -28,7 +28,7 @@ Dans mon cas, appliquée à mon vtexport XML, cette feuille de style sera une so
 
 Pour appliquer le fichier XSL au fichier XML vtexport VTOM, on peut faire ça assez simplement avec une class Java (Stylizer) fournie par Oracle.
 
-Si vous voulez plus d’information sur la classe et la télécharger, voici le lien [Oracle Transforming XML Data with XSLT](https://docs.oracle.com/javase/tutorial/jaxp/xslt/transformingXML.html)
+Si vous voulez plus d'information sur la classe et la télécharger, voici le lien [Oracle Transforming XML Data with XSLT](https://docs.oracle.com/javase/tutorial/jaxp/xslt/transformingXML.html)
 
 Compiler le code source java pour créer votre class Stylizer.class. A ne faire qu'une fois. La classe doit se trouver dans votre CLASSPATH (variable d'environnement)
 
@@ -71,7 +71,7 @@ Notez que si vous avez une autre manière d'appliquer un filtre XSLT sur du XML 
    -->
 
   <xsl:template match="/">
-	  <xsl:apply-templates select="Domain/Environments/Environment/Applications/Application/Jobs/Job" />
+    <xsl:apply-templates select="Domain/Environments/Environment/Applications/Application/Jobs/Job" />
   </xsl:template>
 
   <!-- All Job node for root node -->
@@ -91,7 +91,7 @@ Notez que si vous avez une autre manière d'appliquer un filtre XSLT sur du XML 
         <xsl:value-of select="../../@date" />
       </xsl:when>
       <xsl:otherwise>
-      	<xsl:value-of select="../../../../@date" />
+        <xsl:value-of select="../../../../@date" />
       </xsl:otherwise>
     </xsl:choose><xsl:value-of select="$delimCSV" />                                            <!-- DateExpName -->
     <xsl:value-of select="../../@comment" /><xsl:value-of select="$delimCom" />

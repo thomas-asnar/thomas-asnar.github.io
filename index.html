@@ -2,7 +2,10 @@
 layout: default
 titre-court: home
 ---
+{% for post in paginator.posts %}
+{% if forloop.first == true %}
 <div id="page-first-post">
+
   <div itemscope itemtype="http://schema.org/Article" class="post">
 
     <article class="post-content" itemprop="articleBody">
@@ -17,6 +20,8 @@ titre-court: home
     </article>
   </div>
 </div>
+{% endif %}
+{% endfor %}
 <nav>
   <ul class="pagination">
     {% if paginator.previous_page %}
@@ -62,7 +67,7 @@ titre-court: home
       <h4><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
       <p>{{ post.excerpt }}</p>
     </div>
-    
+
   </li>
   {% endif %}
   {% endfor %}

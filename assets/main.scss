@@ -62,7 +62,7 @@ ul.post-list li,
   margin: 0 10px 0 0 ;
 }
 ul.post-list li:not(:last-child):after{
-  content:"-";
+  content:" |";
 }
 .svg-icon{
   width:30px;

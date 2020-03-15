@@ -2,26 +2,6 @@
 layout: default
 titre-court: home
 ---
-{% for post in paginator.posts %}
-{% if forloop.first == true %}
-<div id="page-first-post">
-
-  <div itemscope itemtype="http://schema.org/Article" class="post">
-
-    <article class="post-content" itemprop="articleBody">
-      <h1 itemprop="name about headline" class="post-title">{{ post.title }}</h1>
-      {{ post.excerpt }}
-      (voir plus)
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      <p class="post-meta">
-        <time class="post-meta" itemprop="datePublished dateModified"
-          datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d-%m-%Y" }}</time>
-      </p>
-    </article>
-  </div>
-</div>
-{% endif %}
-{% endfor %}
 <nav>
   <ul class="pagination">
     {% if paginator.previous_page %}
@@ -59,6 +39,26 @@ titre-court: home
   </li>
   {% endfor %}
 </ul>
+{% for post in paginator.posts %}
+{% if forloop.first == true %}
+<div id="page-first-post">
+
+  <div itemscope itemtype="http://schema.org/Article" class="post">
+
+    <article class="post-content" itemprop="articleBody">
+      <h1 itemprop="name about headline" class="post-title">{{ post.title }}</h1>
+      {{ post.excerpt }}
+      (voir plus)
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      <p class="post-meta">
+        <time class="post-meta" itemprop="datePublished dateModified"
+          datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d-%m-%Y" }}</time>
+      </p>
+    </article>
+  </div>
+</div>
+{% endif %}
+{% endfor %}
 <ul class="post-list">
   {% for post in paginator.posts %}
   {% if forloop.first != true %}

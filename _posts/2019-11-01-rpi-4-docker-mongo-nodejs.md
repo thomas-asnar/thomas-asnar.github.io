@@ -20,7 +20,9 @@ Entendez-moi bien, la Raspbian est super stable, elle fait le taff à merveille 
 
 Bref, tout ça pour dire, vive Ubuntu Server !
 
-&lt; Ou pas ! edit MAJ du billet après 10 jours d'utilisation d'Ubuntu server : vive raspbian Buster :) C'est pas grave, je laisse l'article :x
+&lt; Ou pas ! edit MAJ du billet après 10 jours d'utilisation d'Ubuntu server : vive raspbian Buster :)  
+D'autant plus qu'avec la nouvelle [Raspberry Pi Imager](https://www.raspberrypi.org/downloads/), tout est automatisé et optimisé désormais.  
+C'est pas grave, je laisse l'article :x
 <!--more-->
 ubuntu server + GUI c'est naze (grosse lenteur avec Lubuntu, on sent que ça n'est pas opti' du tout). Ubuntu server c'est pas mal oui, mais si besoin d'un desktop, je trouve Raspbian 100 fois mieux.
 

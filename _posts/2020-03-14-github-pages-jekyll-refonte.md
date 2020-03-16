@@ -11,7 +11,7 @@ On change de vie et on plaque tout pour aller vivre à la campagne avec ma femme
 C'est l'occasion pour moi de modifier deux, trois trucs sur le site (en vert forcément) et de vous proposer d'écrire des articles (VTOM) en tant que collaborateur de mon repo github (partie _posts).  
 Très facile, en [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), si ça dit quelqu'un, n'hésitez pas, on regarde ça ensemble ;)
 
-Je sais notamment que la v6.4 contient son lot de nouveautés et (le truc de fou) les API SOUTENUES ET DOCUMENTéES !!! enfin
+Je sais notamment que la v6.4 contient son lot de nouveautés et (le truc de fou) les API SOUTENUES ET DOCUMENTéES !!! enfin  
 Et ça serait bien d'y consacrer un article !
 
 Tout le code source du site est ici : [github-pages jekyll du blog https://github.com/thomas-asnar/thomas-asnar.github.io](https://github.com/thomas-asnar/thomas-asnar.github.io)

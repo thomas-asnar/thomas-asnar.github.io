@@ -5,6 +5,12 @@ date: 2018-05-01 20:00:00
 author: Thomas ASNAR
 categories: [API, webaccess, Visual TOM, VTOM]
 ---
+
+## DISCLAIMER
+* Les APIs ne sont pas soutenues pas Absyss pour le moment (ni documentées). Vous pouvez les utiliser mais on ne vous fournira aucune aide, assistance, ou débuggage d'après moi.
+* Il n'y a aucune garantie que ce qui fonctionne aujourd'hui fonctionnera de la même manière avec la prochaine version.
+* Il est donc actuellement déconseillé de les exploiter en environnement productif.
+
 Petite update du [1 er post API VTOM via le WebAccess ici](/api-vtom-web-access).
 
 ## Rappels importants sur le portail web et les API
@@ -12,7 +18,6 @@ Petite update du [1 er post API VTOM via le WebAccess ici](/api-vtom-web-access)
 * Côté serveur : Démarrez le service `vthttpd` et tapez `vtping` pour voir son état et son port. (le port est défini dans `/etc/services`). Le démarrage automatique peut être décommenté du script `$TOM_ADMIN/start_servers`
 * Côté client : Interface web type client léger afin d'explorer, piloter, et suivre l'exploitation d'un serveur VTOM. Rendez-vous sur l'url http://&lt;nomdevotreserveur ou sonIP&gt;:&lt;port&gt; et authentifiez-vous.
 * Ouvrez votre navigateur Chrome F12 et allez dans l’onglet Network pour voir les appels aux API. Baladez dans les menus du portail web et glannez les différentes adresses et requêtes XHR.
-* Les APIs ne sont pas soutenues pas Absyss pour le moment (ni documentées). Vous pouvez les utiliser mais on ne vous fournira aucune aide, assistance, ou débuggage d'après moi.
 * Requêter : 
   * Rajouter dans le header des requêtes le user:mdp en base64 (voir mon premier post pour les détails) : ex. pour une XMLHttpRequest `xhr.setRequestHeader('Authorization', 'Basic VE9NOlRPTQ==')`
   * En local depuis le même serveur VTOM, les appels directs XMLHttpRequest Chrome passent sans soucis. En revanche, je n'ai pas réussi à faire fonctionner depuis un autre domaine (à cause du Cross-origin resource sharing - [CORS](https://developer.mozilla.org/fr/docs/Web/HTTP/CORS))

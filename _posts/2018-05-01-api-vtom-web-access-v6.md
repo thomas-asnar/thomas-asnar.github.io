@@ -7,7 +7,7 @@ categories: [API, webaccess, Visual TOM, VTOM]
 ---
 
 ## Avertissement
-* Les APIs ne sont pas soutenues pas Absyss pour le moment (ni documentées). Vous pouvez les utiliser mais on ne vous fournira aucune aide, assistance, ou débuggage d'après moi. (maj 11/05 à priori, les API seront supportées dès la v6.4.5)
+* Les APIs ne sont pas soutenues pas Absyss pour le moment (ni documentées). Vous pouvez les utiliser mais on ne vous fournira aucune aide, assistance, ou débuggage d'après moi. (maj 11/05/20 à priori, les API seront supportées dès la v6.4.5)
 * Il n'y a aucune garantie que ce qui fonctionne aujourd'hui fonctionnera de la même manière avec la prochaine version.
 * Il est donc actuellement déconseillé de les exploiter en environnement productif.
 

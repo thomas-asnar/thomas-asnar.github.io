@@ -9,6 +9,7 @@ categories: [docker, docker-compose, chromebook, linux, wordpress]
 ## Activer linux béta sur ChromeOS
 Dans ma version de ChromeOS, il faut aller dans Paramètres et activer "Linux Béta"
 ![dev_chromebook_docker_wordpress_activelinux.png](/wp-content/uploads/dev_chromebook_docker_wordpress_activelinux.png)
+<!--more-->
 ## Installer Docker
 Lancer le "Terminal" et suivre les instructions sur [le site officiel](https://docs.docker.com/engine/install/debian/).  
 En quelques lignes sur ma version, ça s'apparente à une debian stretch (pour savoir quel type d'os `uname -a` et `lsb_release -cs` :  

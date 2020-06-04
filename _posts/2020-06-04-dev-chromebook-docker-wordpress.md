@@ -76,4 +76,5 @@ docker-compose up -d
 ```
 # comment accéder au wordpress du container docker depuis son chromebook
 Le linux béta est probablement déjà lui-même un container ou une VM. Il a son propre nom. Chez moi : `penguin.termina.linux.test`  
-Il ne reste plus qu'à se rendre sur la page d'init du wordpress : http://penguin.termina.linux.test:8000/wp-admin/
+Il ne reste plus qu'à se rendre sur la page d'init du wordpress : http://penguin.termina.linux.test:8000/wp-admin/  
+![dev_chromebook_docker_wordpress_address.png](/wp-content/uploads/dev_chromebook_docker_wordpress_address.png)

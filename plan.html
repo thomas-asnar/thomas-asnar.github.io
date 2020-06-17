@@ -1,36 +1,20 @@
 ---
-layout: null
+layout: default  
 title: Plan
 ---
-<!DOCTYPE html>
-<html lang="fr">
-
-  {% include head.html %}
-
-  <body>
-    
-    {% include header.html %}
-
-    <div class="content container">
-        <div id="page-content" class="bg-success">
-            <a href="/sitemap.xml" title="sitemap.xml">Sitemap.xml</a>
-        </div>
-    </div>
-
-    {% include footer.html %}
-<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-    <script>
-      jQuery.ajax("/sitemap.xml").done(data => {
-         jQuery("#page-content").append("<ul></ul>")                                       
-         $(data).find("loc").each((o,v) => 
-                                  jQuery("#page-content ul").append('<li><a href="'+ v.textContent + '" title="' + v.textContent + '">' + v.textContent + "</a></li>")
-                                 )
-      })
-    </script>
-    
-  </body>
-
-</html>
+<h3>Pages</h3>
+<ul class="post-list post-list-with-type">
+{% for page in site.pages %}
+  <li>
+	  <a class="post-link" href="{{ page.url | prepend: site.baseurl }}">{% if page.name == "index.html" and page.dir != "/" %}{{ page.dir}}{% else %}{{ page.name }}{% endif %}</a>
+  </li>
+{% endfor %}
+</ul>
+<h3>Posts</h3>
+<ul class="post-list post-list-with-type">
+{% for post in site.posts %}
+  <li>
+    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+  </li>
+{% endfor %}
+</ul>

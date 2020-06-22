@@ -66,6 +66,9 @@ titre-court: home
     <div class="card">
       <h4><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
       <p>{{ post.excerpt }}</p>
+      {% if post.excerpt != post.content %}
+          <a href="{{ site.baseurl }}{{ post.url }}">Article complet ici</a>
+      {% endif %}
     </div>
 
   </li>

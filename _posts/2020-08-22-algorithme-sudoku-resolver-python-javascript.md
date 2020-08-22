@@ -8,7 +8,7 @@ categories: [javascript, python]
 ---
 Plutôt que de me prendre la tête avec des grilles de sudoku, je me suis pris la tête avec un petit algorithme pour le résoudre.
 Je sais que les solutions sur le net pullulent mais je n'arrivais pas à trouver un truc simple qui me plaisait.
-Du coup, voici en 20 "vraies" lignes ~ une solution élégante.
+Du coup, voici en 20 "vraies" lignes ~ une solution élégante.  
 [sudoku solver py](http://thomas-asnar.github.io/wp-content/uploads/sudoku_solver.py)  
 [sudoku solver js](http://thomas-asnar.github.io/wp-content/uploads/sudoku_solver.js)  
 

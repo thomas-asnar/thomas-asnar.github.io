@@ -10,7 +10,8 @@ Plutôt que de me prendre la tête avec des grilles de sudoku, je me suis pris l
 Je sais que les solutions sur le net pullulent mais je n'arrivais pas à trouver un truc simple qui me plaisait.
 Du coup, voici en 20 "vraies" lignes ~ une solution élégante.
 [sudoku solver py](http://thomas-asnar.github.io/wp-content/uploads/sudoku_solver.py)  
-[sudoku solver js](http://thomas-asnar.github.io/wp-content/uploads/sudoku_solver.js)
+[sudoku solver js](http://thomas-asnar.github.io/wp-content/uploads/sudoku_solver.js)  
+
 <!--more-->
 Honnêtement, peu importe du python ou du js, c'est exactement la même chose. J'ai juste rajouté une fonction d'affichage plus sympa à l'écran. Le script js n'est pas annoté.
 ```js

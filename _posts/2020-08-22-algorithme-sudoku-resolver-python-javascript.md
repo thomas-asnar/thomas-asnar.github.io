@@ -86,6 +86,7 @@ function affiche(grid){
 function possible(grid, y, x, n){
   // On passe par trois étapes pour vérifier si la valeur "n" est possible : la ligne, la colonne, le carré
   // ex. possible(grid, 1, 4, 1) la réponse est oui pour ce premier test car la valeur 1 n'apparait pas sur la ligne 1, on passe au test suivant
+  // possible(grid, 1, 4, 3) n'aurait pas été possible par exemple, car 3 se trouve sur la ligne 1
   // 1 | 0 3 0 | 5 0 8 | 0 9 0
   for(let i = 0 ; i < 9 ; i++){
     if(grid[y][i] == n){

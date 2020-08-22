@@ -155,7 +155,8 @@ function solve(grid){
           }
         }
         return // on sort de la fonction à partir du moment où on a trouvé une cellule vide ou que c'est une voie sans issue.
-        // on n'oublie pas que la solution sera trouvée par la récursion des solve() deux lignes avant quand plus aucune cellule ne sera vide
+        // on n'oublie pas que la solution sera trouvée par la récursion des solve() deux lignes avant quand plus aucune cellule ne sera vide, à force de trouver des valeurs n possibles
+        // Il peut y avoir plusieurs solutions.
       }
     }
   }

@@ -154,7 +154,8 @@ function solve(grid){
             // c'est vraiment important de remettre à zéro les coordonnées (x, y) pour qu'on puisse tester d'autres valeurs n à la prochaine boucle n++
           }
         }
-        return
+        return // on sort de la fonction à partir du moment où on a trouvé une cellule vide ou que c'est une voie sans issue.
+        // on n'oublie pas que la solution sera trouvée par la récursion des solve() deux lignes avant quand plus aucune cellule ne sera vide
       }
     }
   }

@@ -13,7 +13,7 @@ Du coup, voici en 20 "vraies" lignes ~ une solution élégante.
 [sudoku solver js](http://thomas-asnar.github.io/wp-content/uploads/sudoku_solver.js)  
 
 <!--more-->
-Honnêtement, peu importe du python ou js, c'est exactement la même chose. J'ai juste rajouté une fonction d'affichage plus sympa à l'écran en js. Le script js n'est pas annoté.
+Honnêtement, peu importe du python ou js, c'est exactement la même chose. J'ai juste rajouté une fonction d'affichage plus sympa à l'écran en js.
 ```js
 /*
   On définit une grille de sudoku en tableau de tableau, sorte de matrice où chaque valeur de cellule est accessible par ses coordonnées grid[y][x]. 

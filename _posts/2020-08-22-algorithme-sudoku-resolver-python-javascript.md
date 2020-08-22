@@ -150,7 +150,6 @@ function solve(grid){
             grid[y][x] = n // si c'est possible, on définit cette valeur pour cette case
             solve(grid) // on appelle la fonction encore et encore en éliminant petit à petit les cellules vides
             grid[y][x] = 0 // Il ne faut pas s'y méprendre, on appelle cette ligne de commande à chaque fois, solve() du dessus va s'exécuter en arrière plan et trouvera peut-être une solution où aucune des cellules n'est vide, et donc ne passe plus par cette itération.
-            // it's very important to reset the coordinates to 0 (empty) so we can test another value n
             // c'est vraiment important de remettre à zéro les coordonnées (x, y) pour qu'on puisse tester d'autres valeurs n à la prochaine boucle n++
           }
         }

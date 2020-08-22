@@ -92,7 +92,7 @@ function possible(grid, y, x, n){
       return false
     }
   }
-  // ex. possible(grid, 1, 4, 1) la réponse est oui pour ce deuxième test car la valeur 1 n'apparait pas dans la colonne 3, on passe au test suivant
+  // ex. possible(grid, 1, 4, 1) la réponse est oui pour ce deuxième test car la valeur 1 n'apparait pas dans la colonne 4, on passe au test suivant
   /*
     4
     -

@@ -209,6 +209,7 @@ solve(grid)
   }
   #jstest-code > textarea{
     width:100%;
+    border-radius:10px;
   }
   #jstest-result {
     vertical-align:top;
@@ -234,7 +235,7 @@ solve(grid)
   }
 </script>
   
-<div class="container text-center"><button class="myButton" onclick="fnJstest()">Jouer le bout de script ci-dessous</button></div>
+<div class="container text-center" style="margin-bottom:5px;"><button class="myButton" onclick="fnJstest()">Jouer le bout de script ci-dessous</button></div>
 <div class="container" id="jstest">
   <div id="jstest-code">
     <textarea rows="83">

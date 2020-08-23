@@ -176,6 +176,9 @@ solve(grid)
 ```
 
 <style>
+  .text-center{
+    text-align:center;
+  }
   #jstest > div{
     width:48%;
     display: inline-block;

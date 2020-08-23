@@ -180,17 +180,31 @@ solve(grid)
     width:50%;
     display: inline-block;
   }
+  #jstest-code > textarea{
+    width:100%;
+  }
 </style>
 <script>
   function fnJstest(){
-    console.log(document.querySelector("#code textarea"))
+    let codeToExecute = document.querySelector("#jstest-code textarea").value
+    let nodeResult = document.querySelector("#jstest-result pre")
+    nodeResult.innerHTML = ""
+    function jsTestResultLog(message){
+      nodeResult.innerHTML += message
+    }
+    var oldLog = console.log;
+    console.log = function (message) {
+        jsTestResultLog(message)
+        oldLog.apply(console, arguments);
+    };
+    eval(codeToExecute)
   }
 </script>
   
 <div class="container text-center"><button onclick="fnJstest()">Jouer le bout de script ci-dessous</button></div>
 <div class="container" id="jstest">
-  <div class="code">
-    <textarea>
+  <div id="jstest-code">
+    <textarea rows="83">
 let grid = [
   [0,0,6,0,3,0,7,0,0],
   [0,3,0,5,0,8,0,9,0],
@@ -274,7 +288,8 @@ affiche(grid)
 console.log("")
 solve(grid)</textarea>
   </div>
-  <div class="result">
-    <textarea></textarea>
+  <div id="jstest-result">
+    <pre>
+    </pre>
   </div>
 </div>

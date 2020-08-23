@@ -176,6 +176,30 @@ solve(grid)
 ```
 
 <style>
+  .myButton {
+    box-shadow: 0px 10px 14px -7px #3e7327;
+    background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+    background-color:#77b55a;
+    border-radius:4px;
+    border:1px solid #4b8f29;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:13px;
+    font-weight:bold;
+    padding:6px 12px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #5b8a3c;
+  }
+  .myButton:hover {
+    background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
+    background-color:#72b352;
+  }
+  .myButton:active {
+    position:relative;
+    top:1px;
+  }
   .text-center{
     text-align:center;
   }
@@ -195,23 +219,22 @@ solve(grid)
   }
 </style>
 <script>
-  
+  var oldLog = console.log;
+  console.log = function (message) {
+      jsTestResultLog(message)
+      oldLog.apply(console, arguments);
+  };
+  function jsTestResultLog(message){
+    document.querySelector("#jstest-result pre").innerHTML += message + "\n"
+  }
   function fnJstest(){
     let codeToExecute = document.querySelector("#jstest-code textarea").value
     document.querySelector("#jstest-result pre").innerHTML = ""
-    var oldLog = console.log;
-    console.log = function (message) {
-        jsTestResultLog(message)
-        oldLog.apply(console, arguments);
-    };
-    function jsTestResultLog(message){
-      document.querySelector("#jstest-result pre").innerHTML += message + "\n"
-    }
     eval(codeToExecute)
   }
 </script>
   
-<div class="container text-center"><button onclick="fnJstest()">Jouer le bout de script ci-dessous</button></div>
+<div class="container text-center"><button class="myButton" onclick="fnJstest()">Jouer le bout de script ci-dessous</button></div>
 <div class="container" id="jstest">
   <div id="jstest-code">
     <textarea rows="83">

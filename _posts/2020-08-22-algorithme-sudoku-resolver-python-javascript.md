@@ -13,7 +13,7 @@ Du coup, voici en 20 "vraies" lignes ~ une solution élégante.
 [sudoku solver js](http://thomas-asnar.github.io/wp-content/uploads/sudoku_solver.js)  
 
 <!--more-->
-Vous pouvez tester le code [à la fin de cette page](#jstest)
+Vous pouvez tester le code [à la fin de cette page](#jstest-ancre)
 ```js
 /*
   On définit une grille de sudoku en tableau de tableau, sorte de matrice où chaque valeur de cellule est accessible par ses coordonnées grid[y][x]. 
@@ -234,7 +234,7 @@ solve(grid)
     eval(codeToExecute)
   }
 </script>
-  
+<div id="jstest-ancre"></div>
 <div class="container text-center" style="margin-bottom:5px;"><button class="myButton" onclick="fnJstest()">Jouer le bout de script ci-dessous</button></div>
 <div class="container" id="jstest">
   <div id="jstest-code">

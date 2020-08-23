@@ -195,18 +195,19 @@ solve(grid)
   }
 </style>
 <script>
+  
   function fnJstest(){
     let codeToExecute = document.querySelector("#jstest-code textarea").value
     let nodeResult = document.querySelector("#jstest-result pre")
     nodeResult.innerHTML = ""
-    function jsTestResultLog(message){
-      nodeResult.innerHTML += message + "\n"
-    }
     var oldLog = console.log;
     console.log = function (message) {
-        jsTestResultLog(message)
+        jsTestResultLog(nodeResult, message)
         oldLog.apply(console, arguments);
     };
+    function jsTestResultLog(node, message){
+      node.innerHTML += message + "\n"
+    }
     eval(codeToExecute)
   }
 </script>

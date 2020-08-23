@@ -177,11 +177,14 @@ solve(grid)
 
 <style>
   #jstest > div{
-    width:50%;
+    width:48%;
     display: inline-block;
   }
   #jstest-code > textarea{
     width:100%;
+  }
+  #jstest-result pre{
+    height:500px;
   }
 </style>
 <script>
@@ -190,7 +193,7 @@ solve(grid)
     let nodeResult = document.querySelector("#jstest-result pre")
     nodeResult.innerHTML = ""
     function jsTestResultLog(message){
-      nodeResult.innerHTML += message
+      nodeResult.innerHTML += message + "\n"
     }
     var oldLog = console.log;
     console.log = function (message) {

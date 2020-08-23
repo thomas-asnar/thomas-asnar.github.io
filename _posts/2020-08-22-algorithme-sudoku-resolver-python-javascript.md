@@ -198,15 +198,14 @@ solve(grid)
   
   function fnJstest(){
     let codeToExecute = document.querySelector("#jstest-code textarea").value
-    let nodeResult = document.querySelector("#jstest-result pre")
-    nodeResult.innerHTML = ""
+    document.querySelector("#jstest-result pre").innerHTML = ""
     var oldLog = console.log;
     console.log = function (message) {
-        jsTestResultLog(nodeResult, message)
+        jsTestResultLog(message)
         oldLog.apply(console, arguments);
     };
-    function jsTestResultLog(node, message){
-      node.innerHTML += message + "\n"
+    function jsTestResultLog(message){
+      document.querySelector("#jstest-result pre").innerHTML += message + "\n"
     }
     eval(codeToExecute)
   }

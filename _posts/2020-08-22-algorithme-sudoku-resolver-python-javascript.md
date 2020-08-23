@@ -180,14 +180,18 @@ solve(grid)
     text-align:center;
   }
   #jstest > div{
-    width:48%;
+    width:45%;
     display: inline-block;
   }
   #jstest-code > textarea{
     width:100%;
   }
+  #jstest-result {
+    vertical-align:top;
+    margin-left:5px;
+  }
   #jstest-result pre{
-    height:500px;
+    height:100%;
   }
 </style>
 <script>

@@ -77,7 +77,8 @@ def solve() :
           if possible(y, x, n) :
             grid[y][x] = n # well if n is a possible value, then we insert this value to those coordinates and verify if the rest of the grid goes with it
             solve() # we call the function again and again and check all empty cell, putting possible values when we can
-            grid[y][x] = 0 # don't think this is not call everytime, cause it is after every solve() line just before, solve() will continue to run in background and eventually find a solution when we have no cell empty
+            grid[y][x] = 0 # don't think this is not call everytime, cause it is after every solve() where an empty cell is found.
+            # solve() will eventually find a solution when we have no cell empty. Or not, and in this case, it's a dead end (see return below)
             # it's very important to reset the coordinates to 0 (empty) so we can test another value n
         return # we stop here, cause if we are here, it's because there is an empty cell, remember solution will be find by solve() recursion children 2 lines before
   solution += 1

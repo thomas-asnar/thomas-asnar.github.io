@@ -128,7 +128,7 @@ function possible(grid, y, x, n){
     Ca sera plus facile pour itérer sur toutes les cases à partir de ce point. 
   */
   x0 = Math.floor(x/3) * 3 // J'ai 3 coordonnées x possibles par carré : 0 (accepte x0, x1, x2), 3 (accepte x3, x4, x5), 6 (accepte x6, x7, x8). 
-  y0 = Math.floor(y/3) * 3 // Idem
+  y0 = Math.floor(y/3) * 3 // Idem mais pour y et on aura bien 9 carrés possibles aux coordonnées du coin en haut à gauche ( (x0,y0) ,(x0,y3) ,(x0,y6) ,(x3,y0) ,(x3,y3) ,(x3,y6) ,(x6,y0) ,(x6,y3) ,(x6,y6) )
   for(let i = 0 ; i < 3 ; i++){
     for(let j = 0 ; j < 3 ; j++){
       if(grid[y0 + i][x0 + j] == n){

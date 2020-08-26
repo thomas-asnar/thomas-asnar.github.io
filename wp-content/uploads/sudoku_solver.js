@@ -79,6 +79,6 @@ let grid = [
 
 
 console.log("Grille :")
-if(!affiche(grid)) return
+affiche(grid)
 console.log("")
 solve(grid)

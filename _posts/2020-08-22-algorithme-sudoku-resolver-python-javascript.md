@@ -6,12 +6,12 @@ author: Thomas ASNAR
 comments: true
 categories: [javascript, python]
 ---
-Plutôt que de me prendre la tête avec des grilles de sudoku, je me suis pris la tête avec un petit algorithme pour le résoudre.
-Je sais que les solutions sur le net pullulent mais je n'arrivais pas à trouver un truc simple qui me plaisait.
-Du coup, voici en 20 "vraies" lignes ~ une solution élégante.  
+Voici une solution élégante (algorithme de quelques lignes) pour résoudre une grille de Sudoku en Python ou en Javascript.
+## Download code
 [sudoku solver py](http://thomas-asnar.github.io/wp-content/uploads/sudoku_solver.py)  
 [sudoku solver js](http://thomas-asnar.github.io/wp-content/uploads/sudoku_solver.js)  
 
+## Le code en détail et console pour tester
 <!--more-->
 Vous pouvez tester le code [à la fin de cette page](#jstest-ancre)
 ```js

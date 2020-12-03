@@ -19,12 +19,12 @@ layout: default
     
     {% if page.previous.url %} 
     <li class="previous">
-      <a href="{{page.previous.url}}"><span aria-hidden="true">&larr;</span> {{page.previous.title}}</a> 
+      <a href="{{ site.baseurl | prepend: site.url }}{{page.previous.url}}"><span aria-hidden="true">&larr;</span> {{page.previous.title}}</a> 
     </li>
     {% endif %}
     {% if page.next.url %} 
      <li class="next">
-      <a class="next" href="{{page.next.url}}">{{page.next.title}} <span aria-hidden="true">&rarr;</span></a> 
+      <a class="next" href="{{ site.baseurl | prepend: site.url }}{{page.next.url}}">{{page.next.title}} <span aria-hidden="true">&rarr;</span></a> 
     </li>
     {% endif %} 
     
@@ -35,7 +35,7 @@ layout: default
   <footer class="post-footer">
     {% if page.categories %}
       {% for category in page.categories %}
-        <a itemprop="articleSection" class="btn btn-default btn-xs btn-categories" href="/"><span class="glyphicon glyphicon-asterisk"></span>{{ category }}</a>
+        <a itemprop="articleSection" class="btn btn-default btn-xs btn-categories" href="{{ site.baseurl | prepend: site.url }}"><span class="glyphicon glyphicon-asterisk"></span>{{ category }}</a>
       {% endfor %}
     {% endif %}
     <span  itemprop="author publisher" class="hidden">{{ page.author }}</span>

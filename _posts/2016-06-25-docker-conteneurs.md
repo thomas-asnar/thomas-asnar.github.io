@@ -9,9 +9,9 @@ categories: [docker, conteneurs]
 
 La virtualisation des infrastructures est omniprésente. Les besoins et les méthodes de travail évoluant, les conteneurs ont pris de plus en plus d'importance.
 
-Notamment très populaire chez les développeurs et leur méthode AGILE, Docker permet facilement de partager les applications entre les équipes, de les tester simplement dans n'importe quel environnement et de les publier versionnées sur le cloud (controle, agilité et portabilité).
+Docker permet aux développeurs de ne plus se soucier de la partie système. Beaucoup plus simple d'utilisation (quelques commandes à connaître à peine) qu'un Ansible, Chef ou Puppet, les dev n'auront qu'à maintenir leurs infrastructures "as code" (IaC) et à déployer leur images : le Dockerfile pour la construction de l'image, le docker-compose.yml pour le déploiement des images en conteneurs.
 
-Par exemple, Google exécute environ 3300 conteneurs à la seconde ! 
+Par exemple, Google exécute environ 3300 conteneurs à la seconde ! (vrai en 2016) 
 
 > Everything at Google, from Search to Gmail, is packaged and run in a Linux container. Each week we launch more than 2 billion container instances 
 
@@ -33,8 +33,8 @@ Avant les conteneurs :
 
 Avec les Conteneurs :
 
- * Dev : Hey, tiens, voilà mon nouveau conteneur
- * Ops : Ok, super, je n'ai qu'à le démarrer
+ * Dev : Hey, tiens, voilà mon code qui permet de déployer l'infrastructure et mon application.
+ * Ops : Ok, super, je n'ai qu'à appuyer sur un bouton. 
 
 Le plus facile pour appréhender Docker est de comprendre la différence entre une machine virtuelle et un conteneur.
 

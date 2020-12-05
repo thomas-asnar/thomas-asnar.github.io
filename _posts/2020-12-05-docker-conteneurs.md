@@ -38,7 +38,7 @@ Avec une infrastructure as code :
  * Dev : Hey, tiens, voilà mon code qui permet de déployer l'infrastructure et mon application.
  * Ops : Ok, super, je n'ai qu'à appuyer sur un bouton. Oh ça fonctionne !
 
-L'Ops n'aura plus qu'à gérer la partie "réseau", routage, et autres TLS avec le reverse proxy [Traefik](https://doc.traefik.io/traefik/), la partie sauvegarde et réplication et basta.
+L'Ops n'aura plus qu'à gérer la partie "réseau", routage, et autres TLS avec le reverse proxy [Traefik](https://doc.traefik.io/traefik/), la partie sauvegarde et réplication et basta. (partie qu'il aurait, de toutes manières, eu à gérer par ailleurs)
 
 Le plus facile pour appréhender Docker est de comprendre la différence entre une machine virtuelle et un conteneur.
 

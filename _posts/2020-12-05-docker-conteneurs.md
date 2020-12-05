@@ -1,40 +1,44 @@
 ---
 layout: post
 title: Docker introduction aux conteneurs 
-date: 2016-06-25 22:03
+date: 2020-12-05 09:03
 author: Thomas ASNAR
 categories: [docker, conteneurs]
 ---
+Quatre ans après ce billet, quelques petites modifications étaient nécessaires à mon sens. Autant, certaines techno' tombent dans les oubliettes rapidement (4 ans c'est long en informatique) autant Docker n'a fait que prendre du poids.  
+Personnellement, je n'utilise plus que ça pour maintenir et déployer mes applications. Et en plus, ça fonctionne très bien sur mon RPI4.
+<!--more-->
+
 # Comprendre et Exploiter Docker
 
 La virtualisation des infrastructures est omniprésente. Les besoins et les méthodes de travail évoluant, les conteneurs ont pris de plus en plus d'importance.
 
-Docker permet aux développeurs de ne plus se soucier de la partie système. Beaucoup plus simple d'utilisation (quelques commandes à connaître à peine) qu'un Ansible, Chef ou Puppet, les dev n'auront qu'à maintenir leurs infrastructures "as code" (IaC) et à déployer leur images : le Dockerfile pour la construction de l'image, le docker-compose.yml pour le déploiement des images en conteneurs.
+Docker permet aux développeurs de ne plus se soucier de la partie système. Beaucoup plus simple d'utilisation (quelques commandes à connaître à peine) qu'un Ansible, Chef ou Puppet, les dev n'auront qu'à maintenir leurs infrastructures "as code" (IaC) et à déployer leur images : le Dockerfile pour la construction de l'image, le docker-compose.yml pour le déploiement de l'application en conteneurs.
 
 Par exemple, Google exécute environ 3300 conteneurs à la seconde ! (vrai en 2016) 
 
 > Everything at Google, from Search to Gmail, is packaged and run in a Linux container. Each week we launch more than 2 billion container instances 
 
-Après une légère introduction, je vous montrerai un exemple d'utilisation avec Docker Compose.
-
 ## Introduction à Docker
-
-Docker propose plusieurs produits pour construire, déployer et exécuter des conteneurs. La plupart du temps, on associera le terme de conteneur à une application ou à un espace de travail avec toutes les librairies, dépendances et outils nécessaires.
 
 Notez que la notion de conteneur n'est pas toute jeune (voir les zones Solaris par exemple, ou namespace + cgroups linux pour isoler) mais, pour moi, la grande force de Docker est sa facilité d'utilisation et une documentation en ligne vraiment riche en exemples et explications.
 
 J'aime bien cette conversation qui illustre bien le changement des relations entre Dev (Build) et Ops (Run) :
 
-Avant les conteneurs : 
+Avant : 
 
- * Dev : Hey, tiens, voilà mon application (mon script, mon service ou autre)
- * Ops : Ca ne fonctionne pas
+ * Dev : Hey, tiens, voilà mon application (mon script, mon service ou autre).
+ * Ops : Rolala, il faut que je provisionne une VM, que j'installe toutes les dépendances, que je maintienne encore un nouveau host, que les DBA doivent encore monter une instance, etc. 
+ * Ops 3 jours plus tard : Ca ne fonctionne pas ton application
  * Dev : Hey, ça n'est pas mon problème, ça fonctionne chez moi. Ca doit être ton environnement qui est en cause
+ * Ops : Allez que je cherche pendant 3 jours et que la version de telle ou telle librairie n'était pas la bonne. PepeHands
 
-Avec les Conteneurs :
+Avec une infrastructure as code :
 
  * Dev : Hey, tiens, voilà mon code qui permet de déployer l'infrastructure et mon application.
- * Ops : Ok, super, je n'ai qu'à appuyer sur un bouton. 
+ * Ops : Ok, super, je n'ai qu'à appuyer sur un bouton. Oh ça fonctionne !
+
+L'Ops n'aura plus qu'à gérer la partie "réseau", routage, et autres TLS avec le reverse proxy [Traefik](https://doc.traefik.io/traefik/), la partie sauvegarde et réplication et basta.
 
 Le plus facile pour appréhender Docker est de comprendre la différence entre une machine virtuelle et un conteneur.
 
@@ -54,7 +58,7 @@ Les conteneurs Docker, eux, se basent sur le système d'exploitation du host (no
 
 Un autre avantage des conteneurs : ils garantissent que le code qui a été écrit et testé directement chez les Dev' sera exécuté de la même manière une fois déployé ailleurs. Que ça soit sur le cloud, sur des VM's ou sur une infrastructure complètement différente, l'application dispose déjà dans son conteneur des librairies dont elle a besoin.
 
-Une autre différence de taille (si je puis dire) : le poids du conteneur. Contrairement aux VMs qui embarquent le SE et qui pèsent plusieurs dizaines de Giga Octets, les conteneurs sont très légers et leur poids dépend des librairies qui font tourner l'application (en général quelques centaines de Méga Octets)
+Une autre différence de taille (si je puis dire) : le poids des images. Contrairement aux VMs qui embarquent le SE et qui pèsent plusieurs dizaines de Giga Octets, les images sont très légères et leur poids dépend des librairies qui font tourner l'application (en général quelques centaines de Méga Octets)
 
 Les PCA et PRA (Plan de Continuité d'Activité ou Plan de Reprise d'Activité) deviendraient presque un jeu d'enfant (réplication et déploiement facilités)
 
@@ -105,9 +109,11 @@ C'est l'image exécutée avec `docker run`. Pour que le conteneur puisse "vivre"
 
 A noter : le conteneur se basant sur l'image, toutes les modifications qu'on effectuera dans le conteneur seront "perdues" à la prochaine exécution (à moins de [commit](https://docs.docker.com/engine/reference/commandline/commit/) le conteneur en image)
 
+D'où la nécessité d'utiliser les volumes.
+
 #### Les volumes
 
-Indispensable pour la persistance de la donnée, on peut monter des volumes accessibles dans les conteneurs.
+Indispensable pour la persistance des données, on peut monter des volumes accessibles dans les conteneurs. Faciles à sauvegarder et à restaurer.
 
 [Plus de détails sur la data](https://docs.docker.com/engine/userguide/containers/dockervolumes/)
 
@@ -139,7 +145,7 @@ Soit les images définies existent en local, soit il va les chercher sur Docker 
 
 Il créé les dépendances, les ouvertures de ports, les variables d'environnement, etc. 
 
-Petit bonus, lorsque Docker Compose redémarre les services, s'il trouve des conteneurs déjà existants, et s'il n'y a pas d'update à faire, il reprend les anciens.
+Petit bonus, lorsque Docker Compose redémarre les services, s'il trouve des conteneurs déjà existants, et s'il n'y a pas d'update à faire, il reprend les anciens. Pour voir tous les conteneurs même ceux arrêtés : `docker ps -a`
 
 ```
 $ docker-compose -f wordpress-compose.yml up
@@ -161,7 +167,11 @@ db_1        | Initializing database
 
 ![wordpress accueil](http://thomas-asnar.github.io/assets/img/wordpress_intro.jpg "wordpress accueil")
 
-### En aparté : Sauvegarde, déploiement
+### En aparté : IaC, Sauvegarde, déploiement
+Les deux fichiers principaux à maintenir (versionner, gardienner avec git par ex.) sont le [Dockerfile le builder infrastructure](https://docs.docker.com/engine/reference/builder/) et le [docker-compose.yml pour la partie déploiement de l'application](https://docs.docker.com/compose/compose-file/).  
+Le déploiement se résumera à exécuter `docker-compose up`.
+
+Sinon, on peut aussi sauvegarder les images :
 
 ```
 $ docker save -o monImageNginx.tar nginx

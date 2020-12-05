@@ -91,13 +91,13 @@ nginx               latest              3edcc5de5a79        3 days ago          
 
 D'autres produits existent mais font l'objet d'une utilisation plus poussée (voir [Pour aller plus loin](#pour-aller-plus-loin))
 
-### [Principe de fonctionnement](https://docs.docker.com/engine/understanding-docker/) : [tryit](http://docker.com/tryit)
+### [Principe de fonctionnement](https://docs.docker.com/engine/understanding-docker/)
 
 #### Les images
 
-Elles sont construites comme une succession de couches avec pour base, une distribution linux (type debian, ou fedora par exemple).
+Elles sont construites comme une succession de couches avec pour base un système d'exploitation, une distribution type debian, ubuntu, ou alpine par exemple.
 
-Toutes les couches (exécution, ajout de fichier, variables d'environnement) peuvent être décrites comme des instructions dans un fichier `Dockerfile` qu'on peut utiliser comme template pour construire notre image.
+Toutes les couches (exécution, dépendances librairies, ajout de fichier, variables d'environnement) peuvent être décrites comme des instructions dans un fichier `Dockerfile` qu'on peut utiliser comme template pour construire notre image.
 
 Autre possibilité pour construire votre image : exécutez une image de distribution de base (un conteneur donc), installez vos librairies et votre application puis perpétrez votre conteneur en image [commit](https://docs.docker.com/engine/reference/commandline/commit/)
 

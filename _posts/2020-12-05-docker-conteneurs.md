@@ -42,7 +42,7 @@ L'Ops n'aura plus qu'à gérer la partie "réseau", routage, et autres TLS avec 
 
 Le plus facile pour appréhender Docker est de comprendre la différence entre une machine virtuelle et un conteneur.
 
-### Différences entre les VM's et les Conteneurs
+### [Différences entre les VM's et les Conteneurs](https://blog.netapp.com/blogs/containers-vs-vms/)
 
 VMs
 

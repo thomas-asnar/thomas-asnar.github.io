@@ -6,6 +6,11 @@ author: Thomas ASNAR
 comments: true
 categories: [rpi, raspberry pi, rpi 4, docker, devOps, nodejs, parcel]
 ---
+# Edit 2021
+Je laisse l'article mais pas mal de trucs sont outdated.  
+J'ai vraiment l'impression que beaucoup de logiciels sont portés sur l'architecture arm depuis que NVIDIA et Apple en ont parlé.  
+Du coup, c'est maintenant ultra simple d'installer Visual Studio Code et Docker sur son RPI4 avec l'OS de base fourni par [Raspberrypi.org](https://www.raspberrypi.org/software/operating-systems/).    
+
 # RPI4 is Here !
 Petit retour d'expérience sur mon nouveau pc, le raspberry pi 4. 
 ## Pourquoi une framboise à la maison ?!
@@ -20,15 +25,7 @@ Entendez-moi bien, la Raspbian est super stable, elle fait le taff à merveille 
 
 Bref, tout ça pour dire, vive Ubuntu Server !
 
-&lt; Ou pas ! edit MAJ du billet après 10 jours d'utilisation d'Ubuntu server : vive raspbian Buster :)  
-D'autant plus qu'avec la nouvelle [Raspberry Pi Imager](https://www.raspberrypi.org/downloads/), tout est automatisé et optimisé désormais.  
-C'est pas grave, je laisse l'article :x
 <!--more-->
-ubuntu server + GUI c'est naze (grosse lenteur avec Lubuntu, on sent que ça n'est pas opti' du tout). Ubuntu server c'est pas mal oui, mais si besoin d'un desktop, je trouve Raspbian 100 fois mieux.
-
-Je suis repassé sur Raspbian et suis agréablement surpris en 2 mois de voir les améliorations sur la buster. J'ai dû tomber au moment où on est passé de la stretch à buster et beaucoup de paquet ne suivaient pas le rythme. 
-
-[https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/)
 
 Pour passer en arm64, `rpi-update` et rajouter `arm_64bit=1` dans /boot/config.txt :
 

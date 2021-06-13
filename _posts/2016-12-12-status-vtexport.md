@@ -5,6 +5,8 @@ date: 2016-12-12 20:45
 author: Thomas ASNAR
 categories: [vtom, status, vtexport]
 ---
+Code couleur des statuts dans VTOM.  
+
         R = ENCOURS
         X = ENDIFFICULTE
         W = AVENIR

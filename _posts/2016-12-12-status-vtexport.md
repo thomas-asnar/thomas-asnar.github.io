@@ -7,13 +7,13 @@ categories: [vtom, status, vtexport]
 ---
 Code couleur des statuts dans VTOM.  
 
-        R = ENCOURS
-        X = ENDIFFICULTE
-        W = AVENIR
-        F = TERMINE
-        E = ENERREUR
-        D = DEPLANIFIE
-        U = NONPLANIFIE
+        R = ENCOURS       #05FAFA
+        X = ENDIFFICULTE  #FFC800
+        W = AVENIR        #FAFF14
+        F = TERMINE       #14FF14
+        E = ENERREUR      #FA0000
+        D = DEPLANIFIE    #C3C3C3
+        U = NONPLANIFIE   #FAFAFA
 
 ```json
 {
